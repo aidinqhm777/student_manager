@@ -1,12 +1,57 @@
+/*
+ * created by @Amir
+ */
+
 package com.StudentManagerSystem;
 
 import java.io.*;
+
 
 public class FileIO {
 
     public static byte[] readIndexFromFile(String filePath, int index, int size)
             throws IOException {
-        return readFromFile(filePath, (index - 1) * size, size);
+        return  readFromFile(filePath, (index - 1) * size, size);
+    }
+
+    public static void writeIndexToFile(String filePath, byte[] data, int index, int size)
+            throws IOException {
+        //check size of input data
+        if (data.length > size) throw new ArrayIndexOutOfBoundsException();
+
+//        byte[] temp = new byte[data.length + 1];
+//        System.arraycopy(data, 0, temp, 1, data.length);
+//        temp[0] =1;
+
+        //add state to file
+        writeToFile(filePath, data , (index - 1) * size);
+    }
+
+    public static Object readObjectOfIndex(String filepath, int index, int size)
+            throws IOException, ClassNotFoundException {
+
+        return FileIO.bytesToObject(readIndexFromFile(filepath,index,size));
+    }
+
+    public static void writeObjectOfindex(String filepath, Object o, int index, int size)
+            throws IOException {
+
+        byte[] b = FileIO.objectToByte(o);
+        FileIO.writeIndexToFile(filepath, b, index, size);
+    }
+
+    public static void cleanIndex(String filepath, int index, int size)
+            throws IOException {
+
+        byte[] b = new byte[size];
+        writeIndexToFile(filepath, b, index, size);
+    }
+
+    public static boolean isEmpty(String filepath, int index, int size)
+            throws IOException {
+
+        byte[] b = readIndexFromFile(filepath, index, size);
+        return b[0] == 0 && b[size-1] == 0 && b[size / 2] == 0;
     }
 
     private static byte[] readFromFile(String filePath, int position, int size)
@@ -19,27 +64,15 @@ public class FileIO {
         return bytes;
     }
 
-    public static void writeIndexToFile(String filePath, String data, int index, int size)
-            throws IOException {
-        //check size of input data
-        if (data.length() > size) throw new ArrayIndexOutOfBoundsException();
-        //fill data with empty bytes
-        byte[] bytes = new byte[size - data.length()];
-        String temp = new String(bytes);
-        data = data + temp;
-        writeToFile(filePath, data, (index - 1) * size);
-    }
-
-    private static void writeToFile(String filePath, String data, int position)
+    private static void writeToFile(String filePath,byte[] data, int position)
             throws IOException {
         java.io.RandomAccessFile file = new java.io.RandomAccessFile(filePath, "rw");
         file.seek(position);
-        file.write(data.getBytes());
+        file.write(data);
         file.close();
     }
 
-
-    public static byte[] objectToByte(Object serObj)
+    private static byte[] objectToByte(Object serObj)
             throws IOException {
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -53,7 +86,7 @@ public class FileIO {
         return output;
     }
 
-    public static Object bytesToObject(byte[] bytesIn)
+    private static Object bytesToObject(byte[] bytesIn)
             throws IOException, ClassNotFoundException {
 
         ByteArrayInputStream bis = new ByteArrayInputStream(bytesIn);
@@ -63,5 +96,4 @@ public class FileIO {
         in.close();
         return o;
     }
-
 }
