@@ -1,4 +1,4 @@
-package com.StudentManegerSystem.Btree;
+package com.StudentManagerSystem.Btree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
