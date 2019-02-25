@@ -29,14 +29,23 @@ public class FileIO {
 
     public static Object readObjectOfIndex(String filepath, int index, int size)
             throws IOException, ClassNotFoundException {
-
-        return FileIO.bytesToObject(readIndexFromFile(filepath,index,size));
+        if(isEmpty(filepath,index,size)) return null;
+        else
+            return FileIO.bytesToObject(readIndexFromFile(filepath,index,size));
     }
 
-    public static void writeObjectOfindex(String filepath, Object o, int index, int size)
+    public static void writeObjectWithIndex(String filepath, Object o, int index, int size)
             throws IOException {
 
         byte[] b = FileIO.objectToByte(o);
+        FileIO.writeIndexToFile(filepath, b, index, size);
+    }
+
+    public static void writeObjectWithIndex(String filepath, Object o, int index)
+            throws IOException {
+        byte[] b = FileIO.objectToByte(o);
+        //automatic size
+        int size = b.length;
         FileIO.writeIndexToFile(filepath, b, index, size);
     }
 
