@@ -1,27 +1,46 @@
 package com.StudentManagerSystem;
-
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
-    static String filePath = "./src/com/StudentManagerSystem/data/File";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        String filePath = "./src/com/StudentManagerSystem/data/File";
+        int sizeOfTest = 61;
+
+
+        Test t =new  Test();
+        Test t2 =new  Test();
+        t.data = 22;
+        t2.data = 1456221112;
+
         try {
-//            FileIO.writeIndexToFile(filePath,"hi1name",1,20);
-//            FileIO.writeIndexToFile(filePath,"hi 2 name",2,20);
-//            FileIO.writeIndexToFile(filePath,"hi 3",3,20);
-            FileIO.writeIndexToFile(filePath,"myananansdds",1,20);
-            FileIO.writeIndexToFile(filePath,"11",1,20);
+            FileIO.writeObjectOfindex(filePath, t, 1, sizeOfTest);
+            FileIO.writeObjectOfindex(filePath, t2, 2, sizeOfTest);
 
-            System.out.println( new String (FileIO.readIndexFromFile(filePath,1,20)));
-        } catch (IOException e) {
+            Test t4 = (Test) FileIO.readObjectOfIndex(filePath,1, sizeOfTest);
+            Test t5 = (Test) FileIO.readObjectOfIndex(filePath,2, sizeOfTest);
+
+            System.out.println(t5.data);
+            System.out.println(t4.data);
+
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-//        BPlusTree<Integer,String> btree = new BPlusTree<>();
-//        btree.insert(1,"some");
-//        System.out.println(btree.search(1));
-//        btree.delete(2);
-//        System.out.println(btree.search(1));
+
+
+
+
+
+//        try {
+//            System.out.println( FileIO.isEmpty(filePath, 1 , 10));
+//            FileIO.cleanIndex(filePath,1,sizeOfTest);
+//            System.out.println( FileIO.isEmpty(filePath, 1 , 10));
+//            Test t5 = (Test) FileIO.readObjectOfIndex(filePath,1,sizeOfTest);
+//            System.out.println(t5.data);
+//        } catch (IOException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+
     }
 }
