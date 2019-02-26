@@ -8,26 +8,48 @@ import java.io.*;
 
 
 public class FileIO {
+    private int sizeOfObject;
+    private String filePath;
 
-    public static byte[] readIndexFromFile(String filePath, int index, int size)
-            throws IOException {
-        return  readFromFile(filePath, (index - 1) * size, size);
+    //non static methods
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 
-    public static void writeIndexToFile(String filePath, byte[] data, int index, int size)
-            throws IOException {
-        //check size of input data
-        if (data.length > size) throw new ArrayIndexOutOfBoundsException();
-
-//        byte[] temp = new byte[data.length + 1];
-//        System.arraycopy(data, 0, temp, 1, data.length);
-//        temp[0] =1;
-
-        //add state to file
-        writeToFile(filePath, data , (index - 1) * size);
+    public void setSizeOfObject(int sizeOfObject) {
+        this.sizeOfObject = sizeOfObject;
     }
 
-    public static Object readObjectOfIndex(String filepath, int index, int size)
+    public Object readObjectWithIndex(int index)
+            throws IOException, ClassNotFoundException {
+        if(isEmpty(filePath,index,sizeOfObject)) return null;
+        else
+            return FileIO.bytesToObject(readIndexFromFile(filePath,index,sizeOfObject));
+    }
+
+    public void writeObjectWithIndex(Object o, int index)
+            throws IOException {
+        byte[] b = FileIO.objectToByte(o);
+        FileIO.writeIndexToFile(filePath, b, index, sizeOfObject);
+    }
+
+    //static methods
+
+    //to write btree class to file
+    public static void writeAnObjectToFile(String filePath, Object o) throws IOException {
+        FileOutputStream fout = new FileOutputStream(filePath);
+        ObjectOutputStream oos = new ObjectOutputStream(fout);
+        oos.writeObject(o);
+    }
+    //to read btree class from file
+    public static Object readAnObjectFromFile(String filePath) throws IOException, ClassNotFoundException {
+        InputStream file = new FileInputStream(filePath);
+        InputStream buffer = new BufferedInputStream(file);
+        ObjectInput input = new ObjectInputStream (buffer);
+        return input.readObject();
+    }
+
+    public static Object readObjectWithIndex(String filepath, int index, int size)
             throws IOException, ClassNotFoundException {
         if(isEmpty(filepath,index,size)) return null;
         else
@@ -61,6 +83,19 @@ public class FileIO {
 
         byte[] b = readIndexFromFile(filepath, index, size);
         return b[0] == 0 && b[size-1] == 0 && b[size / 2] == 0;
+    }
+
+    private static void writeIndexToFile(String filePath, byte[] data, int index, int size)
+            throws IOException {
+        //check size of input data
+        if (data.length > size) throw new ArrayIndexOutOfBoundsException();
+        //add state to file
+        writeToFile(filePath, data , (index - 1) * size);
+    }
+
+    private static byte[] readIndexFromFile(String filePath, int index, int size)
+            throws IOException {
+        return  readFromFile(filePath, (index - 1) * size, size);
     }
 
     private static byte[] readFromFile(String filePath, int position, int size)

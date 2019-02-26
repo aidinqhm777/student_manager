@@ -4,37 +4,23 @@
 
 package com.StudentManagerSystem;
 
-import java.io.*;
+import com.StudentManagerSystem.Btree.BPlusTree;
+
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         String filePath = "./src/com/StudentManagerSystem/data/File";
+        BPlusTree < String , Integer > btree = new BPlusTree<>();
 
-        try {
-            long a = 100;
-            long b = 1000000000;
-            FileIO.writeObjectWithIndex(filePath,a , 1);
-            FileIO.writeObjectWithIndex(filePath,b, 2);
+        btree.insert("Amir".toLowerCase(), 1234);
+        btree.insert("A4ir".toLowerCase(), 1234);
+        btree.insert("Am54ir".toLowerCase(), 1234);
+        btree.insert("Am4545ir".toLowerCase(), 1234);
+        btree.insert("Am242ir".toLowerCase(), 1234);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
-
-//        try {
-//            System.out.println( FileIO.isEmpty(filePath, 1 , 10));
-//            FileIO.cleanIndex(filePath,1,sizeOfTest);
-//            System.out.println( FileIO.isEmpty(filePath, 1 , 10));
-//            Test t5 = (Test) FileIO.readObjectOfIndex(filePath,1,sizeOfTest);
-//            System.out.println(t5.data);
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
+        FileIO.writeAnObjectToFile("./src/com/StudentManagerSystem/data/bTree", btree);
+        BPlusTree btree2 = (BPlusTree)FileIO.readAnObjectFromFile("./src/com/StudentManagerSystem/data/bTree");
     }
 }
