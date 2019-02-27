@@ -1,7 +1,3 @@
-/*
- * created by @Amir
- */
-
 package com.StudentManagerSystem;
 
 import java.io.*;
