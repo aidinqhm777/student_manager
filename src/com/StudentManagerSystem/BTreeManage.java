@@ -23,7 +23,7 @@ public class BTreeManage {
     }
 
 
-
+    public static void addStudent(String uniID, String name, String lastname) {}
 
 
 

@@ -1,14 +1,9 @@
 package com.StudentManagerSystem.Btree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.io.Serializable;
+import java.util.*;
 
-public class BPlusTree<K extends Comparable<? super K>, V> {
+public class BPlusTree<K extends Comparable<? super K>, V> implements Serializable {
 
     public static enum RangePolicy {
         EXCLUSIVE, INCLUSIVE
@@ -137,7 +132,7 @@ public class BPlusTree<K extends Comparable<? super K>, V> {
         return sb.toString();
     }
 
-    private abstract class Node {
+    private abstract class Node implements Serializable {
         List<K> keys;
 
         int keyNumber() {
@@ -168,7 +163,7 @@ public class BPlusTree<K extends Comparable<? super K>, V> {
         }
     }
 
-    private class InternalNode extends Node {
+    private class InternalNode extends Node implements Serializable {
         List<Node> children;
 
         InternalNode() {
@@ -308,7 +303,7 @@ public class BPlusTree<K extends Comparable<? super K>, V> {
         }
     }
 
-    private class LeafNode extends Node {
+    private class LeafNode extends Node implements Serializable {
         List<V> values;
         LeafNode next;
 

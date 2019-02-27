@@ -10,10 +10,14 @@ public class IndexManage {
 
 
 
-    public static void remove(int index){
+    public static String addStudent() {return "";}
 
-        Btree.remove(index);
-        recentlyDeleted.push(index);
-    }
+
+
+//    public static void remove(int index){
+
+//        Btree.remove(index);
+//        recentlyDeleted.push(index);
+//    }
 
 }

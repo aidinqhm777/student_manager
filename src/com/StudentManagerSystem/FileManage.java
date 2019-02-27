@@ -4,13 +4,40 @@ import com.StudentManagerSystem.Btree.BPlusTree;
 
 public class FileManage {
 
-    private String StudentUniID = "";
-    private String StudentName = "";
-    private String StudentLastname = "";
-    private String StudentBirthdate = "";
-    private String StudentPhoneNum = "";
-    private String StudentID = "";
-    private static String btreeStudentUniID = "file address";
+    private static String StudentUniID_address = "";
+    private static String StudentName_address = "";
+    private static String StudentLastname_address = "";
+    private static String StudentBirthdate_address = "";
+    private static String StudentPhoneNum_address = "";
+    private static String StudentID_address = "";
+    private static String btreeStudentUniID_address = "file address";
+//--------------------------------------------------------------
+//--------------------------------------------------------------
+//--------------------------------------------------------------
+
+
+    //get index and read all the records. optional reading should be added TODO
+    public static String[] readRecords(String index) {return new String[6];}
+
+    private static String readStudentName(String index) {return "";}
+    private static String readStudentLastname(String index) {return "";}
+    private static String readStudentUniID(String index) {return "";}
+    private static String readStudentID(String index) {return "";}
+    private static String readStudentPhoneNum(String index) {return "";}
+    private static String readStudentBirthdate(String index) {return "";}
+
+
+    //get index and write all the records. optional writing should be added TODO
+    public static void writeRecords(String[] records) {}
+
+    private static void writeStudentName(String record) {}
+    //add the others TODO
+
+
+
+
+
+
 
     private static void create_StudentUniID() {}
     private static void create_StudentName() {}
@@ -34,6 +61,9 @@ public class FileManage {
 
 
 
+
+
     public static BPlusTree loadBtree_StudentUniID() {return new BPlusTree();}
+    public static void addStudent(String index) {}
 
 }

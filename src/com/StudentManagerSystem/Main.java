@@ -1,46 +1,26 @@
+/*
+ * created by @Amir
+*/
+
 package com.StudentManagerSystem;
-import java.io.*;
+
+import com.StudentManagerSystem.Btree.BPlusTree;
+
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         String filePath = "./src/com/StudentManagerSystem/data/File";
-        int sizeOfTest = 61;
+        BPlusTree < String , Integer > btree = new BPlusTree<>();
 
+        btree.insert("Amir".toLowerCase(), 1234);
+        btree.insert("A4ir".toLowerCase(), 1234);
+        btree.insert("Am54ir".toLowerCase(), 1234);
+        btree.insert("Am4545ir".toLowerCase(), 1234);
+        btree.insert("Am242ir".toLowerCase(), 1234);
 
-        Test t =new  Test();
-        Test t2 =new  Test();
-        t.data = 22;
-        t2.data = 1456221112;
-
-        try {
-            FileIO.writeObjectOfindex(filePath, t, 1, sizeOfTest);
-            FileIO.writeObjectOfindex(filePath, t2, 2, sizeOfTest);
-
-            Test t4 = (Test) FileIO.readObjectOfIndex(filePath,1, sizeOfTest);
-            Test t5 = (Test) FileIO.readObjectOfIndex(filePath,2, sizeOfTest);
-
-            System.out.println(t5.data);
-            System.out.println(t4.data);
-
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
-
-//        try {
-//            System.out.println( FileIO.isEmpty(filePath, 1 , 10));
-//            FileIO.cleanIndex(filePath,1,sizeOfTest);
-//            System.out.println( FileIO.isEmpty(filePath, 1 , 10));
-//            Test t5 = (Test) FileIO.readObjectOfIndex(filePath,1,sizeOfTest);
-//            System.out.println(t5.data);
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
+        FileIO.writeAnObjectToFile("./src/com/StudentManagerSystem/data/bTree", btree);
+        BPlusTree btree2 = (BPlusTree)FileIO.readAnObjectFromFile("./src/com/StudentManagerSystem/data/bTree");
     }
 }
