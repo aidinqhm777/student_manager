@@ -17,13 +17,14 @@ public class BTreeManage {
         StudentUniID = FileManage.loadBtree_StudentUniID();
     }
 
-    public static Object find_StudentUniID(int uniID) {
-
-        return StudentUniID.search(uniID);
-    }
 
 
     public static void addStudent(String uniID, String name, String lastname) {}
+
+
+
+
+
 
 
 
@@ -36,5 +37,36 @@ public class BTreeManage {
     private static String add_StudentName() {return "1";}
     private static String remove_StudentName() {return "1";}
     private static String update_StudentName() {return "1";}
+
+
+//    Searches--------------
+    public static String genericSearch(String inputKey, String searchField) {
+
+
+        //catch error if searchField is not right TODO
+        switch (searchField){
+
+            case "name":
+                index = searchByName(searchField);
+
+            case "lastname":
+                index = searchByLastname(searchField);
+
+            case "id":
+                index = searchByUniID(searchField);
+
+            case "uniID":
+                index = searchByID(searchField);
+
+            default:
+                index = searchByID(searchField);
+        }
+        return "";
+    }
+
+    private static String searchByStudentUniID(String searchField)    {return "";}
+    private static String searchByStudentName(String searchField)     {return "";}
+    private static String searchByStudentLastname(String searchField) {return "";}
+    private static String searchByStudentID(String searchField)       {return "";}
 
 }
