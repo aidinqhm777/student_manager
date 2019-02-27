@@ -1,3 +1,6 @@
+package com.StudentManagerSystem;
+
+import com.StudentManagerSystem.Btree.BPlusTree;
 
 public class FileManage {
 
@@ -7,6 +10,7 @@ public class FileManage {
     private String StudentBirthdate = "";
     private String StudentPhoneNum = "";
     private String StudentID = "";
+    private static String btreeStudentUniID = "file address";
 
     private static void create_StudentUniID() {}
     private static void create_StudentName() {}
@@ -14,6 +18,7 @@ public class FileManage {
     private static void create_StudentBirthdate() {}
     private static void create_StudentPhoneNum() {}
     private static void create_StudentID() {}
+    private static void create_btree_StudentUniID() {}
 
 
     private static void create_StudentSubs_CurrentSem() {}
@@ -26,5 +31,9 @@ public class FileManage {
     public static void edit_StudentBirthdate() {}
     public static void edit_StudentPhoneNum() {}
     public static void edit_StudentID() {}
+
+
+
+    public static BPlusTree loadBtree_StudentUniID() {return new BPlusTree();}
 
 }
