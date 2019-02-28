@@ -84,16 +84,10 @@ public class SystemManage {
         BTreeManage.addStudent(StudentTmp.uniID,StudentTmp.name,StudentTmp.lastname);
         FileManage.addStudent(index);
     }
-    private static void updateStudent() {
-
-        String index = StudentTmp.getIndex();
-        FileManage.updateStudent(StudentTmp.getName(),
-
-
-
-
-        );
-    }
+//    private static void updateStudent() {
+//        String index = StudentTmp.getIndex();
+//        FileManage.updateStudent(StudentTmp.getName(), );
+//    }
     //finds the possible students and inserts data in studenttmp class
 //    private static String searchByUniID(String uniID) {
 //
