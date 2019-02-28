@@ -20,6 +20,7 @@ public class SystemManage {
         private static String phoneNum;
         private static String birthDate;
         private static String id;
+        private static String index;
 
         public static String getUniID() {
             return uniID;
@@ -69,8 +70,16 @@ public class SystemManage {
             StudentTmp.id = id;
         }
 
+        public static String getIndex() {
+            return index;
+        }
+
+        public static void setIndex(String index) {
+            StudentTmp.index = index;
+        }
     }
 
+    private static class SubjectTmp{}
 
 
     private static void addStudent() {
@@ -79,6 +88,56 @@ public class SystemManage {
         BTreeManage.addStudent(StudentTmp.uniID,StudentTmp.name,StudentTmp.lastname);
         FileManage.addStudent(index);
     }
+    private static void updateStudent() {
+
+        String index = StudentTmp.getIndex();
+        FileManage.updateStudent(StudentTmp.getName(),
+
+
+
+
+        );
+    }
+    //finds the possible students and inserts data in studenttmp class
+//    private static String searchByUniID(String uniID) {
+//
+//        int temp = Integer.parseInt(uniID);
+//        BTreeManage.find_StudentUniID(temp);
+//    }
+//    private static String searchByName(String searchField) {}
+//    private static String searchByLastname(String searchField) {}
+//    private static String searchByID(String searchField)
+
+
+    //buttons
+    public static void searchStudent(String inputKey, String searchField) {
+
+        String index;
+        String[] records;
+
+        index = BTreeManage.genericSearch(searchField,inputKey);
+        records = FileManage.readRecords(index);
+        setProps(records[0], records[1], records[2], records[3], records[4], records[5]);
+
+    }
+    public static void signupStudent(String name, String lastname, String phoneNum, String birthdate, String id) {
+
+        String uniId = IDManage.createNewID();
+        setProps(uniId, name, lastname, phoneNum, birthdate, id);
+        addStudent();
+    }
+    public static void updateStudent(String name, String lastname, String phoneNum, String birthdate, String id, String uniID) {
+
+        setProps(uniID, name, lastname, phoneNum, birthdate, id);
+
+
+    }
+    public static void removeStudent() {}
+
+
+
+
+    //get and set properties
     private static void setProps(String uniId, String name, String lastname, String phoneNum, String birthdate, String id) {
 
         StudentTmp.setUniID(uniId);
@@ -88,52 +147,5 @@ public class SystemManage {
         StudentTmp.setBirthDate(birthdate);
         StudentTmp.setId(id);
     }
-
-    //finds the possible students and inserts data in studenttmp class
-    private static String searchByUniID(String uniID) {
-
-        int temp = Integer.parseInt(uniID);
-        BTreeManage.find_StudentUniID(temp);
-    }
-    private static String searchByName(String searchField) {}
-    private static String searchByLastname(String searchField) {}
-    private static String searchByID(String searchField) {}
-
-
-    //buttons
-    public static void searchStudent(String searchField, String inputKey) {
-
-        String index;
-        String[] records;
-        //catch error if searchField is not right TODO
-        switch (searchField){
-
-            case "name":
-                index = searchByName(searchField);
-
-            case "lastname":
-                index = searchByLastname(searchField);
-
-            case "id":
-                index = searchByUniID(searchField);
-
-            case "uniID":
-                index = searchByID(searchField);
-
-            default:
-                index = searchByID(searchField);
-        }
-        records = FileManage.readRecords(index);
-
-
-    }
-    public static void signupStudent(String name, String lastname, String phoneNum, String birthdate, String id) {
-
-        String uniId = IDManage.createNewID();
-        setProps(uniId, name, lastname, phoneNum, birthdate, id);
-        addStudent();
-    }
-    public static void removeStudent() {}
-    public static void updateStudent() {}
-
+    public static String[] getProps() {return new String[6];}
 }
