@@ -23,6 +23,13 @@ public class BTreeManage {
             System.out.println( e.toString() );
         }
     }
+    private static void loadBtree_StudentName() {
+    }
+    private static void loadBtree_StudentLastname() {
+    }
+    private static void loadBtree_StudentID() {
+    }
+
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
         try {
@@ -31,15 +38,9 @@ public class BTreeManage {
             System.out.println( e.toString() );
         }
     }
-    private static void loadBtree_StudentName() {
-    }
     private static void saveBtree_StudentName() {
     }
-    private static void loadBtree_StudentLastname() {
-    }
     private static void saveBtree_StudentLastname() {
-    }
-    private static void loadBtree_StudentID() {
     }
     private static void saveBtree_StudentID() {
 
