@@ -16,7 +16,13 @@ public class FileManage {
     private static String StudentBirthday_filePath = "";
     private static String StudentPhoneNum_filePath = "";
     private static String StudentID_filePath = "";
-    private static String btreeStudentUniversityNum_filePath = "file filePath";
+
+
+    private static String btree_StudentUniID_filePath = "";
+    private static String btree_StudentName_filePath = "";
+    private static String btree_StudentLastname_filePath = "";
+    private static String btree_StudentID_filePath = "";
+
 //--------------------------------------------------------------
 //--------------------------------------------------------------
 //--------------------------------------------------------------
@@ -117,8 +123,44 @@ public class FileManage {
 
 
 
+//load and save the btree's in file
+    public static BPlusTree loadBtree_StudentUniID()
+            throws IOException, ClassNotFoundException {
+        return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
+    }
+    public static void saveBtree_StudentUniID(Object o)
+            throws IOException {
+        FileIO.writeAnObjectToFile(btree_StudentUniID_filePath, o);
+    }
 
-    public static BPlusTree loadBtree_StudentUniID() {return new BPlusTree();}
+    public static BPlusTree loadBtree_StudentID()
+            throws IOException, ClassNotFoundException {
+        return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentID_filePath);
+    }
+    public static void saveBtree_StudentID(Object o)
+            throws IOException {
+        FileIO.writeAnObjectToFile(btree_StudentID_filePath, o);
+    }
+
+    public static BPlusTree loadBtree_StudentName()
+            throws IOException, ClassNotFoundException {
+        return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentName_filePath);
+    }
+    public static void saveBtree_StudentName(Object o)
+            throws IOException {
+        FileIO.writeAnObjectToFile(btree_StudentName_filePath, o);
+    }
+
+    public static BPlusTree loadBtree_StudentLastName()
+            throws IOException, ClassNotFoundException {
+        return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentLastname_filePath);
+    }
+    public static void saveBtree_StudentLastName(Object o)
+            throws IOException {
+        FileIO.writeAnObjectToFile(btree_StudentLastname_filePath, o);
+    }
+
+
     public static void addStudent(String index) {}
 
 }

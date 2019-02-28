@@ -2,6 +2,8 @@ package com.StudentManagerSystem;
 
 import com.StudentManagerSystem.Btree.BPlusTree;
 
+import java.io.IOException;
+
 public class BTreeManage {
 
     private static BPlusTree StudentUniID;
@@ -9,13 +11,29 @@ public class BTreeManage {
     private static BPlusTree StudentLastname;
     private static BPlusTree StudentID;
 
+
 //    save load btrees
 //    find insert delete info from or to btrees indirectly
 
     private static void loadBtree_StudentUniID() {
-
-        StudentUniID = FileManage.loadBtree_StudentUniID();
+        // load btree if empty
+        try {
+            if (StudentUniID  == null) StudentUniID = FileManage.loadBtree_StudentUniID();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println( e.toString() );
+        }
     }
+    private static void saveBtree_StudentUniID() {
+        // save btree if is't empty
+        try {
+            if (StudentUniID != null) FileManage.saveBtree_StudentUniID(StudentUniID);
+        } catch (IOException e) {
+            System.out.println( e.toString() );
+        }
+    }
+    //write the rest TODO
+
+
     public static void addStudent(String uniID, String name, String lastname) {}
     private static String find_StudentName() {
 
@@ -29,29 +47,30 @@ public class BTreeManage {
 
 //    Searches--------------
 
-    public static String genericSearch(String inputKey, String searchField) {
+//    public static String genericSearch(String inputKey, String searchField) {
+//
+//
+//        //catch error if searchField is not right TODO
+//        switch (searchField){
+//
+//            case "name":
+//                index = searchByName(searchField);
+//
+//            case "lastName":
+//                index = searchByLastname(searchField);
+//
+//            case "id":
+//                index = searchByUniID(searchField);
+//
+//            case "uniID":
+//                index = searchByID(searchField);
+//
+//            default:
+//                index = searchByID(searchField);
+//        }
+//        return "";
+//    }
 
-
-        //catch error if searchField is not right TODO
-        switch (searchField){
-
-            case "name":
-                index = searchByName(searchField);
-
-            case "lastName":
-                index = searchByLastname(searchField);
-
-            case "id":
-                index = searchByUniID(searchField);
-
-            case "uniID":
-                index = searchByID(searchField);
-
-            default:
-                index = searchByID(searchField);
-        }
-        return "";
-    }
     private static String searchByStudentUniID(String searchField)    {return "";}
     private static String searchByStudentName(String searchField)     {return "";}
     private static String searchByStudentLastname(String searchField) {return "";}
