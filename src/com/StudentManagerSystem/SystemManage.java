@@ -10,8 +10,6 @@ package com.StudentManagerSystem;
 
 public class SystemManage {
 
-
-
     private static class StudentTmp{
 
         private static String uniID;
@@ -78,9 +76,7 @@ public class SystemManage {
             StudentTmp.index = index;
         }
     }
-
     private static class SubjectTmp{}
-
 
     private static void addStudent() {
 
@@ -108,7 +104,6 @@ public class SystemManage {
 //    private static String searchByLastname(String searchField) {}
 //    private static String searchByID(String searchField)
 
-
     //buttons
     public static void searchStudent(String inputKey, String searchField) {
 
@@ -133,9 +128,6 @@ public class SystemManage {
 
     }
     public static void removeStudent() {}
-
-
-
 
     //get and set properties
     private static void setProps(String uniId, String name, String lastname, String phoneNum, String birthdate, String id) {

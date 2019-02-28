@@ -16,18 +16,7 @@ public class BTreeManage {
 
         StudentUniID = FileManage.loadBtree_StudentUniID();
     }
-
-
-
     public static void addStudent(String uniID, String name, String lastname) {}
-
-
-
-
-
-
-
-
     private static String find_StudentName() {
 
 
@@ -38,8 +27,8 @@ public class BTreeManage {
     private static String remove_StudentName() {return "1";}
     private static String update_StudentName() {return "1";}
 
-
 //    Searches--------------
+
     public static String genericSearch(String inputKey, String searchField) {
 
 
@@ -49,7 +38,7 @@ public class BTreeManage {
             case "name":
                 index = searchByName(searchField);
 
-            case "lastname":
+            case "lastName":
                 index = searchByLastname(searchField);
 
             case "id":
@@ -63,7 +52,6 @@ public class BTreeManage {
         }
         return "";
     }
-
     private static String searchByStudentUniID(String searchField)    {return "";}
     private static String searchByStudentName(String searchField)     {return "";}
     private static String searchByStudentLastname(String searchField) {return "";}
