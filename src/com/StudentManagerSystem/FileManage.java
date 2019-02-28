@@ -1,20 +1,19 @@
 package com.StudentManagerSystem;
 
 import com.StudentManagerSystem.Btree.BPlusTree;
-
 import java.io.IOException;
 
 public class FileManage {
-
+    //standard sizes
     private static int String_10bit = 10;
     private static int String_30bit = 30;
     private static int String_60bit = 60;
 
-
-    private static String StudentUniversityNum_filePath = "";
+    //file paths
+    private static String StudentUniID_filePath = "";
     private static String StudentName_filePath = "";
-    private static String StudentLastname_filePath = "";
-    private static String StudentBirthdate_filePath = "";
+    private static String StudentLastName_filePath = "";
+    private static String StudentBirthday_filePath = "";
     private static String StudentPhoneNum_filePath = "";
     private static String StudentID_filePath = "";
     private static String btreeStudentUniversityNum_filePath = "file filePath";
@@ -25,7 +24,7 @@ public class FileManage {
 
     //get index and read all the records. optional reading should be added TODO
     public static String[] readRecords(String index) {
-        //همه ی ایندکس ها یکی نیست که بتونیم همشو یه جا بخونیم
+        //i don't get it @Amir
         return new String[6];
     }
 
@@ -35,12 +34,12 @@ public class FileManage {
     }
     private static String readStudentLastname(int index)
             throws IOException, ClassNotFoundException {
-        return (String)FileIO.readObjectWithIndex(StudentLastname_filePath, index, String_60bit);
+        return (String)FileIO.readObjectWithIndex(StudentLastName_filePath, index, String_60bit);
     }
-    private static String readStudentUniversityNum(int index)
+    private static String readStudentUniID(int index)
             throws IOException, ClassNotFoundException {
         // 1111111111
-        return (String)FileIO.readObjectWithIndex(StudentUniversityNum_filePath, index, String_10bit);
+        return (String)FileIO.readObjectWithIndex(StudentUniID_filePath, index, String_10bit);
     }
     private static String readStudentID(int index)
             throws IOException, ClassNotFoundException {
@@ -52,15 +51,17 @@ public class FileManage {
         // 414223355
         return (String)FileIO.readObjectWithIndex(StudentPhoneNum_filePath, index, String_10bit);
     }
-    private static String readStudentBirthdate(int index)
+    private static String readStudentBirthday(int index)
             throws IOException, ClassNotFoundException {
         //   => 1397/01/01
-        return (String)FileIO.readObjectWithIndex(StudentBirthdate_filePath, index, String_10bit);
+        return (String)FileIO.readObjectWithIndex(StudentBirthday_filePath, index, String_10bit);
     }
 
 
     //get index and write all the records. optional writing should be added TODO
-    public static void writeRecords(String[] records) {}
+    public static void writeRecords(String[] records) {
+        //i don't get it @Amir
+    }
 
     private static void writeStudentName(int index, Object o)
             throws IOException {
@@ -68,12 +69,12 @@ public class FileManage {
     }
     private static void writeStudentLastname(int index, Object o)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentLastname_filePath, o, index, String_60bit);
+        FileIO.writeObjectWithIndex(StudentLastName_filePath, o, index, String_60bit);
     }
-    private static void writeStudentUniversityNum(int index, Object o)
+    private static void writeStudentUniID(int index, Object o)
             throws IOException {
         // 1111111111
-        FileIO.writeObjectWithIndex(StudentUniversityNum_filePath, o, index, String_10bit);
+        FileIO.writeObjectWithIndex(StudentUniID_filePath, o, index, String_10bit);
     }
     private static void writeStudentID(int index, Object o)
             throws IOException {
@@ -85,10 +86,10 @@ public class FileManage {
         // 414223355
         FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, o, index, String_10bit);
     }
-    private static void writeStudentBirthdate(int index, Object o)
+    private static void writeStudentBirthday(int index, Object o)
             throws IOException {
         //   => 1397/01/01
-        FileIO.writeObjectWithIndex(StudentBirthdate_filePath, o, index, String_10bit);
+        FileIO.writeObjectWithIndex(StudentBirthday_filePath, o, index, String_10bit);
     }
 
 
