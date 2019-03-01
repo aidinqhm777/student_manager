@@ -83,6 +83,7 @@ public class SystemManage {
         String index = IndexManage.addStudent();
         BTreeManage.addStudent(StudentTmp.uniID,StudentTmp.name,StudentTmp.lastname);
         FileManage.addStudent(index);
+        
     }
 //    private static void updateStudent() {
 //        String index = StudentTmp.getIndex();
@@ -121,7 +122,10 @@ public class SystemManage {
 
 
     }
-    public static void removeStudent() {}
+    public static void removeStudent(String uniID) {
+
+        BTreeManage.re
+    }
 
     //get and set properties
     private static void setProps(String uniId, String name, String lastname, String phoneNum, String birthdate, String id) {

@@ -69,7 +69,7 @@ public class FileManage {
         //i don't get it @Amir
     }
 
-    private static void writeStudentName(int index, Object o)
+    public static void writeStudentName(int index, Object o)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, o, index, String_30bit);
     }
@@ -161,6 +161,9 @@ public class FileManage {
     }
 
 
-    public static void addStudent(String index) {}
+    public static void addStudent(String index) {
+
+
+    }
 
 }
