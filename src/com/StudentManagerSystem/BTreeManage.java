@@ -91,12 +91,12 @@ public class BTreeManage {
 
     //add student key and index to BTree
 
-    public static void addStudent(Student student) {}
+    public static void createStudent(Student student) {}
 
-    private static void addStudentuniID(int uniID, int index) {}
-    private static void addStudentID(int id, int index) {}
-    private static void addStudentName(String name, int index) {}
-    private static void addStudentLastname(String lastname, int index) {}
+    private static void createStudentuniID(int uniID, int index) {}
+    private static void createStudentID(int id, int index) {}
+    private static void createStudentName(String name, int index) {}
+    private static void createStudentLastname(String lastname, int index) {}
 
 
 
@@ -113,23 +113,23 @@ public class BTreeManage {
 
     //find and return index
 
-    public static int genericSearchStudent(String inputKey, String searchField) {return 1;}
+    public static int readStudent(String inputKey, String searchField) {return 1;}
 
-    private static int searchByStudentUniID(String searchField)    {return 1;}
-    private static int searchByStudentName(String searchField)     {return 1;}
-    private static int searchByStudentLastname(String searchField) {return 1;}
-    private static int searchByStudentID(String searchField)       {return 1;}
+    private static int readByStudentUniID(String searchField)    {return 1;}
+    private static int readByStudentName(String searchField)     {return 1;}
+    private static int readByStudentLastname(String searchField) {return 1;}
+    private static int readByStudentID(String searchField)       {return 1;}
 
 
 
     //remove index records from BTree
 
-    public static void removeStudent(int uniID) {}
+    public static void deleteStudent(int uniID) {}
 
-    private static void removeStudentUniID()    {}
-    private static void removeStudentName()     {}
-    private static void removeStudentLastname() {}
-    private static void removeStudentID()       {}
+    private static void deleteStudentUniID()    {}
+    private static void deleteStudentName()     {}
+    private static void deleteStudentLastname() {}
+    private static void deleteStudentID()       {}
 
 
 
