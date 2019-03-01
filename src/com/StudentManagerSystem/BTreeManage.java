@@ -133,7 +133,9 @@ public class BTreeManage {
 
 
 
-
+    public static int addStudent(Student s){
+        return 0;
+    }
 
 
 

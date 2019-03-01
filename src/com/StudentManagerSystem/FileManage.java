@@ -9,6 +9,7 @@ public class FileManage {
     private static int String_10bit = 10;
     private static int String_30bit = 30;
     private static int String_60bit = 60;
+    private static int INTEGER = 60;
 
     //file paths
     private static String StudentUniID_filePath = "";
@@ -102,47 +103,78 @@ public class FileManage {
 
 
     //update student's personal info records
-    public static void updateStudent(Student student) {}
+    public static void updateStudent(Student student) {
 
+    }
+
+    private static String emptyString(int size){
+        return String.format("%"+size+"s","");
+    }
+    private static Integer emptyInteger(int size){
+        return 0;
+    }
 
 
     //remove student's personal info records
     public static void deleteStudent(Student student) {}
 
+
+    private static void deleteStudentName(int index)
+            throws IOException {
+        FileIO.writeObjectWithIndex(StudentName_filePath, emptyString(String_30bit), index, String_30bit);
+    }
+    private static void deleteStudentLastname(int index)
+            throws IOException {
+        FileIO.writeObjectWithIndex(StudentLastName_filePath, emptyString(String_60bit), index, String_60bit);
+    }
+    private static void deleteStudentUniID(int index)
+            throws IOException {
+        // 1111111111
+        FileIO.writeObjectWithIndex(StudentUniID_filePath, emptyString(String_10bit), index, String_10bit);
+    }
+    private static void deleteStudentID(int index)
+            throws IOException {
+        // 1111111111
+        FileIO.writeObjectWithIndex(StudentID_filePath, emptyString(String_10bit), index, String_10bit);
+    }
+    private static void deleteStudentPhoneNum(int index)
+            throws IOException {
+        // 414223355
+        FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, emptyString(String_10bit), index, String_10bit);
+    }
+    private static void deleteStudentBirthday(int index)
+            throws IOException {
+        //   => 1397/01/01
+        FileIO.writeObjectWithIndex(StudentBirthday_filePath, emptyString(String_10bit), index, String_10bit);
+    }
+
+
+
+
+
     //load and save the btree's in file
-    public static BPlusTree loadBtree_StudentUniID()
-            throws IOException, ClassNotFoundException {
+    public static BPlusTree loadBtree_StudentUniID() throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
     }
-    public static void saveBtree_StudentUniID(Object o)
-            throws IOException {
+    public static void saveBtree_StudentUniID(Object o) throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentUniID_filePath, o);
     }
-
-    public static BPlusTree loadBtree_StudentID()
-            throws IOException, ClassNotFoundException {
+    public static BPlusTree loadBtree_StudentID() throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentID_filePath);
     }
-    public static void saveBtree_StudentID(Object o)
-            throws IOException {
+    public static void saveBtree_StudentID(Object o) throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentID_filePath, o);
     }
-
-    public static BPlusTree loadBtree_StudentName()
-            throws IOException, ClassNotFoundException {
+    public static BPlusTree loadBtree_StudentName() throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentName_filePath);
     }
-    public static void saveBtree_StudentName(Object o)
-            throws IOException {
+    public static void saveBtree_StudentName(Object o) throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentName_filePath, o);
     }
-
-    public static BPlusTree loadBtree_StudentLastName()
-            throws IOException, ClassNotFoundException {
+    public static BPlusTree loadBtree_StudentLastName() throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentLastname_filePath);
     }
-    public static void saveBtree_StudentLastName(Object o)
-            throws IOException {
+    public static void saveBtree_StudentLastName(Object o) throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentLastname_filePath, o);
     }
 
