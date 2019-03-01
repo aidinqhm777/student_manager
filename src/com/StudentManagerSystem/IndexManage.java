@@ -10,7 +10,8 @@ public class IndexManage {
 
 
 
-    public static String addStudent() {return "";}
+    public static int addStudent() {return 1;}
+    public static void removeStudent(int index) {}
 
 
 

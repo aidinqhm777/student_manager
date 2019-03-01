@@ -48,7 +48,6 @@ public class BTreeManage {
 
 
 
-    public static void addStudent(String uniID, String name, String lastname) {}
     private static String find_StudentName() {
 
 
@@ -56,7 +55,6 @@ public class BTreeManage {
         return "1";
     }
     private static String add_StudentName() {return "1";}
-    private static String remove_StudentName() {return "1";}
     private static String update_StudentName() {return "1";}
 
 //    Searches--------------
@@ -85,9 +83,60 @@ public class BTreeManage {
 //        return "";
 //    }
 
-    private static String searchByStudentUniID(String searchField)    {return "";}
-    private static String searchByStudentName(String searchField)     {return "";}
-    private static String searchByStudentLastname(String searchField) {return "";}
-    private static String searchByStudentID(String searchField)       {return "";}
+    //------------------------------------------------------------------------
+    //------------------------------------------------------------------------
+
+
+    //CRUD operations on student personal info
+
+    //add student key and index to BTree
+
+    public static void addStudent(Student student) {}
+
+    private static void addStudentuniID(int uniID, int index) {}
+    private static void addStudentID(int id, int index) {}
+    private static void addStudentName(String name, int index) {}
+    private static void addStudentLastname(String lastname, int index) {}
+
+
+
+    //update
+
+    public static void updateStudent(Student student) {}
+
+    private static void updateStudentUniID(int uniID) {}
+    private static void updateStudentID(int id) {}
+    private static void updateStudentName(String name) {}
+    private static void updateStudentLastname(String lastname) {}
+
+
+
+    //find and return index
+
+    public static int genericSearchStudent(String inputKey, String searchField) {return 1;}
+
+    private static int searchByStudentUniID(String searchField)    {return 1;}
+    private static int searchByStudentName(String searchField)     {return 1;}
+    private static int searchByStudentLastname(String searchField) {return 1;}
+    private static int searchByStudentID(String searchField)       {return 1;}
+
+
+
+    //remove index records from BTree
+
+    public static void removeStudent(int uniID) {}
+
+    private static void removeStudentUniID()    {}
+    private static void removeStudentName()     {}
+    private static void removeStudentLastname() {}
+    private static void removeStudentID()       {}
+
+
+
+
+
+
+
+
 
 }

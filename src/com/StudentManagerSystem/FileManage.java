@@ -29,9 +29,8 @@ public class FileManage {
 
 
     //get index and read all the records. optional reading should be added TODO
-    public static String[] readRecords(String index) {
-        //i don't get it @Amir
-        return new String[6];
+    public static Student readStudent_pi(int index) {
+        return new Student();
     }
 
     private static String readStudentName(int index)
@@ -65,7 +64,7 @@ public class FileManage {
 
 
     //get index and write all the records. optional writing should be added TODO
-    public static void writeRecords(String[] records) {
+    public static void writeStudent_pi(Student student) {
         //i don't get it @Amir
     }
 
@@ -99,26 +98,18 @@ public class FileManage {
     }
 
 
-    private static void create_StudentUniID() {}
-    private static void create_StudentName() {}
-    private static void create_StudentLastname() {}
-    private static void create_StudentBirthdate() {}
-    private static void create_StudentPhoneNum() {}
-    private static void create_StudentID() {}
-    private static void create_btree_StudentUniID() {}
+
+    //remove student's personal info records
+    public static void removeStudent_pi(Student student) {}
+
+
+    //update studen's personal info records
+    public static void updateStudent_pi(Student student) {}
+
+
 //    private static void updateStudent(){}
 
 
-    private static void create_StudentSubs_CurrentSem() {}
-    private static void create_StudentSubs_PreviousSems() {}
-
-
-    public static void edit_StudentUniID() {}
-    public static void edit_StudentName() {}
-    public static void edit_StudentLastname() {}
-    public static void edit_StudentBirthdate() {}
-    public static void edit_StudentPhoneNum() {}
-    public static void edit_StudentID() {}
 
 
 
@@ -161,9 +152,9 @@ public class FileManage {
     }
 
 
-    public static void addStudent(String index) {
+    public static void addStudent(int index, Student student) {
 
 
     }
-
+    public static void removeStudent(int index) {}
 }

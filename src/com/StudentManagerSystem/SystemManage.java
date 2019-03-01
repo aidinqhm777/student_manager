@@ -8,83 +8,25 @@
 
 package com.StudentManagerSystem;
 
+import java.io.File;
+
 public class SystemManage {
 
-    private static class StudentTmp{
 
-        private static String uniID;
-        private static String name;
-        private static String lastname;
-        private static String phoneNum;
-        private static String birthDate;
-        private static String id;
-        private static String index;
+    private static Student studentTmp;
 
-        public static String getUniID() {
-            return uniID;
-        }
 
-        public static void setUniID(String uniID) {
-            StudentTmp.uniID = uniID;
-        }
 
-        public static String getName() {
-            return name;
-        }
-
-        public static void setName(String name) {
-            StudentTmp.name = name;
-        }
-
-        public static String getLastname() {
-            return lastname;
-        }
-
-        public static void setLastname(String lastname) {
-            StudentTmp.lastname = lastname;
-        }
-
-        public static String getPhoneNum() {
-            return phoneNum;
-        }
-
-        public static void setPhoneNum(String phoneNum) {
-            StudentTmp.phoneNum = phoneNum;
-        }
-
-        public static String getBirthDate() {
-            return birthDate;
-        }
-
-        public static void setBirthDate(String birthDate) {
-            StudentTmp.birthDate = birthDate;
-        }
-
-        public static String getId() {
-            return id;
-        }
-
-        public static void setId(String id) {
-            StudentTmp.id = id;
-        }
-
-        public static String getIndex() {
-            return index;
-        }
-
-        public static void setIndex(String index) {
-            StudentTmp.index = index;
-        }
-    }
-    private static class SubjectTmp{}
 
     private static void addStudent() {
 
-        String index = IndexManage.addStudent();
-        BTreeManage.addStudent(StudentTmp.uniID,StudentTmp.name,StudentTmp.lastname);
-        FileManage.addStudent(index);
-        
+        int index = IndexManage.addStudent();
+        studentTmp.setIndex_PersonalInfo(index);
+        BTreeManage.addStudent(studentTmp);
+        FileManage.addStudent(index, studentTmp);
     }
+
+
 //    private static void updateStudent() {
 //        String index = StudentTmp.getIndex();
 //        FileManage.updateStudent(StudentTmp.getName(), );
@@ -100,15 +42,13 @@ public class SystemManage {
 //    private static String searchByID(String searchField)
 
     //buttons
-    public static void searchStudent(String inputKey, String searchField) {
+    public static Student searchStudent(String inputKey, String searchField) {
 
-        String index;
-        String[] records;
+        int index;
 
         index = BTreeManage.genericSearch(searchField,inputKey);
-        records = FileManage.readRecords(index);
-        setProps(records[0], records[1], records[2], records[3], records[4], records[5]);
-
+        studentTmp = FileManage.readStudent_pi(index);
+        return studentTmp;
     }
     public static void signupStudent(String name, String lastname, String phoneNum, String birthdate, String id) {
 
@@ -119,23 +59,30 @@ public class SystemManage {
     public static void updateStudent(String name, String lastname, String phoneNum, String birthdate, String id, String uniID) {
 
         setProps(uniID, name, lastname, phoneNum, birthdate, id);
-
-
+        FileManage.updateStudent_pi(studentTmp);
     }
-    public static void removeStudent(String uniID) {
+    public static void removeStudent() {
 
-        BTreeManage.re
+        int index;
+        BTreeManage.removeStudent(studentTmp.getUniID());
+        index = studentTmp.getIndex_PersonalInfo();
+        IndexManage.removeStudent(index);
+        FileManage.removeStudent(index);// i don't know if it's needed cause if u remove the index the data i considered removed
     }
 
     //get and set properties
-    private static void setProps(String uniId, String name, String lastname, String phoneNum, String birthdate, String id) {
+    private static void setProps(String uniId, String id, String name, String lastname, String phoneNum, String birthdate) {
 
-        StudentTmp.setUniID(uniId);
-        StudentTmp.setName(name);
-        StudentTmp.setLastname(lastname);
-        StudentTmp.setPhoneNum(phoneNum);
-        StudentTmp.setBirthDate(birthdate);
-        StudentTmp.setId(id);
+        int temp;
+        temp = Integer.parseInt(uniId);
+        studentTmp.setUniID(temp);
+        studentTmp.setName(name);
+        studentTmp.setLastname(lastname);
+        studentTmp.setPhoneNum(phoneNum);
+        studentTmp.setBirthDate(birthdate);
+        temp = Integer.parseInt(id);
+        studentTmp.setId(temp);
     }
     public static String[] getProps() {return new String[6];}
+    public static Student getProperties() {return studentTmp;}
 }
