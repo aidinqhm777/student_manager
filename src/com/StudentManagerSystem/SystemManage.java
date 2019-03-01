@@ -13,10 +13,22 @@ public class SystemManage {
         int index = IndexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
         BTreeManage.createStudent(studentTmp);
-        FileManage.addStudent(index, studentTmp);
+        FileManage.createStudent(studentTmp);
     }
 
 
+
+    public static void loadProgram() {
+        BTreeManage.load();
+        IndexManage.load();
+        IDManage.load();
+    }
+    public static void saveProgram() {
+        BTreeManage.save();
+        IndexManage.save();
+        IDManage.save();
+
+    }
 
     //buttons
     public static Student searchStudent(String inputKey, String searchField) {
@@ -41,10 +53,10 @@ public class SystemManage {
     public static Student removeStudent() {
 
         int index;
-        BTreeManage.deleteStudent(studentTmp.getUniID());
+        BTreeManage.deleteStudent(studentTmp);
         index = studentTmp.getIndex_PersonalInfo();
         IndexManage.removeStudent(index);
-        FileManage.removeStudent(index);// i don't know if it's needed cause if u remove the index the data i considered removed
+        FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the data i considered removed
         return studentTmp;
     }
 

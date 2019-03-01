@@ -10,6 +10,9 @@ public class IndexManage {
 
 
 
+    public static void load() {}
+    public static void save() {}
+
     public static int addStudent() {return 1;}
     public static void removeStudent(int index) {}
 
