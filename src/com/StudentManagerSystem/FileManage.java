@@ -4,6 +4,7 @@ import com.StudentManagerSystem.Btree.BPlusTree;
 import java.io.IOException;
 
 public class FileManage {
+
     //standard sizes
     private static int String_10bit = 10;
     private static int String_30bit = 30;
@@ -28,8 +29,45 @@ public class FileManage {
 //--------------------------------------------------------------
 
 
+
+    //get index and write all the records. optional writing should be added TODO
+    public static void createStudent(Student student) {
+        //i don't get it @Amir
+    }
+
+    private static void createStudentName(int index, Object o)
+            throws IOException {
+        FileIO.writeObjectWithIndex(StudentName_filePath, o, index, String_30bit);
+    }
+    private static void createStudentLastname(int index, Object o)
+            throws IOException {
+        FileIO.writeObjectWithIndex(StudentLastName_filePath, o, index, String_60bit);
+    }
+    private static void createStudentUniID(int index, Object o)
+            throws IOException {
+        // 1111111111
+        FileIO.writeObjectWithIndex(StudentUniID_filePath, o, index, String_10bit);
+    }
+    private static void createStudentID(int index, Object o)
+            throws IOException {
+        // 1111111111
+        FileIO.writeObjectWithIndex(StudentID_filePath, o, index, String_10bit);
+    }
+    private static void createStudentPhoneNum(int index, Object o)
+            throws IOException {
+        // 414223355
+        FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, o, index, String_10bit);
+    }
+    private static void createStudentBirthday(int index, Object o)
+            throws IOException {
+        //   => 1397/01/01
+        FileIO.writeObjectWithIndex(StudentBirthday_filePath, o, index, String_10bit);
+    }
+
+
+
     //get index and read all the records. optional reading should be added TODO
-    public static Student readStudent_pi(int index) {
+    public static Student readStudent(int index) {
         return new Student();
     }
 
@@ -63,51 +101,17 @@ public class FileManage {
     }
 
 
-    //get index and write all the records. optional writing should be added TODO
-    public static void writeStudent_pi(Student student) {
-        //i don't get it @Amir
-    }
-
-    public static void writeStudentName(int index, Object o)
-            throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, o, index, String_30bit);
-    }
-    private static void writeStudentLastname(int index, Object o)
-            throws IOException {
-        FileIO.writeObjectWithIndex(StudentLastName_filePath, o, index, String_60bit);
-    }
-    private static void writeStudentUniID(int index, Object o)
-            throws IOException {
-        // 1111111111
-        FileIO.writeObjectWithIndex(StudentUniID_filePath, o, index, String_10bit);
-    }
-    private static void writeStudentID(int index, Object o)
-            throws IOException {
-        // 1111111111
-        FileIO.writeObjectWithIndex(StudentID_filePath, o, index, String_10bit);
-    }
-    private static void writeStudentPhoneNum(int index, Object o)
-            throws IOException {
-        // 414223355
-        FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, o, index, String_10bit);
-    }
-    private static void writeStudentBirthday(int index, Object o)
-            throws IOException {
-        //   => 1397/01/01
-        FileIO.writeObjectWithIndex(StudentBirthday_filePath, o, index, String_10bit);
-    }
+    //update studen's personal info records
+    public static void updateStudent(Student student) {}
 
 
 
     //remove student's personal info records
-    public static void removeStudent_pi(Student student) {}
+    public static void deleteStudent(Student student) {}
 
 
-    //update studen's personal info records
-    public static void updateStudent_pi(Student student) {}
 
 
-//    private static void updateStudent(){}
 
 
 
