@@ -48,15 +48,6 @@ public class BTreeManage {
 
 
 
-    private static String find_StudentName() {
-
-
-
-        return "1";
-    }
-    private static String add_StudentName() {return "1";}
-    private static String update_StudentName() {return "1";}
-
 //    Searches--------------
 
 //    public static String genericSearch(String inputKey, String searchField) {
