@@ -15,8 +15,20 @@ public class BTreeManage {
 //    save load btrees
 //    find insert delete info from or to btrees indirectly
 
-    public static void load() {}
-    public static void save() {}
+    public static void load() {
+
+        loadBtree_StudentUniID();
+        loadBtree_StudentID();
+        loadBtree_StudentName();
+        loadBtree_StudentLastname();
+    }
+    public static void save() {
+
+        saveBtree_StudentID();
+        saveBtree_StudentUniID();
+        saveBtree_StudentName();
+        saveBtree_StudentLastname();
+    }
 
     private static void loadBtree_StudentUniID() {
         // load btree if empty
