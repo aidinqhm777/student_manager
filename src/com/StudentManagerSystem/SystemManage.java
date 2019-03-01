@@ -19,7 +19,6 @@ public class SystemManage {
 
 
     private static void addStudent() {
-
         int index = IndexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
         BTreeManage.addStudent(studentTmp);

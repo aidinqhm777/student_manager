@@ -101,7 +101,7 @@ public class FileManage {
     }
 
 
-    //update studen's personal info records
+    //update student's personal info records
     public static void updateStudent(Student student) {}
 
 
@@ -109,16 +109,7 @@ public class FileManage {
     //remove student's personal info records
     public static void deleteStudent(Student student) {}
 
-
-
-
-
-
-
-
-
-
-//load and save the btree's in file
+    //load and save the btree's in file
     public static BPlusTree loadBtree_StudentUniID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
