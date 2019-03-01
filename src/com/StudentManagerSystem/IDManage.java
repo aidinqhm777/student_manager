@@ -12,4 +12,8 @@ public class IDManage {
 
 
     public static String createNewID() {return "965367235";}
+
+
+    public static void load() {}
+    public static void save() {}
 }

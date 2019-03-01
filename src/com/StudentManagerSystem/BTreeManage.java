@@ -15,6 +15,9 @@ public class BTreeManage {
 //    save load btrees
 //    find insert delete info from or to btrees indirectly
 
+    public static void load() {}
+    public static void save() {}
+
     private static void loadBtree_StudentUniID() {
         // load btree if empty
         try {
@@ -80,31 +83,6 @@ public class BTreeManage {
 
 
 
-//    Searches--------------
-
-//    public static String genericSearch(String inputKey, String searchField) {
-//
-//
-//        //catch error if searchField is not right TODO
-//        switch (searchField){
-//
-//            case "name":
-//                index = searchByName(searchField);
-//
-//            case "lastName":
-//                index = searchByLastname(searchField);
-//
-//            case "id":
-//                index = searchByUniID(searchField);
-//
-//            case "uniID":
-//                index = searchByID(searchField);
-//
-//            default:
-//                index = searchByID(searchField);
-//        }
-//        return "";
-//    }
 
     //------------------------------------------------------------------------
     //------------------------------------------------------------------------
@@ -189,12 +167,6 @@ public class BTreeManage {
         StudentID_btree.delete(id);
 
     }
-
-
-
-
-
-
 
 
 
