@@ -10,6 +10,12 @@ public class FileManage {
     private static int String_30bit = 30;
     private static int String_60bit = 60;
     private static int INTEGER = 60;
+    private static String emptyString(int size){
+        return String.format("%"+size+"s","");
+    }
+    private static Integer emptyInteger(int size){
+        return 0;
+    }
 
     //file paths
     private static String StudentUniID_filePath = "";
@@ -67,7 +73,7 @@ public class FileManage {
 
 
 
-    //get index and read all the records. optional reading should be added TODO
+    //get index and read all the records. optional reading should be added
     public static Student readStudent(int index) {
         return new Student();
     }
@@ -103,16 +109,14 @@ public class FileManage {
 
 
     //update student's personal info records
-    public static void updateStudent(Student student) {
+    public static void updateStudent(Student student1, Student student2) {
+
 
     }
 
-    private static String emptyString(int size){
-        return String.format("%"+size+"s","");
-    }
-    private static Integer emptyInteger(int size){
-        return 0;
-    }
+    //all the fucking properties must have a update method , similar method can be seen in BTreeManage class TODO
+
+
 
 
     //remove student's personal info records

@@ -7,8 +7,7 @@ public class SystemManage {
 
 
     private static Student studentTmp;
-
-
+    private static Student updatedStudentTmp;
     private static void addStudent() {
         int index = IndexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
@@ -47,8 +46,9 @@ public class SystemManage {
     }
     public static Student updateStudent() {
 
-        FileManage.updateStudent(studentTmp);
-        return studentTmp;
+        BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
+        FileManage.updateStudent(studentTmp, updatedStudentTmp);
+        return updatedStudentTmp;
     }
     public static Student removeStudent() {
 
