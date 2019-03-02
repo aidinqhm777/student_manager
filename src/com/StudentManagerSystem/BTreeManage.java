@@ -3,10 +3,11 @@ package com.StudentManagerSystem;
 import com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class BTreeManage {
 
-    private static BPlusTree<Integer,Integer> studentUniID_btree = new BPlusTree<>();
+    private static BPlusTree<Integer, LinkedList<Integer>> studentUniID_btree = new BPlusTree<>();
     private static BPlusTree<String,Integer> studentName_btree = new BPlusTree<>();
     private static BPlusTree<String,Integer> studentLastname_btree = new BPlusTree<>();
     private static BPlusTree<Integer,Integer> studentID_btree =new BPlusTree<>();
@@ -177,7 +178,7 @@ public class BTreeManage {
         return readByStudentUniID(Integer.parseInt(inputKey));
     }
 
-    private static int readByStudentUniID(int input)    {
+    private static int readByStudentUniID(int input) {
         return studentUniID_btree.search(input);
     }
     private static int readByStudentName(String input)     {
@@ -198,7 +199,7 @@ public class BTreeManage {
         deleteStudentID(student.getId());
         deleteStudentName(student.getName());
         deleteStudentLastname(student.getLastname());
-        deleteStudentUniID(student.getId());
+        deleteStudentUniID(student.getUniID());
     }
 
     private static void deleteStudentUniID(int UniId)    {

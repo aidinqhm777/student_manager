@@ -48,8 +48,8 @@ public class SystemManage {
     public static Student removeStudent() throws IOException {
 
         int index;
-        BTreeManage.deleteStudent(studentTmp);
         index = studentTmp.getIndex_PersonalInfo();
+        BTreeManage.deleteStudent(studentTmp);
         IndexManage.removeStudent(index);
         FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the data i considered removed
         return studentTmp;
@@ -58,13 +58,13 @@ public class SystemManage {
 
     //get and set properties
     public static void setStudentTmp(Student student) {
-
-        studentTmp.setUniID(student.getUniID());
-        studentTmp.setName(student.getName());
-        studentTmp.setLastname(student.getLastname());
-        studentTmp.setPhoneNum(student.getPhoneNum());
-        studentTmp.setBirthDate(student.getBirthDate());
-        studentTmp.setId(student.getId());
+        studentTmp = student;
+//        studentTmp.setUniID(student.getUniID());
+//        studentTmp.setName(student.getName());
+//        studentTmp.setLastname(student.getLastname());
+//        studentTmp.setPhoneNum(student.getPhoneNum());
+//        studentTmp.setBirthDate(student.getBirthDate());
+//        studentTmp.setId(student.getId());
     }
 
     public static Student getStudentTmp() {

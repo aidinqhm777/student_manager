@@ -14,6 +14,7 @@ public class Student {
 
     //properties
     private int index_PersonalInfo;
+    private LinkedList<Integer> indexes_pi;
     private int uniID;
     private int id;
     private String name;
@@ -37,14 +38,17 @@ public class Student {
 
 
 
+    public Boolean indexIsEmpty() {
 
+        return indexes_pi.isEmpty();
+    }
 
     public int getIndex_PersonalInfo() {
-        return index_PersonalInfo;
+        return indexes_pi.pop();
     }
 
     public void setIndex_PersonalInfo(int index_PersonalInfo) {
-        this.index_PersonalInfo = index_PersonalInfo;
+        indexes_pi.push(index_PersonalInfo);
     }
 
     public int getUniID() {

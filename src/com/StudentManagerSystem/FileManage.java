@@ -120,6 +120,7 @@ public class FileManage {
     //update student's personal info records
     public static void updateStudent(Student student) {
 
+
     }
 
     private static String emptyString(int size){
