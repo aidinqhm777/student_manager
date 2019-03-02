@@ -2,40 +2,55 @@
 package com.StudentManagerSystem;
 
 import java.io.File;
-import java.io.IOException;
 
 public class SystemManage {
 
 
-    private static Student studentTmp = new Student();
-
-    private static void addStudent() throws IOException {
-        int uniId = UniIDManage.createNewID();
+    private static Student studentTmp;
+    private static Student updatedStudentTmp;
+    private static void addStudent() {
         int index = IndexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
-        studentTmp.setUniID(uniId);
         BTreeManage.createStudent(studentTmp);
         FileManage.createStudent(studentTmp);
     }
 
 
+
+    public static void loadProgram() {
+        BTreeManage.load();
+        IndexManage.load();
+        IDManage.load();
+    }
+    public static void saveProgram() {
+        BTreeManage.save();
+        IndexManage.save();
+        IDManage.save();
+
+    }
+
     //buttons
-    public static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
+    public static Student searchStudent(String inputKey, String searchField) {
+
         int index;
-        index = BTreeManage.readStudent(inputKey, searchField);
+
+        index = BTreeManage.readStudent(searchField, inputKey);
         studentTmp = FileManage.readStudent(index);
         return studentTmp;
     }
-    public static Student signupStudent() throws IOException {
+    public static Student signupStudent() {
+
+        String uniId = IDManage.createNewID();
         addStudent();
         return studentTmp;
     }
     public static Student updateStudent() {
 
-        FileManage.updateStudent(studentTmp);
-        return studentTmp;
+        BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
+        FileManage.updateStudent(studentTmp, updatedStudentTmp);
+        return updatedStudentTmp;
     }
-    public static Student removeStudent() throws IOException {
+    public static Student removeStudent() {
 
         int index;
         BTreeManage.deleteStudent(studentTmp);
@@ -46,7 +61,12 @@ public class SystemManage {
     }
 
 
+
+
+
+
     //get and set properties
+
     public static void setStudentTmp(Student student) {
 
         studentTmp.setUniID(student.getUniID());
