@@ -1,137 +1,74 @@
-/*
- * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
 package com.StudentManagerSystem;
+
+import java.io.File;
+import java.io.IOException;
 
 public class SystemManage {
 
-    private static class StudentTmp{
 
-        private static String uniID;
-        private static String name;
-        private static String lastname;
-        private static String phoneNum;
-        private static String birthDate;
-        private static String id;
-        private static String index;
+    private static Student studentTmp = new Student();
 
-        public static String getUniID() {
-            return uniID;
-        }
-
-        public static void setUniID(String uniID) {
-            StudentTmp.uniID = uniID;
-        }
-
-        public static String getName() {
-            return name;
-        }
-
-        public static void setName(String name) {
-            StudentTmp.name = name;
-        }
-
-        public static String getLastname() {
-            return lastname;
-        }
-
-        public static void setLastname(String lastname) {
-            StudentTmp.lastname = lastname;
-        }
-
-        public static String getPhoneNum() {
-            return phoneNum;
-        }
-
-        public static void setPhoneNum(String phoneNum) {
-            StudentTmp.phoneNum = phoneNum;
-        }
-
-        public static String getBirthDate() {
-            return birthDate;
-        }
-
-        public static void setBirthDate(String birthDate) {
-            StudentTmp.birthDate = birthDate;
-        }
-
-        public static String getId() {
-            return id;
-        }
-
-        public static void setId(String id) {
-            StudentTmp.id = id;
-        }
-
-        public static String getIndex() {
-            return index;
-        }
-
-        public static void setIndex(String index) {
-            StudentTmp.index = index;
-        }
+    private static void addStudent() throws IOException {
+        int uniId = UniIDManage.createNewID();
+        int index = IndexManage.addStudent();
+        studentTmp.setIndex_PersonalInfo(index);
+        studentTmp.setUniID(uniId);
+        BTreeManage.createStudent(studentTmp);
+        FileManage.createStudent(studentTmp);
     }
-    private static class SubjectTmp{}
 
-    private static void addStudent() {
-
-        String index = IndexManage.addStudent();
-        BTreeManage.addStudent(StudentTmp.uniID,StudentTmp.name,StudentTmp.lastname);
-        FileManage.addStudent(index);
+    public static void loadProgram() {
+        BTreeManage.load();
+        IndexManage.load();
+        UniIDManage.load();
     }
-//    private static void updateStudent() {
-//        String index = StudentTmp.getIndex();
-//        FileManage.updateStudent(StudentTmp.getName(), );
-//    }
-    //finds the possible students and inserts data in studenttmp class
-//    private static String searchByUniID(String uniID) {
-//
-//        int temp = Integer.parseInt(uniID);
-//        BTreeManage.find_StudentUniID(temp);
-//    }
-//    private static String searchByName(String searchField) {}
-//    private static String searchByLastname(String searchField) {}
-//    private static String searchByID(String searchField)
+    public static void saveProgram() {
+        BTreeManage.save();
+        IndexManage.save();
+        UniIDManage.save();
+
+    }
 
     //buttons
-    public static void searchStudent(String inputKey, String searchField) {
-
-        String index;
-        String[] records;
-
-        index = BTreeManage.genericSearch(searchField,inputKey);
-        records = FileManage.readRecords(index);
-        setProps(records[0], records[1], records[2], records[3], records[4], records[5]);
-
+    public static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
+        int index;
+        index = BTreeManage.readStudent(inputKey, searchField);
+        studentTmp = FileManage.readStudent(index);
+        return studentTmp;
     }
-    public static void signupStudent(String name, String lastname, String phoneNum, String birthdate, String id) {
-
-        String uniId = IDManage.createNewID();
-        setProps(uniId, name, lastname, phoneNum, birthdate, id);
+    public static Student signupStudent() throws IOException {
         addStudent();
+        return studentTmp;
     }
-    public static void updateStudent(String name, String lastname, String phoneNum, String birthdate, String id, String uniID) {
+    public static Student updateStudent() {
 
-        setProps(uniID, name, lastname, phoneNum, birthdate, id);
-
-
+        FileManage.updateStudent(studentTmp);
+        return studentTmp;
     }
-    public static void removeStudent() {}
+    public static Student removeStudent() throws IOException {
+
+        int index;
+        BTreeManage.deleteStudent(studentTmp);
+        index = studentTmp.getIndex_PersonalInfo();
+        IndexManage.removeStudent(index);
+        FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the data i considered removed
+        return studentTmp;
+    }
+
 
     //get and set properties
-    private static void setProps(String uniId, String name, String lastname, String phoneNum, String birthdate, String id) {
+    public static void setStudentTmp(Student student) {
 
-        StudentTmp.setUniID(uniId);
-        StudentTmp.setName(name);
-        StudentTmp.setLastname(lastname);
-        StudentTmp.setPhoneNum(phoneNum);
-        StudentTmp.setBirthDate(birthdate);
-        StudentTmp.setId(id);
+        studentTmp.setUniID(student.getUniID());
+        studentTmp.setName(student.getName());
+        studentTmp.setLastname(student.getLastname());
+        studentTmp.setPhoneNum(student.getPhoneNum());
+        studentTmp.setBirthDate(student.getBirthDate());
+        studentTmp.setId(student.getId());
     }
-    public static String[] getProps() {return new String[6];}
+
+    public static Student getStudentTmp() {
+        return studentTmp;
+    }
+
 }

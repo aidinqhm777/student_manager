@@ -8,8 +8,12 @@
 
 package com.StudentManagerSystem;
 
-public class IDManage {
+public class UniIDManage {
 
 
-    public static String createNewID() {return "965367235";}
+    public static Integer createNewID() {return 965367235;}
+
+
+    public static void load() {}
+    public static void save() {}
 }
