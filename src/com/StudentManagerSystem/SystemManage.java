@@ -30,13 +30,14 @@ public class SystemManage {
     }
 
     //buttons
-    public static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
+    public static Student searchStudent(String inputKey, String searchField)
+            throws IOException, ClassNotFoundException, NullPointerException {
         int index;
         index = BTreeManage.readStudent(inputKey, searchField);
         studentTmp = FileManage.readStudent(index);
         return studentTmp;
     }
-    public static Student signupStudent() throws IOException {
+    public static Student signUpStudent() throws IOException {
         addStudent();
         return studentTmp;
     }

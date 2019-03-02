@@ -68,7 +68,7 @@ public class FileManage {
     private static void createStudentBirthdate(int index, Object o)
             throws IOException {
         //   => 1397/01/01
-        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, o, index, String_10bit);
+        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, o, index, String_30bit);
     }
 
 
@@ -113,7 +113,7 @@ public class FileManage {
     private static String readStudentBirthdate(int index)
             throws IOException, ClassNotFoundException {
         //   => 1397/01/01
-        return (String)FileIO.readObjectWithIndex(StudentBirthDate_filePath, index, String_10bit);
+        return (String)FileIO.readObjectWithIndex(StudentBirthDate_filePath, index, String_30bit);
     }
 
 
@@ -168,7 +168,7 @@ public class FileManage {
     private static void deleteStudentBirthdate(int index)
             throws IOException {
         //   => 1397/01/01
-        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, emptyString(String_10bit), index, String_10bit);
+        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, emptyString(String_30bit), index, String_30bit);
     }
 
 

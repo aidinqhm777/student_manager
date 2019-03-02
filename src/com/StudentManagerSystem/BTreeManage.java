@@ -174,7 +174,7 @@ public class BTreeManage {
         return readByStudentUniID(Integer.parseInt(inputKey));
     }
 
-    private static int readByStudentUniID(int input)    {
+    private static int readByStudentUniID(int input) throws NullPointerException {
         return studentUniID_btree.search(input);
     }
     private static int readByStudentName(String input)     {

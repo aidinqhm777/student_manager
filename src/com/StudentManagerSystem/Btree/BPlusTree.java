@@ -53,7 +53,8 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
      *         {@code null} if this tree contains no association for the key
      */
     public V search(K key) {
-        return root.getValue(key);
+        if (root.getValue(key) == null){throw new NullPointerException();}
+        else return root.getValue(key);
     }
 
     /**
