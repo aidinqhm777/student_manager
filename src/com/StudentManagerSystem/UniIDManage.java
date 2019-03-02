@@ -10,8 +10,10 @@ package com.StudentManagerSystem;
 
 public class UniIDManage {
 
+     static int babak =0;
 
-    public static Integer createNewID() {return 965367235;}
+
+    public static Integer createNewID() {return babak++;}
 
 
     public static void load() {}

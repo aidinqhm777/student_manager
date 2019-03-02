@@ -18,7 +18,7 @@ public class IndexManage {
         if (recentlyDeleted.isEmpty()) {
 
             studentCount++;
-            return lineCount++;
+            return ++lineCount;
         }
         else
             return recentlyDeleted.pop();

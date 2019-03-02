@@ -40,6 +40,6 @@ public class Main {
         SystemManage.setStudentTmp(SystemManage.searchStudent("2",""));
         SystemManage.removeStudent();
 
-        System.out.println( SystemManage.searchStudent("1","").getName());
+        System.out.println( SystemManage.searchStudent("0","").getName());
     }
 }
