@@ -118,7 +118,7 @@ public class FileManage {
 
 
     //update student's personal info records
-    public static void updateStudent(Student student) {
+    public static void updateStudent(Student student1, Student student2) {
 
 
     }

@@ -14,14 +14,12 @@ public class Student {
 
     //properties
     private int index_PersonalInfo;
-    private LinkedList<Integer> indexes_pi;
     private int uniID;
     private int id;
     private String name;
     private String lastname;
     private String birthDate;
     private String phoneNum;
-    private static LinkedList<Object> valueHold = new LinkedList<>();
 
     //constructor
     public Student() {
@@ -31,24 +29,12 @@ public class Student {
     //methods
 
 
-
-
-
-
-
-
-
-    public Boolean indexIsEmpty() {
-
-        return indexes_pi.isEmpty();
-    }
-
     public int getIndex_PersonalInfo() {
-        return indexes_pi.pop();
+        return index_PersonalInfo;
     }
 
-    public void setIndex_PersonalInfo(int index_PersonalInfo) {
-        indexes_pi.push(index_PersonalInfo);
+    public void setIndex_PersonalInfo(int input) {
+        index_PersonalInfo = input;
     }
 
     public int getUniID() {

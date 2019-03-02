@@ -54,14 +54,6 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
      */
     public V search(K key) {
 
-        if (this instanceof BPlusTree<String, LinkedList<Integer>>);
-
-        Class<V> a {
-
-        };
-        if (a instanceof LinkedList<Integer>){
-
-        }
         return root.getValue(key);
     }
 
