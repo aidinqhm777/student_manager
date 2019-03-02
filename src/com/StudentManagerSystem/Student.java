@@ -8,9 +8,11 @@
 
 package com.StudentManagerSystem;
 
+import java.util.LinkedList;
+
 public class Student {
 
-
+    //properties
     private int index_PersonalInfo;
     private int uniID;
     private int id;
@@ -18,10 +20,24 @@ public class Student {
     private String lastname;
     private String birthDate;
     private String phoneNum;
+    private static LinkedList<Object> valueHold = new LinkedList<>();
 
+    //constructor
     public Student() {
 
     }
+
+    //methods
+
+
+
+
+
+
+
+
+
+
 
     public int getIndex_PersonalInfo() {
         return index_PersonalInfo;

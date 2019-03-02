@@ -1,47 +1,42 @@
-
 package com.StudentManagerSystem;
 
 import java.io.File;
+import java.io.IOException;
 
 public class SystemManage {
 
 
-    private static Student studentTmp;
+    private static Student studentTmp = new Student();
 
-
-    private static void addStudent() {
+    private static void addStudent() throws IOException {
+        int uniId = UniIDManage.createNewID();
         int index = IndexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
+        studentTmp.setUniID(uniId);
         BTreeManage.createStudent(studentTmp);
         FileManage.createStudent(studentTmp);
     }
 
-
-
     public static void loadProgram() {
         BTreeManage.load();
         IndexManage.load();
-        IDManage.load();
+        UniIDManage.load();
     }
     public static void saveProgram() {
         BTreeManage.save();
         IndexManage.save();
-        IDManage.save();
+        UniIDManage.save();
 
     }
 
     //buttons
-    public static Student searchStudent(String inputKey, String searchField) {
-
+    public static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
         int index;
-
-        index = BTreeManage.readStudent(searchField, inputKey);
+        index = BTreeManage.readStudent(inputKey, searchField);
         studentTmp = FileManage.readStudent(index);
         return studentTmp;
     }
-    public static Student signupStudent() {
-
-        String uniId = IDManage.createNewID();
+    public static Student signupStudent() throws IOException {
         addStudent();
         return studentTmp;
     }
@@ -50,7 +45,7 @@ public class SystemManage {
         FileManage.updateStudent(studentTmp);
         return studentTmp;
     }
-    public static Student removeStudent() {
+    public static Student removeStudent() throws IOException {
 
         int index;
         BTreeManage.deleteStudent(studentTmp);
@@ -61,12 +56,7 @@ public class SystemManage {
     }
 
 
-
-
-
-
     //get and set properties
-
     public static void setStudentTmp(Student student) {
 
         studentTmp.setUniID(student.getUniID());

@@ -4,24 +4,33 @@ import java.util.LinkedList;
 
 public class IndexManage {
 
-    private int studentCount = 0;
-//    private static int[] recentlyDeleted = new int[2000];
-    static LinkedList <Integer> recentlyDeleted = new LinkedList<>();
+    private static int studentCount = 0;
+    private static int lineCount = 0;
+    private static LinkedList <Integer> recentlyDeleted = new LinkedList<>();
 
 
 
     public static void load() {}
     public static void save() {}
 
-    public static int addStudent() {return 1;}
-    public static void removeStudent(int index) {}
+    public static int addStudent() {
 
+        if (recentlyDeleted.isEmpty()) {
 
+            studentCount++;
+            return lineCount++;
+        }
+        else
+            return recentlyDeleted.pop();
+    }
+    public static void removeStudent(int index) {
 
-//    public static void remove(int index){
-
-//        Btree.remove(index);
-//        recentlyDeleted.push(index);
-//    }
+        recentlyDeleted.push(index);
+        studentCount--;
+    }
 
 }
+
+
+
+
