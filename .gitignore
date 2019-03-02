@@ -23,3 +23,6 @@
 hs_err_pid*
 /nbproject/private/
 /build/
+/dist/
+/src/com/StudentManagerSystem/View/ManagerView.java
+/src/com/StudentManagerSystem/View/ManagerView.form

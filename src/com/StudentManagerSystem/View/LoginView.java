@@ -1,4 +1,4 @@
-package com.StudentManagerSystem.view;
+package com.StudentManagerSystem.View;
 
 import java.io.Serializable;
 

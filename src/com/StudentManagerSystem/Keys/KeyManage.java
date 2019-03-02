@@ -1,4 +1,4 @@
-package com.StudentManagerSystem.Keys;
+package Com.StudentManagerSystem.Keys;
 
 public class KeyManage {
 }

@@ -1,6 +1,6 @@
-package com.StudentManagerSystem;
+package Com.StudentManagerSystem;
 
-import com.StudentManagerSystem.Btree.BPlusTree;
+import Com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
 
@@ -101,24 +101,40 @@ public class BTreeManage {
     //add student key and index to BTree
 
     public static void createStudent(Student student) {
-
-        createStudentuniID(student.getUniID() , student.getIndex_PersonalInfo());
+        createStudentUniID(student.getUniID() , student.getIndex_PersonalInfo());
         createStudentLastname(student.getLastname() , student.getIndex_PersonalInfo());
         createStudentName(student.getName() , student.getIndex_PersonalInfo());
         createStudentID(student.getId() , student.getIndex_PersonalInfo());
     }
 
-    private static void createStudentuniID(int uniID, int index) {
-        studentUniID_btree.insert(uniID , index);
+    //TODO: add link list to avoid multiple items
+    private static void createStudentUniID(int uniID, int index) {
+        if (studentUniID_btree.search(uniID) == null){
+            studentUniID_btree.insert(uniID , index);
+        }else{
+            //TODO: add link list to avoid multiple items
+        }
     }
     private static void createStudentID(int id, int index) {
-        studentID_btree.insert(id , index);
+        if (studentID_btree.search(id) == null){
+            studentID_btree.insert(id , index);
+        }else{
+            //TODO: add link list to avoid multiple items
+        }
     }
     private static void createStudentName(String name, int index) {
-        studentName_btree.insert(name , index);
+        if (studentName_btree.search(name) == null){
+            studentName_btree.insert(name , index);
+        }else{
+            //TODO: add link list to avoid multiple items
+        }
     }
     private static void createStudentLastname(String lastname, int index) {
-        studentLastname_btree.insert(lastname , index);
+        if (studentLastname_btree.search(lastname) == null){
+            studentLastname_btree.insert(lastname , index);
+        }else{
+            //TODO: add link list to avoid multiple items
+        }
     }
 
 

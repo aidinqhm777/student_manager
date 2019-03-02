@@ -1,6 +1,6 @@
-package com.StudentManagerSystem;
+package Com.StudentManagerSystem;
 
-import com.StudentManagerSystem.Btree.BPlusTree;
+import Com.StudentManagerSystem.Btree.BPlusTree;
 import java.io.IOException;
 
 public class FileManage {
@@ -12,18 +12,18 @@ public class FileManage {
     private static int INTEGER = 81;
 
     //file paths
-    private static String StudentUniID_filePath = "./src/com/StudentManagerSystem/data/UniID";
-    private static String StudentName_filePath = "./src/com/StudentManagerSystem/data/Name";
-    private static String StudentLastName_filePath = "./src/com/StudentManagerSystem/data/Lastname";
-    private static String StudentBirthDate_filePath = "./src/com/StudentManagerSystem/data/BirthDate";
-    private static String StudentPhoneNum_filePath = "./src/com/StudentManagerSystem/data/PhoneNum";
-    private static String StudentID_filePath = "./src/com/StudentManagerSystem/data/ID";
+    private static String StudentUniID_filePath = "./src/Com/StudentManagerSystem/Data/UniID";
+    private static String StudentName_filePath = "./src/Com/StudentManagerSystem/Data/Name";
+    private static String StudentLastName_filePath = "./src/Com/StudentManagerSystem/Data/Lastname";
+    private static String StudentBirthDate_filePath = "./src/Com/StudentManagerSystem/Data/BirthDate";
+    private static String StudentPhoneNum_filePath = "./src/Com/StudentManagerSystem/Data/PhoneNum";
+    private static String StudentID_filePath = "./src/Com/StudentManagerSystem/Data/ID";
 
 
-    private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/data/Btree_UniID";
-    private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/data/Btree_Name";
-    private static String btree_StudentLastname_filePath = "./src/com/StudentManagerSystem/data/Btree_Lastname";
-    private static String btree_StudentID_filePath = "./src/com/StudentManagerSystem/data/Btree_ID";
+    private static String btree_StudentUniID_filePath = "./src/Com/StudentManagerSystem/Data/Btree_UniID";
+    private static String btree_StudentName_filePath = "./src/Com/StudentManagerSystem/Data/Btree_Name";
+    private static String btree_StudentLastname_filePath = "./src/Com/StudentManagerSystem/Data/Btree_Lastname";
+    private static String btree_StudentID_filePath = "./src/Com/StudentManagerSystem/Data/Btree_ID";
 
 //--------------------------------------------------------------
 //--------------------------------------------------------------

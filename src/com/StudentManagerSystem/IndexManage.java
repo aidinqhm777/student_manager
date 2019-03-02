@@ -1,4 +1,4 @@
-package com.StudentManagerSystem;
+package Com.StudentManagerSystem;
 
 import java.util.LinkedList;
 

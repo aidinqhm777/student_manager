@@ -1,11 +1,11 @@
-package com.StudentManagerSystem.Btree;
+package Com.StudentManagerSystem.Btree;
 
 import java.io.Serializable;
 import java.util.*;
 
 public class BPlusTree<K extends Comparable<? super K>, V> implements Serializable {
 
-    public static enum RangePolicy {
+    public enum RangePolicy {
         EXCLUSIVE, INCLUSIVE
     }
 
@@ -53,8 +53,7 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
      *         {@code null} if this tree contains no association for the key
      */
     public V search(K key) {
-        if (root.getValue(key) == null){throw new NullPointerException();}
-        else return root.getValue(key);
+        return root.getValue(key);
     }
 
     /**

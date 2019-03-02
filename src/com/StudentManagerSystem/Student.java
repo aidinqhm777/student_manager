@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.StudentManagerSystem;
+package Com.StudentManagerSystem;
 
 import java.util.LinkedList;
 
@@ -28,15 +28,6 @@ public class Student {
     }
 
     //methods
-
-
-
-
-
-
-
-
-
 
 
     public int getIndex_PersonalInfo() {

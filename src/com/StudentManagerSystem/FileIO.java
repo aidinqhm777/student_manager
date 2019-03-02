@@ -1,4 +1,4 @@
-package com.StudentManagerSystem;
+package Com.StudentManagerSystem;
 
 import java.io.*;
 
@@ -83,7 +83,7 @@ public class FileIO {
 
     private static void writeIndexToFile(String filePath, byte[] data, int index, int size)
             throws IOException {
-        //check size of input data
+        //check size of input Data
         if (data.length > size) throw new ArrayIndexOutOfBoundsException();
         //add state to file
         writeToFile(filePath, data , (index - 1) * size);

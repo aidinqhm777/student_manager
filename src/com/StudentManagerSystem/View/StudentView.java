@@ -1,4 +1,4 @@
-package com.StudentManagerSystem.view;
+package com.StudentManagerSystem.View;
 
 import java.awt.ComponentOrientation;
 import java.io.Serializable;
@@ -185,9 +185,9 @@ public class StudentView extends javax.swing.JFrame implements Serializable{
                 .addContainerGap())
         );
 
-        jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6});
+        jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6);
 
-        jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {IDLabel, LastNameLabel, MajorLabel, Semseter, Year, jlabelName});
+        jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, IDLabel, LastNameLabel, MajorLabel, Semseter, Year, jlabelName);
 
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

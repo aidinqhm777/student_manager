@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.StudentManagerSystem;
+package Com.StudentManagerSystem;
 
 public class UniIDManage {
 
