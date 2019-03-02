@@ -17,6 +17,17 @@ public class SystemManage {
         FileManage.createStudent(studentTmp);
     }
 
+    public static void loadProgram() {
+        BTreeManage.load();
+        IndexManage.load();
+        UniIDManage.load();
+    }
+    public static void saveProgram() {
+        BTreeManage.save();
+        IndexManage.save();
+        UniIDManage.save();
+
+    }
 
     //buttons
     public static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
