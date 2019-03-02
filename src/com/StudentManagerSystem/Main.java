@@ -36,10 +36,10 @@ public class Main {
         SystemManage.setStudentTmp(s);
         SystemManage.signupStudent();
 
-
-        SystemManage.setStudentTmp(SystemManage.searchStudent("2",""));
+        s = SystemManage.searchStudent("2","");
+        SystemManage.setStudentTmp(s);
         SystemManage.removeStudent();
 
-        System.out.println( SystemManage.searchStudent("0","").getName());
+        System.out.println( SystemManage.searchStudent("2","").getName());
     }
 }

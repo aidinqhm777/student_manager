@@ -199,7 +199,7 @@ public class BTreeManage {
         deleteStudentID(student.getId());
         deleteStudentName(student.getName());
         deleteStudentLastname(student.getLastname());
-        deleteStudentUniID(student.getId());
+        deleteStudentUniID(student.getUniID());
     }
 
     private static void deleteStudentUniID(int UniId)    {
