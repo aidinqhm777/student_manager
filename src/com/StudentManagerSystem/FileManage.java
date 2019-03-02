@@ -116,7 +116,12 @@ public class FileManage {
 
     //all the fucking properties must have a update method , similar method can be seen in BTreeManage class TODO
 
-
+    private static void updateStudentUniID(int a, int b){}
+    private static void updateStudentID(int a, int b){}
+    private static void updateStudentName(String a, String b){}
+    private static void updateStudentLastname(String a, String b){}
+    private static void updateStudentBirthdate(String a, String b){}
+    private static void updateStudentPhoneNum(String a, String b){}
 
 
     //remove student's personal info records
