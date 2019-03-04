@@ -1305,6 +1305,7 @@ public class Manager_View extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addLesson_btnActionPerformed
 
+    //TODO ID duplicated problem
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
         try {
             if (getFormInfo()) {
@@ -1344,8 +1345,8 @@ public class Manager_View extends javax.swing.JFrame {
             studentTemp = searchResult.get(0);
             SystemManage.setStudentTmp(studentTemp);
             setFormInfo();
-        } catch (IOException | ClassNotFoundException e) {
-            showErrorMassage("not found!" + e.getCause());
+        } catch (IOException | ClassNotFoundException | NullPointerException e) {
+            showErrorMassage("not found: " + e.getCause());
         }
 
     }//GEN-LAST:event_search_btnActionPerformed

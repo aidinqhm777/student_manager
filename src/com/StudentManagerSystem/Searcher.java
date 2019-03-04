@@ -10,15 +10,15 @@ public class Searcher {
     private int id = -1;
     private String name;
     private String lastname;
-    private Boolean searchByUniID;
-    private Boolean searchByID;
-    private Boolean searchByName;
-    private Boolean searchByLastname;
+    private Boolean searchByUniID =false;
+    private Boolean searchByID =false;
+    private Boolean searchByName =false;
+    private Boolean searchByLastname =false;
 
-    private LinkedList<Student> students;
-    private LinkedList<Integer> indexes_name;
-    private LinkedList<Integer> indexes_lastname;
-    private LinkedList<Integer> indexes;
+    private LinkedList<Student> students = new LinkedList<>();
+    private LinkedList<Integer> indexes_name = new LinkedList<>();
+    private LinkedList<Integer> indexes_lastname = new LinkedList<>();
+    private LinkedList<Integer> indexes = new LinkedList<>();
 
     public Searcher() {}
 

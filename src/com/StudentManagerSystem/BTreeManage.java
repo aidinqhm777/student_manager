@@ -71,21 +71,21 @@ public class BTreeManage {
     }
     private static void saveBtree_StudentName() {
         try {
-            FileManage.saveBtree_StudentUniID(studentUniID_btree);
+            FileManage.saveBtree_StudentName(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentLastname() {
         try {
-            FileManage.saveBtree_StudentUniID(studentLastname_btree);
+            FileManage.saveBtree_StudentLastName(studentLastname_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentID() {
         try {
-            FileManage.saveBtree_StudentUniID(studentID_btree);
+            FileManage.saveBtree_StudentID(studentID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
@@ -103,13 +103,13 @@ public class BTreeManage {
 
     public static void createStudent(Student student) {
 
-        createStudentuniID(student.getUniID() , student.getIndex_PersonalInfo());
+        createStudentUniID(student.getUniID() , student.getIndex_PersonalInfo());
         createStudentLastname(student.getLastname() , student.getIndex_PersonalInfo());
         createStudentName(student.getName() , student.getIndex_PersonalInfo());
         createStudentID(student.getId() , student.getIndex_PersonalInfo());
     }
 
-    private static void createStudentuniID(int uniID, int index) {
+    private static void createStudentUniID(int uniID, int index) {
         studentUniID_btree.insert(uniID , index);
     }
     private static void createStudentID(int id, int index) {
@@ -117,22 +117,20 @@ public class BTreeManage {
     }
     private static void createStudentName(String name, int index) {
         LinkedList<Integer> tmp = new LinkedList<>();
+//        System.out.println(studentName_btree.search("amir").size());
         if (studentName_btree.search(name) != null) {
-
             tmp = studentName_btree.search(name);
         }
         tmp.push(index);
         studentName_btree.insert(name , tmp);
     }
     private static void createStudentLastname(String lastname, int index) {
-
         LinkedList<Integer> tmp = new LinkedList<>();
-        if (studentName_btree.search(lastname) != null) {
+        if (studentLastname_btree.search(lastname) != null)
+            tmp = studentLastname_btree.search(lastname);
 
-            tmp = studentName_btree.search(lastname);
-        }
         tmp.push(index);
-        studentName_btree.insert(lastname , tmp);
+        studentLastname_btree.insert(lastname , tmp);
     }
 
 
