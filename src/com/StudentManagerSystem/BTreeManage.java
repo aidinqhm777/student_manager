@@ -117,25 +117,21 @@ public class BTreeManage {
     }
     private static void createStudentName(String name, int index) {
         LinkedList<Integer> tmp = new LinkedList<>();
-        if (studentName_btree.search(name) == null) {
-            tmp.push(index);
-        }
-        else {
+        if (studentName_btree.search(name) != null) {
+
             tmp = studentName_btree.search(name);
-            tmp.push(index);
         }
+        tmp.push(index);
         studentName_btree.insert(name , tmp);
     }
     private static void createStudentLastname(String lastname, int index) {
 
         LinkedList<Integer> tmp = new LinkedList<>();
-        if (studentLastname_btree.search(lastname) == null) {
-            tmp.push(index);
+        if (studentName_btree.search(lastname) != null) {
+
+            tmp = studentName_btree.search(lastname);
         }
-        else {
-            tmp = studentLastname_btree.search(lastname);
-            tmp.push(index);
-        }
+        tmp.push(index);
         studentName_btree.insert(lastname , tmp);
     }
 
