@@ -34,28 +34,28 @@ public class BTreeManage {
     private static void loadBtree_StudentUniID() {
         // load btree if empty
         try {
-            if (studentUniID_btree == null) studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentUniID();
+            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentUniID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentID() {
         try {
-            if (studentUniID_btree == null) studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentName();
+           studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentName() {
         try {
-            if (studentName_btree == null) studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentName();
+            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentLastname() {
         try {
-            if (studentLastname_btree == null) studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentLastName();
+            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentLastName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
@@ -64,28 +64,28 @@ public class BTreeManage {
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
         try {
-            if (studentUniID_btree != null) FileManage.saveBtree_StudentUniID(studentUniID_btree);
+           FileManage.saveBtree_StudentUniID(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentName() {
         try {
-            if (studentName_btree != null) FileManage.saveBtree_StudentUniID(studentUniID_btree);
+            FileManage.saveBtree_StudentUniID(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentLastname() {
         try {
-            if (studentLastname_btree != null) FileManage.saveBtree_StudentUniID(studentLastname_btree);
+            FileManage.saveBtree_StudentUniID(studentLastname_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentID() {
         try {
-            if (studentUniID_btree != null) FileManage.saveBtree_StudentUniID(studentID_btree);
+            FileManage.saveBtree_StudentUniID(studentID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
