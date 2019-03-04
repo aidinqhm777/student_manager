@@ -1,4 +1,4 @@
-package com.StudentManagerSystem.View;
+package com.StudentManagerSystem.view;
 
 import com.StudentManagerSystem.SystemManage;
 
