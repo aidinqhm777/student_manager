@@ -2,7 +2,7 @@
  * created by @Amir
  */
 
-package Com.StudentManagerSystem;
+package com.StudentManagerSystem;
 
 import java.io.IOException;
 

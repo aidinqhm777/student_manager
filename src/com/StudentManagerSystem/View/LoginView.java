@@ -1,6 +1,6 @@
-package Com.StudentManagerSystem.View;
+package com.StudentManagerSystem.View;
 
-import Com.StudentManagerSystem.SystemManage;
+import com.StudentManagerSystem.SystemManage;
 
 import java.io.IOException;
 import java.io.Serializable;

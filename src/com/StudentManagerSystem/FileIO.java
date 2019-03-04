@@ -1,4 +1,4 @@
-package Com.StudentManagerSystem;
+package com.StudentManagerSystem;
 
 import java.io.*;
 

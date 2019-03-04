@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package Com.StudentManagerSystem;
+package com.StudentManagerSystem;
 
 import java.util.LinkedList;
 

@@ -1,6 +1,6 @@
-package Com.StudentManagerSystem;
+package com.StudentManagerSystem;
 
-import Com.StudentManagerSystem.Btree.BPlusTree;
+import com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
 

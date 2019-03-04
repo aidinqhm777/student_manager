@@ -1,6 +1,5 @@
-package Com.StudentManagerSystem;
+package com.StudentManagerSystem;
 
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.io.IOException;
 
@@ -53,11 +52,11 @@ public class SystemManage {
         return studentTmp;
     }
 
-    public static Student updateStudent() {
-
-        FileManage.updateStudent(studentTmp);
-        return studentTmp;
-    }
+//    public static Student updateStudent() {
+//
+//        FileManage.updateStudent(studentTmp);
+//        return studentTmp;
+//    }
 
     public static Student removeStudent() throws IOException {
 
