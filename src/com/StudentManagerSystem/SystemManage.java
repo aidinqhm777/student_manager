@@ -11,7 +11,7 @@ public class SystemManage {
     private static Student updatedStudentTmp = new Student();
 
 
-
+    //read and save the program in files
     public static void loadProgram() throws IOException, ClassNotFoundException {
         BTreeManage.load();
         indexManage = FileManage.loadIndexManage();
@@ -63,17 +63,9 @@ public class SystemManage {
         return studentTmp;
     }
 
-
     //get and set properties
-
     public static void setStudentTmp(Student student) {
         studentTmp = student;
-//        studentTmp.setUniID(student.getUniID());
-//        studentTmp.setName(student.getName());
-//        studentTmp.setLastname(student.getLastname());
-//        studentTmp.setPhoneNum(student.getPhoneNum());
-//        studentTmp.setBirthDate(student.getBirthDate());
-//        studentTmp.setId(student.getId());
     }
     public static Student getStudentTmp() {
         return studentTmp;

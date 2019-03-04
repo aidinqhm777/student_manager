@@ -29,6 +29,7 @@ public class Searcher {
     public int popIndexes() {return 1;}
     //TODO important
     public void matchFoundIndexes(){}
+
     //-----------------------------------------------
     //-----------------------------------------------
     //-----------------------------------------------

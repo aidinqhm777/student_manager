@@ -13,9 +13,7 @@ public class IndexManage implements Serializable {
     public void load() {
 
     }
-
-    public void save() {
-    }
+    public void save() {}
 
     public int addStudent() {
 
@@ -26,7 +24,6 @@ public class IndexManage implements Serializable {
         } else
             return recentlyDeleted.pop();
     }
-
     public void removeStudent(int index) {
 
         recentlyDeleted.push(index);
