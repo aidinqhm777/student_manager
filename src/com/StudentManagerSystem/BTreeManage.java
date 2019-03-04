@@ -127,13 +127,11 @@ public class BTreeManage {
     private static void createStudentLastname(String lastname, int index) {
 
         LinkedList<Integer> tmp = new LinkedList<>();
-        if (studentLastname_btree.search(lastname) == null) {
-            tmp.push(index);
+        if (studentName_btree.search(lastname) != null) {
+
+            tmp = studentName_btree.search(lastname);
         }
-        else {
-            tmp = studentLastname_btree.search(lastname);
-            tmp.push(index);
-        }
+        tmp.push(index);
         studentName_btree.insert(lastname , tmp);
     }
 
