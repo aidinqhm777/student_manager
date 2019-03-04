@@ -4,6 +4,8 @@
 
 package com.StudentManagerSystem;
 
+import com.StudentManagerSystem.Btree.BPlusTree;
+
 import java.io.IOException;
 
 public class Main {
@@ -39,6 +41,12 @@ public class Main {
 //        SystemManage.removeStudent();
 //
 //        System.out.println( SystemManage.searchStudent("0","").getName());
-        long t = 10;
-    }
+        BPlusTree<Integer,Integer> a = new BPlusTree<>();
+        a.insert(1,2);
+        a.insert(1,3);
+        System.out.println(a.search(5));
+
+
+
+            }
 }

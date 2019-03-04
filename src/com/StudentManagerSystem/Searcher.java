@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 public class Searcher {
 
+    private int index;
     private int uniID;
     private int id;
     private String name;
@@ -15,7 +16,6 @@ public class Searcher {
     private Boolean searchByLastname;
 
     private LinkedList<Student> students;
-    private int index;
     private LinkedList<Integer> indexes_name;
     private LinkedList<Integer> indexes_lastname;
     private LinkedList<Integer> indexes;
@@ -27,6 +27,7 @@ public class Searcher {
     public void pushIndexes() {}
     public Student popStudent() {return new Student();}
     public int popIndexes() {return 1;}
+    //TODO important
     public void matchFoundIndexes(){}
 
     //-----------------------------------------------
