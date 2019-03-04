@@ -1,33 +1,28 @@
 package com.StudentManagerSystem;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 
 public class SystemManage {
 
-
+    private static IndexManage indexManage = new IndexManage();
+    private static UniIDManage uniIDManage = new UniIDManage();
     private static Student studentTmp = new Student();
     private static Student updatedStudentTmp = new Student();
 
 
-    private static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
-        int index;
-        index = BTreeManage.readStudent(inputKey, searchField);
-        studentTmp = FileManage.readStudent(index);
-        return studentTmp;
-    }
 
-    public static void loadProgram() {
+    public static void loadProgram() throws IOException, ClassNotFoundException {
         BTreeManage.load();
-        IndexManage.load();
-        UniIDManage.load();
+        indexManage = FileManage.loadIndexManage();
+        uniIDManage = FileManage.loadUniIDManage();
     }
-    public static void saveProgram() {
-        BTreeManage.save();
-        IndexManage.save();
-        UniIDManage.save();
 
+    public static void saveProgram() throws IOException {
+
+        BTreeManage.save();
+        FileManage.saveIndexManage(indexManage);
+        FileManage.saveUniIDManage(uniIDManage);
     }
 
     //buttons
@@ -42,15 +37,15 @@ public class SystemManage {
         return foundSearch.getStudents();
     }
     public static Student signupStudent() throws IOException {
-        int uniId = UniIDManage.createNewID();
-        int index = IndexManage.addStudent();
+        int uniId = uniIDManage.createNewID();
+        int index = indexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
         studentTmp.setUniID(uniId);
         BTreeManage.createStudent(studentTmp);
         FileManage.createStudent(studentTmp);
         return studentTmp;
     }
-    public static Student updateStudent() {
+    public static Student updateStudent() throws IOException {
 
         FileManage.updateStudent(studentTmp, updatedStudentTmp);
         BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
@@ -63,7 +58,7 @@ public class SystemManage {
         int index;
         index = studentTmp.getIndex_PersonalInfo();
         BTreeManage.deleteStudent(studentTmp);
-        IndexManage.removeStudent(index);
+        indexManage.removeStudent(index);
         FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the data i considered removed
         return studentTmp;
     }
@@ -84,7 +79,7 @@ public class SystemManage {
         return studentTmp;
     }
     public static void setUpdatedStudentTmp(Student student) {
-         updatedStudentTmp = student;
+        updatedStudentTmp = student;
     }
     public static void setSearcher() {}
 

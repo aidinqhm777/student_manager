@@ -20,19 +20,19 @@ public class FileManage {
     private static int phoneNumberSize = String_20bit;
 
     //file paths
-    private static String StudentUniID_filePath = "./src/Com/StudentManagerSystem/Data/UniID";
-    private static String StudentName_filePath = "./src/Com/StudentManagerSystem/Data/Name";
-    private static String StudentLastName_filePath = "./src/Com/StudentManagerSystem/Data/Lastname";
-    private static String StudentBirthDate_filePath = "./src/Com/StudentManagerSystem/Data/BirthDate";
-    private static String StudentPhoneNum_filePath = "./src/Com/StudentManagerSystem/Data/PhoneNum";
-    private static String StudentID_filePath = "./src/Com/StudentManagerSystem/Data/ID";
+    private static String StudentUniID_filePath = "./src/com/StudentManagerSystem/Data/UniID";
+    private static String StudentName_filePath = "./src/com/StudentManagerSystem/Data/Name";
+    private static String StudentLastName_filePath = "./src/com/StudentManagerSystem/Data/Lastname";
+    private static String StudentBirthDate_filePath = "./src/com/StudentManagerSystem/Data/BirthDate";
+    private static String StudentPhoneNum_filePath = "./src/com/StudentManagerSystem/Data/PhoneNum";
+    private static String StudentID_filePath = "./src/com/StudentManagerSystem/Data/ID";
 
-    private static String btree_StudentUniID_filePath = "./src/Com/StudentManagerSystem/Data/Btree_UniID";
-    private static String btree_StudentName_filePath = "./src/Com/StudentManagerSystem/Data/Btree_Name";
-    private static String btree_StudentLastName_filePath = "./src/Com/StudentManagerSystem/Data/Btree_Lastname";
-    private static String btree_StudentID_filePath = "./src/Com/StudentManagerSystem/Data/Btree_ID";
-    private static String class_UniIDManage_filePath = "./src/Com/StudentManagerSystem/Data/UniIDManage";
-    private static String class_IndexManage_filePath = "./src/Com/StudentManagerSystem/Data/IndexManage";
+    private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/Data/Btree_UniID";
+    private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/Data/Btree_Name";
+    private static String btree_StudentLastName_filePath = "./src/com/StudentManagerSystem/Data/Btree_Lastname";
+    private static String btree_StudentID_filePath = "./src/com/StudentManagerSystem/Data/Btree_ID";
+    private static String class_UniIDManage_filePath = "./src/com/StudentManagerSystem/Data/UniIDManage";
+    private static String class_IndexManage_filePath = "./src/com/StudentManagerSystem/Data/IndexManage";
 
 //--------------------------------------------------------------
 //--------------------------------------------------------------
@@ -130,7 +130,7 @@ public class FileManage {
         return (String) FileIO.readObjectWithIndex(StudentBirthDate_filePath, index, birthdateSize);
     }
 
-    //TODO fix it
+
     public static void updateStudent(Student studentBefore, Student studentAfter) throws IOException {
         if (studentBefore.getId() != studentAfter.getId())
             updateStudentID(studentAfter.getId(),studentAfter.getIndex_PersonalInfo());
@@ -151,32 +151,27 @@ public class FileManage {
             updateStudentBirthdate(studentAfter.getBirthDate(), studentAfter.getIndex_PersonalInfo());
     }
 
-    public static void updateStudentName(String name, int index)
+    private static void updateStudentName(String name, int index)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, name, index, nameSize);
     }
-
-    public static void updateStudentLastName(String lastName, int index)
+    private static void updateStudentLastName(String lastName, int index)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, lastName, index, lastNameSize);
     }
-
-    public static void updateStudentUniID(int uniID, int index)
+    private static void updateStudentUniID(int uniID, int index)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, uniID, index, uniIDSize);
     }
-
-    public static void updateStudentID(int ID, int index)
+    private static void updateStudentID(int ID, int index)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, ID, index, IDSize);
     }
-
-    public static void updateStudentPhoneNumber(String phoneNumber, int index)
+    private static void updateStudentPhoneNumber(String phoneNumber, int index)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, phoneNumber, index, phoneNumberSize);
     }
-
-    public static void updateStudentBirthdate(String birthdate, int index)
+    private static void updateStudentBirthdate(String birthdate, int index)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, birthdate, index, birthdateSize);
     }

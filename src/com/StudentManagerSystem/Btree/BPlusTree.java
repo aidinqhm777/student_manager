@@ -1,4 +1,4 @@
-package Com.StudentManagerSystem.Btree;
+package com.StudentManagerSystem.Btree;
 
 import java.io.Serializable;
 import java.util.*;
