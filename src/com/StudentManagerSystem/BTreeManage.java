@@ -41,7 +41,7 @@ public class BTreeManage {
     }
     private static void loadBtree_StudentID() {
         try {
-           studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentName();
+           studentID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
@@ -71,7 +71,7 @@ public class BTreeManage {
     }
     private static void saveBtree_StudentName() {
         try {
-            FileManage.saveBtree_StudentName(studentUniID_btree);
+            FileManage.saveBtree_StudentName(studentName_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }

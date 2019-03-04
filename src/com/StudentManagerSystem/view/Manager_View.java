@@ -1401,7 +1401,11 @@ public class Manager_View extends javax.swing.JFrame {
     }//GEN-LAST:event_editLesson_btnActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-
+        try {
+            SystemManage.saveProgram();
+        } catch (IOException e) {
+            showErrorMassage("error in save file");
+        }
     }//GEN-LAST:event_formWindowClosing
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed

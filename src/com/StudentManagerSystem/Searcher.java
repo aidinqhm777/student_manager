@@ -41,19 +41,26 @@ public class Searcher {
     public void matchFoundIndexes(){
 
         indexes.clear();
-        if (!searchByID && !searchByUniID) {
-
-            for (int i = 0; i < indexes_name.size(); i++) {
-                for (int j = 0; j < indexes_lastname.size(); j++) {
-                    if (indexes_lastname.get(i).equals(indexes_name.get(j))) {
-                        indexes.add(indexes_lastname.get(i));
+        if ((searchByID && !searchByUniID) || (!searchByID && searchByUniID)){
+            indexes.push(index);
+        }
+        else if(searchByName && !searchByLastname) {
+            indexes = indexes_name;
+        }
+        else if(!searchByName && searchByLastname) {
+            indexes = indexes_lastname;
+        }
+        else{
+            for (Integer anIndexes_name : indexes_name) {
+                for (Integer anIndexes_lastname : indexes_lastname) {
+                    if (anIndexes_name.equals(anIndexes_lastname)) {
+                        indexes.add(anIndexes_name);
                         break;
                     }
                 }
             }
         }
-        else
-            indexes.push(index);
+
     }
 
     //-----------------------------------------------
