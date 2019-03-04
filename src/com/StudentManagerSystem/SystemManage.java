@@ -11,12 +11,6 @@ public class SystemManage {
     private static Student updatedStudentTmp = new Student();
 
 
-    private static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
-        int index;
-        index = BTreeManage.readStudent(inputKey, searchField);
-        studentTmp = FileManage.readStudent(index);
-        return studentTmp;
-    }
 
     public static void loadProgram() {
         BTreeManage.load();
@@ -50,7 +44,7 @@ public class SystemManage {
         FileManage.createStudent(studentTmp);
         return studentTmp;
     }
-    public static Student updateStudent() {
+    public static Student updateStudent() throws IOException {
 
         FileManage.updateStudent(studentTmp, updatedStudentTmp);
         BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
