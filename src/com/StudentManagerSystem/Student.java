@@ -20,7 +20,6 @@ public class Student {
     private String lastname;
     private String birthDate;
     private String phoneNum;
-    private static LinkedList<Object> valueHold = new LinkedList<>();
 
     //constructor
     public Student() {
@@ -30,12 +29,21 @@ public class Student {
     //methods
 
 
+
+
+
+
+
+
+
+
+
     public int getIndex_PersonalInfo() {
         return index_PersonalInfo;
     }
 
-    public void setIndex_PersonalInfo(int index_PersonalInfo) {
-        this.index_PersonalInfo = index_PersonalInfo;
+    public void setIndex_PersonalInfo(int input) {
+        index_PersonalInfo = input;
     }
 
     public int getUniID() {
