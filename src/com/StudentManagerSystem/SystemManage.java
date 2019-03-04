@@ -9,31 +9,7 @@ public class SystemManage {
 
     private static Student studentTmp = new Student();
     private static Student updatedStudentTmp = new Student();
-    public static class Searcher {
 
-        private static int uniID;
-        private static int id;
-        private static String name;
-        private static String lastname;
-
-        private static LinkedList<Student> students;
-
-        public static LinkedList<Student> searchMatches() {
-
-            if (uniID != -1){
-
-                BTreeManage.readStudent()
-            }
-            else if () {
-
-            }
-
-            else if () {
-
-            }
-            return students;
-        }
-    }
 
     private static Student searchStudent(String inputKey, String searchField) throws IOException, ClassNotFoundException {
         int index;
@@ -55,8 +31,15 @@ public class SystemManage {
     }
 
     //buttons
-    public static Student searchStudent() {
-        return studentTmp;
+    public static LinkedList<Student> searchStudent(Searcher searcher) throws IOException, ClassNotFoundException {
+
+        Searcher foundSearch = BTreeManage.readStudent(searcher);
+        foundSearch.matchFoundIndexes();
+        while (!foundSearch.getIndexes().isEmpty()) {
+            Student tmp = FileManage.readStudent(foundSearch.popIndexes());
+            foundSearch.pushStudent(tmp);
+        }
+        return foundSearch.getStudents();
     }
     public static Student signupStudent() throws IOException {
         int uniId = UniIDManage.createNewID();

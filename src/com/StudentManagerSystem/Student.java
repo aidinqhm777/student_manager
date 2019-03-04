@@ -29,6 +29,7 @@ public class Student {
     //methods
 
 
+
     public int getIndex_PersonalInfo() {
         return index_PersonalInfo;
     }
