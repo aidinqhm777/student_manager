@@ -26,25 +26,14 @@ public class FileIO {
         else
             return FileIO.bytesToObject(readIndexFromFile(filepath, index, size));
     }
-
     public static void writeObjectWithIndex(String filepath, Object o, int index, int size)
             throws IOException {
-
         byte[] b = FileIO.objectToByte(o);
-        FileIO.writeIndexToFile(filepath, b, index, size);
-    }
-
-    public static void writeObjectWithIndex(String filepath, Object o, int index)
-            throws IOException {
-        byte[] b = FileIO.objectToByte(o);
-        //automatic size
-        int size = b.length;
         FileIO.writeIndexToFile(filepath, b, index, size);
     }
 
     public static void cleanIndex(String filepath, int index, int size)
             throws IOException {
-
         byte[] b = new byte[size];
         writeIndexToFile(filepath, b, index, size);
     }
@@ -111,4 +100,13 @@ public class FileIO {
         in.close();
         return o;
     }
+
+
+    //    public static void writeObjectWithIndex(String filepath, Object o, int index)
+//            throws IOException {
+//        byte[] b = FileIO.objectToByte(o);
+//        //automatic size
+//        int size = b.length;
+//        FileIO.writeIndexToFile(filepath, b, index, size);
+//    }
 }

@@ -11,13 +11,12 @@ public class SystemManage {
     private static Student updatedStudentTmp = new Student();
 
 
-
+    //read and save the program in files
     public static void loadProgram() throws IOException, ClassNotFoundException {
         BTreeManage.load();
         indexManage = FileManage.loadIndexManage();
         uniIDManage = FileManage.loadUniIDManage();
     }
-
     public static void saveProgram() throws IOException {
 
         BTreeManage.save();
@@ -58,22 +57,15 @@ public class SystemManage {
         int index;
         index = studentTmp.getIndex_PersonalInfo();
         BTreeManage.deleteStudent(studentTmp);
+
         indexManage.removeStudent(index);
         FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the data i considered removed
         return studentTmp;
     }
 
-
     //get and set properties
-
     public static void setStudentTmp(Student student) {
         studentTmp = student;
-//        studentTmp.setUniID(student.getUniID());
-//        studentTmp.setName(student.getName());
-//        studentTmp.setLastname(student.getLastname());
-//        studentTmp.setPhoneNum(student.getPhoneNum());
-//        studentTmp.setBirthDate(student.getBirthDate());
-//        studentTmp.setId(student.getId());
     }
     public static Student getStudentTmp() {
         return studentTmp;
@@ -81,6 +73,5 @@ public class SystemManage {
     public static void setUpdatedStudentTmp(Student student) {
         updatedStudentTmp = student;
     }
-    public static void setSearcher() {}
 
 }

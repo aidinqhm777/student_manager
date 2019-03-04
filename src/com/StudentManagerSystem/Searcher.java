@@ -5,29 +5,64 @@ import java.util.LinkedList;
 
 public class Searcher {
 
-    private int uniID;
-    private int id;
+    private int index = -1;
+    private int uniID = -1;
+    private int id = -1;
     private String name;
     private String lastname;
-    private Boolean searchByUniID;
-    private Boolean searchByID;
-    private Boolean searchByName;
-    private Boolean searchByLastname;
+    private Boolean searchByUniID =false;
+    private Boolean searchByID =false;
+    private Boolean searchByName =false;
+    private Boolean searchByLastname =false;
 
-    private LinkedList<Student> students;
-    private int index;
-    private LinkedList<Integer> indexes_name;
-    private LinkedList<Integer> indexes_lastname;
-    private LinkedList<Integer> indexes;
+    private LinkedList<Student> students = new LinkedList<>();
+    private LinkedList<Integer> indexes_name = new LinkedList<>();
+    private LinkedList<Integer> indexes_lastname = new LinkedList<>();
+    private LinkedList<Integer> indexes = new LinkedList<>();
 
     public Searcher() {}
 
-    public static void reset() {}
-    public void pushStudent(Student student) {}
-    public void pushIndexes() {}
-    public Student popStudent() {return new Student();}
-    public int popIndexes() {return 1;}
-    public void matchFoundIndexes(){}
+    public void reset() {
+
+        searchByID = false;
+        searchByName = false;
+        searchByLastname = false;
+        searchByUniID = false;
+    }
+    public void pushStudent(Student student) {
+        students.push(student);
+    }
+    public void pushIndexes(int index) {
+        indexes.push(index);
+    }
+    public Student popStudent() {return students.pop();}
+    public int popIndexes() {return indexes.pop();}
+    //TODO important
+    public void matchFoundIndexes(){
+
+        indexes.clear();
+        if ((searchByID && !searchByUniID) || (!searchByID && searchByUniID)){
+            indexes.push(index);
+        }
+        else if(searchByName && !searchByLastname) {
+            indexes = indexes_name;
+        }
+        else if(!searchByName && searchByLastname) {
+            indexes = indexes_lastname;
+        }
+        else{
+            for (Integer anIndexes_name : indexes_name) {
+                for (Integer anIndexes_lastname : indexes_lastname) {
+                    if (anIndexes_name.equals(anIndexes_lastname)) {
+                        indexes.add(anIndexes_name);
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+
     //-----------------------------------------------
     //-----------------------------------------------
     //-----------------------------------------------
