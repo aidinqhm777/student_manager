@@ -145,11 +145,13 @@ public class BTreeManage {
             searcher.setIndex(readByStudentUniID(searcher.getUniID()));
         else if (searcher.getSearchByID())
             searcher.setIndex(readByStudentID(searcher.getId()));
-        if (searcher.getSearchByName())
-            searcher.setIndexes_name(readByStudentName(searcher.getName()));
-        if (searcher.getSearchByLastname())
-            searcher.setIndexes_lastname(readByStudentLastname(searcher.getLastname()));
+        else {
 
+            if (searcher.getSearchByName())
+                searcher.setIndexes_name(readByStudentName(searcher.getName()));
+            if (searcher.getSearchByLastname())
+                searcher.setIndexes_lastname(readByStudentLastname(searcher.getLastname()));
+        }
         return searcher;
 
     }

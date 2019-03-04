@@ -5,9 +5,9 @@ import java.util.LinkedList;
 
 public class Searcher {
 
-    private int index;
-    private int uniID;
-    private int id;
+    private int index = -1;
+    private int uniID = -1;
+    private int id = -1;
     private String name;
     private String lastname;
     private Boolean searchByUniID;
@@ -22,13 +22,39 @@ public class Searcher {
 
     public Searcher() {}
 
-    public static void reset() {}
-    public void pushStudent(Student student) {}
-    public void pushIndexes() {}
-    public Student popStudent() {return new Student();}
-    public int popIndexes() {return 1;}
+    public void reset() {
+
+        searchByID = false;
+        searchByName = false;
+        searchByLastname = false;
+        searchByUniID = false;
+    }
+    public void pushStudent(Student student) {
+        students.push(student);
+    }
+    public void pushIndexes(int index) {
+        indexes.push(index);
+    }
+    public Student popStudent() {return students.pop();}
+    public int popIndexes() {return indexes.pop();}
     //TODO important
-    public void matchFoundIndexes(){}
+    public void matchFoundIndexes(){
+
+        indexes.clear();
+        if (!searchByID && !searchByUniID) {
+
+            for (int i = 0; i < indexes_name.size(); i++) {
+                for (int j = 0; j < indexes_lastname.size(); j++) {
+                    if (indexes_lastname.get(i).equals(indexes_name.get(j))) {
+                        indexes.add(indexes_lastname.get(i));
+                        break;
+                    }
+                }
+            }
+        }
+        else
+            indexes.push(index);
+    }
 
     //-----------------------------------------------
     //-----------------------------------------------
