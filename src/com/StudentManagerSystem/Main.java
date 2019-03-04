@@ -40,6 +40,5 @@ public class Main {
 //
 //        System.out.println( SystemManage.searchStudent("0","").getName());
         long t = 10;
-        FileIO.writeObjectWithIndex("/File", t, 1);
     }
 }

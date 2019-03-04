@@ -53,30 +53,25 @@ public class FileManage {
             throws IOException {
         FileIO.writeObjectWithIndex(StudentName_filePath, o, index, nameSize);
     }
-
     private static void createStudentLastname(int index, Object o)
             throws IOException {
         FileIO.writeObjectWithIndex(StudentLastName_filePath, o, index, lastNameSize);
     }
-
     private static void createStudentUniID(int index, Object o)
             throws IOException {
         // 1111111111
         FileIO.writeObjectWithIndex(StudentUniID_filePath, o, index, uniIDSize);
     }
-
     private static void createStudentID(int index, Object o)
             throws IOException {
         // 1111111111
         FileIO.writeObjectWithIndex(StudentID_filePath, o, index, IDSize);
     }
-
     private static void createStudentPhoneNum(int index, Object o)
             throws IOException {
         // 414223355
         FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, o, index, phoneNumberSize);
     }
-
     private static void createStudentBirthdate(int index, Object o)
             throws IOException {
         //   => 1397/01/01
@@ -100,30 +95,25 @@ public class FileManage {
             throws IOException, ClassNotFoundException {
         return (String) FileIO.readObjectWithIndex(StudentName_filePath, index, nameSize);
     }
-
     private static String readStudentLastname(int index)
             throws IOException, ClassNotFoundException {
         return (String) FileIO.readObjectWithIndex(StudentLastName_filePath, index, lastNameSize);
     }
-
     private static int readStudentUniID(int index)
             throws IOException, ClassNotFoundException {
         // 1111111111
         return (Integer) FileIO.readObjectWithIndex(StudentUniID_filePath, index, uniIDSize);
     }
-
     private static int readStudentID(int index)
             throws IOException, ClassNotFoundException {
         // 1111111111
         return (Integer) FileIO.readObjectWithIndex(StudentID_filePath, index, IDSize);
     }
-
     private static String readStudentPhoneNum(int index)
             throws IOException, ClassNotFoundException {
         // 414223355
         return (String) FileIO.readObjectWithIndex(StudentPhoneNum_filePath, index, phoneNumberSize);
     }
-
     private static String readStudentBirthdate(int index)
             throws IOException, ClassNotFoundException {
         //   => 1397/01/01
@@ -190,43 +180,37 @@ public class FileManage {
 
     private static void deleteStudentName(int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, emptyString(nameSize), index, nameSize);
+        FileIO.cleanIndex(StudentName_filePath, index, nameSize);
     }
-
     private static void deleteStudentLastname(int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentLastName_filePath, emptyString(lastNameSize), index, lastNameSize);
+        FileIO.cleanIndex(StudentLastName_filePath, index, lastNameSize);
     }
-
     private static void deleteStudentUniID(int index)
             throws IOException {
         // 1111111111
-        FileIO.writeObjectWithIndex(StudentUniID_filePath, emptyInteger(), index, uniIDSize);
+        FileIO.cleanIndex(StudentUniID_filePath, index, uniIDSize);
     }
-
     private static void deleteStudentID(int index)
             throws IOException {
         // 1111111111
-        FileIO.writeObjectWithIndex(StudentID_filePath, emptyInteger(), index, IDSize);
+        FileIO.cleanIndex(StudentID_filePath, index, IDSize);
     }
-
     private static void deleteStudentPhoneNum(int index)
             throws IOException {
         // 414223355
-        FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, emptyString(phoneNumberSize), index, phoneNumberSize);
+        FileIO.cleanIndex(StudentPhoneNum_filePath, index, phoneNumberSize);
     }
-
     private static void deleteStudentBirthdate(int index)
             throws IOException {
         //   => 1397/01/01
-        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, emptyString(birthdateSize), index, birthdateSize);
+        FileIO.cleanIndex(StudentBirthDate_filePath, index, birthdateSize);
     }
 
 
     private static String emptyString(int size) {
         return String.format("%" + (size - 7) + "s", "");
     }
-
     private static Integer emptyInteger() {
         return 0;
     }
@@ -237,17 +221,14 @@ public class FileManage {
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentName_filePath);
     }
-
     public static BPlusTree loadBtree_StudentLastName()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentLastName_filePath);
     }
-
     public static BPlusTree loadBtree_StudentID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentID_filePath);
     }
-
     public static BPlusTree loadBtree_StudentUniID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
@@ -258,17 +239,14 @@ public class FileManage {
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentName_filePath, o);
     }
-
     public static void saveBtree_StudentLastName(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentLastName_filePath, o);
     }
-
     public static void saveBtree_StudentID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentID_filePath, o);
     }
-
     public static void saveBtree_StudentUniID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentUniID_filePath, o);
@@ -279,17 +257,14 @@ public class FileManage {
             throws IOException, ClassNotFoundException {
         return (UniIDManage) FileIO.readAnObjectFromFile(class_UniIDManage_filePath);
     }
-
     public static IndexManage loadIndexManage()
             throws IOException, ClassNotFoundException {
         return (IndexManage) FileIO.readAnObjectFromFile(class_IndexManage_filePath);
     }
-
     public static void saveUniIDManage(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(class_UniIDManage_filePath, o);
     }
-
     public static void saveIndexManage(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(class_IndexManage_filePath, o);

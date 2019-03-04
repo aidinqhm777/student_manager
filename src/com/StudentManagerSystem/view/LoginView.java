@@ -182,15 +182,7 @@ public class LoginView extends javax.swing.JFrame implements Serializable {
 
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        try {
-            if (SystemManage.searchStudent(ussernameField.getText(),"name") != null
-                    &&  SystemManage.searchStudent(PasswordFild.getText(),"Password") != null){
-            }else{
 
-            }
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

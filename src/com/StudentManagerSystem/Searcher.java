@@ -28,6 +28,7 @@ public class Searcher {
     public Student popStudent() {return new Student();}
     public int popIndexes() {return 1;}
     public void matchFoundIndexes(){}
+
     //-----------------------------------------------
     //-----------------------------------------------
     //-----------------------------------------------

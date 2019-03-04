@@ -22,22 +22,9 @@ public class Student {
     private String phoneNum;
 
     //constructor
-    public Student() {
-
-    }
+    public Student() { }
 
     //methods
-
-
-
-
-
-
-
-
-
-
-
     public int getIndex_PersonalInfo() {
         return index_PersonalInfo;
     }
