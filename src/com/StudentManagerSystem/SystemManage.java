@@ -64,7 +64,7 @@ public class SystemManage {
         index = studentTmp.getIndex_PersonalInfo();
         BTreeManage.deleteStudent(studentTmp);
         indexManage.removeStudent(index);
-        FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the Data i considered removed
+        FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the data i considered removed
         return studentTmp;
     }
 
