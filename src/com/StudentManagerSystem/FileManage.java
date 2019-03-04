@@ -1,6 +1,6 @@
-package Com.StudentManagerSystem;
+package com.StudentManagerSystem;
 
-import Com.StudentManagerSystem.Btree.BPlusTree;
+import com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
 
@@ -130,7 +130,7 @@ public class FileManage {
         return (String) FileIO.readObjectWithIndex(StudentBirthDate_filePath, index, birthdateSize);
     }
 
-//TODO fix it
+    //TODO fix it
     public static void updateStudent(Student studentBefore, Student studentAfter) throws IOException {
         if (studentBefore.getId() != studentAfter.getId())
             updateStudentID(studentAfter.getId(),studentAfter.getIndex_PersonalInfo());
