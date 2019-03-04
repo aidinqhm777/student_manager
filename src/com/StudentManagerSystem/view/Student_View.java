@@ -4,10 +4,10 @@ import java.awt.ComponentOrientation;
 import java.io.Serializable;
 
 
-public class StudentView extends javax.swing.JFrame implements Serializable {
+public class Student_View extends javax.swing.JFrame implements Serializable {
 
 
-    public StudentView() {
+    public Student_View() {
 
 
         initComponents();
@@ -792,19 +792,19 @@ public class StudentView extends javax.swing.JFrame implements Serializable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Com.StudentManagerSystem.View.Student_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Com.StudentManagerSystem.View.Student_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Com.StudentManagerSystem.View.Student_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Com.StudentManagerSystem.View.Student_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentView().setVisible(true);
+                new Com.StudentManagerSystem.View.Student_View().setVisible(true);
 
             }
         });

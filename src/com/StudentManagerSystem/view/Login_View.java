@@ -1,14 +1,11 @@
 package com.StudentManagerSystem.view;
 
-import com.StudentManagerSystem.SystemManage;
-
-import java.io.IOException;
 import java.io.Serializable;
 
 
-public class LoginView extends javax.swing.JFrame implements Serializable {
+public class Login_View extends javax.swing.JFrame implements Serializable {
 
-    public LoginView() {
+    public Login_View() {
         initComponents();
     }
 
@@ -30,11 +27,11 @@ public class LoginView extends javax.swing.JFrame implements Serializable {
         label_login = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("StudentView control system");
+        setTitle("Student_View control system");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setName("LoginView"); // NOI18N
+        setName("Login_View"); // NOI18N
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -46,7 +43,7 @@ public class LoginView extends javax.swing.JFrame implements Serializable {
 
         label_info.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         label_info.setForeground(new java.awt.Color(153, 153, 153));
-        label_info.setText("StudentView control system");
+        label_info.setText("Student_View control system");
 
         jPanel1.setBackground(new java.awt.Color(188, 233, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -66,7 +63,7 @@ public class LoginView extends javax.swing.JFrame implements Serializable {
         label_username.setText("Username:");
 
         StateFilde.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        StateFilde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"StudentView", "Admin"}));
+        StateFilde.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Student_View", "Admin"}));
 
         PasswordFild.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         PasswordFild.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -218,20 +215,20 @@ public class LoginView extends javax.swing.JFrame implements Serializable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginView().setVisible(true);
+                new Login_View().setVisible(true);
             }
         });
     }
