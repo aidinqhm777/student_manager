@@ -12,7 +12,7 @@ public class FileManage {
     private static int String_30bit = 37;
     private static int INTEGER = 81;
 
-    private static int nameSize = String_10bit;
+    private static int nameSize = String_30bit;
     private static int lastNameSize = String_30bit;
     private static int IDSize = INTEGER;
     private static int uniIDSize = INTEGER;
@@ -130,9 +130,25 @@ public class FileManage {
         return (String) FileIO.readObjectWithIndex(StudentBirthDate_filePath, index, birthdateSize);
     }
 
+//TODO fix it
+    public static void updateStudent(Student studentBefore, Student studentAfter) throws IOException {
+        if (studentBefore.getId() != studentAfter.getId())
+            updateStudentID(studentAfter.getId(),studentAfter.getIndex_PersonalInfo());
 
-    public static void updateStudent(Student student) {
-        //why??
+        if (studentBefore.getUniID() != studentAfter.getUniID())
+            updateStudentUniID(studentAfter.getUniID(), studentAfter.getIndex_PersonalInfo());
+
+        if (!studentBefore.getName().equals(studentAfter.getName()))
+            updateStudentName(studentAfter.getName(), studentAfter.getIndex_PersonalInfo());
+
+        if (!studentBefore.getLastname().equals(studentAfter.getLastname()))
+            updateStudentLastName(studentAfter.getLastname(), studentAfter.getIndex_PersonalInfo());
+
+        if (!studentBefore.getPhoneNum().equals(studentAfter.getPhoneNum()))
+            updateStudentPhoneNumber(studentAfter.getPhoneNum(), studentAfter.getIndex_PersonalInfo());
+
+        if (!studentBefore.getBirthDate().equals(studentAfter.getBirthDate()))
+            updateStudentBirthdate(studentAfter.getBirthDate(), studentAfter.getIndex_PersonalInfo());
     }
 
     public static void updateStudentName(String name, int index)

@@ -7,8 +7,8 @@ public class FileIO {
 
     //to write btree class to file
     public static void writeAnObjectToFile(String filePath, Object o) throws IOException {
-        FileOutputStream fout = new FileOutputStream(filePath);
-        ObjectOutputStream oos = new ObjectOutputStream(fout);
+        FileOutputStream f = new FileOutputStream(filePath);
+        ObjectOutputStream oos = new ObjectOutputStream(f);
         oos.writeObject(o);
     }
 
