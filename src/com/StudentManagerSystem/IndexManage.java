@@ -5,19 +5,19 @@ import java.util.LinkedList;
 
 public class IndexManage implements Serializable {
 
-    private static int studentCount = 0;
-    private static int lineCount = 0;
-    private static LinkedList<Integer> recentlyDeleted = new LinkedList<>();
+    private int studentCount = 0;
+    private int lineCount = 0;
+    private LinkedList<Integer> recentlyDeleted = new LinkedList<>();
 
 
-    public static void load() {
+    public void load() {
 
     }
 
-    public static void save() {
+    public void save() {
     }
 
-    public static int addStudent() {
+    public int addStudent() {
 
         if (recentlyDeleted.isEmpty()) {
 
@@ -27,7 +27,7 @@ public class IndexManage implements Serializable {
             return recentlyDeleted.pop();
     }
 
-    public static void removeStudent(int index) {
+    public void removeStudent(int index) {
 
         recentlyDeleted.push(index);
         studentCount--;

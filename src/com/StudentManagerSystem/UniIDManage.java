@@ -12,15 +12,15 @@ import java.io.Serializable;
 
 public class UniIDManage implements Serializable {
 
-    static int babak = 0;
+    int babak = 0;
 
-    public static Integer createNewID() {
+    public Integer createNewID() {
         return babak++;
     }
 
-    public static void load() {
+    public void load() {
     }
 
-    public static void save() {
+    public void save() {
     }
 }

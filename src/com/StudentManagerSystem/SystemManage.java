@@ -1,16 +1,18 @@
 package Com.StudentManagerSystem;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.io.IOException;
 
 public class SystemManage {
 
-    private static IndexManage indexManage;
-    private static UniIDManage uniIDManage;
+    private static IndexManage indexManage = new IndexManage();
+    private static UniIDManage uniIDManage = new UniIDManage();
     private static Student studentTmp = new Student();
 
     private static void addStudent() throws IOException {
-        int uniId = UniIDManage.createNewID();
-        int index = IndexManage.addStudent();
+        int uniId = uniIDManage.createNewID();
+        int index = indexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
         studentTmp.setUniID(uniId);
         BTreeManage.createStudent(studentTmp);
@@ -19,20 +21,22 @@ public class SystemManage {
 
     public static void loadProgram() throws IOException, ClassNotFoundException {
         BTreeManage.load();
-        //TODO find a way to save and load this shit
-        IndexManage.load();
-        UniIDManage.load();
+//        //TODO find a way to save and load this shit
+//        indexManage.load();
+//        uniIDManage.load();
+
+        indexManage = FileManage.loadIndexManage();
+        uniIDManage = FileManage.loadUniIDManage();
     }
 
     public static void saveProgram() throws IOException {
-        //TODO find a way to save and load this shit
+//        TODO find a way to save and load this shit
         BTreeManage.save();
-        IndexManage.save();
-        UniIDManage.save();
+//        indexManage.save();
+//        uniIDManage.save();
 
-        //not Work :'(
-//        FileManage.saveIndexManage(indexManage);
-//        FileManage.saveUniIDManage(uniIDManage);
+        FileManage.saveIndexManage(indexManage);
+        FileManage.saveUniIDManage(uniIDManage);
     }
 
     //buttons
@@ -60,7 +64,7 @@ public class SystemManage {
         int index;
         index = studentTmp.getIndex_PersonalInfo();
         BTreeManage.deleteStudent(studentTmp);
-        IndexManage.removeStudent(index);
+        indexManage.removeStudent(index);
         FileManage.deleteStudent(studentTmp);// i don't know if it's needed cause if u remove the index the Data i considered removed
         return studentTmp;
     }
