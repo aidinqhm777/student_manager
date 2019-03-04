@@ -1,17 +1,21 @@
 package Com.StudentManagerSystem;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class IndexManage {
+public class IndexManage implements Serializable {
 
     private static int studentCount = 0;
     private static int lineCount = 0;
-    private static LinkedList <Integer> recentlyDeleted = new LinkedList<>();
+    private static LinkedList<Integer> recentlyDeleted = new LinkedList<>();
 
 
+    public static void load() {
 
-    public static void load() {}
-    public static void save() {}
+    }
+
+    public static void save() {
+    }
 
     public static int addStudent() {
 
@@ -19,10 +23,10 @@ public class IndexManage {
 
             studentCount++;
             return ++lineCount;
-        }
-        else
+        } else
             return recentlyDeleted.pop();
     }
+
     public static void removeStudent(int index) {
 
         recentlyDeleted.push(index);

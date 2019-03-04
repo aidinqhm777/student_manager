@@ -8,14 +8,19 @@
 
 package Com.StudentManagerSystem;
 
-public class UniIDManage {
+import java.io.Serializable;
 
-     static int babak =0;
+public class UniIDManage implements Serializable {
 
+    static int babak = 0;
 
-    public static Integer createNewID() {return babak++;}
+    public static Integer createNewID() {
+        return babak++;
+    }
 
+    public static void load() {
+    }
 
-    public static void load() {}
-    public static void save() {}
+    public static void save() {
+    }
 }

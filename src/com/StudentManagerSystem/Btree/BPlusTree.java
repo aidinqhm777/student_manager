@@ -40,17 +40,15 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
     /**
      * Returns the value to which the specified key is associated, or
      * {@code null} if this tree contains no association for the key.
-     *
+     * <p>
      * <p>
      * A return value of {@code null} does not <i>necessarily</i> indicate that
      * the tree contains no association for the key; it's also possible that the
      * tree explicitly associates the key to {@code null}.
      *
-     * @param key
-     *            the key whose associated value is to be returned
-     *
+     * @param key the key whose associated value is to be returned
      * @return the value to which the specified key is associated, or
-     *         {@code null} if this tree contains no association for the key
+     * {@code null} if this tree contains no association for the key
      */
     public V search(K key) {
         return root.getValue(key);
@@ -60,18 +58,14 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
      * Returns the values associated with the keys specified by the range:
      * {@code key1} and {@code key2}.
      *
-     * @param key1
-     *            the start key of the range
-     * @param policy1
-     *            the range policy, {@link RangePolicy#EXCLUSIVE} or
-     *            {@link RangePolicy#INCLUSIVE}
-     * @param key2
-     *            the end end of the range
-     * @param policy2
-     *            the range policy, {@link RangePolicy#EXCLUSIVE} or
-     *            {@link RangePolicy#INCLUSIVE}
+     * @param key1    the start key of the range
+     * @param policy1 the range policy, {@link RangePolicy#EXCLUSIVE} or
+     *                {@link RangePolicy#INCLUSIVE}
+     * @param key2    the end end of the range
+     * @param policy2 the range policy, {@link RangePolicy#EXCLUSIVE} or
+     *                {@link RangePolicy#INCLUSIVE}
      * @return the values associated with the keys specified by the range:
-     *         {@code key1} and {@code key2}
+     * {@code key1} and {@code key2}
      */
     public List<V> searchRange(K key1, RangePolicy policy1, K key2,
                                RangePolicy policy2) {
@@ -83,10 +77,8 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
      * the tree previously contained a association for the key, the old value is
      * replaced.
      *
-     * @param key
-     *            the key with which the specified value is to be associated
-     * @param value
-     *            the value to be associated with the specified key
+     * @param key   the key with which the specified value is to be associated
+     * @param value the value to be associated with the specified key
      */
     public void insert(K key, V value) {
         root.insertValue(key, value);
@@ -95,8 +87,7 @@ public class BPlusTree<K extends Comparable<? super K>, V> implements Serializab
     /**
      * Removes the association for the specified key from this tree if present.
      *
-     * @param key
-     *            the key whose association is to be removed from the tree
+     * @param key the key whose association is to be removed from the tree
      */
     public void delete(K key) {
         root.deleteValue(key);

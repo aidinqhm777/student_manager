@@ -4,7 +4,8 @@ import java.io.IOException;
 
 public class SystemManage {
 
-
+    private static IndexManage indexManage;
+    private static UniIDManage uniIDManage;
     private static Student studentTmp = new Student();
 
     private static void addStudent() throws IOException {
@@ -16,16 +17,22 @@ public class SystemManage {
         FileManage.createStudent(studentTmp);
     }
 
-    public static void loadProgram() {
+    public static void loadProgram() throws IOException, ClassNotFoundException {
         BTreeManage.load();
+        //TODO find a way to save and load this shit
         IndexManage.load();
         UniIDManage.load();
     }
-    public static void saveProgram() {
+
+    public static void saveProgram() throws IOException {
+        //TODO find a way to save and load this shit
         BTreeManage.save();
         IndexManage.save();
         UniIDManage.save();
 
+        //not Work :'(
+//        FileManage.saveIndexManage(indexManage);
+//        FileManage.saveUniIDManage(uniIDManage);
     }
 
     //buttons
@@ -36,15 +43,18 @@ public class SystemManage {
         studentTmp = FileManage.readStudent(index);
         return studentTmp;
     }
+
     public static Student signUpStudent() throws IOException {
         addStudent();
         return studentTmp;
     }
+
     public static Student updateStudent() {
 
         FileManage.updateStudent(studentTmp);
         return studentTmp;
     }
+
     public static Student removeStudent() throws IOException {
 
         int index;
