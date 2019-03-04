@@ -10,15 +10,15 @@ public class Searcher {
     private int id = -1;
     private String name;
     private String lastname;
-    private Boolean searchByUniID;
-    private Boolean searchByID;
-    private Boolean searchByName;
-    private Boolean searchByLastname;
+    private Boolean searchByUniID =false;
+    private Boolean searchByID =false;
+    private Boolean searchByName =false;
+    private Boolean searchByLastname =false;
 
-    private LinkedList<Student> students;
-    private LinkedList<Integer> indexes_name;
-    private LinkedList<Integer> indexes_lastname;
-    private LinkedList<Integer> indexes;
+    private LinkedList<Student> students = new LinkedList<>();
+    private LinkedList<Integer> indexes_name = new LinkedList<>();
+    private LinkedList<Integer> indexes_lastname = new LinkedList<>();
+    private LinkedList<Integer> indexes = new LinkedList<>();
 
     public Searcher() {}
 
@@ -41,19 +41,26 @@ public class Searcher {
     public void matchFoundIndexes(){
 
         indexes.clear();
-        if (!searchByID && !searchByUniID) {
-
-            for (int i = 0; i < indexes_name.size(); i++) {
-                for (int j = 0; j < indexes_lastname.size(); j++) {
-                    if (indexes_lastname.get(i).equals(indexes_name.get(j))) {
-                        indexes.add(indexes_lastname.get(i));
+        if ((searchByID && !searchByUniID) || (!searchByID && searchByUniID)){
+            indexes.push(index);
+        }
+        else if(searchByName && !searchByLastname) {
+            indexes = indexes_name;
+        }
+        else if(!searchByName && searchByLastname) {
+            indexes = indexes_lastname;
+        }
+        else{
+            for (Integer anIndexes_name : indexes_name) {
+                for (Integer anIndexes_lastname : indexes_lastname) {
+                    if (anIndexes_name.equals(anIndexes_lastname)) {
+                        indexes.add(anIndexes_name);
                         break;
                     }
                 }
             }
         }
-        else
-            indexes.push(index);
+
     }
 
     //-----------------------------------------------
