@@ -8,7 +8,7 @@ public class FileManage {
 
     //standard sizes
     private static int String_10bit = 17;
-    private static int String_20bit = 17;
+    private static int String_20bit = 27;
     private static int String_30bit = 37;
     private static int INTEGER = 81;
 
@@ -147,23 +147,23 @@ public class FileManage {
     }
     private static void updateStudentLastName(String lastName, int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, lastName, index, lastNameSize);
+        FileIO.writeObjectWithIndex(StudentLastName_filePath, lastName, index, lastNameSize);
     }
     private static void updateStudentUniID(int uniID, int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, uniID, index, uniIDSize);
+        FileIO.writeObjectWithIndex(StudentUniID_filePath, uniID, index, uniIDSize);
     }
     private static void updateStudentID(int ID, int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, ID, index, IDSize);
+        FileIO.writeObjectWithIndex(StudentID_filePath, ID, index, IDSize);
     }
     private static void updateStudentPhoneNumber(String phoneNumber, int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, phoneNumber, index, phoneNumberSize);
+        FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, phoneNumber, index, phoneNumberSize);
     }
     private static void updateStudentBirthdate(String birthdate, int index)
             throws IOException {
-        FileIO.writeObjectWithIndex(StudentName_filePath, birthdate, index, birthdateSize);
+        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, birthdate, index, birthdateSize);
     }
 
 

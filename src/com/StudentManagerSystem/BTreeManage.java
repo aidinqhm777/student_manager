@@ -189,7 +189,6 @@ public class BTreeManage {
     private static void updateStudentID(int id1, int id2, int index) {
 
         if (id1 != id2){
-
             studentID_btree.delete(id1);
             studentID_btree.insert(id2, index);
         }
@@ -200,15 +199,16 @@ public class BTreeManage {
 
             LinkedList<Integer> tmp ;
             tmp = studentName_btree.search(name1);
-            tmp.remove(index);
+            tmp.remove(tmp.indexOf(index));
 
             if (tmp.isEmpty())
                 studentName_btree.delete(name1);
-
             else
                 studentName_btree.insert(name1 ,tmp);
             //------------------------------------------------
             tmp = studentName_btree.search(name2);
+            if (tmp == null)
+                tmp = new LinkedList<>();
             tmp.push(index);
             studentName_btree.insert(name2 , tmp);
         }
@@ -219,22 +219,25 @@ public class BTreeManage {
         if (lastname1.equals(lastname2)){
 
             LinkedList<Integer> tmp ;
-            tmp = studentName_btree.search(lastname1);
-            tmp.remove(index);
+            tmp = studentLastname_btree.search(lastname1);
+            tmp.remove(tmp.indexOf(index));
 
             if (tmp.isEmpty())
-                studentName_btree.delete(lastname1);
-
+                studentLastname_btree.delete(lastname1);
             else
-                studentName_btree.insert(lastname1 ,tmp);
+                studentLastname_btree.insert(lastname1 ,tmp);
             //------------------------------------------------
-            tmp = studentName_btree.search(lastname2);
-            tmp.push(index);
-            studentName_btree.insert(lastname2 , tmp);
+            tmp = studentLastname_btree.search(lastname2);
+            if (tmp == null)
+                tmp = new LinkedList<>();
+            tmp.add(index);
+            studentLastname_btree.insert(lastname2 , tmp);
         }
     }
 
-
+    public static boolean checkDuplicity(int input){
+        return studentID_btree.search(input) != null;
+    }
 
     //remove index records from BTree
 
@@ -251,7 +254,7 @@ public class BTreeManage {
     private static void deleteStudentName(String name, int index)     {
 
         LinkedList<Integer> tmp = studentName_btree.search(name);
-        tmp.remove(index);
+        tmp.remove(tmp.indexOf(index));
         if (tmp.isEmpty())
             studentName_btree.delete(name);
         else
@@ -260,7 +263,7 @@ public class BTreeManage {
     private static void deleteStudentLastname(String lastname, int index) {
 
         LinkedList<Integer> tmp = studentLastname_btree.search(lastname);
-        tmp.remove(index);
+        tmp.remove(tmp.indexOf(index));
         if (tmp.isEmpty())
             studentLastname_btree.delete(lastname);
         else

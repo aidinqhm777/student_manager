@@ -1,6 +1,7 @@
 package com.StudentManagerSystem;
 
 import java.io.IOException;
+import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
 
 public class SystemManage {
@@ -9,6 +10,7 @@ public class SystemManage {
     private static UniIDManage uniIDManage = new UniIDManage();
     private static Student studentTmp = new Student();
     private static Student updatedStudentTmp = new Student();
+
 
 
     //read and save the program in files
@@ -36,6 +38,7 @@ public class SystemManage {
         return foundSearch.getStudents();
     }
     public static Student signupStudent() throws IOException {
+        if(BTreeManage.checkDuplicity(studentTmp.getId())) throw new DuplicateFormatFlagsException("ID Error");
         int uniId = uniIDManage.createNewID();
         int index = indexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
@@ -45,10 +48,11 @@ public class SystemManage {
         return studentTmp;
     }
     public static Student updateStudent() throws IOException {
-
+        //TODO reconsider the code for checking duplicity
+        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
         FileManage.updateStudent(studentTmp, updatedStudentTmp);
         BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
-        studentTmp = updatedStudentTmp;
+        studentTmp.setStudent(updatedStudentTmp);
         updatedStudentTmp = new Student();
         return studentTmp;
     }
@@ -65,13 +69,14 @@ public class SystemManage {
 
     //get and set properties
     public static void setStudentTmp(Student student) {
-        studentTmp = student;
+        studentTmp.setStudent(student);
     }
     public static Student getStudentTmp() {
         return studentTmp;
     }
     public static void setUpdatedStudentTmp(Student student) {
-        updatedStudentTmp = student;
+        updatedStudentTmp.setStudent(student);
     }
+
 
 }
