@@ -45,7 +45,7 @@ public class FileIO {
         return b[0] == 0 && b[size - 1] == 0 && b[size / 2] == 0;
     }
 
-    private static void writeIndexToFile(String filePath, byte[] data, int index, int size)
+    public static void writeIndexToFile(String filePath, byte[] data, int index, int size)
             throws IOException {
         //check size of input data
         if (data.length > size) throw new ArrayIndexOutOfBoundsException();
@@ -53,12 +53,12 @@ public class FileIO {
         writeToFile(filePath, data, (index - 1) * size);
     }
 
-    private static byte[] readIndexFromFile(String filePath, int index, int size)
+    public static byte[] readIndexFromFile(String filePath, int index, int size)
             throws IOException {
         return readFromFile(filePath, (index - 1) * size, size);
     }
 
-    private static byte[] readFromFile(String filePath, int position, int size)
+    public static byte[] readFromFile(String filePath, int position, int size)
             throws IOException {
         java.io.RandomAccessFile file = new java.io.RandomAccessFile(filePath, "r");
         file.seek(position);
@@ -76,7 +76,7 @@ public class FileIO {
         file.close();
     }
 
-    private static byte[] objectToByte(Object serObj)
+    public static byte[] objectToByte(Object serObj)
             throws IOException {
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -90,7 +90,7 @@ public class FileIO {
         return output;
     }
 
-    private static Object bytesToObject(byte[] bytesIn)
+    public static Object bytesToObject(byte[] bytesIn)
             throws IOException, ClassNotFoundException {
 
         ByteArrayInputStream bis = new ByteArrayInputStream(bytesIn);

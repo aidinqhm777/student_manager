@@ -10,16 +10,18 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-//        Student s = new Student();
-//
-//        s.setLastname("kir1");
-//        s.setName("kirta1r1");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
-//
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Student s = new Student();
+
+        s.setLastname("kir1");
+        s.setName("kirta1r1");
+        s.setPhoneNum("123");
+        s.setBirthDate("ass");
+        s.setIndex_PersonalInfo(1);
+        FileManage.createStudent(s);
+
+        System.out.println(FileManage.readStudent(1).getName());
+
 //
 //        s.setLastname("kir2");
 //        s.setName("kirtar2");
@@ -41,10 +43,7 @@ public class Main {
 //        SystemManage.removeStudent();
 //
 //        System.out.println( SystemManage.searchStudent("0","").getName());
-        BPlusTree<Integer,Integer> a = new BPlusTree<>();
-        a.insert(1,2);
-        a.insert(1,3);
-        System.out.println(a.search(5));
+
 
 
 
