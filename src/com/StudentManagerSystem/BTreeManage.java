@@ -97,6 +97,28 @@ public class BTreeManage {
     //------------------------------------------------------------------------
 
 
+
+    private static <key extends Comparable<? super key>, value> void createRecord(key input, Integer index, BPlusTree<key, value> bPlusTree) {
+
+        if (input instanceof String){
+
+            LinkedList<Integer> tmp = new LinkedList();
+
+            if (bPlusTree.search(input) != null) {
+                tmp = (LinkedList<Integer>) bPlusTree.search(input);
+            }
+            tmp.push(index);
+            value val = (value) tmp;
+            bPlusTree.insert(input, val);
+        }
+
+        else if (input instanceof Integer){
+
+            value val = (value) index;
+            bPlusTree.insert(input, val);
+        }
+    }
+
     //CRUD operations on student personal info
 
     //add student key and index to BTree
@@ -110,27 +132,30 @@ public class BTreeManage {
     }
 
     private static void createStudentUniID(int uniID, int index) {
-        studentUniID_btree.insert(uniID , index);
+//        studentUniID_btree.insert(uniID , index);
+        createRecord(uniID, index, studentUniID_btree);
     }
     private static void createStudentID(int id, int index) {
-        studentID_btree.insert(id , index);
+//        studentID_btree.insert(id , index);
+        createRecord(id, index, studentUniID_btree);
     }
     private static void createStudentName(String name, int index) {
-        LinkedList<Integer> tmp = new LinkedList<>();
-//        System.out.println(studentName_btree.search("amir").size());
-        if (studentName_btree.search(name) != null) {
-            tmp = studentName_btree.search(name);
-        }
-        tmp.push(index);
-        studentName_btree.insert(name , tmp);
+//        LinkedList<Integer> tmp = new LinkedList<>();
+//        if (studentName_btree.search(name) != null) {
+//            tmp = studentName_btree.search(name);
+//        }
+//        tmp.push(index);
+//        studentName_btree.insert(name , tmp);
+        createRecord(name, index, studentName_btree);
     }
     private static void createStudentLastname(String lastname, int index) {
-        LinkedList<Integer> tmp = new LinkedList<>();
-        if (studentLastname_btree.search(lastname) != null)
-            tmp = studentLastname_btree.search(lastname);
-
-        tmp.push(index);
-        studentLastname_btree.insert(lastname , tmp);
+//        LinkedList<Integer> tmp = new LinkedList<>();
+//        if (studentLastname_btree.search(lastname) != null)
+//            tmp = studentLastname_btree.search(lastname);
+//
+//        tmp.push(index);
+//        studentLastname_btree.insert(lastname , tmp);
+        createRecord(lastname, index, studentLastname_btree);
     }
 
 

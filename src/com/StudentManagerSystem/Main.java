@@ -7,46 +7,39 @@ package com.StudentManagerSystem;
 import com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-//        Student s = new Student();
+
+//        BPlusTree<Integer, LinkedList<Integer>> tree = new BPlusTree<>();
+//        LinkedList<Integer> tmp = new LinkedList<>();
+//        tmp.push(1);
+//        tmp.push(2);
+//        tmp.push(3);
+//        tmp.push(4);
 //
-//        s.setLastname("kir1");
-//        s.setName("kirta1r1");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
+//        tree.insert(1, tmp);
 //
-//
-//        s.setLastname("kir2");
-//        s.setName("kirtar2");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
+//        Object result = tree.search(1);
 //
 //
-//        s.setLastname("kir");
-//        s.setName("kirtar3");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
+//        if (result instanceof LinkedList){
 //
-//        s = SystemManage.searchStudent("2","");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.removeStudent();
+//            tmp = new LinkedList<>();
+//            if (result != null) {
+//                tmp = (LinkedList) tree.search(1);
+//            }
+//            tmp.push(5);
+//            tree.insert(1, tmp);
+//        }
 //
-//        System.out.println( SystemManage.searchStudent("0","").getName());
-        BPlusTree<Integer,Integer> a = new BPlusTree<>();
-        a.insert(1,2);
-        a.insert(1,3);
-        System.out.println(a.search(5));
+//        System.out.print(tree.search(1).peek());
+
+//        else
+//            tree.insert(1, 5);
 
 
-
-            }
+    }
 }
