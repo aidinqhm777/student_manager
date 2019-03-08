@@ -15,12 +15,25 @@ public class Searcher {
     private Boolean searchByName =false;
     private Boolean searchByLastname =false;
 
+
     private LinkedList<Student> students = new LinkedList<>();
     private LinkedList<Integer> indexes_name = new LinkedList<>();
     private LinkedList<Integer> indexes_lastname = new LinkedList<>();
     private LinkedList<Integer> indexes = new LinkedList<>();
 
-    public Searcher() {}
+
+    private class StudentSearch {
+
+    }
+
+    private class SubjectSearch {
+
+        private int id;
+        private String title = "";
+    }
+
+
+
 
     public void reset() {
 
@@ -37,7 +50,6 @@ public class Searcher {
     }
     public Student popStudent() {return students.pop();}
     public int popIndexes() {return indexes.pop();}
-    //TODO important
     public void matchFoundIndexes(){
 
         indexes.clear();

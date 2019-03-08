@@ -80,10 +80,4 @@ public class SystemManage {
     }
 
 
-    public static LinkedList copyLinkedList(LinkedList copyFrom){
-        LinkedList copyTo = new LinkedList();
-        copyTo.addAll(copyFrom);
-        return copyTo;
-    }
-
 }
