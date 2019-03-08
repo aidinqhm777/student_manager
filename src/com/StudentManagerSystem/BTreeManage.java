@@ -36,28 +36,28 @@ public class BTreeManage {
     private static void loadBtree_StudentUniID() {
         // load btree if empty
         try {
-            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentUniID();
+            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage_old.loadBtree_StudentUniID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentID() {
         try {
-           studentID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentID();
+           studentID_btree = (BPlusTree<Integer, Integer>) FileManage_old.loadBtree_StudentID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentName() {
         try {
-            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentName();
+            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage_old.loadBtree_StudentName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentLastname() {
         try {
-            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentLastName();
+            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage_old.loadBtree_StudentLastName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
@@ -66,28 +66,28 @@ public class BTreeManage {
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
         try {
-           FileManage.saveBtree_StudentUniID(studentUniID_btree);
+           FileManage_old.saveBtree_StudentUniID(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentName() {
         try {
-            FileManage.saveBtree_StudentName(studentName_btree);
+            FileManage_old.saveBtree_StudentName(studentName_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentLastname() {
         try {
-            FileManage.saveBtree_StudentLastName(studentLastname_btree);
+            FileManage_old.saveBtree_StudentLastName(studentLastname_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentID() {
         try {
-            FileManage.saveBtree_StudentID(studentID_btree);
+            FileManage_old.saveBtree_StudentID(studentID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
@@ -166,7 +166,6 @@ public class BTreeManage {
     }
 
 
-
     //CRUD operations on student personal info
 
     //add student key and index to BTree
@@ -228,16 +227,21 @@ public class BTreeManage {
     }
 
     private static int readByStudentUniID(int input)    {
+
         return studentUniID_btree.search(input);
     }
     private static int readByStudentID(int  input)       {
         return studentID_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentName(String input) {
-        return studentName_btree.search(input);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.addAll(studentName_btree.search(input));
+        return tmp;
     }
     private static LinkedList<Integer> readByStudentLastname(String input) {
-        return studentLastname_btree.search(input);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.addAll(studentLastname_btree.search(input));
+        return tmp;
     }
 
 
@@ -318,7 +322,6 @@ public class BTreeManage {
     }
 
     //remove index records from BTree
-
     public static void deleteStudent(Student student) {
         deleteStudentID(student.getId(), student.getIndex_PersonalInfo());
         deleteStudentName(student.getName(), student.getIndex_PersonalInfo());
@@ -355,7 +358,8 @@ public class BTreeManage {
         deleteRecord(id, index, studentID_btree);
     }
 
-
+    //add Subject
+    //-----------------------------------------------------
     public static void createSubject(Subject subject){
         createSubjectID(subject.getID() , subject.getIndex_PersonalInfo());
         createSubjectTitle(subject.getTitle() , subject.getIndex_PersonalInfo());
@@ -392,5 +396,8 @@ public class BTreeManage {
     private static void updateStudentTitle(String title1, String title2, int index) {
         updateRecord(title1 , title2 , index , subjectTitle_btree);
 
+
     }
+
+
 }
