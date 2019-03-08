@@ -11,6 +11,12 @@ public class BTreeManage {
     private static BPlusTree<Integer,Integer> studentID_btree =new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentName_btree = new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentLastname_btree = new BPlusTree<>();
+    private static BPlusTree<Integer,Integer>subjectID_btree = new BPlusTree<>();
+    private static BPlusTree<String,Integer>subjecttitle_btree = new BPlusTree<>();
+
+    // general methods
+
+
 
 
 //    save load btrees
@@ -271,6 +277,35 @@ public class BTreeManage {
 
     }
 
+    public static void createSubject(Subject subject){
+        createSubjectID(subject.getId() , subject.getIndex());
+        createSubjecttitle(subject.getTitle() , subject.getIndex());
+    }
 
+    private static void createSubjectID(int id , int index){ subjectID_btree.insert(id , index);}
+    private static void createSubjecttitle(String title, int index){subjecttitle_btree.insert(title , index);}
+
+    public static void deleteSubject(Subject subject){
+        deleteSubjectID(subject.getId() , subject.getIndex());
+        deleteSubjecttitle(subject.getTitle() , subject.getIndex());
+    }
+
+    private static void deleteSubjectID(int id , int index){ subjectID_btree.delete(id);}
+    private static void deleteSubjecttitle(String title, int index){subjecttitle_btree.delete(title);}
+
+
+
+
+
+    public static void updateSubject(Subject subject1 , Subject subject2){}
+
+
+
+
+
+
+
+
+    public static void readSubject(){}
 
 }

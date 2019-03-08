@@ -25,7 +25,7 @@ public class SystemManage {
     }
 
     //buttons
-    public static LinkedList<Student> searchStudent(Searcher searcher) throws IOException, ClassNotFoundException q{
+    public static LinkedList<Student> searchStudent(Searcher searcher) throws IOException, ClassNotFoundException {
 
         Searcher foundSearch = BTreeManage.readStudent(searcher);
         foundSearch.matchFoundIndexes();
