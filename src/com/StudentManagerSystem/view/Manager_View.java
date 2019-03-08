@@ -6,6 +6,7 @@ import com.StudentManagerSystem.SystemManage;
 
 import java.io.IOException;
 import java.lang.invoke.WrongMethodTypeException;
+import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
 import javax.swing.*;
 
@@ -19,10 +20,9 @@ public class Manager_View extends javax.swing.JFrame {
 
     public Manager_View() {
 
-        try {
-            SystemManage.loadProgram();
-        } catch (IOException | ClassNotFoundException e) {
-            showErrorMassage("Problem in load the files, restart the program");
+        try { SystemManage.loadProgram(); } catch (IOException | ClassNotFoundException e) {
+            try { SystemManage.saveProgram();}
+            catch (IOException e1) { showErrorMassage("Problem in load the files, restart the program"); }
         }
 
         initComponents();
@@ -46,10 +46,9 @@ public class Manager_View extends javax.swing.JFrame {
         nameField = new javax.swing.JTextField();
         lastNameField = new javax.swing.JTextField();
         phoneNumberField = new javax.swing.JTextField();
-        birthdateField = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
+        editInfo_btn = new javax.swing.JToggleButton();
+        deleteStudent_btn = new javax.swing.JToggleButton();
         search_btn = new javax.swing.JToggleButton();
         jLabel32 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -60,6 +59,9 @@ public class Manager_View extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         lastName_searchField = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
+        birthdateYearCB = new javax.swing.JComboBox<>();
+        birthdateMonthCB = new javax.swing.JComboBox<>();
+        birthdateDayCB = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
@@ -181,28 +183,25 @@ public class Manager_View extends javax.swing.JFrame {
         phoneNumberField.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         phoneNumberField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        birthdateField.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        birthdateField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-
         jTextField18.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTextField18.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        jToggleButton6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jToggleButton6.setText("Edit Information");
-        jToggleButton6.setEnabled(false);
-        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+        editInfo_btn.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        editInfo_btn.setText("Edit Information");
+        editInfo_btn.setEnabled(false);
+        editInfo_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton6ActionPerformed(evt);
+                editInfo_btnActionPerformed(evt);
             }
         });
 
-        jToggleButton7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jToggleButton7.setForeground(new java.awt.Color(255, 0, 0));
-        jToggleButton7.setText("Delete Student");
-        jToggleButton7.setEnabled(false);
-        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+        deleteStudent_btn.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        deleteStudent_btn.setForeground(new java.awt.Color(255, 0, 0));
+        deleteStudent_btn.setText("Delete Student");
+        deleteStudent_btn.setEnabled(false);
+        deleteStudent_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton7ActionPerformed(evt);
+                deleteStudent_btnActionPerformed(evt);
             }
         });
 
@@ -258,6 +257,28 @@ public class Manager_View extends javax.swing.JFrame {
         jLabel42.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel42.setText("Name:");
 
+        birthdateYearCB.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        birthdateYearCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1370", "1371", "1372", "1373", "1374", "1375", "1376", "1377", "1378", "1379", "1380", "1381", "1382", "1383", "1384", "1385", "1386", "1387", "1388", "1389", "1390", "1391", "1392", "1393", "1394", "1395", "1396", "1397", "1398", "1399", "1400" }));
+        birthdateYearCB.setToolTipText("");
+
+        birthdateMonthCB.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        birthdateMonthCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        birthdateMonthCB.setToolTipText("");
+        birthdateMonthCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                birthdateMonthCBActionPerformed(evt);
+            }
+        });
+
+        birthdateDayCB.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        birthdateDayCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        birthdateDayCB.setToolTipText("");
+        birthdateDayCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                birthdateDayCBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -267,30 +288,27 @@ public class Manager_View extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel42)
-                                        .addGap(104, 104, 104))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel32)
-                                        .addGap(22, 22, 22)))
-                                .addGap(33, 33, 33)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(uniId_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(name_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel41))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(id_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lastName_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
+                                .addComponent(jLabel42)
+                                .addGap(104, 104, 104))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addGap(22, 22, 22)))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(uniId_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel41))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(id_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lastName_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -298,32 +316,38 @@ public class Manager_View extends javax.swing.JFrame {
                                     .addComponent(jLabel31)
                                     .addComponent(jLabel29))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(birthdateField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(birthdateYearCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(birthdateMonthCB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(birthdateDayCB, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                                .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(157, 157, 157)
-                                .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jToggleButton6))))))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                                        .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel28)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(1, 1, 1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deleteStudent_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editInfo_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
             .addComponent(jSeparator2)
         );
         jPanel5Layout.setVerticalGroup(
@@ -366,15 +390,18 @@ public class Manager_View extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(birthdateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(birthdateYearCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(birthdateMonthCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(birthdateDayCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel29)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jToggleButton7)
+                        .addComponent(deleteStudent_btn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton6)))
+                        .addComponent(editInfo_btn)))
                 .addContainerGap())
         );
 
@@ -1152,29 +1179,49 @@ public class Manager_View extends javax.swing.JFrame {
         nameField.setText(studentTemp.getName());
         lastNameField.setText(studentTemp.getLastname());
         idField.setText("" + studentTemp.getId());
-        birthdateField.setText(studentTemp.getBirthDate());
+        setBirthdateInfo(birthdateDayCB, birthdateMonthCB, birthdateYearCB);
         phoneNumberField.setText(studentTemp.getPhoneNum());
     }
 
-    private boolean getFormInfo() {
+    private void setBirthdateInfo(JComboBox birthdateDay, JComboBox birthdateMonth, JComboBox birthdateYear){
+        birthdateDay.setSelectedItem(studentTemp.getBirthDate().substring(0,3));
+        birthdateMonth.setSelectedItem(studentTemp.getBirthDate().substring(5,6));
+        birthdateYear.setSelectedItem(studentTemp.getBirthDate().substring(8,9));
+    }
+
+    private boolean getFormInfo_signUp() {
         boolean state;
-        state = setNameField();
-        state = state && setLastNameField();
-        state = state && setIDField();
-        state = state && setPhoneNumberField();
-        studentTemp.setBirthDate(
-                (String) birthdateYearCB_signUp.getSelectedItem() + "/" +
-                        (String) birthdateMonthCB_signUp.getSelectedItem() + "/" +
-                        (String) birthdateDayCB_signUp.getSelectedItem()
-        );
+        state = setNameField(nameFiled_signUp);
+        state = state && setLastNameField(lastNameFiled_signUp);
+        state = state && setIDField(idFiled_signUp);
+        state = state && setPhoneNumberField(phoneNumberFiled_signUp);
+        getBirthdateInfo(birthdateDayCB_signUp,birthdateMonthCB_signUp, birthdateYearCB_signUp);
         return state;
     }
 
-    private boolean setNameField() {
+    private boolean getFormInfo_edit() {
+        boolean state;
+        state = setNameField(nameField);
+        state = state && setLastNameField(lastNameField);
+        state = state && setIDField(idField);
+        state = state && setPhoneNumberField(phoneNumberField);
+        getBirthdateInfo(birthdateDayCB, birthdateMonthCB, birthdateYearCB);
+        return state;
+    }
+
+    private void getBirthdateInfo(JComboBox birthdateYear, JComboBox birthdateMonth, JComboBox birthdateDay){
+        studentTemp.setBirthDate(
+                (String) birthdateYear.getSelectedItem() + "/" +
+                        (String) birthdateMonth.getSelectedItem() + "/" +
+                        (String) birthdateDay.getSelectedItem()
+        );
+    }
+
+    private boolean setNameField(JTextField nameFiled) {
         try {
-            if (nameFiled_signUp.getText().length() <= 3) throw new WrongMethodTypeException();
-            if (nameFiled_signUp.getText().equals("")) throw new InterruptedException();
-            studentTemp.setName(nameFiled_signUp.getText().toLowerCase().replaceAll(" ", ""));
+            if (nameFiled.getText().length() <= 3) throw new WrongMethodTypeException();
+            if (nameFiled.getText().equals("")) throw new InterruptedException();
+            studentTemp.setName(nameFiled.getText().toLowerCase().replaceAll(" ", ""));
             return true;
         } catch (WrongMethodTypeException e) {
             showErrorMassage("Name can't have less than 3 character");
@@ -1184,11 +1231,11 @@ public class Manager_View extends javax.swing.JFrame {
         return false;
     }
 
-    private boolean setLastNameField() {
+    private boolean setLastNameField(JTextField lastNameFiled) {
         try {
-            if (lastNameFiled_signUp.getText().length() <= 3) throw new WrongMethodTypeException();
-            if (lastNameFiled_signUp.getText().equals("")) throw new InterruptedException();
-            studentTemp.setLastname(lastNameFiled_signUp.getText().toLowerCase().replaceAll(" ", ""));
+            if (lastNameFiled.getText().length() <= 3) throw new WrongMethodTypeException();
+            if (lastNameFiled.getText().equals("")) throw new InterruptedException();
+            studentTemp.setLastname(lastNameFiled.getText().toLowerCase().replaceAll(" ", ""));
             return true;
         } catch (WrongMethodTypeException e) {
             showErrorMassage("last name can't have less than 3 character");
@@ -1198,12 +1245,12 @@ public class Manager_View extends javax.swing.JFrame {
         return false;
     }
 
-    private boolean setPhoneNumberField() {
+    private boolean setPhoneNumberField(JTextField phoneNumberFiled) {
         try {
-            if (!(phoneNumberFiled_signUp.getText().length() == 10 || phoneNumberFiled_signUp.getText().length() == 11))
+            if (!(phoneNumberFiled.getText().length() == 10 || phoneNumberFiled.getText().length() == 11))
                 throw new WrongMethodTypeException();
-            Long.parseLong(phoneNumberFiled_signUp.getText().replaceAll(" ", ""));
-            studentTemp.setPhoneNum(phoneNumberFiled_signUp.getText());
+            Long.parseLong(phoneNumberFiled.getText().replaceAll(" ", ""));
+            studentTemp.setPhoneNum(phoneNumberFiled.getText());
             return true;
         } catch (WrongMethodTypeException e) {
             showErrorMassage("Phone number is in wrong type");
@@ -1214,11 +1261,11 @@ public class Manager_View extends javax.swing.JFrame {
         return false;
     }
 
-    private boolean setIDField() {
+    private boolean setIDField(JTextField idFiled) {
         try {
-            if (idFiled_signUp.getText().length() != 10) throw new WrongMethodTypeException();
-            else if (idFiled_signUp.getText().equals("")) throw new InterruptedException();
-            else studentTemp.setId(Integer.parseInt(idFiled_signUp.getText().replaceAll(" ", "")));
+            if (idFiled.getText().length() != 10) throw new WrongMethodTypeException();
+            else if (idFiled.getText().equals("")) throw new InterruptedException();
+            else studentTemp.setId(Integer.parseInt(idFiled.getText().replaceAll(" ", "")));
             return true;
         } catch (NumberFormatException e) {
             showErrorMassage("Wrong input type in ID");
@@ -1308,13 +1355,15 @@ public class Manager_View extends javax.swing.JFrame {
     //TODO ID duplicated problem
     private void signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpActionPerformed
         try {
-            if (getFormInfo()) {
+            if (getFormInfo_signUp()) {
                 SystemManage.setStudentTmp(studentTemp);
                 SystemManage.signupStudent();
                 showSuccessMassage("sign up successful");
             }
         } catch (IOException e) {
             showErrorMassage("Some problem in reading file: " + e.getCause());
+        } catch (DuplicateFormatFlagsException e){
+            showErrorMassage("Some problem in reading file: " + e.getMessage());
         }
     }//GEN-LAST:event_signUpActionPerformed
 
@@ -1345,15 +1394,22 @@ public class Manager_View extends javax.swing.JFrame {
             studentTemp = searchResult.get(0);
             SystemManage.setStudentTmp(studentTemp);
             setFormInfo();
+            deleteStudent_btn.setEnabled(true);
+            editInfo_btn.setEnabled(true);
         } catch (IOException | ClassNotFoundException | NullPointerException e) {
             showErrorMassage("not found: " + e.getCause());
         }
 
     }//GEN-LAST:event_search_btnActionPerformed
 
-    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton7ActionPerformed
+    private void deleteStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteStudent_btnActionPerformed
+        try {
+            SystemManage.removeStudent();
+            showSuccessMassage("Done");
+        } catch (IOException e) {
+            showErrorMassage("Error");
+        }
+    }//GEN-LAST:event_deleteStudent_btnActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
@@ -1408,10 +1464,25 @@ public class Manager_View extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+    private void editInfo_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editInfo_btnActionPerformed
+        try {
+//            getFormInfo_edit();
+//            SystemManage.updateStudent();
+//            showSuccessMassage("Done");
+            if(getFormInfo_edit()){
+                SystemManage.setUpdatedStudentTmp(studentTemp);
+                SystemManage.updateStudent();
+                showSuccessMassage("Done");
+            }
+            else throw new IOException();
+        } catch (IOException e) {
+            showErrorMassage("Error");
+        }  catch (DuplicateFormatFlagsException e){
+            showErrorMassage("ID error");
+        }
 
 
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
+    }//GEN-LAST:event_editInfo_btnActionPerformed
 
     private void copyTextButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTextButActionPerformed
 
@@ -1440,6 +1511,14 @@ public class Manager_View extends javax.swing.JFrame {
     private void birthdateDayCB_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCB_signUpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_birthdateDayCB_signUpActionPerformed
+
+    private void birthdateMonthCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateMonthCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdateMonthCBActionPerformed
+
+    private void birthdateDayCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdateDayCBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1478,11 +1557,15 @@ public class Manager_View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JtextId;
     private javax.swing.JToggleButton addLesson_btn;
+    private javax.swing.JComboBox<String> birthdateDayCB;
     private javax.swing.JComboBox<String> birthdateDayCB_signUp;
-    private javax.swing.JTextField birthdateField;
+    private javax.swing.JComboBox<String> birthdateMonthCB;
     private javax.swing.JComboBox<String> birthdateMonthCB_signUp;
+    private javax.swing.JComboBox<String> birthdateYearCB;
     private javax.swing.JComboBox<String> birthdateYearCB_signUp;
     private javax.swing.JToggleButton copyTextBut;
+    private javax.swing.JToggleButton deleteStudent_btn;
+    private javax.swing.JToggleButton editInfo_btn;
     private javax.swing.JToggleButton editLesson_btn;
     private javax.swing.JTextField idField;
     private javax.swing.JTextField idFiled_signUp;
@@ -1558,8 +1641,6 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JTextField lastNameFiled_signUp;
     private javax.swing.JTextField lastName_searchField;

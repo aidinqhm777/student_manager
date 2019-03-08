@@ -3,11 +3,8 @@ package com.StudentManagerSystem;
 import com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
-import java.util.LinkedList;
 
-public class FileManage {
-
-    private static LinkedList <FiledData> fieldData = new LinkedList<>();
+public class FileManage_old {
 
     //standard sizes
     private static int String_10bit = 17;
@@ -22,9 +19,6 @@ public class FileManage {
     private static int birthdateSize = String_20bit;
     private static int phoneNumberSize = String_20bit;
 
-
-    private static int lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize;
-
     //file paths
     private static String StudentUniID_filePath = "./src/com/StudentManagerSystem/data/UniID";
     private static String StudentName_filePath = "./src/com/StudentManagerSystem/data/Name";
@@ -32,7 +26,6 @@ public class FileManage {
     private static String StudentBirthDate_filePath = "./src/com/StudentManagerSystem/data/BirthDate";
     private static String StudentPhoneNum_filePath = "./src/com/StudentManagerSystem/data/PhoneNum";
     private static String StudentID_filePath = "./src/com/StudentManagerSystem/data/ID";
-    private static String StudentFile_filePath = "./src/com/StudentManagerSystem/data/studentFile";
 
     private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/data/Btree_UniID";
     private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/data/Btree_Name";
@@ -41,109 +34,90 @@ public class FileManage {
     private static String class_UniIDManage_filePath = "./src/com/StudentManagerSystem/data/UniIDManage";
     private static String class_IndexManage_filePath = "./src/com/StudentManagerSystem/data/IndexManage";
 
-
-    private static String name_id = "name";
-    private static String lastName_id = "lastName";
-    private static String id_id = "id";
-    private static String uniId_id = "uniId";
-    private static String birthDate_id = "birthDate";
-    private static String phoneNum_id = "phoneNum";
 //--------------------------------------------------------------
 //--------------------------------------------------------------
 //--------------------------------------------------------------
 
-
-    static class FiledData {
-        int size;
-        String id;
-        Object data;
-
-        FiledData(Object data, String id, int size) {
-            this.size = size;
-            this.id = id;
-            this.data = data;
-        }
-    }
 
     public static void createStudent(Student student) throws IOException {
         int index = student.getIndex_PersonalInfo();
-        LinkedList<byte[]> temp = new LinkedList<>();
-
-        setStudentDataLinkedList(student);
-
-        for (int i=0; i<fieldData.size(); i++){
-            temp.add(FileIO.objectToByte(fieldData.get(i).data));
-        }
-
-        byte[] bytes = concatenate(temp);
-        FileIO.writeIndexToFile(StudentFile_filePath, bytes, index, lineSize);
+        createStudentName(index, student.getName());
+        createStudentLastname(index, student.getLastname());
+        createStudentID(index, student.getId());
+        createStudentUniID(index, student.getUniID());
+        createStudentPhoneNum(index, student.getPhoneNum());
+        createStudentBirthdate(index, student.getBirthDate());
     }
 
-    public static Student readStudent(int index) throws IOException, ClassNotFoundException {
-        byte[] bytes = FileIO.readIndexFromFile(StudentFile_filePath, index, lineSize);
-        setStudentDataLinkedList(null);
-        Student s = new Student();
+    private static void createStudentName(int index, Object o)
+            throws IOException {
+        FileIO.writeObjectWithIndex(StudentName_filePath, o, index, nameSize);
+    }
+    private static void createStudentLastname(int index, Object o)
+            throws IOException {
+        FileIO.writeObjectWithIndex(StudentLastName_filePath, o, index, lastNameSize);
+    }
+    private static void createStudentUniID(int index, Object o)
+            throws IOException {
+        // 1111111111
+        FileIO.writeObjectWithIndex(StudentUniID_filePath, o, index, uniIDSize);
+    }
+    private static void createStudentID(int index, Object o)
+            throws IOException {
+        // 1111111111
+        FileIO.writeObjectWithIndex(StudentID_filePath, o, index, IDSize);
+    }
+    private static void createStudentPhoneNum(int index, Object o)
+            throws IOException {
+        // 414223355
+        FileIO.writeObjectWithIndex(StudentPhoneNum_filePath, o, index, phoneNumberSize);
+    }
+    private static void createStudentBirthdate(int index, Object o)
+            throws IOException {
+        //   => 1397/01/01
+        FileIO.writeObjectWithIndex(StudentBirthDate_filePath, o, index, birthdateSize);
+    }
 
+
+    public static Student readStudent(int index) throws IOException, ClassNotFoundException {
+        Student s = new Student();
         s.setIndex_PersonalInfo(index);
-        s.setName((String) readData(name_id,bytes));
-        s.setLastname((String) readData(lastName_id,bytes));
-        s.setUniID((Integer) readData(id_id,bytes));
-        s.setId((Integer) readData(uniId_id,bytes));
-        s.setBirthDate((String) readData(birthDate_id,bytes));
-        s.setPhoneNum((String) readData(phoneNum_id,bytes));
+        s.setName(readStudentName(index));
+        s.setLastname(readStudentLastname(index));
+        s.setUniID(readStudentUniID(index));
+        s.setId(readStudentID(index));
+        s.setBirthDate(readStudentBirthdate(index));
+        s.setPhoneNum(readStudentPhoneNum(index));
         return s;
     }
 
-    private static byte[] concatenate(LinkedList<byte[]> bytes) {
-        // Function to merge two arrays of
-        // same type
-        byte[] combined = new byte[lineSize];
-        for (int i=0; i< fieldData.size(); i++) {
-            System.arraycopy(bytes.get(i), 0, combined, getPosition(fieldData.get(i).id), bytes.get(i).length);
-        }
-        return combined;
+    private static String readStudentName(int index)
+            throws IOException, ClassNotFoundException {
+        return (String) FileIO.readObjectWithIndex(StudentName_filePath, index, nameSize);
     }
-    private static void setStudentDataLinkedList(Student student){
-        LinkedList <FiledData> data = new LinkedList<>();
-        if (student == null){
-            data.add( new FiledData(null,name_id,     nameSize) );
-            data.add( new FiledData(null,lastName_id, lastNameSize));
-            data.add( new FiledData(null,id_id,       IDSize));
-            data.add( new FiledData(null,uniId_id,    uniIDSize));
-            data.add( new FiledData(null,birthDate_id,birthdateSize));
-            data.add( new FiledData(null,phoneNum_id, phoneNumberSize));
-        }else{
-            data.add( new FiledData(String.format("%" + (nameSize-7) +"s",student.getName())           ,name_id,     nameSize) );
-            data.add( new FiledData(String.format("%" + (lastNameSize-7) +"s",student.getLastname())   ,lastName_id,lastNameSize));
-            data.add( new FiledData(student.getId()                                                    ,id_id,      IDSize));
-            data.add( new FiledData(student.getUniID()                                                 ,uniId_id,   uniIDSize));
-            data.add( new FiledData(String.format("%" + (birthdateSize-7) +"s",student.getBirthDate()) ,birthDate_id,birthdateSize));
-            data.add( new FiledData(String.format("%" + (phoneNumberSize-7) +"s",student.getPhoneNum()),phoneNum_id,phoneNumberSize));
-        }
-        fieldData = data;
+    private static String readStudentLastname(int index)
+            throws IOException, ClassNotFoundException {
+        return (String) FileIO.readObjectWithIndex(StudentLastName_filePath, index, lastNameSize);
     }
-    private static int getPosition(String id){
-        int start=0;
-        for (FiledData aFieldData : fieldData) {
-            if (aFieldData.id.equals(id)) {
-                break;
-            }
-            start += aFieldData.size;
-        }
-        return start;
+    private static int readStudentUniID(int index)
+            throws IOException, ClassNotFoundException {
+        // 1111111111
+        return (Integer) FileIO.readObjectWithIndex(StudentUniID_filePath, index, uniIDSize);
     }
-    private static FiledData getIndex(String id){
-        for (FiledData aFieldData : fieldData) {
-            if (aFieldData.id.equals(id)) {
-                return aFieldData;
-            }
-        }
-        return null;
+    private static int readStudentID(int index)
+            throws IOException, ClassNotFoundException {
+        // 1111111111
+        return (Integer) FileIO.readObjectWithIndex(StudentID_filePath, index, IDSize);
     }
-    private static Object readData(String id, byte[] bytes) throws IOException, ClassNotFoundException {
-        byte[] tmp = new byte[getIndex(id).size];
-        System.arraycopy(bytes, getPosition(id), tmp,0, getIndex(id).size);
-        return FileIO.bytesToObject(tmp);
+    private static String readStudentPhoneNum(int index)
+            throws IOException, ClassNotFoundException {
+        // 414223355
+        return (String) FileIO.readObjectWithIndex(StudentPhoneNum_filePath, index, phoneNumberSize);
+    }
+    private static String readStudentBirthdate(int index)
+            throws IOException, ClassNotFoundException {
+        //   => 1397/01/01
+        return (String) FileIO.readObjectWithIndex(StudentBirthDate_filePath, index, birthdateSize);
     }
 
 

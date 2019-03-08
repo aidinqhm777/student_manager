@@ -11,12 +11,8 @@ public class BTreeManage {
     private static BPlusTree<Integer,Integer> studentID_btree =new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentName_btree = new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentLastname_btree = new BPlusTree<>();
+    private static BPlusTree<String,LinkedList<Integer>> subjectTitle_btree = new BPlusTree<>();
     private static BPlusTree<Integer,Integer>subjectID_btree = new BPlusTree<>();
-    private static BPlusTree<String,Integer>subjecttitle_btree = new BPlusTree<>();
-
-    // general methods
-
-
 
 
 //    save load btrees
@@ -40,28 +36,28 @@ public class BTreeManage {
     private static void loadBtree_StudentUniID() {
         // load btree if empty
         try {
-            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentUniID();
+            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage_old.loadBtree_StudentUniID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentID() {
         try {
-           studentID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentID();
+           studentID_btree = (BPlusTree<Integer, Integer>) FileManage_old.loadBtree_StudentID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentName() {
         try {
-            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentName();
+            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage_old.loadBtree_StudentName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentLastname() {
         try {
-            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentLastName();
+            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage_old.loadBtree_StudentLastName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
@@ -70,28 +66,28 @@ public class BTreeManage {
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
         try {
-           FileManage.saveBtree_StudentUniID(studentUniID_btree);
+           FileManage_old.saveBtree_StudentUniID(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentName() {
         try {
-            FileManage.saveBtree_StudentName(studentName_btree);
+            FileManage_old.saveBtree_StudentName(studentName_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentLastname() {
         try {
-            FileManage.saveBtree_StudentLastName(studentLastname_btree);
+            FileManage_old.saveBtree_StudentLastName(studentLastname_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentID() {
         try {
-            FileManage.saveBtree_StudentID(studentID_btree);
+            FileManage_old.saveBtree_StudentID(studentID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
@@ -103,11 +99,78 @@ public class BTreeManage {
     //------------------------------------------------------------------------
 
 
+    @SuppressWarnings("unchecked")
+    private static <key extends Comparable<? super key>, value> void createRecord(key input, Integer index, BPlusTree<key, value> bPlusTree) {
+
+        if (input instanceof String){
+
+            LinkedList<Integer> tmp = new LinkedList<>();
+
+            if (bPlusTree.search(input) != null)
+                tmp = (LinkedList<Integer>) bPlusTree.search(input);
+
+            tmp.push(index);
+                value val = (value) tmp;
+                bPlusTree.insert(input, val);
+        }
+
+        else if (input instanceof Integer){
+
+            value val = (value) index;
+            bPlusTree.insert(input, val);
+        }
+    }
+    private static <key extends Comparable<? super key>, value> value readRecord(key input , BPlusTree<key , value> bPlusTree){
+        return bPlusTree.search(input);
+    }
+    private static <key extends Comparable<? super key>, value> void updateRecord(key input1, key input2, Integer index, BPlusTree<key, value> bPlusTree) {
+
+        if (input1 instanceof String){
+            if (!input1.equals(input2)){
+
+               deleteRecord(input1, index, bPlusTree);
+                //------------------------------------------------
+                LinkedList tmp = (LinkedList<Integer>) bPlusTree.search(input2);
+                if (tmp == null)
+                    tmp = new LinkedList<>();
+                tmp.push(index);
+                bPlusTree.insert(input2 , (value) tmp);
+            }
+        }
+
+        else if(input1 instanceof Integer) {
+
+            if (input1 != input2) {
+                bPlusTree.delete(input1);
+                bPlusTree.insert(input2, (value) index);
+            }
+        }
+
+    }
+    private static <key extends Comparable<? super key>, value> void deleteRecord(key input, Integer index ,BPlusTree<key , value> bPlusTree){
+        if (input instanceof String){
+
+            LinkedList<Integer> tmp = (LinkedList<Integer>) bPlusTree.search(input);
+            tmp.remove(tmp.indexOf(index));
+
+            if (tmp.isEmpty())
+                bPlusTree.delete(input);
+            else
+                bPlusTree.insert(input, (value) tmp);
+        }
+
+        else if (input instanceof Integer){
+            bPlusTree.delete(input);
+        }
+
+    }
+
+
     //CRUD operations on student personal info
 
     //add student key and index to BTree
 
-    public static void createStudent(Student student) {
+    static void createStudent(Student student) {
 
         createStudentUniID(student.getUniID() , student.getIndex_PersonalInfo());
         createStudentLastname(student.getLastname() , student.getIndex_PersonalInfo());
@@ -116,27 +179,30 @@ public class BTreeManage {
     }
 
     private static void createStudentUniID(int uniID, int index) {
-        studentUniID_btree.insert(uniID , index);
+//        studentUniID_btree.insert(uniID , index);
+        createRecord(uniID, index, studentUniID_btree);
     }
     private static void createStudentID(int id, int index) {
-        studentID_btree.insert(id , index);
+//        studentID_btree.insert(id , index);
+        createRecord(id, index, studentID_btree);
     }
     private static void createStudentName(String name, int index) {
-        LinkedList<Integer> tmp = new LinkedList<>();
-//        System.out.println(studentName_btree.search("amir").size());
-        if (studentName_btree.search(name) != null) {
-            tmp = studentName_btree.search(name);
-        }
-        tmp.push(index);
-        studentName_btree.insert(name , tmp);
+//        LinkedList<Integer> tmp = new LinkedList<>();
+//        if (studentName_btree.search(name) != null) {
+//            tmp = studentName_btree.search(name);
+//        }
+//        tmp.push(index);
+//        studentName_btree.insert(name , tmp);
+        createRecord(name, index, studentName_btree);
     }
     private static void createStudentLastname(String lastname, int index) {
-        LinkedList<Integer> tmp = new LinkedList<>();
-        if (studentLastname_btree.search(lastname) != null)
-            tmp = studentLastname_btree.search(lastname);
-
-        tmp.push(index);
-        studentLastname_btree.insert(lastname , tmp);
+//        LinkedList<Integer> tmp = new LinkedList<>();
+//        if (studentLastname_btree.search(lastname) != null)
+//            tmp = studentLastname_btree.search(lastname);
+//
+//        tmp.push(index);
+//        studentLastname_btree.insert(lastname , tmp);
+        createRecord(lastname, index, studentLastname_btree);
     }
 
 
@@ -161,15 +227,18 @@ public class BTreeManage {
     }
 
     private static int readByStudentUniID(int input)    {
+
         return studentUniID_btree.search(input);
     }
     private static int readByStudentID(int  input)       {
         return studentID_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentName(String input) {
+
         return studentName_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentLastname(String input) {
+
         return studentLastname_btree.search(input);
     }
 
@@ -186,126 +255,149 @@ public class BTreeManage {
 
     private static void updateStudentUniID(int uniID1, int uniID2, int index) {
 
-        if (uniID1 != uniID2) {
-
-            studentUniID_btree.delete(uniID1);
-            studentUniID_btree.insert(uniID2, index);
-        }
+//        if (uniID1 != uniID2) {
+//
+//            studentUniID_btree.delete(uniID1);
+//            studentUniID_btree.insert(uniID2, index);
+//        }
+        updateRecord(uniID1 , uniID2 , index , studentUniID_btree);
     }
     private static void updateStudentID(int id1, int id2, int index) {
 
-        if (id1 != id2){
-
-            studentID_btree.delete(id1);
-            studentID_btree.insert(id2, index);
-        }
+//        if (id1 != id2){
+//            studentID_btree.delete(id1);
+//            studentID_btree.insert(id2, index);
+//        }
+        updateRecord(id1 , id2 , index , studentID_btree);
     }
     private static void updateStudentName(String name1, String name2, int index) {
 
-        if (!name1.equals(name2)){
-
-            LinkedList<Integer> tmp ;
-            tmp = studentName_btree.search(name1);
-            tmp.remove(index);
-
-            if (tmp.isEmpty())
-                studentName_btree.delete(name1);
-
-            else
-                studentName_btree.insert(name1 ,tmp);
-            //------------------------------------------------
-            tmp = studentName_btree.search(name2);
-            tmp.push(index);
-            studentName_btree.insert(name2 , tmp);
-        }
+//        if (!name1.equals(name2)){
+//
+//            LinkedList<Integer> tmp ;
+//            tmp = studentName_btree.search(name1);
+//            tmp.remove(tmp.indexOf(index));
+//
+//            if (tmp.isEmpty())
+//                studentName_btree.delete(name1);
+//            else
+//                studentName_btree.insert(name1 ,tmp);
+//            //------------------------------------------------
+//            tmp = studentName_btree.search(name2);
+//            if (tmp == null)
+//                tmp = new LinkedList<>();
+//            tmp.push(index);
+//            studentName_btree.insert(name2 , tmp);
+//        }
+        updateRecord(name1 , name2 , index , studentName_btree);
 
     }
     private static void updateStudentLastname(String lastname1, String lastname2, int index) {
 
-        if (lastname1.equals(lastname2)){
-
-            LinkedList<Integer> tmp ;
-            tmp = studentName_btree.search(lastname1);
-            tmp.remove(index);
-
-            if (tmp.isEmpty())
-                studentName_btree.delete(lastname1);
-
-            else
-                studentName_btree.insert(lastname1 ,tmp);
-            //------------------------------------------------
-            tmp = studentName_btree.search(lastname2);
-            tmp.push(index);
-            studentName_btree.insert(lastname2 , tmp);
-        }
+//        if (lastname1.equals(lastname2)){
+//
+//            LinkedList<Integer> tmp ;
+//            tmp = studentLastname_btree.search(lastname1);
+//            tmp.remove(tmp.indexOf(index));
+//
+//            if (tmp.isEmpty())
+//                studentLastname_btree.delete(lastname1);
+//            else
+//                studentLastname_btree.insert(lastname1 ,tmp);
+//            //------------------------------------------------
+//            tmp = studentLastname_btree.search(lastname2);
+//            if (tmp == null)
+//                tmp = new LinkedList<>();
+//            tmp.add(index);
+//            studentLastname_btree.insert(lastname2 , tmp);
+//        }
+        updateRecord(lastname1 , lastname2 , index , studentLastname_btree);
     }
 
+    public static boolean checkDuplicity(int input){
 
+        return studentID_btree.search(input) != null;
+    }
 
     //remove index records from BTree
-
     public static void deleteStudent(Student student) {
-        deleteStudentID(student.getId());
+        deleteStudentID(student.getId(), student.getIndex_PersonalInfo());
         deleteStudentName(student.getName(), student.getIndex_PersonalInfo());
         deleteStudentLastname(student.getLastname(), student.getIndex_PersonalInfo());
-        deleteStudentUniID(student.getUniID());
+        deleteStudentUniID(student.getUniID(), student.getIndex_PersonalInfo());
     }
 
-    private static void deleteStudentUniID(int UniId)    {
-        studentUniID_btree.delete(UniId);
+    private static void deleteStudentUniID(int UniId, int index)    {
+//        studentUniID_btree.delete(UniId);
+        deleteRecord(UniId, index, studentUniID_btree);
     }
     private static void deleteStudentName(String name, int index)     {
 
-        LinkedList<Integer> tmp = studentName_btree.search(name);
-        tmp.remove(index);
-        if (tmp.isEmpty())
-            studentName_btree.delete(name);
-        else
-            studentName_btree.insert(name ,tmp);
+//        LinkedList<Integer> tmp = studentName_btree.search(name);
+//        tmp.remove(tmp.indexOf(index));
+//        if (tmp.isEmpty())
+//            studentName_btree.delete(name);
+//        else
+//            studentName_btree.insert(name ,tmp);
+        deleteRecord(name, index, studentName_btree);
     }
     private static void deleteStudentLastname(String lastname, int index) {
 
-        LinkedList<Integer> tmp = studentLastname_btree.search(lastname);
-        tmp.remove(index);
-        if (tmp.isEmpty())
-            studentLastname_btree.delete(lastname);
-        else
-            studentLastname_btree.insert(lastname ,tmp);
+//        LinkedList<Integer> tmp = studentLastname_btree.search(lastname);
+//        tmp.remove(tmp.indexOf(index));
+//        if (tmp.isEmpty())
+//            studentLastname_btree.delete(lastname);
+//        else
+//            studentLastname_btree.insert(lastname ,tmp);
+        deleteRecord(lastname, index, studentLastname_btree);
     }
-    private static void deleteStudentID(int id)       {
-        studentID_btree.delete(id);
-
+    private static void deleteStudentID(int id, int index)       {
+//        studentID_btree.delete(id);
+        deleteRecord(id, index, studentID_btree);
     }
 
+    //add Subject
+    //-----------------------------------------------------
     public static void createSubject(Subject subject){
+
         createSubjectID(subject.getId() , subject.getIndex());
-        createSubjecttitle(subject.getTitle() , subject.getIndex());
+        createSubjectTitle(subject.getTitle() , subject.getIndex());
     }
 
-    private static void createSubjectID(int id , int index){ subjectID_btree.insert(id , index);}
-    private static void createSubjecttitle(String title, int index){subjecttitle_btree.insert(title , index);}
+    private static void createSubjectTitle(String title , int index){
+        createRecord(title , index , subjectTitle_btree);
+    }
+    private static void createSubjectID(int id , int index){
+        createRecord(id , index , subjectID_btree);
+    }
 
     public static void deleteSubject(Subject subject){
         deleteSubjectID(subject.getId() , subject.getIndex());
-        deleteSubjecttitle(subject.getTitle() , subject.getIndex());
+        deleteSubjectTitle(subject.getTitle() , subject.getIndex());
     }
 
-    private static void deleteSubjectID(int id , int index){ subjectID_btree.delete(id);}
-    private static void deleteSubjecttitle(String title, int index){subjecttitle_btree.delete(title);}
+    private static void deleteSubjectID(int id , int index){
+
+        deleteRecord(id , index , subjectID_btree);
+    }
+    private static void deleteSubjectTitle(String title , int index){
+        deleteRecord(title , index , subjectTitle_btree);
+    }
 
 
+    public static void updateSubject(Subject subject1 , Subject subject2){
+        updateSubjectID(subject1.getId() , subject2.getId() , subject1.getIndex());
+        updateStudentTitle(subject1.getTitle() , subject2.getTitle() , subject1.getIndex());
+    }
+
+    private static void updateSubjectID(int id1, int id2, int index) {
+        updateRecord(id1 , id2 , index , subjectID_btree);
+    }
+    private static void updateStudentTitle(String title1, String title2, int index) {
+        updateRecord(title1 , title2 , index , subjectTitle_btree);
 
 
+    }
 
-    public static void updateSubject(Subject subject1 , Subject subject2){}
-
-
-
-
-
-
-
-
-    public static void readSubject(){}
 
 }

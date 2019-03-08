@@ -1,16 +1,39 @@
 
 package com.StudentManagerSystem;
 
+import java.util.Date;
+import java.util.LinkedList;
+
 public class Subject {
 
-    private int id = -1;
-    private int index = -1;
-    private int value = 0;
+
+    private int index;
+    private int id;
+    private int capacity;
+
     private String title;
     private String professorName;
-    private class Schedule {
+
+    private Date examDate;
+
+    private class classTiming {
+
+    }
+
+    private class RequirementsSchema {
+
+        private int[] requiredSubjects_index;
+
+        private LinkedList<Subject> requiredSubjects;
+    }
 
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     public int getId() {
@@ -21,20 +44,12 @@ public class Subject {
         this.id = id;
     }
 
-    public int getIndex() {
-        return index;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public String getTitle() {
@@ -51,5 +66,13 @@ public class Subject {
 
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
+    }
+
+    public Date getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
     }
 }

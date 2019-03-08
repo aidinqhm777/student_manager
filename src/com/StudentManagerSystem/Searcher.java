@@ -15,12 +15,25 @@ public class Searcher {
     private Boolean searchByName =false;
     private Boolean searchByLastname =false;
 
+
     private LinkedList<Student> students = new LinkedList<>();
     private LinkedList<Integer> indexes_name = new LinkedList<>();
     private LinkedList<Integer> indexes_lastname = new LinkedList<>();
     private LinkedList<Integer> indexes = new LinkedList<>();
 
-    public Searcher() {}
+
+    private class StudentSearch {
+
+    }
+
+    private class SubjectSearch {
+
+        private int id;
+        private String title = "";
+    }
+
+
+
 
     public void reset() {
 
@@ -37,7 +50,6 @@ public class Searcher {
     }
     public Student popStudent() {return students.pop();}
     public int popIndexes() {return indexes.pop();}
-    //TODO important
     public void matchFoundIndexes(){
 
         indexes.clear();
@@ -149,7 +161,7 @@ public class Searcher {
     }
 
     public void setIndexes_name(LinkedList<Integer> indexes) {
-        this.indexes_name = indexes;
+        this.indexes_name = (LinkedList<Integer>) indexes.clone();
     }
 
     public LinkedList<Integer> getIndexes_lastname() {
@@ -157,7 +169,7 @@ public class Searcher {
     }
 
     public void setIndexes_lastname(LinkedList<Integer> indexes_lastname) {
-        this.indexes_lastname = indexes_lastname;
+        this.indexes_lastname = (LinkedList<Integer>) indexes_lastname.clone();;
     }
 
     public int getIndex() {
