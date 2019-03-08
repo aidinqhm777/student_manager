@@ -27,7 +27,8 @@ public class SystemManage {
     }
 
     //buttons
-    public static LinkedList<Student> searchStudent(Searcher searcher) throws IOException, ClassNotFoundException {
+    public static LinkedList<Student> searchStudent(Searcher searcher)
+            throws IOException, ClassNotFoundException {
 
         Searcher foundSearch = BTreeManage.readStudent(searcher);
         foundSearch.matchFoundIndexes();
@@ -78,5 +79,11 @@ public class SystemManage {
         updatedStudentTmp.setStudent(student);
     }
 
+
+    public static LinkedList copyLinkedList(LinkedList copyFrom){
+        LinkedList copyTo = new LinkedList();
+        copyTo.addAll(copyFrom);
+        return copyTo;
+    }
 
 }

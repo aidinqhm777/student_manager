@@ -1209,13 +1209,12 @@ public class Manager_View extends javax.swing.JFrame {
         return state;
     }
 
-    private boolean getBirthdateInfo(JComboBox birthdateYear, JComboBox birthdateMonth, JComboBox birthdateDay){
+    private void getBirthdateInfo(JComboBox birthdateYear, JComboBox birthdateMonth, JComboBox birthdateDay){
         studentTemp.setBirthDate(
                 (String) birthdateYear.getSelectedItem() + "/" +
                         (String) birthdateMonth.getSelectedItem() + "/" +
                         (String) birthdateDay.getSelectedItem()
         );
-        return true;
     }
 
     private boolean setNameField(JTextField nameFiled) {

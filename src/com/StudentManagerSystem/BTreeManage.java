@@ -155,16 +155,21 @@ public class BTreeManage {
     }
 
     private static int readByStudentUniID(int input)    {
+
         return studentUniID_btree.search(input);
     }
     private static int readByStudentID(int  input)       {
         return studentID_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentName(String input) {
-        return studentName_btree.search(input);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.addAll(studentName_btree.search(input));
+        return tmp;
     }
     private static LinkedList<Integer> readByStudentLastname(String input) {
-        return studentLastname_btree.search(input);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.addAll(studentLastname_btree.search(input));
+        return tmp;
     }
 
 
