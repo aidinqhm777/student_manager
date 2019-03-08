@@ -10,6 +10,9 @@ public class SystemManage {
     private static UniIDManage uniIDManage = new UniIDManage();
     private static Student studentTmp = new Student();
     private static Student updatedStudentTmp = new Student();
+    private static Subject subjectTmp = new Subject();
+    private static Subject updatedSubjectTmp = new Subject();
+
 
 
 
