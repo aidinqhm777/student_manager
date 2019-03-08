@@ -36,28 +36,28 @@ public class BTreeManage {
     private static void loadBtree_StudentUniID() {
         // load btree if empty
         try {
-            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage_old.loadBtree_StudentUniID();
+            studentUniID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentUniID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentID() {
         try {
-           studentID_btree = (BPlusTree<Integer, Integer>) FileManage_old.loadBtree_StudentID();
+           studentID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentName() {
         try {
-            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage_old.loadBtree_StudentName();
+            studentName_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
     }
     private static void loadBtree_StudentLastname() {
         try {
-            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage_old.loadBtree_StudentLastName();
+            studentLastname_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_StudentLastName();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
@@ -66,28 +66,28 @@ public class BTreeManage {
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
         try {
-           FileManage_old.saveBtree_StudentUniID(studentUniID_btree);
+           FileManage.saveBtree_StudentUniID(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentName() {
         try {
-            FileManage_old.saveBtree_StudentName(studentName_btree);
+            FileManage.saveBtree_StudentName(studentName_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentLastname() {
         try {
-            FileManage_old.saveBtree_StudentLastName(studentLastname_btree);
+            FileManage.saveBtree_StudentLastName(studentLastname_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
     }
     private static void saveBtree_StudentID() {
         try {
-            FileManage_old.saveBtree_StudentID(studentID_btree);
+            FileManage.saveBtree_StudentID(studentID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
