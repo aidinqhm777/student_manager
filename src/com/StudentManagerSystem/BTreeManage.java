@@ -15,6 +15,7 @@ public class BTreeManage {
     private static BPlusTree<Integer,Integer>subjectID_btree = new BPlusTree<>();
 
 
+
 //    save load btrees
 //    find insert delete info from or to btrees indirectly
 
@@ -231,6 +232,7 @@ public class BTreeManage {
         return studentUniID_btree.search(input);
     }
     private static int readByStudentID(int  input)       {
+
         return studentID_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentName(String input) {
@@ -370,6 +372,7 @@ public class BTreeManage {
     private static void createSubjectID(int id , int index){
         createRecord(id , index , subjectID_btree);
     }
+    private static void createSubjectRequiredIndexes(){}
 
     public static void deleteSubject(Subject subject){
         deleteSubjectID(subject.getId() , subject.getIndex());
@@ -397,6 +400,18 @@ public class BTreeManage {
         updateRecord(title1 , title2 , index , subjectTitle_btree);
 
 
+    }
+
+    public static void readSubjects(Searcher searcher){
+
+    }
+    private static int readsubjectsID(int input){
+
+        return subjectID_btree.search(input);
+    }
+    private static LinkedList<Integer> searchsubjectsName(String input){
+
+        return subjectTitle_btree.search(input);
     }
 
 
