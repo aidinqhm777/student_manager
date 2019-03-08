@@ -149,7 +149,7 @@ public class Searcher {
     }
 
     public void setIndexes_name(LinkedList<Integer> indexes) {
-        this.indexes_name = indexes;
+        this.indexes_name = (LinkedList<Integer>) indexes.clone();
     }
 
     public LinkedList<Integer> getIndexes_lastname() {
@@ -157,7 +157,7 @@ public class Searcher {
     }
 
     public void setIndexes_lastname(LinkedList<Integer> indexes_lastname) {
-        this.indexes_lastname = indexes_lastname;
+        this.indexes_lastname = (LinkedList<Integer>) indexes_lastname.clone();;
     }
 
     public int getIndex() {
