@@ -161,10 +161,14 @@ public class BTreeManage {
         return studentID_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentName(String input) {
-        return studentName_btree.search(input);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.addAll(studentName_btree.search(input));
+        return tmp;
     }
     private static LinkedList<Integer> readByStudentLastname(String input) {
-        return studentLastname_btree.search(input);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.addAll(studentLastname_btree.search(input));
+        return tmp;
     }
 
 
