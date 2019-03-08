@@ -10,6 +10,7 @@ public class Subject {
     private int index;
     private int id;
     private int capacity;
+    private int unitVal;
 
     private String title;
     private String professorName;
@@ -27,6 +28,13 @@ public class Subject {
         private LinkedList<Subject> requiredSubjects;
     }
 
+    public int getUnitVal() {
+        return unitVal;
+    }
+
+    public void setUnitVal(int unitVal) {
+        this.unitVal = unitVal;
+    }
 
     public int getIndex() {
         return index;
