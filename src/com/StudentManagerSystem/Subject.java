@@ -1,33 +1,63 @@
-/*
- * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
 
 package com.StudentManagerSystem;
+
+import java.util.Date;
+import java.util.LinkedList;
+
 public class Subject {
-    private int index_PersonalInfo;
-    private int ID;
+
+
+    private int index;
+    private int id;
+    private int capacity;
+    private int unitVal;
+
     private String title;
-    private int number;
-    private String Professorname;
+    private String professorName;
 
-    public int getIndex_PersonalInfo() {
-        return index_PersonalInfo;
+    private Date examDate;
+
+    private class classTiming {
+
     }
 
-    public void setIndex_PersonalInfo(int index_PersonalInfo) {
-        this.index_PersonalInfo = index_PersonalInfo;
+    private class RequirementsSchema {
+
+        private int[] requiredSubjects_index;
+
+        private LinkedList<Subject> requiredSubjects;
     }
 
-    public int getID() {
-        return ID;
+    public int getUnitVal() {
+        return unitVal;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setUnitVal(int unitVal) {
+        this.unitVal = unitVal;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public String getTitle() {
@@ -38,20 +68,19 @@ public class Subject {
         this.title = title;
     }
 
-    public int getNumber() {
-        return number;
+    public String getProfessorName() {
+        return professorName;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setProfessorName(String professorName) {
+        this.professorName = professorName;
     }
 
-    public String getProfessorname() {
-        return Professorname;
+    public Date getExamDate() {
+        return examDate;
     }
 
-    public void setProfessorname(String professorname) {
-        Professorname = professorname;
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
     }
-
 }

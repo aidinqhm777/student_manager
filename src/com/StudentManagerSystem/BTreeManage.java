@@ -11,8 +11,9 @@ public class BTreeManage {
     private static BPlusTree<Integer,Integer> studentID_btree =new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentName_btree = new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentLastname_btree = new BPlusTree<>();
-    private static BPlusTree<String,Integer> subjectTitle_btree = new BPlusTree<>();
+    private static BPlusTree<String,LinkedList<Integer>> subjectTitle_btree = new BPlusTree<>();
     private static BPlusTree<Integer,Integer>subjectID_btree = new BPlusTree<>();
+
 
 
 //    save load btrees
@@ -231,17 +232,16 @@ public class BTreeManage {
         return studentUniID_btree.search(input);
     }
     private static int readByStudentID(int  input)       {
+
         return studentID_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentName(String input) {
-        LinkedList<Integer> tmp = new LinkedList<>();
-        tmp.addAll(studentName_btree.search(input));
-        return tmp;
+
+        return studentName_btree.search(input);
     }
     private static LinkedList<Integer> readByStudentLastname(String input) {
-        LinkedList<Integer> tmp = new LinkedList<>();
-        tmp.addAll(studentLastname_btree.search(input));
-        return tmp;
+
+        return studentLastname_btree.search(input);
     }
 
 
@@ -317,7 +317,7 @@ public class BTreeManage {
     }
 
     public static boolean checkDuplicity(int input){
-        System.out.println(studentUniID_btree.search(0));
+
         return studentID_btree.search(input) != null;
     }
 
@@ -361,8 +361,9 @@ public class BTreeManage {
     //add Subject
     //-----------------------------------------------------
     public static void createSubject(Subject subject){
-        createSubjectID(subject.getID() , subject.getIndex_PersonalInfo());
-        createSubjectTitle(subject.getTitle() , subject.getIndex_PersonalInfo());
+
+        createSubjectID(subject.getId() , subject.getIndex());
+        createSubjectTitle(subject.getTitle() , subject.getIndex());
     }
 
     private static void createSubjectTitle(String title , int index){
@@ -371,10 +372,11 @@ public class BTreeManage {
     private static void createSubjectID(int id , int index){
         createRecord(id , index , subjectID_btree);
     }
+    private static void createSubjectRequiredIndexes(){}
 
     public static void deleteSubject(Subject subject){
-        deleteSubjectID(subject.getID() , subject.getIndex_PersonalInfo());
-        deleteSubjectTitle(subject.getTitle() , subject.getIndex_PersonalInfo());
+        deleteSubjectID(subject.getId() , subject.getIndex());
+        deleteSubjectTitle(subject.getTitle() , subject.getIndex());
     }
 
     private static void deleteSubjectID(int id , int index){
@@ -385,9 +387,10 @@ public class BTreeManage {
         deleteRecord(title , index , subjectTitle_btree);
     }
 
+
     public static void updateSubject(Subject subject1 , Subject subject2){
-        updateSubjectID(subject1.getID() , subject2.getID() , subject1.getIndex_PersonalInfo());
-        updateStudentTitle(subject1.getTitle() , subject2.getTitle() , subject1.getIndex_PersonalInfo());
+        updateSubjectID(subject1.getId() , subject2.getId() , subject1.getIndex());
+        updateStudentTitle(subject1.getTitle() , subject2.getTitle() , subject1.getIndex());
     }
 
     private static void updateSubjectID(int id1, int id2, int index) {
@@ -397,6 +400,18 @@ public class BTreeManage {
         updateRecord(title1 , title2 , index , subjectTitle_btree);
 
 
+    }
+
+    public static void readSubjects(Searcher searcher){
+
+    }
+    private static int readsubjectsID(int input){
+
+        return subjectID_btree.search(input);
+    }
+    private static LinkedList<Integer> searchsubjectsName(String input){
+
+        return subjectTitle_btree.search(input);
     }
 
 

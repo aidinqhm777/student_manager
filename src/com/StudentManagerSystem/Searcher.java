@@ -10,17 +10,34 @@ public class Searcher {
     private int id = -1;
     private String name;
     private String lastname;
-    private Boolean searchByUniID =false;
-    private Boolean searchByID =false;
-    private Boolean searchByName =false;
-    private Boolean searchByLastname =false;
+    private Boolean searchByUniID = false;
+    private Boolean searchByID = false;
+    private Boolean searchByName = false;
+    private Boolean searchByLastname = false;
+
+    private Boolean searchBySubjectID = false;
+    private Boolean searchByTitle = false;
 
     private LinkedList<Student> students = new LinkedList<>();
     private LinkedList<Integer> indexes_name = new LinkedList<>();
     private LinkedList<Integer> indexes_lastname = new LinkedList<>();
     private LinkedList<Integer> indexes = new LinkedList<>();
 
-    public Searcher() {}
+    private LinkedList<Subject> subjects = new LinkedList<>();
+    private LinkedList<Integer> indexes_title = new LinkedList<>();
+
+    private class StudentSearch {
+
+    }
+
+    private class SubjectSearch {
+
+        private int id;
+        private String title = "";
+    }
+
+
+
 
     public void reset() {
 
@@ -37,7 +54,6 @@ public class Searcher {
     }
     public Student popStudent() {return students.pop();}
     public int popIndexes() {return indexes.pop();}
-    //TODO important
     public void matchFoundIndexes(){
 
         indexes.clear();
@@ -61,6 +77,20 @@ public class Searcher {
             }
         }
 
+    }
+
+    public void pushSubject(Subject subject) {
+        subjects.push(subject);
+    }
+    public Subject popSubject() {return subjects.pop();}
+    public void matchindexes(){
+        indexes.clear();
+        if (searchBySubjectID){
+            indexes.push(index);
+        }
+        else if(searchByTitle){
+            indexes = indexes_title;
+        }
     }
 
     //-----------------------------------------------

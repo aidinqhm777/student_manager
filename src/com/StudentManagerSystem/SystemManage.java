@@ -10,6 +10,9 @@ public class SystemManage {
     private static UniIDManage uniIDManage = new UniIDManage();
     private static Student studentTmp = new Student();
     private static Student updatedStudentTmp = new Student();
+    private static Subject subjectTmp = new Subject();
+    private static Subject updatedSubjectTmp = new Subject();
+
 
 
 
@@ -79,11 +82,5 @@ public class SystemManage {
         updatedStudentTmp.setStudent(student);
     }
 
-
-    public static LinkedList copyLinkedList(LinkedList copyFrom){
-        LinkedList copyTo = new LinkedList();
-        copyTo.addAll(copyFrom);
-        return copyTo;
-    }
 
 }
