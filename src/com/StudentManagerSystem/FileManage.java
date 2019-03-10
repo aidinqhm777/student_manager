@@ -183,11 +183,11 @@ public class FileManage {
         catch (StreamCorruptedException e){ o = null; }
         return o;
     }
-    private static void writeData(String id, Object data, int index)
+    private static void writeData(String filePath, String id, Object data, int index)
             throws IOException {
         byte[] tmp;
         tmp = FileIO.objectToByte(data);
-        FileIO.writeToFile(studentFile_filePath, tmp, index * getPosition(id));
+        FileIO.writeToFile(filePath, tmp, index * getPosition(id));
     }
 
 
@@ -222,11 +222,11 @@ public class FileManage {
          for (int i=0; i < before.size(); i++){
              if (before.get(i).data instanceof String){
                  if (!((String) before.get(i).data).equals((String) (after.get(i).data))){
-                     writeData(after.get(i).id, after.get(i).data, studentBefore.getIndex_PersonalInfo());
+                     writeData(studentFile_filePath, after.get(i).id, after.get(i).data, studentBefore.getIndex_PersonalInfo());
                  }
              }else{
                  if (before.get(i).data != (after.get(i).data)){
-                     writeData(after.get(i).id, after.get(i).data, studentBefore.getIndex_PersonalInfo());
+                     writeData(studentFile_filePath, after.get(i).id, after.get(i).data, studentBefore.getIndex_PersonalInfo());
                  }
              }
          }
@@ -270,11 +270,11 @@ public class FileManage {
         for (int i=0; i < before.size(); i++){
             if (before.get(i).data instanceof String){
                 if (!((String) before.get(i).data).equals((String) (after.get(i).data))){
-                    writeData(after.get(i).id, after.get(i).data, subjectBefore.getIndex());
+                    writeData(subjectFile_filePath, after.get(i).id, after.get(i).data, subjectBefore.getIndex());
                 }
             }else{
                 if (before.get(i).data != (after.get(i).data)){
-                    writeData(after.get(i).id, after.get(i).data, subjectBefore.getIndex());
+                    writeData(subjectFile_filePath, after.get(i).id, after.get(i).data, subjectBefore.getIndex());
                 }
             }
         }
