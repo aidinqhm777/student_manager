@@ -16,9 +16,6 @@ public class BTreeManage {
 
 
 
-//    save load btrees
-//    find insert delete info from or to btrees indirectly
-
     public static void load() {
 
         loadBtree_StudentUniID();
