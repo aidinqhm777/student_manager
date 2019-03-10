@@ -16,19 +16,29 @@ public class FileManage {
     private static int String_20bit = 27;
     private static int String_30bit = 37;
     private static int INTEGER = 81;
+    private static int DATA = 81;
 
     private static int nameSize = String_30bit;
     private static int lastNameSize = String_30bit;
     private static int IDSize = INTEGER;
     private static int uniIDSize = INTEGER;
-    private static int birthdateSize = String_20bit;
+    private static int birthdateSize = String_10bit;
     private static int phoneNumberSize = String_20bit;
 
+    private static int id_size = INTEGER;
+    private static int capacity_size = INTEGER;
+    private static int unitVal_size = INTEGER;
+    private static int title_size = String_30bit;
+    private static int professorName_size = String_20bit;
+    private static int examDate_size = String_10bit;
 
-    private static int lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize;
+
+    private static int student_lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize;
+    private static int subject_lineSize = id_size + capacity_size + unitVal_size + title_size + professorName_size + examDate_size;
 
     //file paths
-    private static String StudentFile_filePath = "./src/com/StudentManagerSystem/data/studentFile";
+    private static String studentFile_filePath = "./src/com/StudentManagerSystem/data/studentFile";
+    private static String subjectFile_filePath = "./src/com/StudentManagerSystem/data/subjectFile.dump";
 
     private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/data/Btree_UniID";
     private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/data/Btree_Name";
@@ -44,7 +54,14 @@ public class FileManage {
     private static String uniId_id = "uniId";
     private static String birthDate_id = "birthDate";
     private static String phoneNum_id = "phoneNum";
-    private static String studentIndex_id = "phoneNum";
+
+    private static String subjectId_id = "id";
+    private static String capacity_id = "capacity";
+    private static String unitVal_id = "unitVal";
+    private static String title_id  = "title";
+    private static String professorName_id = "professorName";
+    private static String examDate_id = "examDate";
+
 
     static class FiledData {
         int size;
@@ -73,10 +90,16 @@ public class FileManage {
         }
         return tmp.toString();
     }
-    private static byte[] concatenate(LinkedList<byte[]> bytes) {
+    private static byte[] concatenate(int size) throws IOException {
         // Function to merge two arrays of
         // same type
-        byte[] combined = new byte[lineSize];
+        LinkedList<byte[]> bytes = new LinkedList<>();
+
+        for (FiledData aFieldData : fieldData) {
+            bytes.add(FileIO.objectToByte(aFieldData.data));
+        }
+
+        byte[] combined = new byte[size];
         for (int i=0; i< fieldData.size(); i++) {
             System.arraycopy(bytes.get(i), 0, combined, getPosition(fieldData.get(i).id), bytes.get(i).length);
         }
@@ -85,23 +108,51 @@ public class FileManage {
     private static LinkedList<FiledData> setStudentDataLinkedList(Student student){
         LinkedList <FiledData> data = new LinkedList<>();
         if (student == null){
-            data.add( new FiledData(String.format("%" + (nameSize-7) +"s",""), name_id,     nameSize) );
-            data.add( new FiledData(String.format("%" + (lastNameSize-7) +"s",""), lastName_id,lastNameSize));
-            data.add( new FiledData(0,id_id, IDSize));
-            data.add( new FiledData(0,uniId_id, uniIDSize));
-            data.add( new FiledData(String.format("%" + (birthdateSize-7) +"s",""), birthDate_id,birthdateSize));
-            data.add( new FiledData(String.format("%" + (phoneNumberSize-7) +"s",""), phoneNum_id,phoneNumberSize));
+            data.add( getString_FiledData("", nameSize, name_id));
+            data.add( getString_FiledData("", lastNameSize, lastName_id));
+            data.add( getString_FiledData("", birthdateSize, birthDate_id));
+            data.add( getString_FiledData("", phoneNumberSize, phoneNum_id));
+            data.add( getInteger_FiledData(0,id_id));
+            data.add( getInteger_FiledData(0,uniId_id));
+
         }else{
             index = student.getIndex_PersonalInfo();
-            data.add( new FiledData(String.format("%" + (nameSize-7) +"s",student.getName())           ,name_id,     nameSize) );
-            data.add( new FiledData(String.format("%" + (lastNameSize-7) +"s",student.getLastname())   ,lastName_id,lastNameSize));
-            data.add( new FiledData(student.getId()                                                    ,id_id,      IDSize));
-            data.add( new FiledData(student.getUniID()                                                 ,uniId_id,   uniIDSize));
-            data.add( new FiledData(String.format("%" + (birthdateSize-7) +"s",student.getBirthDate()) ,birthDate_id,birthdateSize));
-            data.add( new FiledData(String.format("%" + (phoneNumberSize-7) +"s",student.getPhoneNum()),phoneNum_id,phoneNumberSize));
+            data.add( getString_FiledData(student.getName(), nameSize, name_id));
+            data.add( getString_FiledData(student.getLastname(), lastNameSize, lastName_id));
+            data.add( getString_FiledData(student.getBirthDate(), birthdateSize, birthDate_id));
+            data.add( getString_FiledData(student.getPhoneNum(), phoneNumberSize, phoneNum_id));
+            data.add( getInteger_FiledData(student.getId(),id_id));
+            data.add( getInteger_FiledData(student.getUniID(),uniId_id));
         }
         fieldData = data;
         return data;
+    }
+    private static LinkedList<FiledData> setSubjectDataLinkedList(Subject subject){
+        LinkedList <FiledData> data = new LinkedList<>();
+        if (subject == null){
+            data.add( getString_FiledData("",title_size, title_id));
+            data.add( getString_FiledData("",professorName_size, professorName_id));
+            data.add( getString_FiledData("",examDate_size, examDate_id));
+            data.add( getInteger_FiledData(0,subjectId_id));
+            data.add( getInteger_FiledData(0,capacity_id));
+            data.add( getInteger_FiledData(0,unitVal_id));
+        }else{
+            index = subject.getIndex();
+            data.add( getString_FiledData(subject.getTitle(),title_size, title_id));
+            data.add( getString_FiledData(subject.getProfessorName(),professorName_size, professorName_id));
+            data.add( getString_FiledData(DateUtil.format(subject.getExamDate()),examDate_size, examDate_id));
+            data.add( getInteger_FiledData(subject.getId(),subjectId_id));
+            data.add( getInteger_FiledData(subject.getCapacity(),capacity_id));
+            data.add( getInteger_FiledData(subject.getUnitVal(),unitVal_id));
+        }
+        fieldData = data;
+        return data;
+    }
+    private static FiledData getString_FiledData (String data, int size, String id){
+        return new FiledData(String.format("%" + (size-7) +"s",data) , id, size);
+    }
+    private static FiledData getInteger_FiledData (int data, String id){
+        return new FiledData(data ,id, INTEGER);
     }
     private static int getPosition(String id){
         int start=0;
@@ -136,27 +187,21 @@ public class FileManage {
             throws IOException {
         byte[] tmp;
         tmp = FileIO.objectToByte(data);
-        FileIO.writeToFile(StudentFile_filePath, tmp, index * getPosition(id));
+        FileIO.writeToFile(studentFile_filePath, tmp, index * getPosition(id));
     }
 
 
-    public static void createStudent(Student student)
+    static void createStudent(Student student)
             throws IOException {
         int index = student.getIndex_PersonalInfo();
-        LinkedList<byte[]> temp = new LinkedList<>();
-
         setStudentDataLinkedList(student);
 
-        for (FiledData aFieldData : fieldData) {
-            temp.add(FileIO.objectToByte(aFieldData.data));
-        }
-
-        byte[] bytes = concatenate(temp);
-        FileIO.writeIndexToFile(StudentFile_filePath, bytes, index, lineSize);
+        byte[] bytes = concatenate(student_lineSize);
+        FileIO.writeIndexToFile(studentFile_filePath, bytes, index, student_lineSize);
     }
-    public static Student readStudent(int index)
+    static Student readStudent(int index)
             throws IOException, ClassNotFoundException {
-        byte[] bytes = FileIO.readIndexFromFile(StudentFile_filePath, index, lineSize);
+        byte[] bytes = FileIO.readIndexFromFile(studentFile_filePath, index, student_lineSize);
         setStudentDataLinkedList(null);
         Student s = new Student();
 
@@ -186,11 +231,62 @@ public class FileManage {
              }
          }
     }
-    public static void deleteStudent(Student student)
+    static void deleteStudent(Student student)
             throws IOException {
-        byte[] bytes = new byte[lineSize];
-        FileIO.writeIndexToFile(StudentFile_filePath, bytes, index, lineSize);
+        byte[] bytes = new byte[student_lineSize];
+        FileIO.writeIndexToFile(studentFile_filePath, bytes, index, student_lineSize);
     }
+
+
+
+    static void createSubject(Subject subject)
+            throws IOException {
+        int index = subject.getIndex();
+        setSubjectDataLinkedList(subject);
+        byte[] bytes = concatenate(subject_lineSize);
+        FileIO.writeIndexToFile(subjectFile_filePath, bytes, index, subject_lineSize);
+    }
+    static Subject readSubject(int index)
+            throws IOException, ClassNotFoundException {
+        byte[] bytes = FileIO.readIndexFromFile(subjectFile_filePath, index, subject_lineSize);
+        setSubjectDataLinkedList(null);
+        Subject s = new Subject();
+
+        s.setIndex(index);
+        s.setTitle( toWords((String)readData(title_id,bytes)) );
+        s.setProfessorName( toWords((String) readData(professorName_id,bytes)) );
+        s.setExamDate( DateUtil.parse(toWords((String)readData(examDate_id,bytes))));
+        s.setId( (Integer)readData(subjectId_id,bytes));
+        s.setCapacity( (Integer)readData(capacity_id,bytes));
+        s.setUnitVal( (Integer)readData(unitVal_id,bytes) );
+        return s;
+    }
+    public static void updateSubject(Subject subjectBefore, Subject subjectAfter)
+            throws IOException {
+
+        LinkedList <FiledData> before = setSubjectDataLinkedList(subjectBefore);
+        LinkedList <FiledData> after = setSubjectDataLinkedList(subjectAfter);
+
+        for (int i=0; i < before.size(); i++){
+            if (before.get(i).data instanceof String){
+                if (!((String) before.get(i).data).equals((String) (after.get(i).data))){
+                    writeData(after.get(i).id, after.get(i).data, subjectBefore.getIndex());
+                }
+            }else{
+                if (before.get(i).data != (after.get(i).data)){
+                    writeData(after.get(i).id, after.get(i).data, subjectBefore.getIndex());
+                }
+            }
+        }
+    }
+    static void deleteSubject(Subject subject)
+            throws IOException {
+
+        byte[] bytes = new byte[subject_lineSize];
+        FileIO.writeIndexToFile(subjectFile_filePath, bytes, index, subject_lineSize);
+    }
+
+
 
     private static String emptyString(int size) {
         return String.format("%" + (size - 7) + "s", "");
@@ -201,55 +297,55 @@ public class FileManage {
 
 
     //load and save the btree's in file
-    public static BPlusTree loadBtree_StudentName()
+    static BPlusTree loadBtree_StudentName()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentName_filePath);
     }
-    public static BPlusTree loadBtree_StudentLastName()
+    static BPlusTree loadBtree_StudentLastName()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentLastName_filePath);
     }
-    public static BPlusTree loadBtree_StudentID()
+    static BPlusTree loadBtree_StudentID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentID_filePath);
     }
-    public static BPlusTree loadBtree_StudentUniID()
+    static BPlusTree loadBtree_StudentUniID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
     }
 
 
-    public static void saveBtree_StudentName(Object o)
+    static void saveBtree_StudentName(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentName_filePath, o);
     }
-    public static void saveBtree_StudentLastName(Object o)
+    static void saveBtree_StudentLastName(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentLastName_filePath, o);
     }
-    public static void saveBtree_StudentID(Object o)
+    static void saveBtree_StudentID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentID_filePath, o);
     }
-    public static void saveBtree_StudentUniID(Object o)
+    static void saveBtree_StudentUniID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentUniID_filePath, o);
     }
 
 
-    public static UniIDManage loadUniIDManage()
+    static UniIDManage loadUniIDManage()
             throws IOException, ClassNotFoundException {
         return (UniIDManage) FileIO.readAnObjectFromFile(class_UniIDManage_filePath);
     }
-    public static IndexManage loadIndexManage()
+    static IndexManage loadIndexManage()
             throws IOException, ClassNotFoundException {
         return (IndexManage) FileIO.readAnObjectFromFile(class_IndexManage_filePath);
     }
-    public static void saveUniIDManage(Object o)
+    static void saveUniIDManage(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(class_UniIDManage_filePath, o);
     }
-    public static void saveIndexManage(Object o)
+    static void saveIndexManage(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(class_IndexManage_filePath, o);
     }
