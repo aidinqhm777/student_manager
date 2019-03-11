@@ -30,10 +30,11 @@ public class FileManage {
     private static int title_size = String_30bit;
     private static int professorName_size = String_20bit;
     private static int examDate_size = String_10bit;
+    private static int classTiming_Size = 33;
 
 
     private static int student_lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize;
-    private static int subject_lineSize = id_size + capacity_size + unitVal_size + title_size + professorName_size + examDate_size;
+    private static int subject_lineSize = id_size + capacity_size + unitVal_size + title_size + professorName_size + examDate_size + classTiming_Size;
 
     //file paths
     private static String studentFile_filePath = "./src/com/StudentManagerSystem/data/studentFile.dump";
@@ -59,6 +60,7 @@ public class FileManage {
     private static String title_id  = "title";
     private static String professorName_id = "professorName";
     private static String examDate_id = "examDate";
+    private static String classTiming_id = "classTiming";
 
 
     static class FiledData {
@@ -134,6 +136,7 @@ public class FileManage {
             data.add( getInteger_FiledData(0,subjectId_id));
             data.add( getInteger_FiledData(0,capacity_id));
             data.add( getInteger_FiledData(0,unitVal_id));
+            data.add( new FiledData("", classTiming_id, classTiming_Size));
         }else{
             index = subject.getIndex();
             data.add( getString_FiledData(subject.getTitle(),title_size, title_id));
@@ -142,6 +145,7 @@ public class FileManage {
             data.add( getInteger_FiledData(subject.getId(),subjectId_id));
             data.add( getInteger_FiledData(subject.getCapacity(),capacity_id));
             data.add( getInteger_FiledData(subject.getUnitVal(),unitVal_id));
+            data.add( new FiledData(subject.getClassTiming().toString(), classTiming_id, classTiming_Size));
         }
         fieldData = data;
         return data;
@@ -256,7 +260,7 @@ public class FileManage {
         s.setExamDate( DateUtil.parse(toWords((String)readData(examDate_id,bytes))));
         s.setId( (Integer)readData(subjectId_id,bytes));
         s.setCapacity( (Integer)readData(capacity_id,bytes));
-        s.setUnitVal( (Integer)readData(unitVal_id,bytes) );
+        s.setClassTiming( Subject.ClassTiming.ToclassTiming((String)readData(classTiming_id,bytes)) );
         return s;
     }
     static void updateSubject(Subject subjectBefore, Subject subjectAfter)

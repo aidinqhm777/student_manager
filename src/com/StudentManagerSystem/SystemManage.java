@@ -3,7 +3,6 @@ package com.StudentManagerSystem;
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class SystemManage {
 
@@ -13,12 +12,34 @@ public class SystemManage {
     private static Student updatedStudentTmp = new Student();
     private static Subject subjectTmp = new Subject();
     private static Subject updatedSubjectTmp = new Subject();
+    public  static LinkedList<Pair> CampusCode = new LinkedList<>();
 
+    static class Pair<T,N>{
+        T key;
+        N value;
 
+        Pair(T key, N value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
 
+    private static void setCampusCode(){
+        CampusCode.add(new Pair<Integer, String>(0,"computer"));
+        CampusCode.add(new Pair<Integer, String>(1,"electronic"));
+    }
+    private static String getCampusTitle(int code){
+        for (Pair pair : CampusCode) {
+            if ((Integer) pair.key == code) {
+                return (String) pair.value;
+            }
+        }
+        return null;
+    }
 
     //read and save the program in files
     public static void loadProgram() throws IOException, ClassNotFoundException {
+        setCampusCode();
         BTreeManage.load();
         indexManage = FileManage.loadIndexManage();
         uniIDManage = FileManage.loadUniIDManage();

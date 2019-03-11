@@ -1,32 +1,29 @@
 
 package com.StudentManagerSystem;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalTime;
 import java.util.LinkedList;
 
 public class Subject {
 
 
-    private int index;
-    private int id;
-    private int code;
-    private int capacity;
-    private int unitVal;
-    private int studentCount;
+    private int index = -1;
+    private int id = 0;
+    private int code = 0;
+    private int capacity = 0;
+    private int unitVal = 0;
+    private int studentCount = 0;
 
-    private String title;
-    private String professorName;
+    private String title = "";
+    private String professorName = "";
 
-    private ClassTiming classTiming;
-    private RequirementsSchema requirements;
+    private ClassTiming classTiming = new ClassTiming(null,null);
+    private RequirementsSchema requirements = new RequirementsSchema();
 
 
     private LocalDate examDate;
-
-    private class ClassTiming {
-
-    }
 
     private class RequirementsSchema {
 
@@ -35,13 +32,76 @@ public class Subject {
         private LinkedList<Subject> requiredSubjects;
     }
 
+    public static class Time implements Serializable{
+        int day;
+        int classNumber;
+        int hour;
+        int minute;
+        int campusCode;
+        int unitValue;
 
+        public Time(int day, int classNumber, int hour, int minite, int campusCode, int unitValue) {
+            this.day = day;
+            this.classNumber = classNumber;
+            this.hour = hour;
+            this.minute = minite;
+            this.campusCode = campusCode;
+            this.unitValue = unitValue;
+        }
+    }
 
+    public static class ClassTiming implements Serializable {
+        private LinkedList<Time> classTiming = new LinkedList<>();
 
+        public ClassTiming(Time one, Time two) {
+            Time tmp = new Time(0,0,0,0,0,0);
+            if (one == null) one = tmp;
+            if (two == null) two = tmp;
+            classTiming.add(one);
+            classTiming.add(two);
+        }
+
+        @Override
+        public String toString() {
+
+            return String.format("%s", classTiming.get(0).day) +
+                    String.format("%4s", classTiming.get(0).classNumber) +
+                    String.format("%2s", classTiming.get(0).hour) +
+                    String.format("%2s", classTiming.get(0).minute) +
+                    String.format("%3s", classTiming.get(0).campusCode) +
+                    String.format("%s", classTiming.get(0).unitValue) +
+
+                    String.format("%s", classTiming.get(1).day) +
+                    String.format("%4s", classTiming.get(1).classNumber) +
+                    String.format("%2s", classTiming.get(1).hour) +
+                    String.format("%2s", classTiming.get(1).minute) +
+                    String.format("%3s", classTiming.get(1).campusCode) +
+                    String.format("%s", classTiming.get(1).unitValue);
+        }
+
+        public static ClassTiming ToclassTiming (String input){
+            int day = Integer.parseInt (input.substring(0,1));
+            int classNumber = Integer.parseInt (input.substring(1,5).replaceAll(" ",""));
+            int hour = Integer.parseInt (input.substring(5,7).replaceAll(" ",""));
+            int minute = Integer.parseInt (input.substring(7,9).replaceAll(" ",""));
+            int campusCode = Integer.parseInt (input.substring(9,12).replaceAll(" ",""));
+            int unitValue = Integer.parseInt (input.substring(12,13));
+            Time one = new Time(day,classNumber,hour,minute,campusCode,unitValue);
+
+            day = Integer.parseInt (input.substring(13,14));
+            classNumber = Integer.parseInt (input.substring(14,18).replaceAll(" ",""));
+            hour = Integer.parseInt (input.substring(18,20).replaceAll(" ",""));
+            minute = Integer.parseInt (input.substring(20,22).replaceAll(" ",""));
+            campusCode = Integer.parseInt (input.substring(22,25).replaceAll(" ",""));
+            unitValue = Integer.parseInt (input.substring(25,26));
+            Time two = new Time(day,classNumber,hour,minute,campusCode,unitValue);
+
+            return new ClassTiming(one,two);
+        }
+    }
 
 
     public Subject copy(Subject subject) {
-
         return this;
     }
 
