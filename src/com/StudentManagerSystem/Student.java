@@ -29,6 +29,16 @@ public class Student {
         return index_PersonalInfo;
     }
 
+    public void setStudent(Student s){
+        this.setIndex_PersonalInfo(s.getIndex_PersonalInfo());
+        this.setUniID(s.getUniID());
+        this.setId(s.getId());
+        this.setName(s.getName());
+        this.setLastname(s.getLastname());
+        this.setBirthDate(s.getBirthDate());
+        this.setPhoneNum(s.getPhoneNum());
+    }
+
     public void setIndex_PersonalInfo(int input) {
         index_PersonalInfo = input;
     }

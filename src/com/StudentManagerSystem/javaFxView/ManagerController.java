@@ -6,18 +6,28 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.StudentManagerSystem;
+package com.StudentManagerSystem.javaFxView;
 
-import java.io.Serializable;
+import javafx.fxml.FXML;
 
-public class UniIDManage implements Serializable {
+public class ManagerController {
 
-    private int babak = 0;
-    private int babak2 = 0;
 
-    Integer createNewID() {
-        return babak++;
+    // Reference to the main application.
+    private ManagerModel managerModel;
+
+    public void setManagerModel(ManagerModel managerModel) {
+        this.managerModel = managerModel;
     }
 
-    Integer createSubjectID() {return babak2++;}
+    public ManagerController() {
+    }
+
+
+    @FXML
+    private void initialize() {
+
+    }
+
 }
+

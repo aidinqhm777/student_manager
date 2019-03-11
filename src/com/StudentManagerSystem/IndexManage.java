@@ -10,12 +10,9 @@ public class IndexManage implements Serializable {
     private LinkedList<Integer> recentlyDeleted = new LinkedList<>();
 
 
-    public void load() {
 
-    }
-    public void save() {}
 
-    public int addStudent() {
+    int addStudent() {
 
         if (recentlyDeleted.isEmpty()) {
 
@@ -24,11 +21,15 @@ public class IndexManage implements Serializable {
         } else
             return recentlyDeleted.pop();
     }
-    public void removeStudent(int index) {
+    void removeStudent(int index) {
 
         recentlyDeleted.push(index);
         studentCount--;
     }
+
+
+    public int addSubject() {return 1;}
+    public int deleteSubject(int index) {return 1;}
 
 }
 

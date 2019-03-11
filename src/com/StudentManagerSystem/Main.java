@@ -6,47 +6,26 @@ package com.StudentManagerSystem;
 
 import com.StudentManagerSystem.Btree.BPlusTree;
 
+import javax.xml.crypto.Data;
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-//        Student s = new Student();
-//
-//        s.setLastname("kir1");
-//        s.setName("kirta1r1");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
-//
-//
-//        s.setLastname("kir2");
-//        s.setName("kirtar2");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
-//
-//
-//        s.setLastname("kir");
-//        s.setName("kirtar3");
-//        s.setPhoneNum("123");
-//        s.setBirthDate("ass");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.signUpStudent();
-//
-//        s = SystemManage.searchStudent("2","");
-//        SystemManage.setStudentTmp(s);
-//        SystemManage.removeStudent();
-//
-//        System.out.println( SystemManage.searchStudent("0","").getName());
-        BPlusTree<Integer,Integer> a = new BPlusTree<>();
-        a.insert(1,2);
-        a.insert(1,3);
-        System.out.println(a.search(5));
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Subject.Time time = new Subject.Time(0,223,5,45,12,2);
+        Subject s = new Subject();
+        s.setClassTiming(new Subject.ClassTiming(time,time));
+        s.setExamDate(LocalDate.now());
+        s.setUnitVal(1);
+        s.setCode(2);
+        s.setIndex(1);
 
-
-
-            }
+        FileManage.createSubject(s);
+        Subject s2 = FileManage.readSubject(1);
+    }
 }

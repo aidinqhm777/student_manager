@@ -8,36 +8,34 @@ public class Searcher {
     private int index = -1;
     private int uniID = -1;
     private int id = -1;
-    private String name;
-    private String lastname;
-    private Boolean searchByUniID =false;
-    private Boolean searchByID =false;
-    private Boolean searchByName =false;
-    private Boolean searchByLastname =false;
+    private String name = "";
+    private String lastname = "";
+    private Boolean searchByUniID = false;
+    private Boolean searchByID = false;
+    private Boolean searchByName = false;
+    private Boolean searchByLastname = false;
 
     private LinkedList<Student> students = new LinkedList<>();
     private LinkedList<Integer> indexes_name = new LinkedList<>();
     private LinkedList<Integer> indexes_lastname = new LinkedList<>();
     private LinkedList<Integer> indexes = new LinkedList<>();
 
-    public Searcher() {}
 
-    public void reset() {
 
-        searchByID = false;
-        searchByName = false;
-        searchByLastname = false;
-        searchByUniID = false;
-    }
+
+
+
+
     public void pushStudent(Student student) {
         students.push(student);
     }
+    public Student popStudent() {return students.pop();}
+
     public void pushIndexes(int index) {
         indexes.push(index);
     }
-    public Student popStudent() {return students.pop();}
     public int popIndexes() {return indexes.pop();}
-    //TODO important
+
     public void matchFoundIndexes(){
 
         indexes.clear();
@@ -62,6 +60,20 @@ public class Searcher {
         }
 
     }
+
+//    public void pushSubject(Subject subject) {
+//        subjects.push(subject);
+//    }
+//    public Subject popSubject() {return subjects.pop();}
+//    public void matchindexes(){
+//        indexes.clear();
+//        if (searchBySubjectID){
+//            indexes.push(index);
+//        }
+//        else if(searchByTitle){
+//            indexes = indexes_title;
+//        }
+//    }
 
     //-----------------------------------------------
     //-----------------------------------------------
@@ -149,7 +161,7 @@ public class Searcher {
     }
 
     public void setIndexes_name(LinkedList<Integer> indexes) {
-        this.indexes_name = indexes;
+        this.indexes_name = (LinkedList<Integer>) indexes.clone();
     }
 
     public LinkedList<Integer> getIndexes_lastname() {
@@ -157,7 +169,7 @@ public class Searcher {
     }
 
     public void setIndexes_lastname(LinkedList<Integer> indexes_lastname) {
-        this.indexes_lastname = indexes_lastname;
+        this.indexes_lastname = (LinkedList<Integer>) indexes_lastname.clone();;
     }
 
     public int getIndex() {
@@ -175,4 +187,6 @@ public class Searcher {
     public void setIndexes(LinkedList<Integer> indexes) {
         this.indexes = indexes;
     }
+
 }
+
