@@ -7,16 +7,18 @@ public class SubjectSearcher {
 
 
     private int id;
-    private int index;
     private String title = "";
     private Boolean searchById = false;
     private Boolean searchByTitle = false;
 
+
 //    private LinkedList<Subject> subjects = new LinkedList<>();
 //    private LinkedList<Integer> indexes_title = new LinkedList<>();
 
-    private Integer searchResultId = -1;
-    private LinkedList<Integer> searchResultTitle = null;
+    private LinkedList<Integer> searchResultId = new LinkedList<>();
+    private LinkedList<Integer> searchResultTitle = new LinkedList<>();
+    private LinkedList<Integer> index = new LinkedList<>();
+    private LinkedList<Subject> subjects = new LinkedList<>();
 
 
 
@@ -46,9 +48,19 @@ public class SubjectSearcher {
     public void matchResults() {
 
         if (searchById)
-            index = searchResultId;
+            index.push(searchResultId);
         else
-            index = searchResultTitle.pop();
+            index = (LinkedList<Integer>) searchResultTitle.clone();
+    }
+
+    public int popIndex() {
+        return index.pop();
+    }
+
+    public Subject pushSubject(Subject subject) {
+
+        subjects.push(subject);
+        return subject;
     }
 
 
@@ -103,12 +115,12 @@ public class SubjectSearcher {
         this.searchByTitle = searchByTitle;
     }
 
-    public Integer getSearchResultId() {
+    public LinkedList<Integer> getSearchResultId() {
         return searchResultId;
     }
 
-    public void setSearchResultId(Integer searchResultId) {
-        this.searchResultId = searchResultId;
+    public void setSearchResultId(LinkedList searchResultId) {
+        this.searchResultId = (LinkedList<Integer>) searchResultId.clone();
     }
 
     public LinkedList<Integer> getSearchResultTitle() {
@@ -117,5 +129,25 @@ public class SubjectSearcher {
 
     public void setSearchResultTitle(LinkedList<Integer> searchResultTitle) {
         this.searchResultTitle = (LinkedList<Integer>) searchResultTitle.clone();
+    }
+
+    public LinkedList<Integer> getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index.push(index);
+    }
+
+    public void setIndex(LinkedList<Integer> index) {
+        this.index = index;
+    }
+
+    public LinkedList<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(LinkedList<Subject> subjects) {
+        this.subjects = subjects;
     }
 }

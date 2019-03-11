@@ -1,6 +1,7 @@
 
 package com.StudentManagerSystem;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -9,15 +10,21 @@ public class Subject {
 
     private int index;
     private int id;
+    private int code;
     private int capacity;
     private int unitVal;
+    private int studentCount;
 
     private String title;
     private String professorName;
 
-    private Date examDate;
+    private ClassTiming classTiming;
+    private RequirementsSchema requirements;
 
-    private class classTiming {
+
+    private LocalDate examDate;
+
+    private class ClassTiming {
 
     }
 
@@ -33,8 +40,59 @@ public class Subject {
 
 
 
+    public Subject copy(Subject subject) {
+
+        return this;
+    }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public int getStudentCount() {
+        return studentCount;
+    }
+
+    public void setStudentCount(int studentCount) {
+        this.studentCount = studentCount;
+    }
+
+    public ClassTiming getClassTiming() {
+        return classTiming;
+    }
+
+    public void setClassTiming(ClassTiming classTiming) {
+        this.classTiming = classTiming;
+    }
+
+    public RequirementsSchema getRequirements() {
+        return requirements;
+    }
+
+    public void setRequirements(RequirementsSchema requirements) {
+        this.requirements = requirements;
+    }
+
+    public LocalDate getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(LocalDate examDate) {
+        this.examDate = examDate;
+    }
 
     public int getUnitVal() {
         return unitVal;
@@ -52,11 +110,11 @@ public class Subject {
         this.index = index;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setID(int id) {
         this.id = id;
     }
 
@@ -82,13 +140,5 @@ public class Subject {
 
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
-    }
-
-    public Date getExamDate() {
-        return examDate;
-    }
-
-    public void setExamDate(Date examDate) {
-        this.examDate = examDate;
     }
 }

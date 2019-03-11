@@ -17,4 +17,6 @@ public class UniIDManage implements Serializable {
     Integer createNewID() {
         return babak++;
     }
+
+    Integer createSubjectID() {return 1;}
 }

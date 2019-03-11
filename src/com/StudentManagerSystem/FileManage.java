@@ -139,6 +139,7 @@ public class FileManage {
         FileIO.writeToFile(StudentFile_filePath, tmp, index * getPosition(id));
     }
 
+//    STUDENT MANAGEMENT
 
     public static void createStudent(Student student)
             throws IOException {
@@ -191,6 +192,21 @@ public class FileManage {
         byte[] bytes = new byte[lineSize];
         FileIO.writeIndexToFile(StudentFile_filePath, bytes, index, lineSize);
     }
+
+//    SUBJECT MANAGEMENT
+
+    public static Subject createSubject(Subject subject) { return new Subject();}
+    public static Subject readSubject(int index) { return new Subject();}
+    public static Subject updateSubject(Subject initialSub, Subject finalSub) { return new Subject();}
+    public static Subject deleteSubject(Subject subject) { return new Subject();}
+
+
+
+
+
+
+
+
 
     private static String emptyString(int size) {
         return String.format("%" + (size - 7) + "s", "");
