@@ -1,6 +1,8 @@
 
 package com.StudentManagerSystem;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -9,16 +11,29 @@ public class Subject {
 
     private int index;
     private int id;
+
+    public Subject(int index, int id, int capacity, int unitVal, String title, String professorName, LocalDate examDate) {
+        this.index = index;
+        this.id = id;
+        this.capacity = capacity;
+        this.unitVal = unitVal;
+        this.title = title;
+        this.professorName = professorName;
+        this.examDate = examDate;
+    }
+    public Subject() {
+    }
+
     private int capacity;
     private int unitVal;
 
     private String title;
     private String professorName;
 
-    private Date examDate;
+    private LocalDate examDate = LocalDate.now();
+
 
     private class classTiming {
-
     }
 
     private class RequirementsSchema {
@@ -76,11 +91,11 @@ public class Subject {
         this.professorName = professorName;
     }
 
-    public Date getExamDate() {
+    public LocalDate getExamDate() {
         return examDate;
     }
 
-    public void setExamDate(Date examDate) {
+    public void setExamDate(LocalDate examDate) {
         this.examDate = examDate;
     }
 }

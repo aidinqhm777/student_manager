@@ -3,36 +3,36 @@ package com.StudentManagerSystem;
 import java.io.*;
 
 
-public class FileIO {
+ class FileIO {
 
     //to write btree class to file
-    public static void writeAnObjectToFile(String filePath, Object o) throws IOException {
+     static void writeAnObjectToFile(String filePath, Object o) throws IOException {
         FileOutputStream f = new FileOutputStream(filePath);
         ObjectOutputStream oos = new ObjectOutputStream(f);
         oos.writeObject(o);
     }
 
     //to read btree class from file
-    public static Object readAnObjectFromFile(String filePath) throws IOException, ClassNotFoundException {
+     static Object readAnObjectFromFile(String filePath) throws IOException, ClassNotFoundException {
         InputStream file = new FileInputStream(filePath);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
         return input.readObject();
     }
 
-    public static Object readObjectWithIndex(String filepath, int index, int size)
+     static Object readObjectWithIndex(String filepath, int index, int size)
             throws IOException, ClassNotFoundException, NullPointerException {
         if (isEmpty(filepath, index, size)) return null;
         else
             return FileIO.bytesToObject(readIndexFromFile(filepath, index, size));
     }
-    public static void writeObjectWithIndex(String filepath, Object o, int index, int size)
+     static void writeObjectWithIndex(String filepath, Object o, int index, int size)
             throws IOException {
         byte[] b = FileIO.objectToByte(o);
         FileIO.writeIndexToFile(filepath, b, index, size);
     }
 
-    public static void cleanIndex(String filepath, int index, int size)
+     static void cleanIndex(String filepath, int index, int size)
             throws IOException {
         byte[] b = new byte[size];
         writeIndexToFile(filepath, b, index, size);
@@ -45,7 +45,7 @@ public class FileIO {
         return b[0] == 0 && b[size - 1] == 0 && b[size / 2] == 0;
     }
 
-    public static void writeIndexToFile(String filePath, byte[] data, int index, int size)
+     static void writeIndexToFile(String filePath, byte[] data, int index, int size)
             throws IOException {
         //check size of input data
         if (data.length > size) throw new ArrayIndexOutOfBoundsException();
@@ -53,12 +53,12 @@ public class FileIO {
         writeToFile(filePath, data, (index - 1) * size);
     }
 
-    public static byte[] readIndexFromFile(String filePath, int index, int size)
+    static byte[] readIndexFromFile(String filePath, int index, int size)
             throws IOException {
         return readFromFile(filePath, (index - 1) * size, size);
     }
 
-    public static byte[] readFromFile(String filePath, int position, int size)
+    private static byte[] readFromFile(String filePath, int position, int size)
             throws IOException {
         java.io.RandomAccessFile file = new java.io.RandomAccessFile(filePath, "r");
         file.seek(position);
@@ -68,7 +68,7 @@ public class FileIO {
         return bytes;
     }
 
-    public static void writeToFile(String filePath, byte[] data, int position)
+    static void writeToFile(String filePath, byte[] data, int position)
             throws IOException {
         java.io.RandomAccessFile file = new java.io.RandomAccessFile(filePath, "rw");
         file.seek(position);
@@ -76,7 +76,7 @@ public class FileIO {
         file.close();
     }
 
-    public static byte[] objectToByte(Object serObj)
+     static byte[] objectToByte(Object serObj)
             throws IOException {
 
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -90,7 +90,7 @@ public class FileIO {
         return output;
     }
 
-    public static Object bytesToObject(byte[] bytesIn)
+     static Object bytesToObject(byte[] bytesIn)
             throws IOException, ClassNotFoundException {
 
         ByteArrayInputStream bis = new ByteArrayInputStream(bytesIn);
@@ -102,7 +102,7 @@ public class FileIO {
     }
 
 
-    //    public static void writeObjectWithIndex(String filepath, Object o, int index)
+    //     static void writeObjectWithIndex(String filepath, Object o, int index)
 //            throws IOException {
 //        byte[] b = FileIO.objectToByte(o);
 //        //automatic size
