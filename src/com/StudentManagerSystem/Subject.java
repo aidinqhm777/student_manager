@@ -28,6 +28,14 @@ public class Subject {
         private LinkedList<Subject> requiredSubjects;
     }
 
+
+
+
+
+
+
+
+
     public int getUnitVal() {
         return unitVal;
     }
