@@ -46,4 +46,5 @@ public class ManagerModel extends Application {
     public Stage getPriamryStage(){
         return primaryStage;
     }
+
 }
