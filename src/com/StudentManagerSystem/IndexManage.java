@@ -27,6 +27,10 @@ public class IndexManage implements Serializable {
         studentCount--;
     }
 
+
+    public int addSubject() {return 1;}
+    public int deleteSubject(int index) {return 1;}
+
 }
 
 

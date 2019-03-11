@@ -3,6 +3,7 @@ package com.StudentManagerSystem;
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class SystemManage {
 
@@ -30,6 +31,9 @@ public class SystemManage {
     }
 
     //buttons
+
+//    STUDENTS
+
     public static LinkedList<Student> searchStudent(Searcher searcher)
             throws IOException, ClassNotFoundException {
 
@@ -42,7 +46,7 @@ public class SystemManage {
         return foundSearch.getStudents();
     }
     public static Student signupStudent() throws IOException {
-        if(BTreeManage.checkDuplicity(studentTmp.getId())) throw new DuplicateFormatFlagsException("ID Error");
+        if(BTreeManage.checkDuplicity(studentTmp)) throw new DuplicateFormatFlagsException("ID Error");
         int uniId = uniIDManage.createNewID();
         int index = indexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
@@ -53,7 +57,7 @@ public class SystemManage {
     }
     public static Student updateStudent() throws IOException {
         //TODO reconsider the code for checking duplicity
-        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
+        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp)) throw new DuplicateFormatFlagsException("ID ERROR"); }
         FileManage.updateStudent(studentTmp, updatedStudentTmp);
         BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
         studentTmp.setStudent(updatedStudentTmp);
@@ -71,6 +75,57 @@ public class SystemManage {
         return studentTmp;
     }
 
+//    COURSES AND SUBJECTS MANAGING
+
+    public static Subject addSubject() throws IOException {
+
+
+//        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
+        int id = uniIDManage.createSubjectID();
+        int index = indexManage.addSubject();
+        subjectTmp.setIndex(index);
+        subjectTmp.setID(id);
+        BTreeManage.createSubject(subjectTmp);
+        FileManage.createSubject(subjectTmp);
+        return subjectTmp;
+
+    }
+    public static LinkedList<Subject> searchSubject(SubjectSearcher subject) throws IOException, ClassNotFoundException {
+
+        SubjectSearcher foundSearch = BTreeManage.readSubjects(subject);
+        foundSearch.matchResults();
+
+        while (!foundSearch.getIndex().isEmpty()) {
+            Subject tmp = FileManage.readSubject(foundSearch.popIndex());
+            foundSearch.pushSubject(tmp);
+        }
+        return foundSearch.getSubjects();
+    }
+    public static Subject editSubject() throws IOException {
+
+//        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
+        FileManage.updateSubject(subjectTmp, updatedSubjectTmp);
+        BTreeManage.updateSubject(subjectTmp, updatedSubjectTmp);
+        subjectTmp.copy(updatedSubjectTmp);
+        updatedSubjectTmp = new Subject();
+        return subjectTmp;
+
+    }
+    public static Subject removeSubject() throws IOException {
+
+        indexManage.deleteSubject(subjectTmp.getIndex());
+        BTreeManage.deleteSubject(subjectTmp);
+        FileManage.deleteSubject(subjectTmp);
+        return subjectTmp;
+    }
+
+//    SEMESTERS MANAGING
+
+
+
+
+
+
     //get and set properties
     public static void setStudentTmp(Student student) {
         studentTmp.setStudent(student);
@@ -81,5 +136,12 @@ public class SystemManage {
     public static void setUpdatedStudentTmp(Student student) {
         updatedStudentTmp.setStudent(student);
     }
+    public static void setSubjectTmp(Subject subject) {
 
+        subjectTmp.copy(subject);
+    }
+    public static void setUpdatedSubjectTmp(Subject subject) {
+
+        updatedSubjectTmp.copy(subject);
+    }
 }
