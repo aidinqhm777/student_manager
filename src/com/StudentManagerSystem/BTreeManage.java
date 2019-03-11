@@ -12,7 +12,7 @@ public class BTreeManage {
     private static BPlusTree<String,LinkedList<Integer>> studentName_btree = new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentLastname_btree = new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> subjectTitle_btree = new BPlusTree<>();
-    private static BPlusTree<Integer,Integer>subjectID_btree = new BPlusTree<>();
+    private static BPlusTree<Integer,LinkedList<Integer>>subjectID_btree = new BPlusTree<>();
 
 
 
@@ -313,9 +313,20 @@ public class BTreeManage {
         updateRecord(lastname1 , lastname2 , index , studentLastname_btree);
     }
 
-    public static boolean checkDuplicity(int input){
+    public static <type> boolean checkDuplicity(type input){
 
-        return studentID_btree.search(input) != null;
+
+
+        if (input instanceof Subject) {
+
+            return (subjectID_btree.search(((Subject) input).getID()) != null)
+                    && (subjectTitle_btree.search(((Subject) input).getTitle()) != null); /* TODO && code should not be repititious*/
+        }
+
+        else
+            return studentID_btree.search(((Student) input).getId()) != null;
+
+
     }
 
     //remove index records from BTree
@@ -357,9 +368,36 @@ public class BTreeManage {
 
     //add Subject
     //-----------------------------------------------------
+
+//    Read OPS
+
+    public static SubjectSearcher readSubjects(SubjectSearcher searcher){
+
+        if (searcher.getSearchById()) {
+            searcher.setSearchResultId(subjectID_btree.search(searcher.getId()));
+        }
+        else if(searcher.getSearchByTitle()) {
+            searcher.setSearchResultTitle(subjectTitle_btree.search(searcher.getTitle()));
+        }
+        searcher.matchResults();
+        return searcher;
+    }
+
+    private static LinkedList<Integer> readsubjectsID(int input){
+
+        return subjectID_btree.search(input);
+    }
+    private static LinkedList<Integer> readSubjectTitle(String input) {
+
+        return subjectTitle_btree.search(input);
+    }
+
+
+//    Create OPS
+
     public static void createSubject(Subject subject){
 
-        createSubjectID(subject.getId() , subject.getIndex());
+        createSubjectID(subject.getID() , subject.getIndex());
         createSubjectTitle(subject.getTitle() , subject.getIndex());
     }
 
@@ -369,24 +407,13 @@ public class BTreeManage {
     private static void createSubjectID(int id , int index){
         createRecord(id , index , subjectID_btree);
     }
-    private static void createSubjectRequiredIndexes(){}
 
-    public static void deleteSubject(Subject subject){
-        deleteSubjectID(subject.getId() , subject.getIndex());
-        deleteSubjectTitle(subject.getTitle() , subject.getIndex());
-    }
 
-    private static void deleteSubjectID(int id , int index){
 
-        deleteRecord(id , index , subjectID_btree);
-    }
-    private static void deleteSubjectTitle(String title , int index){
-        deleteRecord(title , index , subjectTitle_btree);
-    }
-
+//    Update OPS
 
     public static void updateSubject(Subject subject1 , Subject subject2){
-        updateSubjectID(subject1.getId() , subject2.getId() , subject1.getIndex());
+        updateSubjectID(subject1.getID() , subject2.getID() , subject1.getIndex());
         updateStudentTitle(subject1.getTitle() , subject2.getTitle() , subject1.getIndex());
     }
 
@@ -399,17 +426,21 @@ public class BTreeManage {
 
     }
 
-    public static void readSubjects(Searcher searcher){
 
-    }
-    private static int readsubjectsID(int input){
 
-        return subjectID_btree.search(input);
-    }
-    private static LinkedList<Integer> searchsubjectsName(String input){
+//    Delete OPS
 
-        return subjectTitle_btree.search(input);
+    public static void deleteSubject(Subject subject){
+        deleteSubjectID(subject.getID() , subject.getIndex());
+        deleteSubjectTitle(subject.getTitle() , subject.getIndex());
     }
 
+    private static void deleteSubjectID(int id , int index){
+
+        deleteRecord(id , index , subjectID_btree);
+    }
+    private static void deleteSubjectTitle(String title , int index){
+        deleteRecord(title , index , subjectTitle_btree);
+    }
 
 }

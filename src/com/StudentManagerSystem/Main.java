@@ -15,10 +15,10 @@ import java.util.LinkedList;
 public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Subject s = new Subject(1,1,1,1,"salam","ali",LocalDate.now());
-
-        FileManage.updateSubject(s,new Subject(1,2,2,2,"kalim","ali",LocalDate.now()));
-        FileManage.deleteSubject(s);
-        Subject tmp = FileManage.readSubject(1);
+//        Subject s = new Subject(1,1,1,1,"salam","ali",LocalDate.now());
+//
+//        FileManage.updateSubject(s,new Subject(1,2,2,2,"kalim","ali",LocalDate.now()));
+//        FileManage.deleteSubject(s);
+//        Subject tmp = FileManage.readSubject(1);
     }
 }
