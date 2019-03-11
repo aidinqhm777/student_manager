@@ -68,7 +68,7 @@ public class FileIO {
         return bytes;
     }
 
-    private static void writeToFile(String filePath, byte[] data, int position)
+    public static void writeToFile(String filePath, byte[] data, int position)
             throws IOException {
         java.io.RandomAccessFile file = new java.io.RandomAccessFile(filePath, "rw");
         file.seek(position);
