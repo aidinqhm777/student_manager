@@ -319,7 +319,7 @@ public class BTreeManage {
 
         if (input instanceof Subject) {
 
-            return (studentID_btree.search(((Subject) input).getID()) != null)
+            return (subjectID_btree.search(((Subject) input).getID()) != null)
                     && (subjectTitle_btree.search(((Subject) input).getTitle()) != null); /* TODO && code should not be repititious*/
         }
 
@@ -383,7 +383,7 @@ public class BTreeManage {
         return searcher;
     }
 
-    private static int readsubjectsID(int input){
+    private static LinkedList<Integer> readsubjectsID(int input){
 
         return subjectID_btree.search(input);
     }

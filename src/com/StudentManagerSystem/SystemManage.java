@@ -46,7 +46,7 @@ public class SystemManage {
         return foundSearch.getStudents();
     }
     public static Student signupStudent() throws IOException {
-        if(BTreeManage.checkDuplicity(studentTmp.getId())) throw new DuplicateFormatFlagsException("ID Error");
+        if(BTreeManage.checkDuplicity(studentTmp)) throw new DuplicateFormatFlagsException("ID Error");
         int uniId = uniIDManage.createNewID();
         int index = indexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
@@ -57,7 +57,7 @@ public class SystemManage {
     }
     public static Student updateStudent() throws IOException {
         //TODO reconsider the code for checking duplicity
-        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
+        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp)) throw new DuplicateFormatFlagsException("ID ERROR"); }
         FileManage.updateStudent(studentTmp, updatedStudentTmp);
         BTreeManage.updateStudent(studentTmp, updatedStudentTmp);
         studentTmp.setStudent(updatedStudentTmp);
@@ -77,7 +77,7 @@ public class SystemManage {
 
 //    COURSES AND SUBJECTS MANAGING
 
-    public static Subject addSubject() {
+    public static Subject addSubject() throws IOException {
 
 
 //        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
@@ -90,8 +90,7 @@ public class SystemManage {
         return subjectTmp;
 
     }
-
-    public static LinkedList<Subject> searchSubject(SubjectSearcher subject) {
+    public static LinkedList<Subject> searchSubject(SubjectSearcher subject) throws IOException, ClassNotFoundException {
 
         SubjectSearcher foundSearch = BTreeManage.readSubjects(subject);
         foundSearch.matchResults();
@@ -100,11 +99,9 @@ public class SystemManage {
             Subject tmp = FileManage.readSubject(foundSearch.popIndex());
             foundSearch.pushSubject(tmp);
         }
-//        return foundSearch.getSubjects();
-
+        return foundSearch.getSubjects();
     }
-
-    public static Subject editSubject() {
+    public static Subject editSubject() throws IOException {
 
 //        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
         FileManage.updateSubject(subjectTmp, updatedSubjectTmp);
@@ -114,16 +111,15 @@ public class SystemManage {
         return subjectTmp;
 
     }
+    public static Subject removeSubject() throws IOException {
 
-    public static Subject removeSubject() {
-
-        BTreeManage.deleteSubject(subjectTmp);
         indexManage.deleteSubject(subjectTmp.getIndex());
+        BTreeManage.deleteSubject(subjectTmp);
         FileManage.deleteSubject(subjectTmp);
         return subjectTmp;
     }
 
-
+//    SEMESTERS MANAGING
 
 
 

@@ -47,10 +47,15 @@ public class SubjectSearcher {
 
     public void matchResults() {
 
-        if (searchById)
-            index.push(searchResultId);
-        else
+        if (searchById && searchByTitle)
+            index = (LinkedList<Integer>) searchResultId.clone();
+        else if (searchByTitle)
             index = (LinkedList<Integer>) searchResultTitle.clone();
+        else if (searchById)
+            index = (LinkedList<Integer>) searchResultId.clone();
+        else
+            index = null;
+
     }
 
     public int popIndex() {

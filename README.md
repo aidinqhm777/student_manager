@@ -260,7 +260,7 @@ private void handleDeletePerson() {
     } else {
         // Nothing selected.
         Alert alert = new Alert(AlertType.WARNING);
-        alert.initOwner(mainApp.getPrimaryStage());
+        alert.initOwner(managerModel.getPrimaryStage());
         alert.setTitle("No Selection");
         alert.setHeaderText("No Person Selected");
         alert.setContentText("Please select a person in the table.");
@@ -539,9 +539,9 @@ Add the following methods to the `PersonOverviewController`. Those methods will 
 @FXML
 private void handleNewPerson() {
     Person tempPerson = new Person();
-    boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+    boolean okClicked = managerModel.showPersonEditDialog(tempPerson);
     if (okClicked) {
-        mainApp.getPersonData().add(tempPerson);
+        managerModel.getPersonData().add(tempPerson);
     }
 }
 
@@ -553,7 +553,7 @@ private void handleNewPerson() {
 private void handleEditPerson() {
     Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
     if (selectedPerson != null) {
-        boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+        boolean okClicked = managerModel.showPersonEditDialog(selectedPerson);
         if (okClicked) {
             showPersonDetails(selectedPerson);
         }
@@ -561,7 +561,7 @@ private void handleEditPerson() {
     } else {
         // Nothing selected.
         Alert alert = new Alert(AlertType.WARNING);
-        alert.initOwner(mainApp.getPrimaryStage());
+        alert.initOwner(managerModel.getPrimaryStage());
         alert.setTitle("No Selection");
         alert.setHeaderText("No Person Selected");
         alert.setContentText("Please select a person in the table.");

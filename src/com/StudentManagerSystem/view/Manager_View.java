@@ -1247,11 +1247,14 @@ public class Manager_View extends javax.swing.JFrame {
 
     private boolean setPhoneNumberField(JTextField phoneNumberFiled) {
         try {
-            if (!(phoneNumberFiled.getText().length() == 10 || phoneNumberFiled.getText().length() == 11))
+            if ((phoneNumberFiled.getText().length() == 10 || phoneNumberFiled.getText().length() == 11)){
+                Long.parseLong(phoneNumberFiled.getText().replaceAll(" ", ""));
+                studentTemp.setPhoneNum(phoneNumberFiled.getText());
+                return true;
+            }else{
                 throw new WrongMethodTypeException();
-            Long.parseLong(phoneNumberFiled.getText().replaceAll(" ", ""));
-            studentTemp.setPhoneNum(phoneNumberFiled.getText());
-            return true;
+            }
+
         } catch (WrongMethodTypeException e) {
             showErrorMassage("Phone number is in wrong type");
         }
