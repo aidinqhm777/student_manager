@@ -8,7 +8,6 @@ import java.util.LinkedList;
 
 public class Subject {
 
-
     private int index = -1;
     private int id = 0;
     private int code = 0;
@@ -201,4 +200,5 @@ public class Subject {
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
     }
+
 }

@@ -13,10 +13,11 @@ import java.io.Serializable;
 public class UniIDManage implements Serializable {
 
     private int babak = 0;
+    private int babak2 = 0;
 
     Integer createNewID() {
         return babak++;
     }
 
-    Integer createSubjectID() {return 1;}
+    Integer createSubjectID() {return babak2++;}
 }

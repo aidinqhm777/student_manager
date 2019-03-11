@@ -100,7 +100,6 @@ public class SystemManage {
 
     public static Subject addSubject() throws IOException {
 
-
 //        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
         int id = uniIDManage.createSubjectID();
         int index = indexManage.addSubject();
@@ -111,9 +110,9 @@ public class SystemManage {
         return subjectTmp;
 
     }
-    public static LinkedList<Subject> searchSubject(SubjectSearcher subject) throws IOException, ClassNotFoundException {
+    public static LinkedList<Subject> searchSubject(SubjectSearcher subjectSearcher) throws IOException, ClassNotFoundException {
 
-        SubjectSearcher foundSearch = BTreeManage.readSubjects(subject);
+        SubjectSearcher foundSearch = BTreeManage.readSubjects(subjectSearcher);
         foundSearch.matchResults();
 
         while (!foundSearch.getIndex().isEmpty()) {
