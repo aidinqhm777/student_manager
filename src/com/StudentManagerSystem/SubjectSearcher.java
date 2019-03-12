@@ -47,9 +47,7 @@ public class SubjectSearcher {
 
     public void matchResults() {
 
-        if (searchById && searchByTitle)
-            index = (LinkedList<Integer>) searchResultId.clone();
-        else if (searchByTitle)
+        if (searchByTitle)
             index = (LinkedList<Integer>) searchResultTitle.clone();
         else if (searchById)
             index = (LinkedList<Integer>) searchResultId.clone();
@@ -124,7 +122,7 @@ public class SubjectSearcher {
         return searchResultId;
     }
 
-    public void setSearchResultId(LinkedList searchResultId) {
+    public void setSearchResultId(LinkedList<Integer> searchResultId) {
         this.searchResultId = (LinkedList<Integer>) searchResultId.clone();
     }
 

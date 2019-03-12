@@ -3,7 +3,6 @@ package com.StudentManagerSystem;
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class SystemManage {
 
@@ -13,12 +12,24 @@ public class SystemManage {
     private static Student updatedStudentTmp = new Student();
     private static Subject subjectTmp = new Subject();
     private static Subject updatedSubjectTmp = new Subject();
+    public  static LinkedList<Pair> CampusCode = new LinkedList<>();
+    private static Enrollment enrollmentTmp;
 
+    static class Pair<T,N>{
+        T key;
+        N value;
+
+        Pair(T key, N value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
 
 
 
     //read and save the program in files
     public static void loadProgram() throws IOException, ClassNotFoundException {
+        setCampusCode();
         BTreeManage.load();
         indexManage = FileManage.loadIndexManage();
         uniIDManage = FileManage.loadUniIDManage();
@@ -75,10 +86,55 @@ public class SystemManage {
         return studentTmp;
     }
 
+
+
+//    SEMESTERS MANAGING
+
+    public static void addEnrollment(Enrollment enrollment) throws IOException {
+
+
+        IndexManage.createEnrollment(enrollment);
+        BTreeManage.createEnrollment(enrollment);
+        FileManage.createEnrollment(enrollment);
+
+    }
+    public static LinkedList searchEnrollment(EnrollmentSearcher searcher)
+            throws IOException, ClassNotFoundException {
+
+        LinkedList<Integer> indexes = BTreeManage.readEnrollment(searcher);
+        LinkedList<Enrollment> searchResults = new LinkedList<>();
+        if (indexes == null)
+            return null;
+        while (!indexes.isEmpty()) {
+            int index = indexes.pop();
+            Enrollment tmp = FileManage.readEnrollment(index);
+            searchResults.push(tmp);
+        }
+
+        return searchResults;
+    }
+    public static void editEnrollment() {
+//
+//        IndexManage.updateEnrollment(enrollmentTmp);
+//        BTreeManage.updateEnrollment(enrollmentTmp);
+//        FileManage.updateEnrollment(enrollmentTmp);
+    }
+    public static void removeEnrollment() throws IOException {
+
+        IndexManage.deleteEnrollment(enrollmentTmp);
+        BTreeManage.deleteEnrollment(enrollmentTmp);
+        FileManage.deleteEnrollment(enrollmentTmp);
+    }
+
+
+
+
+
+
+
 //    COURSES AND SUBJECTS MANAGING
 
     public static Subject addSubject() throws IOException {
-
 
 //        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
         int id = uniIDManage.createSubjectID();
@@ -90,9 +146,9 @@ public class SystemManage {
         return subjectTmp;
 
     }
-    public static LinkedList<Subject> searchSubject(SubjectSearcher subject) throws IOException, ClassNotFoundException {
+    public static LinkedList<Subject> searchSubject(SubjectSearcher subjectSearcher) throws IOException, ClassNotFoundException {
 
-        SubjectSearcher foundSearch = BTreeManage.readSubjects(subject);
+        SubjectSearcher foundSearch = BTreeManage.readSubject(subjectSearcher);
         foundSearch.matchResults();
 
         while (!foundSearch.getIndex().isEmpty()) {
@@ -119,12 +175,6 @@ public class SystemManage {
         return subjectTmp;
     }
 
-//    SEMESTERS MANAGING
-
-
-
-
-
 
     //get and set properties
     public static void setStudentTmp(Student student) {
@@ -137,11 +187,22 @@ public class SystemManage {
         updatedStudentTmp.setStudent(student);
     }
     public static void setSubjectTmp(Subject subject) {
-
         subjectTmp.copy(subject);
     }
     public static void setUpdatedSubjectTmp(Subject subject) {
 
         updatedSubjectTmp.copy(subject);
+    }
+    private static void setCampusCode(){
+        CampusCode.add(new Pair<Integer, String>(0,"computer"));
+        CampusCode.add(new Pair<Integer, String>(1,"electronic"));
+    }
+    private static String getCampusTitle(int code){
+        for (Pair pair : CampusCode) {
+            if ((Integer) pair.key == code) {
+                return (String) pair.value;
+            }
+        }
+        return null;
     }
 }
