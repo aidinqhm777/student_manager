@@ -92,20 +92,39 @@ public class SystemManage {
 
     public static void addEnrollment(Enrollment enrollment) throws IOException {
 
-        int enrollmentIndex = IndexManage.createEnrollment();
-        enrollment.setEnrollmentIndex(enrollmentIndex);
+
+        IndexManage.createEnrollment(enrollment);
         BTreeManage.createEnrollment(enrollment);
         FileManage.createEnrollment(enrollment);
 
     }
-    public static void searchEnrollment(Searcher searcher) {
+    public static LinkedList searchEnrollment(EnrollmentSearcher searcher)
+            throws IOException, ClassNotFoundException {
 
-        BTreeManage.readEnrollment(searcher);
-        //TODO
-//        enrollmentTmp = FileManage.readEnrollment(searcher);
+        LinkedList<Integer> indexes = BTreeManage.readEnrollment(searcher);
+        LinkedList<Enrollment> searchResults = new LinkedList<>();
+        if (indexes == null)
+            return null;
+        while (!indexes.isEmpty()) {
+            int index = indexes.pop();
+            Enrollment tmp = FileManage.readEnrollment(index);
+            searchResults.push(tmp);
+        }
+
+        return searchResults;
     }
-    public static void editEnrollment() {}
-    public static void removeEnrollment() {}
+    public static void editEnrollment() {
+//
+//        IndexManage.updateEnrollment(enrollmentTmp);
+//        BTreeManage.updateEnrollment(enrollmentTmp);
+//        FileManage.updateEnrollment(enrollmentTmp);
+    }
+    public static void removeEnrollment() throws IOException {
+
+        IndexManage.deleteEnrollment(enrollmentTmp);
+        BTreeManage.deleteEnrollment(enrollmentTmp);
+        FileManage.deleteEnrollment(enrollmentTmp);
+    }
 
 
 
@@ -115,8 +134,7 @@ public class SystemManage {
 
 //    COURSES AND SUBJECTS MANAGING
 
-    public static Subject
-    addSubject() throws IOException {
+    public static Subject addSubject() throws IOException {
 
 //        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
         int id = uniIDManage.createSubjectID();

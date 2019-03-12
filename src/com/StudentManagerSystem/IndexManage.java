@@ -6,7 +6,6 @@ import java.util.LinkedList;
 public class IndexManage implements Serializable {
 
     private int studentCount = 0;
-    private int subjectCount = 0;
     private int lineCount = 0;
     private LinkedList<Integer> recentlyDeleted = new LinkedList<>();
 
@@ -29,14 +28,21 @@ public class IndexManage implements Serializable {
     }
 
 
-    public int addSubject() {return subjectCount++;}
+     int addSubject() {return 1;}
     public int deleteSubject(int index) {return 1;}
 
-    public static int createEnrollment() {
 
-        return 1;
+
+    public static void createEnrollment(Enrollment enrollment) {
+
+
     }
-    public void deleteEnrollment(Enrollment enrollment) {}
+    public static void updateEnrollment(Enrollment enrollment) {}
+    public static void deleteEnrollment(Enrollment enrollment) {}
+
+
+
+
 
 }
 

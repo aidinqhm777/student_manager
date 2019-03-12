@@ -318,14 +318,16 @@ public class FileManage {
         byte[] bytes = concatenate(enrollment_lineSize);
         FileIO.writeIndexToFile(enrolmentFile_filePath, bytes, index, enrollment_lineSize);
     }
-    public static void readEnrollment(Enrollment enrollment)
+    public static Enrollment readEnrollment(int input)
             throws IOException, ClassNotFoundException {
 
-        byte[] bytes = FileIO.readIndexFromFile(enrolmentFile_filePath, enrollment.getEnrollmentIndex(), enrollment_lineSize);
+        byte[] bytes = FileIO.readIndexFromFile(enrolmentFile_filePath, input, enrollment_lineSize);
         setEnrolmentDataLinkedList(null);
 
-        enrollment.setStudentIndex( (Integer)readData(subjectEnrolment_id,bytes) );
+        Enrollment enrollment = new Enrollment();
+        enrollment.setSubjectIndex( (Integer)readData(subjectEnrolment_id,bytes) );
         enrollment.setStudentIndex( (Integer)readData(studentEnrolment_id,bytes) );
+        return enrollment;
     }
     public static void updateEnrollment() {
         //TODO
