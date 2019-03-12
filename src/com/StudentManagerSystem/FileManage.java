@@ -32,13 +32,18 @@ public class FileManage {
     private static int examDate_size = String_10bit;
     private static int classTiming_Size = 33;
 
+    private static int studentEnrolmentData_Size = INTEGER;
+    private static int subjectEnrolmentData_Size = INTEGER;
+
 
     private static int student_lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize;
     private static int subject_lineSize = id_size + capacity_size + unitVal_size + title_size + professorName_size + examDate_size + classTiming_Size;
+    private static int enrollment_lineSize = studentEnrolmentData_Size + subjectEnrolmentData_Size;
 
     //file paths
     private static String studentFile_filePath = "./src/com/StudentManagerSystem/data/studentFile.dump";
     private static String subjectFile_filePath = "./src/com/StudentManagerSystem/data/subjectFile.dump";
+    private static String enrolmentFile_filePath = "./src/com/StudentManagerSystem/data/subjectFile.dump";
 
     private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/data/Btree_UniID.dump";
     private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/data/Btree_Name.dump";
@@ -61,6 +66,9 @@ public class FileManage {
     private static String professorName_id = "professorName";
     private static String examDate_id = "examDate";
     private static String classTiming_id = "classTiming";
+
+    private static String subjectEnrolment_id = "subjectEnrolment";
+    private static String studentEnrolment_id = "studentEnrolment";
 
 
     static class FiledData {
@@ -146,6 +154,19 @@ public class FileManage {
             data.add( getInteger_FiledData(subject.getCapacity(),capacity_id));
             data.add( getInteger_FiledData(subject.getUnitVal(),unitVal_id));
             data.add( new FiledData(subject.getClassTiming().toString(), classTiming_id, classTiming_Size));
+        }
+        fieldData = data;
+        return data;
+    }
+    private static LinkedList<FiledData> setEnrolmentDataLinkedList(Enrollment enrollment){
+        LinkedList <FiledData> data = new LinkedList<>();
+        if (enrollment == null){
+            data.add( getInteger_FiledData(0, studentEnrolment_id));
+            data.add( getInteger_FiledData(0, subjectEnrolment_id));
+        }else{
+            index = enrollment.getEnrollmentIndex();
+            data.add( getInteger_FiledData(enrollment.getStudentIndex(), studentEnrolment_id));
+            data.add( getInteger_FiledData(enrollment.getSubjectIndex(), subjectEnrolment_id));
         }
         fieldData = data;
         return data;
@@ -288,6 +309,32 @@ public class FileManage {
         FileIO.writeIndexToFile(subjectFile_filePath, bytes, index, subject_lineSize);
     }
 
+
+
+    public static void createEnrollment(Enrollment enrollment) throws IOException {
+        int index = enrollment.getEnrollmentIndex();
+        setEnrolmentDataLinkedList(enrollment);
+
+        byte[] bytes = concatenate(enrollment_lineSize);
+        FileIO.writeIndexToFile(enrolmentFile_filePath, bytes, index, enrollment_lineSize);
+    }
+    public static void readEnrollment(Enrollment enrollment)
+            throws IOException, ClassNotFoundException {
+
+        byte[] bytes = FileIO.readIndexFromFile(enrolmentFile_filePath, enrollment.getEnrollmentIndex(), enrollment_lineSize);
+        setEnrolmentDataLinkedList(null);
+
+        enrollment.setStudentIndex( (Integer)readData(subjectEnrolment_id,bytes) );
+        enrollment.setStudentIndex( (Integer)readData(studentEnrolment_id,bytes) );
+    }
+    public static void updateEnrollment() {
+        //TODO
+    }
+    public static void deleteEnrollment(Enrollment enrollment) throws IOException {
+        byte[] bytes = new byte[enrollment_lineSize];
+        FileIO.writeIndexToFile(enrolmentFile_filePath, bytes, index, enrollment_lineSize);
+    }
+///////////////////////////////////////////////////////////////////////
 
 
     private static String emptyString(int size) {
