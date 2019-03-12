@@ -380,8 +380,71 @@ public class BTreeManage {
 
 //    Read OPS
 
-    public static SubjectSearcher readSubjects(SubjectSearcher searcher){
+//    public static SubjectSearcher readSubjects(SubjectSearcher searcher){
+//
+//        if (searcher.getSearchById()) {
+//            searcher.setSearchResultId(subjectID_btree.search(searcher.getId()));
+//        }
+//        else if(searcher.getSearchByTitle()) {
+//            searcher.setSearchResultTitle(subjectTitle_btree.search(searcher.getTitle()));
+//        }
+//        searcher.matchResults();
+//        return searcher;
+//    }
+//
+//    private static LinkedList<Integer> readsubjectsID(int input){
+//
+//        return subjectID_btree.search(input);
+//    }
+//    private static LinkedList<Integer> readSubjectTitle(String input) {
+//
+//        return subjectTitle_btree.search(input);
+//    }
 
+
+//    Create OPS
+
+//    public static void createSubject(Subject subject){
+//
+//        createSubjectID(subject.getID() , subject.getIndex());
+//        createSubjectTitle(subject.getTitle() , subject.getIndex());
+//    }
+//
+//    private static void createSubjectTitle(String title , int index){
+//        createRecord(title , index , subjectTitle_btree);
+//    }
+//    private static void createSubjectID(int id , int index){
+//        createRecord(id , index , subjectID_btree);
+//    }
+    public static void updateSubject(Subject subject1 , Subject subject2){
+        updateSubjectById(subject1, subject2 , subject1.getIndex());
+        updateSubjectByTitle(subject1 , subject2 , subject1.getIndex());
+    }
+    public static void createSubject(Subject subject){
+        int index = subject.getIndex();
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.push(index);
+        subjectID_btree.insert(subject.getID() , tmp);
+        subjectTitle_btree.insert(subject.getTitle() , tmp);
+    }
+    public static void updateSubjectById(Subject subject1 , Subject subject2 , int index){
+        LinkedList<Integer> tmp = subjectID_btree.search(index);
+
+        if (subject1.getID() != subject2.getID()){
+            tmp.remove(subject1.getID());
+            tmp.push(subject2.getID());
+        }
+    }
+    public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , int index){
+        LinkedList<String> tmp = subjectTitle_btree.search(index);
+        tmp.remove(subject1.getTitle());
+        tmp.push(subject2.getTitle());
+    }
+
+    public static void deleteSubject(Subject subject){
+        subjectID_btree.delete(subject.getIndex());
+    }
+    public  static SubjectSearcher readSubject(SubjectSearcher searcher){
         if (searcher.getSearchById()) {
             searcher.setSearchResultId(subjectID_btree.search(searcher.getId()));
         }
@@ -392,65 +455,39 @@ public class BTreeManage {
         return searcher;
     }
 
-    private static LinkedList<Integer> readsubjectsID(int input){
-
-        return subjectID_btree.search(input);
-    }
-    private static LinkedList<Integer> readSubjectTitle(String input) {
-
-        return subjectTitle_btree.search(input);
-    }
-
-
-//    Create OPS
-
-    public static void createSubject(Subject subject){
-
-        createSubjectID(subject.getID() , subject.getIndex());
-        createSubjectTitle(subject.getTitle() , subject.getIndex());
-    }
-
-    private static void createSubjectTitle(String title , int index){
-        createRecord(title , index , subjectTitle_btree);
-    }
-    private static void createSubjectID(int id , int index){
-        createRecord(id , index , subjectID_btree);
-    }
-
-
 
 //    Update OPS
 
-    public static void updateSubject(Subject subject1 , Subject subject2){
-        updateSubjectID(subject1.getID() , subject2.getID() , subject1.getIndex());
-        updateStudentTitle(subject1.getTitle() , subject2.getTitle() , subject1.getIndex());
-    }
-
-    private static void updateSubjectID(int id1, int id2, int index) {
-        updateRecord(id1 , id2 , index , subjectID_btree);
-    }
-    private static void updateStudentTitle(String title1, String title2, int index) {
-        updateRecord(title1 , title2 , index , subjectTitle_btree);
-
-
-    }
+//    public static void updateSubject(Subject subject1 , Subject subject2){
+//        updateSubjectID(subject1.getID() , subject2.getID() , subject1.getIndex());
+//        updateStudentTitle(subject1.getTitle() , subject2.getTitle() , subject1.getIndex());
+//    }
+//
+//    private static void updateSubjectID(int id1, int id2, int index) {
+//        updateRecord(id1 , id2 , index , subjectID_btree);
+//    }
+//    private static void updateStudentTitle(String title1, String title2, int index) {
+//        updateRecord(title1 , title2 , index , subjectTitle_btree);
+//
+//
+//    }
 
 
 
 //    Delete OPS
 
-    public static void deleteSubject(Subject subject){
-        deleteSubjectID(subject.getID() , subject.getIndex());
-        deleteSubjectTitle(subject.getTitle() , subject.getIndex());
-    }
-
-    private static void deleteSubjectID(int id , int index){
-
-        deleteRecord(id , index , subjectID_btree);
-    }
-    private static void deleteSubjectTitle(String title , int index){
-        deleteRecord(title , index , subjectTitle_btree);
-    }
+//    public static void deleteSubject(Subject subject){
+//        deleteSubjectID(subject.getID() , subject.getIndex());
+//        deleteSubjectTitle(subject.getTitle() , subject.getIndex());
+//    }
+//
+//    private static void deleteSubjectID(int id , int index){
+//
+//        deleteRecord(id , index , subjectID_btree);
+//    }
+//    private static void deleteSubjectTitle(String title , int index){
+//        deleteRecord(title , index , subjectTitle_btree);
+//    }
 
 
 

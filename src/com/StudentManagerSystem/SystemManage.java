@@ -90,7 +90,7 @@ public class SystemManage {
 
 //    SEMESTERS MANAGING
 
-    public static void addEnrollment(Enrollment enrollment) {
+    public static void addEnrollment(Enrollment enrollment) throws IOException {
 
         int enrollmentIndex = IndexManage.createEnrollment();
         enrollment.setEnrollmentIndex(enrollmentIndex);
@@ -130,7 +130,7 @@ public class SystemManage {
     }
     public static LinkedList<Subject> searchSubject(SubjectSearcher subjectSearcher) throws IOException, ClassNotFoundException {
 
-        SubjectSearcher foundSearch = BTreeManage.readSubjects(subjectSearcher);
+        SubjectSearcher foundSearch = BTreeManage.readSubject(subjectSearcher);
         foundSearch.matchResults();
 
         while (!foundSearch.getIndex().isEmpty()) {
