@@ -1,7 +1,8 @@
 
 package com.StudentManagerSystem;
 
-public class Password {
+public class PreEnrollments {
+
 
 
 }
