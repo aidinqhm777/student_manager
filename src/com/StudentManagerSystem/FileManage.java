@@ -289,6 +289,13 @@ public class FileManage {
     }
 
 
+    //TODO
+    public static void createEnrollment(Enrollment enrollment) {}
+    public static void readEnrollment(Searcher searcher) {}
+    public static void updateEnrollment() {}
+    public static void deleteEnrollment() {}
+///////////////////////////////////////////////////////////////////////
+
 
     private static String emptyString(int size) {
         return String.format("%" + (size - 7) + "s", "");

@@ -13,6 +13,7 @@ public class SystemManage {
     private static Subject subjectTmp = new Subject();
     private static Subject updatedSubjectTmp = new Subject();
     public  static LinkedList<Pair> CampusCode = new LinkedList<>();
+    private static Enrollment enrollmentTmp;
 
     static class Pair<T,N>{
         T key;
@@ -24,18 +25,7 @@ public class SystemManage {
         }
     }
 
-    private static void setCampusCode(){
-        CampusCode.add(new Pair<Integer, String>(0,"computer"));
-        CampusCode.add(new Pair<Integer, String>(1,"electronic"));
-    }
-    private static String getCampusTitle(int code){
-        for (Pair pair : CampusCode) {
-            if ((Integer) pair.key == code) {
-                return (String) pair.value;
-            }
-        }
-        return null;
-    }
+
 
     //read and save the program in files
     public static void loadProgram() throws IOException, ClassNotFoundException {
@@ -96,6 +86,32 @@ public class SystemManage {
         return studentTmp;
     }
 
+
+
+//    SEMESTERS MANAGING
+
+    public static void addEnrollment(Enrollment enrollment) {
+
+        int enrollmentIndex = IndexManage.createEnrollment();
+        enrollment.setEnrollmentIndex(enrollmentIndex);
+        BTreeManage.createEnrollment(enrollment);
+        FileManage.createEnrollment(enrollment);
+
+    }
+    public static void searchEnrollment(Searcher searcher) {
+
+        BTreeManage.readEnrollment(searcher);
+        enrollmentTmp = FileManage.readEnrollment(searcher);
+    }
+    public static void editEnrollment() {}
+    public static void removeEnrollment() {}
+
+
+
+
+
+
+
 //    COURSES AND SUBJECTS MANAGING
 
     public static Subject addSubject() throws IOException {
@@ -139,12 +155,6 @@ public class SystemManage {
         return subjectTmp;
     }
 
-//    SEMESTERS MANAGING
-
-
-
-
-
 
     //get and set properties
     public static void setStudentTmp(Student student) {
@@ -163,5 +173,17 @@ public class SystemManage {
     public static void setUpdatedSubjectTmp(Subject subject) {
 
         updatedSubjectTmp.copy(subject);
+    }
+    private static void setCampusCode(){
+        CampusCode.add(new Pair<Integer, String>(0,"computer"));
+        CampusCode.add(new Pair<Integer, String>(1,"electronic"));
+    }
+    private static String getCampusTitle(int code){
+        for (Pair pair : CampusCode) {
+            if ((Integer) pair.key == code) {
+                return (String) pair.value;
+            }
+        }
+        return null;
     }
 }
