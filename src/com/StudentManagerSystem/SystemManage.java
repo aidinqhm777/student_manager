@@ -92,8 +92,8 @@ public class SystemManage {
 
     public static void addEnrollment(Enrollment enrollment) {
 
-        int enrollmentIndex = IndexManage.createEnrollment();
-        enrollment.setEnrollmentIndex(enrollmentIndex);
+
+        IndexManage.createEnrollment(enrollment);
         BTreeManage.createEnrollment(enrollment);
         FileManage.createEnrollment(enrollment);
 
@@ -103,8 +103,18 @@ public class SystemManage {
         BTreeManage.readEnrollment(searcher);
         enrollmentTmp = FileManage.readEnrollment(searcher);
     }
-    public static void editEnrollment() {}
-    public static void removeEnrollment() {}
+    public static void editEnrollment() {
+
+        IndexManage.updateEnrollment(enrollmentTmp);
+        BTreeManage.updateEnrollment(enrollmentTmp);
+        FileManage.updateEnrollment(enrollmentTmp);
+    }
+    public static void removeEnrollment() {
+
+        IndexManage.deleteEnrollment(enrollmentTmp);
+        BTreeManage.deleteEnrollment(enrollmentTmp);
+        FileManage.deleteEnrollment(enrollmentTmp);
+    }
 
 
 

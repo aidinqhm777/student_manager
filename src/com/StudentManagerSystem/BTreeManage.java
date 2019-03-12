@@ -463,7 +463,7 @@ public class BTreeManage {
         int studentID = enrollment.getStudentID();
         int subjectID = enrollment.getSubjectID();
         int studentIndex = studentID_btree.search(studentID);
-        int subjectIndex = subjectID_btree.search(subjectID).peek();//TODO subject code must be included
+        int subjectIndex = subjectID_btree.search(subjectID).get(enrollment.getSubjectCode());
         int index     = enrollment.getEnrollmentIndex();
 
 //        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
@@ -494,7 +494,26 @@ public class BTreeManage {
 
 
     }
-    public static Enrollment readEnrollment(Searcher searcher) {}
-    public static void updateEnrollment() {}
-    public static void deleteEnrollment() {}
+    public static LinkedList<Integer> readEnrollment(Searcher searcher) {
+
+        LinkedList<Enrollment> searchResults = new LinkedList<>();
+        LinkedList<Integer> indexes = new LinkedList<>();
+
+        if (searcher.searchByStudent()) {
+
+            indexes = semesterStudent.search(searcher.getStudent()).clone();
+            return indexes;
+        }
+
+        else if (searcher.searchBySubject()) {
+
+            indexes = semesterSubject.search(searcher.getSubject()).clone();
+            return indexes;
+        }
+
+        else
+            return null;
+    }
+    public static void updateEnrollment(Enrollment enrollment) {}
+    public static void deleteEnrollment(Enrollment enrollment) {}
 }

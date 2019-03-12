@@ -28,14 +28,21 @@ public class IndexManage implements Serializable {
     }
 
 
-    public int addSubject() {return 1;}
+     int addSubject() {return 1;}
     public int deleteSubject(int index) {return 1;}
 
-    public static int createEnrollment() {
 
-        return 1;
+
+    public static void createEnrollment(Enrollment enrollment) {
+
+
     }
-    public void deleteEnrollment(Student_Subject enrollment) {}
+    public static void updateEnrollment(Enrollment enrollment) {}
+    public static void deleteEnrollment(Enrollment enrollment) {}
+
+
+
+
 
 }
 
