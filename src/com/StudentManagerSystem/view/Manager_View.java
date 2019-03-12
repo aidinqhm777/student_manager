@@ -5,7 +5,6 @@ import com.StudentManagerSystem.*;
 import java.io.IOException;
 import java.lang.invoke.WrongMethodTypeException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
 import javax.swing.*;
@@ -49,7 +48,7 @@ public class Manager_View extends javax.swing.JFrame {
         jTextField18 = new javax.swing.JTextField();
         editInfo_btn = new javax.swing.JToggleButton();
         deleteStudent_btn = new javax.swing.JToggleButton();
-        search_btn = new javax.swing.JToggleButton();
+        searchStudent_btn = new javax.swing.JToggleButton();
         jLabel32 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         uniId_searchField = new javax.swing.JTextField();
@@ -62,6 +61,8 @@ public class Manager_View extends javax.swing.JFrame {
         birthdateYearCB = new javax.swing.JComboBox<>();
         birthdateMonthCB = new javax.swing.JComboBox<>();
         birthdateDayCB = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        searchList = new javax.swing.JList<>();
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
@@ -211,11 +212,11 @@ public class Manager_View extends javax.swing.JFrame {
             }
         });
 
-        search_btn.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        search_btn.setText("Search");
-        search_btn.addActionListener(new java.awt.event.ActionListener() {
+        searchStudent_btn.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        searchStudent_btn.setText("Search");
+        searchStudent_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search_btnActionPerformed(evt);
+                searchStudent_btnActionPerformed(evt);
             }
         });
 
@@ -285,6 +286,14 @@ public class Manager_View extends javax.swing.JFrame {
             }
         });
 
+        searchList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        searchList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchListMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(searchList);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -292,29 +301,6 @@ public class Manager_View extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel42)
-                                .addGap(104, 104, 104))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(22, 22, 22)))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(uniId_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel41))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(id_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lastName_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -342,7 +328,7 @@ public class Manager_View extends javax.swing.JFrame {
                                         .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jLabel30)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(phoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jLabel28)
@@ -352,14 +338,42 @@ public class Manager_View extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(deleteStudent_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editInfo_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(editInfo_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel42)
+                                        .addGap(104, 104, 104))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel32)
+                                        .addGap(22, 22, 22)))
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(uniId_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(name_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel41))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lastName_searchField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addGap(372, 372, 372)
+                                .addComponent(searchStudent_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
-            .addComponent(jSeparator2)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
                     .addComponent(uniId_searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,10 +386,14 @@ public class Manager_View extends javax.swing.JFrame {
                     .addComponent(jLabel41)
                     .addComponent(jLabel42))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(search_btn)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(searchStudent_btn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26))
@@ -415,7 +433,7 @@ public class Manager_View extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -424,8 +442,8 @@ public class Manager_View extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Student Info", jPanel6);
@@ -690,7 +708,7 @@ public class Manager_View extends javax.swing.JFrame {
                 .addComponent(jToggleButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 421, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -731,7 +749,7 @@ public class Manager_View extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap(632, Short.MAX_VALUE)
+                .addContainerGap(627, Short.MAX_VALUE)
                 .addComponent(jCheck)
                 .addContainerGap())
         );
@@ -1183,6 +1201,11 @@ public class Manager_View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initialStudentSearchList(LinkedList<Student> s){
+        DefaultListModel<String> list = new DefaultListModel<>();
+        for (Student student : s) list.addElement(student.getName() +" "+ student.getLastname());
+        searchList.setModel(list);
+    }
 
     private void showErrorMassage(String ErrorMassage) {
         JOptionPane.showMessageDialog(this, ErrorMassage, "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1200,10 +1223,19 @@ public class Manager_View extends javax.swing.JFrame {
         phoneNumberField.setText(studentTemp.getPhoneNum());
     }
 
+    private void cleanFormInfo() {
+        nameField.setText("");
+        lastNameField.setText("");
+        idField.setText("");
+        setBirthdateInfo(birthdateDayCB, birthdateMonthCB, birthdateYearCB);
+        phoneNumberField.setText("");
+        initialStudentSearchList(new LinkedList<>());
+    }
+
     private void setBirthdateInfo(JComboBox birthdateDay, JComboBox birthdateMonth, JComboBox birthdateYear){
-        birthdateDay.setSelectedItem(studentTemp.getBirthDate().substring(0,3));
-        birthdateMonth.setSelectedItem(studentTemp.getBirthDate().substring(5,6));
-        birthdateYear.setSelectedItem(studentTemp.getBirthDate().substring(8,9));
+        birthdateDay.setSelectedItem(studentTemp.getBirthDate().substring(0,2));
+        birthdateMonth.setSelectedItem(studentTemp.getBirthDate().substring(3,5));
+        birthdateYear.setSelectedItem(studentTemp.getBirthDate().substring(6,10));
     }
 
     private boolean getFormInfo_signUp() {
@@ -1389,50 +1421,6 @@ public class Manager_View extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_signUpActionPerformed
 
-    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
-        Searcher searcher = new Searcher();
-        if (!name_searchField.getText().equals("")) {
-            searcher.setName(name_searchField.getText());
-            searcher.setSearchByName(true);
-        }
-
-        if (!lastName_searchField.getText().equals("")) {
-            searcher.setLastname(lastName_searchField.getText());
-            searcher.setSearchByLastname(true);
-        }
-
-        if (!uniId_searchField.getText().equals("")) {
-            searcher.setUniID(Integer.parseInt(uniId_searchField.getText()));
-            searcher.setSearchByUniID(true);
-        }
-
-        if (!id_searchField.getText().equals("")) {
-            searcher.setId(Integer.parseInt(id_searchField.getText()));
-            searcher.setSearchByID(true);
-        }
-
-        try {
-            searchResult = SystemManage.searchStudent(searcher);
-            studentTemp = searchResult.get(0);
-            SystemManage.setStudentTmp(studentTemp);
-            setFormInfo();
-            deleteStudent_btn.setEnabled(true);
-            editInfo_btn.setEnabled(true);
-        } catch (IOException | ClassNotFoundException | NullPointerException e) {
-            showErrorMassage("not found: " + e.getCause());
-        }
-
-    }//GEN-LAST:event_search_btnActionPerformed
-
-    private void deleteStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteStudent_btnActionPerformed
-        try {
-            SystemManage.removeStudent();
-            showSuccessMassage("Done");
-        } catch (IOException e) {
-            showErrorMassage("Error");
-        }
-    }//GEN-LAST:event_deleteStudent_btnActionPerformed
-
     private void jComboBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox18ActionPerformed
@@ -1487,11 +1475,101 @@ public class Manager_View extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void copyTextButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTextButActionPerformed
+
+    }//GEN-LAST:event_copyTextButActionPerformed
+
+    private void birthdateMonthCB_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateMonthCB_signUpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdateMonthCB_signUpActionPerformed
+
+    private void birthdateDayCB_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCB_signUpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdateDayCB_signUpActionPerformed
+
+    private void searchListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchListMouseClicked
+        if (searchList.getSelectedIndex() != -1){
+            studentTemp = searchResult.get( searchList.getSelectedIndex() );
+            setFormInfo();
+        }
+    }//GEN-LAST:event_searchListMouseClicked
+
+    private void birthdateDayCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdateDayCBActionPerformed
+
+    private void birthdateMonthCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateMonthCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdateMonthCBActionPerformed
+
+    private void lastName_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastName_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastName_searchFieldActionPerformed
+
+    private void id_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_id_searchFieldActionPerformed
+
+    private void name_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_searchFieldActionPerformed
+
+    private void uniId_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uniId_searchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uniId_searchFieldActionPerformed
+
+    private void searchStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStudent_btnActionPerformed
+        Searcher searcher = new Searcher();
+        if (!name_searchField.getText().equals("")) {
+            searcher.setName(name_searchField.getText());
+            searcher.setSearchByName(true);
+        }
+
+        if (!lastName_searchField.getText().equals("")) {
+            searcher.setLastname(lastName_searchField.getText());
+            searcher.setSearchByLastname(true);
+        }
+
+        if (!uniId_searchField.getText().equals("")) {
+            searcher.setUniID(Integer.parseInt(uniId_searchField.getText()));
+            searcher.setSearchByUniID(true);
+        }
+
+        if (!id_searchField.getText().equals("")) {
+            searcher.setId(Integer.parseInt(id_searchField.getText()));
+            searcher.setSearchByID(true);
+        }
+
+        try {
+            searchResult = SystemManage.searchStudent(searcher);
+            studentTemp = searchResult.get(0);
+
+            initialStudentSearchList(searchResult);
+
+            SystemManage.setStudentTmp(studentTemp);
+            setFormInfo();
+            deleteStudent_btn.setEnabled(true);
+            editInfo_btn.setEnabled(true);
+        } catch (IOException | ClassNotFoundException | NullPointerException e) {
+            showErrorMassage("not found: " + e.getCause());
+            cleanFormInfo();
+        }
+    }//GEN-LAST:event_searchStudent_btnActionPerformed
+
+    private void deleteStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteStudent_btnActionPerformed
+        try {
+            SystemManage.removeStudent();
+            showSuccessMassage("Done");
+        } catch (IOException e) {
+            showErrorMassage("Error");
+        }
+    }//GEN-LAST:event_deleteStudent_btnActionPerformed
+
     private void editInfo_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editInfo_btnActionPerformed
         try {
-//            getFormInfo_edit();
-//            SystemManage.updateStudent();
-//            showSuccessMassage("Done");
+            //            getFormInfo_edit();
+            //            SystemManage.updateStudent();
+            //            showSuccessMassage("Done");
             if(getFormInfo_edit()){
                 SystemManage.setUpdatedStudentTmp(studentTemp);
                 SystemManage.updateStudent();
@@ -1504,44 +1582,7 @@ public class Manager_View extends javax.swing.JFrame {
             showErrorMassage("ID error");
         }
 
-
     }//GEN-LAST:event_editInfo_btnActionPerformed
-
-    private void copyTextButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTextButActionPerformed
-
-    }//GEN-LAST:event_copyTextButActionPerformed
-
-    private void uniId_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uniId_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_uniId_searchFieldActionPerformed
-
-    private void name_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_name_searchFieldActionPerformed
-
-    private void id_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_id_searchFieldActionPerformed
-
-    private void lastName_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastName_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastName_searchFieldActionPerformed
-
-    private void birthdateMonthCB_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateMonthCB_signUpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateMonthCB_signUpActionPerformed
-
-    private void birthdateDayCB_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCB_signUpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateDayCB_signUpActionPerformed
-
-    private void birthdateMonthCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateMonthCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateMonthCBActionPerformed
-
-    private void birthdateDayCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateDayCBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1658,6 +1699,7 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1675,7 +1717,8 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JTextField name_searchField;
     private javax.swing.JTextField phoneNumberField;
     private javax.swing.JTextField phoneNumberFiled_signUp;
-    private javax.swing.JToggleButton search_btn;
+    private javax.swing.JList<String> searchList;
+    private javax.swing.JToggleButton searchStudent_btn;
     private javax.swing.JToggleButton signUp;
     private javax.swing.JTextField subjectCode_field;
     private javax.swing.JTextField subjectTitleSearch_feld;

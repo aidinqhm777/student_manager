@@ -417,14 +417,18 @@ public class BTreeManage {
 //        createRecord(id , index , subjectID_btree);
 //    }
 
-    public static void createSubject(Subject subject , int index){
+    public static void createSubject(Subject subject){
         LinkedList<Integer> tmp = new LinkedList<>();
-        tmp.push(index);
+        tmp.push(subject.getIndex());
         subjectID_btree.insert(subject.getID() , tmp);
         subjectTitle_btree.insert(subject.getTitle() , tmp);
     }
+
+    public static void updateSubject(Subject s1, Subject s2){
+        //TODO
+    }
     public static void updateSubjectByID(Subject subject1 , Subject subject2 , int index){
-        subjectTitle_btree.search(index);
+//        subjectTitle_btree.search(index);
         LinkedList<Integer> tmp = new LinkedList<>();
         if (subject1.getID()!=subject2.getID()) {
             tmp.remove(subject1.getID());
@@ -442,8 +446,8 @@ public class BTreeManage {
 
     }
 
-    public static void deleteSubject(Subject subject , int index){
-        subjectID_btree.delete(index);
+    public static void deleteSubject(Subject subject){
+        subjectID_btree.delete(subject.getIndex());
     }
     public  static SubjectSearcher readSubject(SubjectSearcher searcher){
         if (searcher.getSearchById()) {
@@ -532,9 +536,9 @@ public class BTreeManage {
 
 
     }
-    public static Enrollment readEnrollment(Searcher searcher) {
-        return new Enrollment();
+    public static LinkedList<Integer>  readEnrollment(EnrollmentSearcher searcher) {
+        return new LinkedList<Integer> ();
     }
     public static void updateEnrollment() {}
-    public static void deleteEnrollment() {}
+    public static void deleteEnrollment(Enrollment e) {}
 }
