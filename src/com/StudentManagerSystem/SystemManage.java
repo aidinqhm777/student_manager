@@ -205,4 +205,13 @@ public class SystemManage {
         }
         return null;
     }
+    public static void setEnrollmentTmp(Enrollment enrollment) {
+
+        enrollment.setEnrollmentIndex(enrollmentTmp.getEnrollmentIndex());
+        enrollment.setSubjectID(enrollmentTmp.getSubjectID());
+        enrollment.setStudentID(enrollmentTmp.getStudentID());
+        enrollment.setStudentIndex(enrollmentTmp.getStudentIndex());
+        enrollment.setSubjectIndex(enrollmentTmp.getSubjectIndex());
+        enrollment.setSubjectCode(enrollmentTmp.getSubjectCode());
+    }
 }
