@@ -423,18 +423,22 @@ public class BTreeManage {
         subjectID_btree.insert(subject.getID() , tmp);
         subjectTitle_btree.insert(subject.getTitle() , tmp);
     }
-    public static void updateSubjectById(Subject subject1 , Subject subject2 , int index){
-        subjectID_btree.search(index);
+    public static void updateSubjectByID(Subject subject1 , Subject subject2 , int index){
+        subjectTitle_btree.search(index);
         LinkedList<Integer> tmp = new LinkedList<>();
-        tmp.remove(subject1.getID());
-        tmp.push(subject2.getID());
+        if (subject1.getID()!=subject2.getID()) {
+            tmp.remove(subject1.getID());
+            tmp.push(subject2.getID());
+        }
 
     }
     public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , int index){
         subjectID_btree.search(index);
-        LinkedList<String> tmp = new LinkedList<>();
-        tmp.remove(subject1.getTitle());
-        tmp.push(subject2.getTitle());
+        LinkedList<Integer> tmp = new LinkedList<>();
+        if (subject1.getID()!=subject2.getID()) {
+            tmp.remove(subject1.getID());
+            tmp.push(subject2.getID());
+        }
 
     }
 
