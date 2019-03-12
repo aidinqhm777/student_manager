@@ -7,6 +7,15 @@ import java.util.LinkedList;
 
 public class BTreeManage {
 
+
+//    SEMESTER BTREE
+
+    private static BPlusTree<Integer,LinkedList<Integer>> semesterStudent = new BPlusTree<>();
+    private static BPlusTree<Integer,LinkedList<Integer>> semesterSubject = new BPlusTree<>();
+
+
+//    STUDENT AND SUBJECT BTREE
+
     private static BPlusTree<Integer,Integer> studentUniID_btree = new BPlusTree<>();
     private static BPlusTree<Integer,Integer> studentID_btree =new BPlusTree<>();
     private static BPlusTree<String,LinkedList<Integer>> studentName_btree = new BPlusTree<>();
@@ -443,4 +452,51 @@ public class BTreeManage {
         deleteRecord(title , index , subjectTitle_btree);
     }
 
+
+
+
+//    SEMESTER MANAGE
+//    SEMESTER MANAGE
+
+    public static void createEnrollment(Enrollment enrollment) {
+
+        int studentID = enrollment.getStudentID();
+        int subjectID = enrollment.getSubjectID();
+        int studentIndex = studentID_btree.search(studentID);
+        int subjectIndex = subjectID_btree.search(subjectID).peek();//TODO subject code must be included
+        int index     = enrollment.getEnrollmentIndex();
+
+//        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
+        enrollment.setStudentIndex(studentIndex);
+        enrollment.setSubjectIndex(subjectIndex);
+
+//    SET SEMESTER STUDENT INDEX IN BTREE
+        LinkedList<Integer> tmp = semesterStudent.search(studentID);
+
+        if (tmp == null) {
+            tmp = new LinkedList<Integer>();
+            tmp.push(index);
+            semesterStudent.insert(studentID, tmp);
+        }
+        else
+            tmp.push(index);
+
+//    SET SEMESTER SUBJECT INDEX IN BTREE
+        tmp = semesterSubject.search(subjectID);
+
+        if (tmp == null) {
+            tmp = new LinkedList<Integer>();
+            tmp.push(index);
+            semesterSubject.insert(subjectID, tmp);
+        }
+        else
+            tmp.push(index);
+
+
+    }
+    public static Enrollment readEnrollment(Searcher searcher) {
+        return new Enrollment();
+    }
+    public static void updateEnrollment() {}
+    public static void deleteEnrollment() {}
 }

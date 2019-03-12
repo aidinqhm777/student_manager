@@ -124,7 +124,7 @@ public class SubjectSearcher {
         return searchResultId;
     }
 
-    public void setSearchResultId(LinkedList searchResultId) {
+    public void setSearchResultId(LinkedList<Integer> searchResultId) {
         this.searchResultId = (LinkedList<Integer>) searchResultId.clone();
     }
 
