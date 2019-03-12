@@ -50,7 +50,7 @@ public class BTreeManage {
     }
     private static void loadBtree_StudentID() {
         try {
-           studentID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentID();
+            studentID_btree = (BPlusTree<Integer, Integer>) FileManage.loadBtree_StudentID();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println( e.toString() );
         }
@@ -73,7 +73,7 @@ public class BTreeManage {
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
         try {
-           FileManage.saveBtree_StudentUniID(studentUniID_btree);
+            FileManage.saveBtree_StudentUniID(studentUniID_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }
@@ -117,8 +117,8 @@ public class BTreeManage {
                 tmp = (LinkedList<Integer>) bPlusTree.search(input);
 
             tmp.push(index);
-                value val = (value) tmp;
-                bPlusTree.insert(input, val);
+            value val = (value) tmp;
+            bPlusTree.insert(input, val);
         }
 
         else if (input instanceof Integer){
@@ -135,7 +135,7 @@ public class BTreeManage {
         if (input1 instanceof String){
             if (!input1.equals(input2)){
 
-               deleteRecord(input1, index, bPlusTree);
+                deleteRecord(input1, index, bPlusTree);
                 //------------------------------------------------
                 LinkedList tmp = (LinkedList<Integer>) bPlusTree.search(input2);
                 if (tmp == null)
@@ -416,33 +416,30 @@ public class BTreeManage {
 //    private static void createSubjectID(int id , int index){
 //        createRecord(id , index , subjectID_btree);
 //    }
-    public static void updateSubject(Subject subject1 , Subject subject2){
-        updateSubjectById(subject1, subject2 , subject1.getIndex());
-        updateSubjectByTitle(subject1 , subject2 , subject1.getIndex());
-    }
-    public static void createSubject(Subject subject){
-        int index = subject.getIndex();
+
+    public static void createSubject(Subject subject , int index){
         LinkedList<Integer> tmp = new LinkedList<>();
         tmp.push(index);
         subjectID_btree.insert(subject.getID() , tmp);
         subjectTitle_btree.insert(subject.getTitle() , tmp);
     }
     public static void updateSubjectById(Subject subject1 , Subject subject2 , int index){
-        LinkedList<Integer> tmp = subjectID_btree.search(index);
+        subjectID_btree.search(index);
+        LinkedList<Integer> tmp = new LinkedList<>();
+        tmp.remove(subject1.getID());
+        tmp.push(subject2.getID());
 
-        if (subject1.getID() != subject2.getID()){
-            tmp.remove(subject1.getID());
-            tmp.push(subject2.getID());
-        }
     }
     public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , int index){
-        LinkedList<String> tmp = subjectTitle_btree.search(index);
+        subjectID_btree.search(index);
+        LinkedList<String> tmp = new LinkedList<>();
         tmp.remove(subject1.getTitle());
         tmp.push(subject2.getTitle());
+
     }
 
-    public static void deleteSubject(Subject subject){
-        subjectID_btree.delete(subject.getIndex());
+    public static void deleteSubject(Subject subject , int index){
+        subjectID_btree.delete(index);
     }
     public  static SubjectSearcher readSubject(SubjectSearcher searcher){
         if (searcher.getSearchById()) {
@@ -500,7 +497,7 @@ public class BTreeManage {
         int studentID = enrollment.getStudentID();
         int subjectID = enrollment.getSubjectID();
         int studentIndex = studentID_btree.search(studentID);
-        int subjectIndex = subjectID_btree.search(subjectID).get(enrollment.getSubjectCode());
+        int subjectIndex = subjectID_btree.search(subjectID).peek();//TODO subject code must be included
         int index     = enrollment.getEnrollmentIndex();
 
 //        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
@@ -531,26 +528,9 @@ public class BTreeManage {
 
 
     }
-    public static LinkedList<Integer> readEnrollment(EnrollmentSearcher searcher) {
-
-        LinkedList<Enrollment> searchResults = new LinkedList<>();
-        LinkedList<Integer> indexes;
-
-        if (searcher.isSearchByStudent()) {
-
-            indexes = (LinkedList<Integer>) semesterStudent.search(searcher.getStudentID()).clone();
-            return indexes;
-        }
-
-        else if (searcher.isSearchBySubject()) {
-
-            indexes = (LinkedList<Integer>) semesterSubject.search(searcher.getSubjectID()).clone();
-            return indexes;
-        }
-
-        else
-            return null;
+    public static Enrollment readEnrollment(Searcher searcher) {
+        return new Enrollment();
     }
-    public static void updateEnrollment(Enrollment enrollment) {}
-    public static void deleteEnrollment(Enrollment enrollment) {}
+    public static void updateEnrollment() {}
+    public static void deleteEnrollment() {}
 }
