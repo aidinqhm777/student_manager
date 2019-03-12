@@ -90,7 +90,7 @@ public class SystemManage {
 
 //    SEMESTERS MANAGING
 
-    public static void addEnrollment(Enrollment enrollment) {
+    public static void addEnrollment(Enrollment enrollment) throws IOException {
 
 
         IndexManage.createEnrollment(enrollment);
@@ -98,18 +98,28 @@ public class SystemManage {
         FileManage.createEnrollment(enrollment);
 
     }
-    public static void searchEnrollment(Searcher searcher) {
+    public static LinkedList searchEnrollment(EnrollmentSearcher searcher)
+            throws IOException, ClassNotFoundException {
 
-        BTreeManage.readEnrollment(searcher);
-        enrollmentTmp = FileManage.readEnrollment(searcher);
+        LinkedList<Integer> indexes = BTreeManage.readEnrollment(searcher);
+        LinkedList<Enrollment> searchResults = new LinkedList<>();
+        if (indexes == null)
+            return null;
+        while (!indexes.isEmpty()) {
+            int index = indexes.pop();
+            Enrollment tmp = FileManage.readEnrollment(index);
+            searchResults.push(tmp);
+        }
+
+        return searchResults;
     }
     public static void editEnrollment() {
-
-        IndexManage.updateEnrollment(enrollmentTmp);
-        BTreeManage.updateEnrollment(enrollmentTmp);
-        FileManage.updateEnrollment(enrollmentTmp);
+//
+//        IndexManage.updateEnrollment(enrollmentTmp);
+//        BTreeManage.updateEnrollment(enrollmentTmp);
+//        FileManage.updateEnrollment(enrollmentTmp);
     }
-    public static void removeEnrollment() {
+    public static void removeEnrollment() throws IOException {
 
         IndexManage.deleteEnrollment(enrollmentTmp);
         BTreeManage.deleteEnrollment(enrollmentTmp);
@@ -177,7 +187,6 @@ public class SystemManage {
         updatedStudentTmp.setStudent(student);
     }
     public static void setSubjectTmp(Subject subject) {
-
         subjectTmp.copy(subject);
     }
     public static void setUpdatedSubjectTmp(Subject subject) {

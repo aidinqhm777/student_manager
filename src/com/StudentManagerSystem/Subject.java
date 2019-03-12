@@ -1,6 +1,8 @@
 
 package com.StudentManagerSystem;
 
+import com.sun.xml.internal.ws.developer.Serialization;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -100,8 +102,15 @@ public class Subject {
     }
 
 
-    public Subject copy(Subject subject) {
-        return this;
+    public void copy(Subject s) {
+        this.setCapacity(s.getCapacity());
+        this.setUnitVal(s.getUnitVal());
+        this.setTitle(s.getTitle());
+        this.setIndex(s.getIndex());
+        this.setCode(s.getCode());
+        this.setProfessorName(s.getProfessorName());
+        this.setRequirements(s.getRequirements());
+        this.setExamDate(s.getExamDate());
     }
 
 

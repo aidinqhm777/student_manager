@@ -494,20 +494,20 @@ public class BTreeManage {
 
 
     }
-    public static LinkedList<Integer> readEnrollment(Searcher searcher) {
+    public static LinkedList<Integer> readEnrollment(EnrollmentSearcher searcher) {
 
         LinkedList<Enrollment> searchResults = new LinkedList<>();
-        LinkedList<Integer> indexes = new LinkedList<>();
+        LinkedList<Integer> indexes;
 
-        if (searcher.searchByStudent()) {
+        if (searcher.isSearchByStudent()) {
 
-            indexes = semesterStudent.search(searcher.getStudent()).clone();
+            indexes = (LinkedList<Integer>) semesterStudent.search(searcher.getStudentID()).clone();
             return indexes;
         }
 
-        else if (searcher.searchBySubject()) {
+        else if (searcher.isSearchBySubject()) {
 
-            indexes = semesterSubject.search(searcher.getSubject()).clone();
+            indexes = (LinkedList<Integer>) semesterSubject.search(searcher.getSubjectID()).clone();
             return indexes;
         }
 

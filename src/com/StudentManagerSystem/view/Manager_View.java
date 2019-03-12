@@ -1367,7 +1367,8 @@ public class Manager_View extends javax.swing.JFrame {
             s.setCapacity(Integer.parseInt(Capacity_field.getText()));
             s.setProfessorName(ProfessorName_field.getText());
             SystemManage.setSubjectTmp(s);
-            SystemManage.addSubject();
+            s = SystemManage.addSubject();
+            subjectCode_field.setText(String.valueOf(s.getID()));
             showSuccessMassage("done");
         } catch (IOException e) {
             showErrorMassage("");
