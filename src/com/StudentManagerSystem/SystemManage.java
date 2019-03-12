@@ -157,7 +157,6 @@ public class SystemManage {
         updatedStudentTmp.setStudent(student);
     }
     public static void setSubjectTmp(Subject subject) {
-
         subjectTmp.copy(subject);
     }
     public static void setUpdatedSubjectTmp(Subject subject) {
