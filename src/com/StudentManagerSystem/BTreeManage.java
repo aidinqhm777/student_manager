@@ -324,18 +324,12 @@ public class BTreeManage {
 
     public static <type> boolean checkDuplicity(type input){
 
-
-
         if (input instanceof Subject) {
-
             return (subjectID_btree.search(((Subject) input).getID()) != null)
                     && (subjectTitle_btree.search(((Subject) input).getTitle()) != null); /* TODO && code should not be repititious*/
         }
-
         else
             return studentID_btree.search(((Student) input).getId()) != null;
-
-
     }
 
     //remove index records from BTree

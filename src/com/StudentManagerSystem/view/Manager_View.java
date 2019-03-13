@@ -121,10 +121,10 @@ public class Manager_View extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
-        subjectTitleSearch_feld = new javax.swing.JTextField();
+        subjectTitleEdit_feld = new javax.swing.JTextField();
         jComboBox15 = new javax.swing.JComboBox<>();
         jComboBox16 = new javax.swing.JComboBox<>();
-        ExameDateSearch_feld = new javax.swing.JTextField();
+        ExameDateEdit_feld = new javax.swing.JTextField();
         getSubject_btn = new javax.swing.JToggleButton();
         jLabel18 = new javax.swing.JLabel();
         jComboBox17 = new javax.swing.JComboBox<>();
@@ -134,6 +134,12 @@ public class Manager_View extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         editLesson_btn = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        professorNameEdit_field = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        capacityEdit_field = new javax.swing.JTextField();
+        unitValueEdit_field = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -225,41 +231,21 @@ public class Manager_View extends javax.swing.JFrame {
 
         uniId_searchField.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         uniId_searchField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        uniId_searchField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uniId_searchFieldActionPerformed(evt);
-            }
-        });
 
         name_searchField.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         name_searchField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        name_searchField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_searchFieldActionPerformed(evt);
-            }
-        });
 
         jLabel40.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel40.setText("ID:");
 
         id_searchField.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         id_searchField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        id_searchField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_searchFieldActionPerformed(evt);
-            }
-        });
 
         jLabel41.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel41.setText("Lastname:");
 
         lastName_searchField.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lastName_searchField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        lastName_searchField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastName_searchFieldActionPerformed(evt);
-            }
-        });
 
         jLabel42.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel42.setText("Name:");
@@ -271,20 +257,10 @@ public class Manager_View extends javax.swing.JFrame {
         birthdateMonthCB.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         birthdateMonthCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         birthdateMonthCB.setToolTipText("");
-        birthdateMonthCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birthdateMonthCBActionPerformed(evt);
-            }
-        });
 
         birthdateDayCB.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         birthdateDayCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         birthdateDayCB.setToolTipText("");
-        birthdateDayCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birthdateDayCBActionPerformed(evt);
-            }
-        });
 
         searchList.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         searchList.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -538,11 +514,6 @@ public class Manager_View extends javax.swing.JFrame {
         birthdateDayCB_signUp.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         birthdateDayCB_signUp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         birthdateDayCB_signUp.setToolTipText("");
-        birthdateDayCB_signUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birthdateDayCB_signUpActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -664,40 +635,20 @@ public class Manager_View extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "حذف و اضافه ی اختصاصی", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jTextField2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("B Nazanin", 1, 24)); // NOI18N
         jLabel2.setText("شماره دانشجویی:");
 
         jToggleButton1.setFont(new java.awt.Font("B Nazanin", 1, 24)); // NOI18N
         jToggleButton1.setText("اضافه");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("B Nazanin", 1, 24)); // NOI18N
         jLabel3.setText("کد درس:");
 
         jToggleButton2.setFont(new java.awt.Font("B Nazanin", 1, 24)); // NOI18N
         jToggleButton2.setText("حذف");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
 
         jTextField3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -789,18 +740,8 @@ public class Manager_View extends javax.swing.JFrame {
         jCheckBox3.setFont(new java.awt.Font("B Nazanin", 1, 18)); // NOI18N
         jCheckBox3.setSelected(true);
         jCheckBox3.setEnabled(false);
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
-            }
-        });
 
         jCheckBox4.setFont(new java.awt.Font("B Nazanin", 1, 18)); // NOI18N
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel8.setText("class scheduler:");
@@ -812,19 +753,9 @@ public class Manager_View extends javax.swing.JFrame {
 
         jComboBox4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "saturday", "sunday", "monday", "tuesday", "wendsday", " " }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
-            }
-        });
 
         jComboBox5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "every week", "even week", "odd week" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
-            }
-        });
 
         exameDate_field.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
@@ -841,19 +772,9 @@ public class Manager_View extends javax.swing.JFrame {
 
         jComboBox9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "saturday", "sunday", "monday", "tuesday", "wendsday", " " }));
-        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox9ActionPerformed(evt);
-            }
-        });
 
         jComboBox10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "every week", "even week", "odd week" }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel7.setText("Test date:");
@@ -983,38 +904,18 @@ public class Manager_View extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "edite lesson", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jCheckBox5.setFont(new java.awt.Font("B Nazanin", 1, 18)); // NOI18N
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
-            }
-        });
 
         jCheckBox6.setFont(new java.awt.Font("B Nazanin", 1, 18)); // NOI18N
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
-            }
-        });
 
-        subjectTitleSearch_feld.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        subjectTitleEdit_feld.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
         jComboBox15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "saturday", "sunday", "monday", "tuesday", "wendsday", " " }));
-        jComboBox15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox15ActionPerformed(evt);
-            }
-        });
 
         jComboBox16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "every week", "even week", "odd week" }));
-        jComboBox16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox16ActionPerformed(evt);
-            }
-        });
 
-        ExameDateSearch_feld.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        ExameDateEdit_feld.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
 
         getSubject_btn.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         getSubject_btn.setText("get info");
@@ -1029,19 +930,9 @@ public class Manager_View extends javax.swing.JFrame {
 
         jComboBox17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox17.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "saturday", "sunday", "monday", "tuesday", "wendsday", " " }));
-        jComboBox17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox17ActionPerformed(evt);
-            }
-        });
 
         jComboBox18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jComboBox18.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "every week", "even week", "odd week" }));
-        jComboBox18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox18ActionPerformed(evt);
-            }
-        });
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel20.setText("Test date:");
@@ -1059,82 +950,128 @@ public class Manager_View extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel11.setText("Professor Name:");
+
+        professorNameEdit_field.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel12.setText("Cpacity:");
+
+        capacityEdit_field.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+
+        unitValueEdit_field.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        jLabel13.setText("Value:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(getCode_field, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(getSubject_btn))
-                    .addComponent(editLesson_btn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(subjectTitleSearch_feld, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ExameDateSearch_feld, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(editLesson_btn))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel20))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(subjectTitleEdit_feld, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)
+                                .addGap(14, 14, 14)
+                                .addComponent(professorNameEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(ExameDateEdit_feld, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(capacityEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox5))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox6))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel22))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel13)
+                                .addGap(106, 106, 106)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(getCode_field, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(unitValueEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox5))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox6)))
+                        .addComponent(getSubject_btn)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(getCode_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22)
-                    .addComponent(getSubject_btn))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(subjectTitleSearch_feld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(ExameDateSearch_feld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel22)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(subjectTitleEdit_feld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(professorNameEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel20)
+                                    .addComponent(ExameDateEdit_feld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12)
+                                    .addComponent(capacityEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCheckBox5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jCheckBox6))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBox15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jCheckBox5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jCheckBox6)))
-                .addGap(18, 18, 18)
+                            .addComponent(getCode_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getSubject_btn))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(unitValueEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(editLesson_btn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1155,7 +1092,7 @@ public class Manager_View extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Semester Lessons", jPanel7);
@@ -1188,7 +1125,7 @@ public class Manager_View extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1273, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1344,49 +1281,9 @@ public class Manager_View extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jCheckActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
-
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
-
-    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox9ActionPerformed
-
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox10ActionPerformed
-
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void addLesson_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLesson_btnActionPerformed
         //TODO not Complete
@@ -1421,14 +1318,6 @@ public class Manager_View extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_signUpActionPerformed
 
-    private void jComboBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox18ActionPerformed
-
-    private void jComboBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox17ActionPerformed
-
     private void getSubject_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSubject_btnActionPerformed
         try {
             int code = Integer.parseInt(getCode_field.getText());
@@ -1437,30 +1326,17 @@ public class Manager_View extends javax.swing.JFrame {
             subjectSearcher.setSearchById(true);
             LinkedList<Subject> result = SystemManage.searchSubject(subjectSearcher);
 
-            subjectTitleSearch_feld.setText(result.get(0).getTitle());
-            ExameDateSearch_feld.setText(result.get(0).getExamDate().toString());
+            subjectTitleEdit_feld.setText(result.get(0).getTitle());
+            ExameDateEdit_feld.setText(result.get(0).getExamDate().toString());
+            unitValueEdit_field.setText(String.valueOf(result.get(0).getUnitVal()));
+            professorNameEdit_field.setText(result.get(0).getProfessorName());
+            capacityEdit_field.setText(String.valueOf(result.get(0).getCapacity()));
 
             showSuccessMassage("done");
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException | NullPointerException e) {
             showErrorMassage("");
         }
     }//GEN-LAST:event_getSubject_btnActionPerformed
-
-    private void jComboBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox16ActionPerformed
-
-    private void jComboBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox15ActionPerformed
-
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
-
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void editLesson_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLesson_btnActionPerformed
 
@@ -1483,40 +1359,12 @@ public class Manager_View extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_birthdateMonthCB_signUpActionPerformed
 
-    private void birthdateDayCB_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCB_signUpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateDayCB_signUpActionPerformed
-
     private void searchListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchListMouseClicked
         if (searchList.getSelectedIndex() != -1){
             studentTemp = searchResult.get( searchList.getSelectedIndex() );
             setFormInfo();
         }
     }//GEN-LAST:event_searchListMouseClicked
-
-    private void birthdateDayCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateDayCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateDayCBActionPerformed
-
-    private void birthdateMonthCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdateMonthCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdateMonthCBActionPerformed
-
-    private void lastName_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastName_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastName_searchFieldActionPerformed
-
-    private void id_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_id_searchFieldActionPerformed
-
-    private void name_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_name_searchFieldActionPerformed
-
-    private void uniId_searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uniId_searchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_uniId_searchFieldActionPerformed
 
     private void searchStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStudent_btnActionPerformed
         Searcher searcher = new Searcher();
@@ -1620,7 +1468,7 @@ public class Manager_View extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Capacity_field;
-    private javax.swing.JTextField ExameDateSearch_feld;
+    private javax.swing.JTextField ExameDateEdit_feld;
     private javax.swing.JTextField JtextId;
     private javax.swing.JTextField ProfessorName_field;
     private javax.swing.JToggleButton addLesson_btn;
@@ -1630,6 +1478,7 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> birthdateMonthCB_signUp;
     private javax.swing.JComboBox<String> birthdateYearCB;
     private javax.swing.JComboBox<String> birthdateYearCB_signUp;
+    private javax.swing.JTextField capacityEdit_field;
     private javax.swing.JToggleButton copyTextBut;
     private javax.swing.JToggleButton deleteStudent_btn;
     private javax.swing.JToggleButton editInfo_btn;
@@ -1656,6 +1505,9 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1717,13 +1569,15 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JTextField name_searchField;
     private javax.swing.JTextField phoneNumberField;
     private javax.swing.JTextField phoneNumberFiled_signUp;
+    private javax.swing.JTextField professorNameEdit_field;
     private javax.swing.JList<String> searchList;
     private javax.swing.JToggleButton searchStudent_btn;
     private javax.swing.JToggleButton signUp;
     private javax.swing.JTextField subjectCode_field;
-    private javax.swing.JTextField subjectTitleSearch_feld;
+    private javax.swing.JTextField subjectTitleEdit_feld;
     private javax.swing.JTextField subjectTitle_Field;
     private javax.swing.JTextField subjectValue_field;
     private javax.swing.JTextField uniId_searchField;
+    private javax.swing.JTextField unitValueEdit_field;
     // End of variables declaration//GEN-END:variables
 }
