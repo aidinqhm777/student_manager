@@ -259,7 +259,7 @@ public class FileManage {
     static void deleteStudent(Student student)
             throws IOException {
         byte[] bytes = new byte[student_lineSize];
-        FileIO.writeIndexToFile(studentFile_filePath, bytes, index, student_lineSize);
+        FileIO.writeIndexToFile(studentFile_filePath, bytes, student.getIndex_PersonalInfo(), student_lineSize);
     }
 
 
@@ -309,9 +309,8 @@ public class FileManage {
             throws IOException {
 
         byte[] bytes = new byte[subject_lineSize];
-        FileIO.writeIndexToFile(subjectFile_filePath, bytes, index, subject_lineSize);
+        FileIO.writeIndexToFile(subjectFile_filePath, bytes, subject.getIndex(), subject_lineSize);
     }
-
 
 
     public static void createEnrollment(Enrollment enrollment) throws IOException {

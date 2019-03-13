@@ -141,6 +141,7 @@ public class Manager_View extends javax.swing.JFrame {
         capacityEdit_field = new javax.swing.JTextField();
         unitValueEdit_field = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        deletCource = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -945,6 +946,7 @@ public class Manager_View extends javax.swing.JFrame {
 
         editLesson_btn.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         editLesson_btn.setText("Edit");
+        editLesson_btn.setEnabled(false);
         editLesson_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editLesson_btnActionPerformed(evt);
@@ -966,6 +968,16 @@ public class Manager_View extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel13.setText("Value:");
 
+        deletCource.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        deletCource.setForeground(new java.awt.Color(204, 0, 0));
+        deletCource.setText("Delete");
+        deletCource.setEnabled(false);
+        deletCource.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCourseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -975,6 +987,8 @@ public class Manager_View extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(deletCource)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editLesson_btn))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
@@ -1071,7 +1085,9 @@ public class Manager_View extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(unitValueEdit_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(editLesson_btn)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editLesson_btn)
+                    .addComponent(deletCource))
                 .addContainerGap())
         );
 
@@ -1300,7 +1316,7 @@ public class Manager_View extends javax.swing.JFrame {
             s = SystemManage.addSubject();
             subjectCode_field.setText(String.valueOf(s.getID()));
             showSuccessMassage("done");
-        } catch (IOException e) {
+        } catch (IOException | DuplicateFormatFlagsException e) {
             showErrorMassage(""+e.getMessage());
         }
     }//GEN-LAST:event_addLesson_btnActionPerformed
@@ -1343,6 +1359,9 @@ public class Manager_View extends javax.swing.JFrame {
             SubjectSearcher subjectSearcher = new SubjectSearcher();
             subjectSearcher.setId(code);
             subjectSearcher.setSearchById(true);
+
+            deletCource.setEnabled(true);
+            editLesson_btn.setEnabled(true);
 
             LinkedList<Subject> result = SystemManage.searchSubject(subjectSearcher);
             setCourseForm(result.get(0));
@@ -1458,6 +1477,16 @@ public class Manager_View extends javax.swing.JFrame {
 
     }//GEN-LAST:event_editInfo_btnActionPerformed
 
+    private void deleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletCourceActionPerformed
+        // TODO add your handling code here:
+        try {
+            SystemManage.removeSubject();
+            showSuccessMassage("done");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_deletCourceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1506,6 +1535,7 @@ public class Manager_View extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> birthdateYearCB_signUp;
     private javax.swing.JTextField capacityEdit_field;
     private javax.swing.JToggleButton copyTextBut;
+    private javax.swing.JToggleButton deletCource;
     private javax.swing.JToggleButton deleteStudent_btn;
     private javax.swing.JToggleButton editInfo_btn;
     private javax.swing.JToggleButton editLesson_btn;

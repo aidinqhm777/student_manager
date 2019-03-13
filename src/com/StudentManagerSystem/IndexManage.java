@@ -14,8 +14,6 @@ public class IndexManage implements Serializable {
     private LinkedList<Integer> recentlyDeletedEnrollments = new LinkedList<>();
 
 
-
-
     int addStudent() {
 
         if (recentlyDeletedStudents.isEmpty()) {
