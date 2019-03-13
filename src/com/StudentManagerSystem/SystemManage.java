@@ -58,7 +58,7 @@ public class SystemManage {
     }
     public static Student signupStudent() throws IOException {
         if(BTreeManage.checkDuplicity(studentTmp)) throw new DuplicateFormatFlagsException("ID Error");
-        int uniId = uniIDManage.createNewID();
+        int uniId = uniIDManage.createNewID(97, 0);
         int index = indexManage.addStudent();
         studentTmp.setIndex_PersonalInfo(index);
         studentTmp.setUniID(uniId);
@@ -93,7 +93,7 @@ public class SystemManage {
     public static void addEnrollment(Enrollment enrollment) throws IOException {
 
 
-        IndexManage.createEnrollment(enrollment);
+        indexManage.createEnrollment(enrollment);
         BTreeManage.createEnrollment(enrollment);
         FileManage.createEnrollment(enrollment);
 
@@ -121,7 +121,7 @@ public class SystemManage {
     }
     public static void removeEnrollment() throws IOException {
 
-        IndexManage.deleteEnrollment(enrollmentTmp);
+        indexManage.deleteEnrollment(enrollmentTmp);
         BTreeManage.deleteEnrollment(enrollmentTmp);
         FileManage.deleteEnrollment(enrollmentTmp);
     }
@@ -148,7 +148,7 @@ public class SystemManage {
     }
     public static LinkedList<Subject> searchSubject(SubjectSearcher subjectSearcher) throws IOException, ClassNotFoundException {
 
-        SubjectSearcher foundSearch = BTreeManage.readSubjects(subjectSearcher);
+        SubjectSearcher foundSearch = BTreeManage.readSubject(subjectSearcher);
         foundSearch.matchResults();
 
         while (!foundSearch.getIndex().isEmpty()) {

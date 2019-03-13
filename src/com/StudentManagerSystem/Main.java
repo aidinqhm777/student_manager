@@ -16,6 +16,7 @@ import java.util.LinkedList;
 
 public class Main {
 
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Subject.Time time = new Subject.Time(0,223,5,45,12,2);
         Subject s = new Subject();

@@ -47,9 +47,7 @@ public class SubjectSearcher {
 
     public void matchResults() {
 
-        if (searchById && searchByTitle)
-            index = (LinkedList<Integer>) searchResultId.clone();
-        else if (searchByTitle)
+        if (searchByTitle)
             index = (LinkedList<Integer>) searchResultTitle.clone();
         else if (searchById)
             index = (LinkedList<Integer>) searchResultId.clone();

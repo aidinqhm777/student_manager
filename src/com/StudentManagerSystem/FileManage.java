@@ -150,7 +150,7 @@ public class FileManage {
             data.add( getString_FiledData(subject.getTitle(),title_size, title_id));
             data.add( getString_FiledData(subject.getProfessorName(),professorName_size, professorName_id));
             data.add( getString_FiledData(DateUtil.format(subject.getExamDate()),examDate_size, examDate_id));
-            data.add( getInteger_FiledData(subject.getId(),subjectId_id));
+            data.add( getInteger_FiledData(subject.getID(),subjectId_id));
             data.add( getInteger_FiledData(subject.getCapacity(),capacity_id));
             data.add( getInteger_FiledData(subject.getUnitVal(),unitVal_id));
             data.add( new FiledData(subject.getClassTiming().toString(), classTiming_id, classTiming_Size));
