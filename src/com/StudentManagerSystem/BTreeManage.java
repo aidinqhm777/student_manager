@@ -31,6 +31,8 @@ public class BTreeManage {
         loadBtree_StudentID();
         loadBtree_StudentName();
         loadBtree_StudentLastname();
+        loadBtree_SubjectID();
+        loadBtree_SubjectTitle();
     }
     public static void save() {
 
@@ -38,6 +40,8 @@ public class BTreeManage {
         saveBtree_StudentUniID();
         saveBtree_StudentName();
         saveBtree_StudentLastname();
+        saveBtree_SubjectID();
+        saveBtree_SubjectTitle();
     }
 
     private static void loadBtree_StudentUniID() {
@@ -69,6 +73,20 @@ public class BTreeManage {
             System.out.println( e.toString() );
         }
     }
+    private static void loadBtree_SubjectID() {
+        try {
+            subjectID_btree = (BPlusTree<Integer, LinkedList<Integer>>) FileManage.loadBtree_SubjectID();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println( e.toString() );
+        }
+    }
+    private static void loadBtree_SubjectTitle() {
+        try {
+            subjectTitle_btree = (BPlusTree<String, LinkedList<Integer>>) FileManage.loadBtree_SubjectTitle();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println( e.toString() );
+        }
+    }
 
     private static void saveBtree_StudentUniID() {
         // save btree if is't empty
@@ -95,6 +113,22 @@ public class BTreeManage {
     private static void saveBtree_StudentID() {
         try {
             FileManage.saveBtree_StudentID(studentID_btree);
+        } catch (IOException e) {
+            System.out.println( e.toString() );
+        }
+
+    }
+    private static void saveBtree_SubjectID() {
+        try {
+            FileManage.saveBtree_SubjectID(subjectID_btree);
+        } catch (IOException e) {
+            System.out.println( e.toString() );
+        }
+
+    }
+    private static void saveBtree_SubjectTitle() {
+        try {
+            FileManage.saveBtree_SubjectTitle(subjectTitle_btree);
         } catch (IOException e) {
             System.out.println( e.toString() );
         }

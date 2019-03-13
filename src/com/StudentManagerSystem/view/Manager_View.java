@@ -1300,7 +1300,7 @@ public class Manager_View extends javax.swing.JFrame {
             subjectCode_field.setText(String.valueOf(s.getID()));
             showSuccessMassage("done");
         } catch (IOException e) {
-            showErrorMassage("");
+            showErrorMassage(""+e.getMessage());
         }
     }//GEN-LAST:event_addLesson_btnActionPerformed
 
@@ -1318,27 +1318,51 @@ public class Manager_View extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_signUpActionPerformed
 
+    private void setCourseForm(Subject s ) {
+        subjectTitleEdit_feld.setText(s.getTitle());
+        ExameDateEdit_feld.setText(s.getExamDate().toString());
+        unitValueEdit_field.setText(String.valueOf(s.getUnitVal()));
+        professorNameEdit_field.setText(s.getProfessorName());
+        capacityEdit_field.setText(String.valueOf(s.getCapacity()));
+    }
+
+    private Subject getEditField(){
+        Subject s = new Subject();
+        s.setTitle(subjectTitleEdit_feld.getText());
+        s.setExamDate(DateUtil.parse(ExameDateEdit_feld.getText()));
+        s.setUnitVal( Integer.parseInt(unitValueEdit_field.getText()));
+        s.setProfessorName( professorNameEdit_field.getText());
+        s.setCapacity( Integer.parseInt(capacityEdit_field.getText()));
+        return s;
+    }
+
     private void getSubject_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getSubject_btnActionPerformed
         try {
             int code = Integer.parseInt(getCode_field.getText());
             SubjectSearcher subjectSearcher = new SubjectSearcher();
             subjectSearcher.setId(code);
             subjectSearcher.setSearchById(true);
+
             LinkedList<Subject> result = SystemManage.searchSubject(subjectSearcher);
+            setCourseForm(result.get(0));
+            SystemManage.setSubjectTmp(result.get(0));
 
-            subjectTitleEdit_feld.setText(result.get(0).getTitle());
-            ExameDateEdit_feld.setText(result.get(0).getExamDate().toString());
-            unitValueEdit_field.setText(String.valueOf(result.get(0).getUnitVal()));
-            professorNameEdit_field.setText(result.get(0).getProfessorName());
-            capacityEdit_field.setText(String.valueOf(result.get(0).getCapacity()));
 
-            showSuccessMassage("done");
         } catch (IOException | ClassNotFoundException | NullPointerException e) {
-            showErrorMassage("");
+            showErrorMassage(""+e.getMessage());
         }
     }//GEN-LAST:event_getSubject_btnActionPerformed
 
     private void editLesson_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLesson_btnActionPerformed
+        try {
+            Subject s= getEditField();
+            SystemManage.setUpdatedSubjectTmp(s);
+            SystemManage.editSubject();
+
+            showSuccessMassage("done");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }//GEN-LAST:event_editLesson_btnActionPerformed

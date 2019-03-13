@@ -136,7 +136,7 @@ public class SystemManage {
 
     public static Subject addSubject() throws IOException {
 
-//        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
+        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
         int id = uniIDManage.createSubjectID();
         int index = indexManage.addSubject();
         subjectTmp.setIndex(index);

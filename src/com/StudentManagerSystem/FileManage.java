@@ -49,6 +49,8 @@ public class FileManage {
     private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/data/Btree_Name.dump";
     private static String btree_StudentLastName_filePath = "./src/com/StudentManagerSystem/data/Btree_Lastname.dump";
     private static String btree_StudentID_filePath = "./src/com/StudentManagerSystem/data/Btree_ID.dump";
+    private static String btree_SubjectID_filePath = "./src/com/StudentManagerSystem/data/Btree_SubjectID.dump";
+    private static String btree_SubjectTitle_filePath = "./src/com/StudentManagerSystem/data/Btree_SubjectTitle.dump";
     private static String class_UniIDManage_filePath = "./src/com/StudentManagerSystem/data/UniIDManage.dump";
     private static String class_IndexManage_filePath = "./src/com/StudentManagerSystem/data/IndexManage.dump";
 
@@ -276,6 +278,7 @@ public class FileManage {
         Subject s = new Subject();
 
         s.setIndex(index);
+        s.setUnitVal( (Integer)readData(unitVal_id,bytes));
         s.setTitle( toWords((String)readData(title_id,bytes)) );
         s.setProfessorName( toWords((String) readData(professorName_id,bytes)) );
         s.setExamDate( DateUtil.parse(toWords((String)readData(examDate_id,bytes))));
@@ -364,6 +367,15 @@ public class FileManage {
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
     }
+    static BPlusTree loadBtree_SubjectID()
+            throws IOException, ClassNotFoundException {
+        return (BPlusTree) FileIO.readAnObjectFromFile(btree_SubjectID_filePath);
+    }
+    static BPlusTree loadBtree_SubjectTitle()
+            throws IOException, ClassNotFoundException {
+        return (BPlusTree) FileIO.readAnObjectFromFile(btree_SubjectTitle_filePath);
+    }
+
 
 
     static void saveBtree_StudentName(Object o)
@@ -381,6 +393,14 @@ public class FileManage {
     static void saveBtree_StudentUniID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentUniID_filePath, o);
+    }
+    static void saveBtree_SubjectID(Object o)
+            throws IOException {
+        FileIO.writeAnObjectToFile(btree_SubjectID_filePath, o);
+    }
+    static void saveBtree_SubjectTitle(Object o)
+            throws IOException {
+        FileIO.writeAnObjectToFile(btree_SubjectTitle_filePath, o);
     }
 
 

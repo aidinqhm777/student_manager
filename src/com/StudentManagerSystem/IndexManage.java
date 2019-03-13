@@ -5,8 +5,8 @@ import java.util.LinkedList;
 
 public class IndexManage implements Serializable {
 
-    private int studentCount = 0;
-    private int subjectCount = 0;
+    private int studentCount = 1;
+    private int subjectCount = 1;
     private int lineCount = 0;
     private LinkedList<Integer> recentlyDeleted = new LinkedList<>();
 
