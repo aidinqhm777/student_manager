@@ -16,6 +16,7 @@ public class LoginPage {
 
         String username;
         String password;
+        int userType = -1;
 
         public String getUsername() {
             return username;
@@ -37,15 +38,18 @@ public class LoginPage {
 
     private static boolean login(Input input) throws IOException, ClassNotFoundException {
 
-        int userType = authenticate(input);
-        loadPage(userType, input.getUsername());
+        if (authenticate(input)) {
+            loadPage(input.userType, input.getUsername());
+            return true;
+        }
 
-        return true;
+        else
+            return false;
     }
 
-    private static int authenticate(Input input) {
+    private static boolean authenticate(Input input) {
 
-        return 1;
+        return Password.authenticate(input);
     }
 
     private static void loadPage(int type, String username) throws IOException, ClassNotFoundException {

@@ -5,41 +5,60 @@ import java.util.LinkedList;
 
 public class IndexManage implements Serializable {
 
-    private int studentCount = 1;
-    private int subjectCount = 1;
-    private int lineCount = 0;
-    private LinkedList<Integer> recentlyDeleted = new LinkedList<>();
+    private int studentCount = 0;
+    private int lineCountStudent = 0;
+    private int lineCountSubject = 0;
+    private int lineCountEnrollment = 0;
+    private LinkedList<Integer> recentlyDeletedStudents = new LinkedList<>();
+    private LinkedList<Integer> recentlyDeletedSubjects = new LinkedList<>();
+    private LinkedList<Integer> recentlyDeletedEnrollments = new LinkedList<>();
 
 
 
 
     int addStudent() {
 
-        if (recentlyDeleted.isEmpty()) {
+        if (recentlyDeletedStudents.isEmpty()) {
 
             studentCount++;
-            return ++lineCount;
+            return ++lineCountStudent;
         } else
-            return recentlyDeleted.pop();
+            return recentlyDeletedStudents.pop();
     }
     void removeStudent(int index) {
 
-        recentlyDeleted.push(index);
+        recentlyDeletedStudents.push(index);
         studentCount--;
     }
 
 
-     int addSubject() {return subjectCount++;}
-    public int deleteSubject(int index) {return 1;}
+    int addSubject() {
 
+         if (recentlyDeletedSubjects.isEmpty()) {
 
+             return ++lineCountSubject;
+         } else
+             return recentlyDeletedSubjects.pop();
+     }
+    void deleteSubject(int index) {
 
-    public static void createEnrollment(Enrollment enrollment) {
-
-
+        recentlyDeletedSubjects.push(index);
     }
-    public static void updateEnrollment(Enrollment enrollment) {}
-    public static void deleteEnrollment(Enrollment enrollment) {}
+
+
+    void createEnrollment(Enrollment enrollment) {
+
+        if (recentlyDeletedEnrollments.isEmpty())
+            enrollment.setEnrollmentIndex(++lineCountEnrollment);
+
+        else
+            enrollment.setEnrollmentIndex(recentlyDeletedStudents.pop());
+    }
+    static void updateEnrollment(Enrollment enrollment) {}
+    void deleteEnrollment(Enrollment enrollment) {
+
+        recentlyDeletedStudents.push(enrollment.getEnrollmentIndex());
+    }
 
 
 

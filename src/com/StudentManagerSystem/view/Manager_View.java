@@ -15,6 +15,7 @@ import javax.swing.*;
 public class Manager_View extends javax.swing.JFrame {
 
     private Student studentTemp = new Student();
+    private Subject subjectTemp = new Subject();
     private LinkedList<Student> searchResult = new LinkedList<>();
 
     public Manager_View() {
@@ -1346,7 +1347,7 @@ public class Manager_View extends javax.swing.JFrame {
             LinkedList<Subject> result = SystemManage.searchSubject(subjectSearcher);
             setCourseForm(result.get(0));
             SystemManage.setSubjectTmp(result.get(0));
-
+            subjectTemp = result.get(0);
 
         } catch (IOException | ClassNotFoundException | NullPointerException e) {
             showErrorMassage(""+e.getMessage());
@@ -1355,7 +1356,8 @@ public class Manager_View extends javax.swing.JFrame {
 
     private void editLesson_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editLesson_btnActionPerformed
         try {
-            Subject s= getEditField();
+            Subject s = getEditField();
+            s.setIndex(subjectTemp.getIndex());
             SystemManage.setUpdatedSubjectTmp(s);
             SystemManage.editSubject();
 

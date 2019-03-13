@@ -12,12 +12,25 @@ import java.io.Serializable;
 
 public class UniIDManage implements Serializable {
 
-    private int babak = 0;
-    private int babak2 = 0;
 
-    Integer createNewID() {
-        return babak++;
+    private int[] studentCount = new int[10];
+    private int subjectCount = 100;
+
+    public UniIDManage() {
+        java.util.Arrays.fill(this.studentCount, 100);
     }
 
-    Integer createSubjectID() {return babak2++;}
+
+    Integer createNewID(int entranceYear, int major) {
+
+        String tmp;
+        studentCount[major]++;
+        tmp = String.valueOf(entranceYear) + String.valueOf(major) + String.valueOf(studentCount[major]);
+        return Integer.parseInt(tmp);
+    }
+
+    Integer createSubjectID() {
+
+        return subjectCount++;
+    }
 }
