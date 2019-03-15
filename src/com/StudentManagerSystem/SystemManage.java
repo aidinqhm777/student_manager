@@ -92,13 +92,12 @@ public class SystemManage {
 
     public static void addEnrollment(Enrollment enrollment) throws IOException {
 
-
         indexManage.createEnrollment(enrollment);
         BTreeManage.createEnrollment(enrollment);
         FileManage.createEnrollment(enrollment);
 
     }
-    public static LinkedList searchEnrollment(EnrollmentSearcher searcher)
+    public static LinkedList<Enrollment> searchEnrollment(EnrollmentSearcher searcher)
             throws IOException, ClassNotFoundException {
 
         LinkedList<Integer> indexes = BTreeManage.readEnrollment(searcher);
