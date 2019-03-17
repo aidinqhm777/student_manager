@@ -1562,7 +1562,7 @@ public class Manager_View extends javax.swing.JFrame {
             enrollment.setStudentID( Integer.parseInt(addEditeUniNumberField.getText()) );
             enrollment.setSubjectID( Integer.parseInt(addEditeCourseIDField.getText()) );
             enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
-
+            
             SystemManage.setEnrollmentTmp(enrollment);
             SystemManage.removeEnrollment();
         } catch (IOException e) {

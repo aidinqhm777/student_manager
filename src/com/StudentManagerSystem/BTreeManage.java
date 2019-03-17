@@ -468,8 +468,8 @@ public class BTreeManage {
     public static void updateSubject(Subject s1, Subject s2){
         //TODO
     }
-    public static void updateSubjectByID(Subject subject1 , Subject subject2 , int index){
-        subjectTitle_btree.search(index);
+    public static void updateSubjectByID(Subject subject1 , Subject subject2 , int id){
+        subjectID_btree.search(id);
         LinkedList<Integer> tmp = new LinkedList<>();
         if (subject1.getID()!=subject2.getID()) {
             tmp.remove(subject1.getID());
@@ -477,8 +477,8 @@ public class BTreeManage {
         }
 
     }
-    public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , int index){
-        subjectID_btree.search(index);
+    public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , String title){
+        subjectTitle_btree.search(title);
         LinkedList<Integer> tmp = new LinkedList<>();
         if (subject1.getID()!=subject2.getID()) {
             tmp.remove(subject1.getID());
@@ -489,11 +489,11 @@ public class BTreeManage {
 
     public static void deleteSubjectByID(Subject subject){
         if(subjectID_btree.search(subject.getID())!=null)
-        subjectID_btree.delete(subject.getIndex());
+        subjectID_btree.delete(subject.getID());
     }
     public static void deleteSubjectByTitle(Subject subject){
         if(subjectTitle_btree.search(subject.getTitle())!=null)
-            subjectTitle_btree.delete(subject.getIndex());
+            subjectTitle_btree.delete(subject.getTitle());
     }
 
     public  static SubjectSearcher readSubject(SubjectSearcher searcher){
