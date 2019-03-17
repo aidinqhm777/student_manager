@@ -6,12 +6,16 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.StudentManagerSystem;
+package com.StudentManagerSystem.Controllers;
+
+import com.StudentManagerSystem.Password;
+import com.StudentManagerSystem.Searcher;
+import com.StudentManagerSystem.SystemManage;
 
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class LoginPage {
+public class LoginPageController {
 
     private Input input;
 
