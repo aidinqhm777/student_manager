@@ -9,8 +9,15 @@
 package com.StudentManagerSystem;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class LoginPage {
+
+    private Input input;
+
+
+
+
 
     public class Input {
 
@@ -18,16 +25,16 @@ public class LoginPage {
         String password;
         int userType = -1;
 
-        public String getUsername() {
-            return username;
+        public int getUsername() {
+            return Integer.parseInt(username);
         }
 
         public void setUsername(String username) {
             this.username = username;
         }
 
-        public String getPassword() {
-            return password;
+        public int getPassword() {
+            return Integer.parseInt(password);
         }
 
         public void setPassword(String password) {
@@ -35,6 +42,17 @@ public class LoginPage {
         }
     }
 
+    public boolean loginButton(Input input1) throws IOException, ClassNotFoundException {
+
+        setInput(input1);
+//      todo  rest should be conditional
+
+//        if is student
+        Searcher searcher = new Searcher();
+        searcher.setSearchByUniID(true);
+        searcher.setUniID(input.getUsername());
+        LinkedList searchResult = SystemManage.searchStudent(searcher);
+    }
 
     private static boolean login(Input input) throws IOException, ClassNotFoundException {
 
@@ -63,5 +81,11 @@ public class LoginPage {
         }
     }
 
+    public Input getInput() {
+        return input;
+    }
 
+    public void setInput(Input input) {
+        this.input = input;
+    }
 }
