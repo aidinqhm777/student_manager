@@ -6,6 +6,7 @@ public class EnrollmentSearcher {
 
     private int studentID;
     private int subjectID;
+    private int subjectCode;
     private boolean searchByStudent;
     private boolean searchBySubject;
 
@@ -40,5 +41,13 @@ public class EnrollmentSearcher {
 
     public void setSearchBySubject(boolean searchBySubject) {
         this.searchBySubject = searchBySubject;
+    }
+
+    public int getSubjectCode() {
+        return subjectCode;
+    }
+
+    public void setSubjectCode(int subjectCode) {
+        this.subjectCode = subjectCode;
     }
 }

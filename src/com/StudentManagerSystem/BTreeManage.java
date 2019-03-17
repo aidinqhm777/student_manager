@@ -551,8 +551,10 @@ public class BTreeManage {
 
         int studentID = enrollment.getStudentID();
         int subjectID = enrollment.getSubjectID();
-        int studentIndex = studentID_btree.search(studentID);
-        int subjectIndex = subjectID_btree.search(subjectID).peek();//TODO subject code must be included
+        if (enrollment.getSubjectCode() > subjectID_btree.search(subjectID).size())
+            return;
+        int studentIndex = studentUniID_btree.search(studentID);
+        int subjectIndex = subjectID_btree.search(subjectID).get(enrollment.getSubjectCode());
         int index     = enrollment.getEnrollmentIndex();
 
 //        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
@@ -571,12 +573,12 @@ public class BTreeManage {
             tmp.push(index);
 
 //    SET SEMESTER SUBJECT INDEX IN BTREE
-        tmp = semesterSubject.search(subjectID);
+        tmp = semesterSubject.search(subjectID*10+enrollment.getSubjectCode());
 
         if (tmp == null) {
             tmp = new LinkedList<Integer>();
             tmp.push(index);
-            semesterSubject.insert(subjectID, tmp);
+            semesterSubject.insert(subjectID*10+enrollment.getSubjectCode(), tmp);
         }
         else
             tmp.push(index);
@@ -584,7 +586,20 @@ public class BTreeManage {
 
     }
     public static LinkedList<Integer>  readEnrollment(EnrollmentSearcher searcher) {
-        return new LinkedList<Integer> ();
+//        todo searching options sholud be expanded
+        LinkedList<Integer> tmp = new LinkedList<>();
+        if (searcher.isSearchByStudent()) {
+            tmp = semesterStudent.search(searcher.getStudentID());
+//            LinkedList<Integer> tmp2 =
+//            while(true) {
+//
+//            }todo subject code at search by student id is not provided
+        }
+
+        else
+            tmp = semesterSubject.search(searcher.getSubjectID()*10+searcher.getSubjectCode());
+
+        return tmp;
     }
     public static void updateEnrollment() {}
     public static void deleteEnrollment(Enrollment e) {}
