@@ -20,6 +20,7 @@ public class Student {
     private String lastname;
     private String birthDate;
     private String phoneNum;
+    private String password;
 
     //constructor
     public Student() { }
