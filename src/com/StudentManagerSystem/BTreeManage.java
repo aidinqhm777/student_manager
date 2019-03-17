@@ -469,7 +469,7 @@ public class BTreeManage {
         //TODO
     }
     public static void updateSubjectByID(Subject subject1 , Subject subject2 , int index){
-//        subjectTitle_btree.search(index);
+        subjectTitle_btree.search(index);
         LinkedList<Integer> tmp = new LinkedList<>();
         if (subject1.getID()!=subject2.getID()) {
             tmp.remove(subject1.getID());
