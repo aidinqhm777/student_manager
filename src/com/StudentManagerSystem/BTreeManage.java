@@ -493,7 +493,7 @@ public class BTreeManage {
     }
     public static void deleteSubjectByTitle(Subject subject){
         if(subjectTitle_btree.search(subject.getTitle())!=null)
-            subjectID_btree.delete(subject.getIndex());
+            subjectTitle_btree.delete(subject.getIndex());
     }
 
     public  static SubjectSearcher readSubject(SubjectSearcher searcher){
