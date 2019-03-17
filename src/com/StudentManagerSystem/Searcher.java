@@ -82,7 +82,10 @@ public class Searcher {
     public void pushSubject(Subject subject) {
         subjects.push(subject);
     }
-    public Subject popSubject() {return subjects.pop();}
+    public Subject popSubject() {
+
+        return subjects.pop();
+    }
     public void matchindexes(){
         indexes.clear();
         if (searchBySubjectID){
