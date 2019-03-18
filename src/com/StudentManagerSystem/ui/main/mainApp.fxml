@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="697.0" minWidth="1178.0" prefHeight="697.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.StudentManagerSystem.ui.main.MainApp">
+   <left>
+      <AnchorPane prefHeight="697.0" prefWidth="272.0" style="-fx-background-color: #13334c;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="171.0" prefWidth="268.0" style="-fx-background-color: #005792;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="14.0">
+                     <image>
+                        <Image url="@../../resorce/fb517f8913bd99cd48ef00facb4a67c0-businessman-avatar-silhouette-by-vexels.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="61.0" layoutY="118.0" text="Manager Name" textFill="WHITE" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="61.0">
+                     <font>
+                        <Font name="Arial Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXButton layoutY="172.0" prefHeight="57.0" prefWidth="265.0" text="Add Student" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER_PLUS" size="30" translateX="-6.0" />
+               </graphic>
+            </JFXButton>
+            <Separator layoutX="3.0" layoutY="167.0" prefHeight="9.0" prefWidth="266.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <JFXButton layoutX="4.0" layoutY="229.0" prefHeight="57.0" prefWidth="265.0" text="Edit Student" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" translateX="-6.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="8.0" layoutY="286.0" prefHeight="57.0" prefWidth="265.0" text="Add/Edit Cource" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LEANPUB" size="30" translateX="-6.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="9.0" layoutY="343.0" prefHeight="57.0" prefWidth="265.0" text="-------" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" translateX="-6.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="4.0" layoutY="400.0" prefHeight="57.0" prefWidth="265.0" text="-------" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" translateX="-6.0" />
+               </graphic>
+            </JFXButton>
+         </children></AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

@@ -141,7 +141,7 @@ public class SystemManage {
         int index = indexManage.addSubject();
         subjectTmp.setIndex(index);
         subjectTmp.setID(id);
-        BTreeManage.createSubject(subjectTmp);
+//        BTreeManage.createSubject(subjectTmp);
         FileManage.createSubject(subjectTmp);
         return subjectTmp;
 
@@ -170,7 +170,7 @@ public class SystemManage {
     public static Subject removeSubject() throws IOException {
 
         indexManage.deleteSubject(subjectTmp.getIndex());
-        BTreeManage.deleteSubject(subjectTmp);
+//        BTreeManage.deleteSubject(subjectTmp);
         FileManage.deleteSubject(subjectTmp);
         return subjectTmp;
     }

@@ -56,12 +56,13 @@ public class LoginPageController {
         searcher.setSearchByUniID(true);
         searcher.setUniID(input.getUsername());
         LinkedList searchResult = SystemManage.searchStudent(searcher);
+        return true;
     }
 
     private static boolean login(Input input) throws IOException, ClassNotFoundException {
 
         if (authenticate(input)) {
-            loadPage(input.userType, input.getUsername());
+//            loadPage(input.userType, input.getUsername());
             return true;
         }
 
@@ -81,7 +82,7 @@ public class LoginPageController {
             Searcher searcher = new Searcher();
             searcher.setSearchByID(true);
             searcher.setUniID(Integer.parseInt(username));
-            StudentPage.loadInformation(SystemManage.searchStudent(searcher).peek());
+            StudentPageController.loadInformation(SystemManage.searchStudent(searcher).peek());
         }
     }
 
