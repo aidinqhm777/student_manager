@@ -18,15 +18,9 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Subject.Time time = new Subject.Time(0,223,5,45,12,2);
-        Subject s = new Subject();
-        s.setClassTiming(new Subject.ClassTiming(time,time));
-        s.setExamDate(LocalDate.now());
-        s.setUnitVal(1);
-        s.setCode(2);
-        s.setIndex(1);
 
-        FileManage.createSubject(s);
-        Subject s2 = FileManage.readSubject(1);
+
+
+
     }
 }

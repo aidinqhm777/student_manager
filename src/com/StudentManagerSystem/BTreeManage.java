@@ -447,18 +447,29 @@ public class BTreeManage {
 //        createRecord(id , index , subjectID_btree);
 //    }
 
-    public static void createSubject(Subject subject){
+    public static void createSubjectByTitle(Subject subject){
         LinkedList<Integer> tmp = new LinkedList<>();
+        if(subjectTitle_btree.search(subject.getTitle())!= null ){
+            tmp = subjectTitle_btree.search(subject.getTitle());
+        }
         tmp.push(subject.getIndex());
         subjectID_btree.insert(subject.getID() , tmp);
-        subjectTitle_btree.insert(subject.getTitle() , tmp);
+    }
+
+    public static void createSubjectByID(Subject subject){
+        LinkedList<Integer> tmp = new LinkedList<>();
+        if(subjectID_btree.search(subject.getID())!= null ){
+            tmp = subjectID_btree.search(subject.getID());
+        }
+        tmp.push(subject.getIndex());
+        subjectID_btree.insert(subject.getID() , tmp);
     }
 
     public static void updateSubject(Subject s1, Subject s2){
         //TODO
     }
-    public static void updateSubjectByID(Subject subject1 , Subject subject2 , int index){
-//        subjectTitle_btree.search(index);
+    public static void updateSubjectByID(Subject subject1 , Subject subject2 , int id){
+        subjectID_btree.search(id);
         LinkedList<Integer> tmp = new LinkedList<>();
         if (subject1.getID()!=subject2.getID()) {
             tmp.remove(subject1.getID());
@@ -466,8 +477,8 @@ public class BTreeManage {
         }
 
     }
-    public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , int index){
-        subjectID_btree.search(index);
+    public static void updateSubjectByTitle(Subject subject1 , Subject subject2 , String title){
+        subjectTitle_btree.search(title);
         LinkedList<Integer> tmp = new LinkedList<>();
         if (subject1.getID()!=subject2.getID()) {
             tmp.remove(subject1.getID());
@@ -476,9 +487,15 @@ public class BTreeManage {
 
     }
 
-    public static void deleteSubject(Subject subject){
-        subjectID_btree.delete(subject.getIndex());
+    public static void deleteSubjectByID(Subject subject){
+        if(subjectID_btree.search(subject.getID())!=null)
+        subjectID_btree.delete(subject.getID());
     }
+    public static void deleteSubjectByTitle(Subject subject){
+        if(subjectTitle_btree.search(subject.getTitle())!=null)
+            subjectTitle_btree.delete(subject.getTitle());
+    }
+
     public  static SubjectSearcher readSubject(SubjectSearcher searcher){
         if (searcher.getSearchById()) {
             searcher.setSearchResultId(subjectID_btree.search(searcher.getId()));
@@ -534,8 +551,10 @@ public class BTreeManage {
 
         int studentID = enrollment.getStudentID();
         int subjectID = enrollment.getSubjectID();
-        int studentIndex = studentID_btree.search(studentID);
-        int subjectIndex = subjectID_btree.search(subjectID).peek();//TODO subject code must be included
+        if (enrollment.getSubjectCode() > subjectID_btree.search(subjectID).size())
+            return;
+        int studentIndex = studentUniID_btree.search(studentID);
+        int subjectIndex = subjectID_btree.search(subjectID).get(enrollment.getSubjectCode());
         int index     = enrollment.getEnrollmentIndex();
 
 //        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
@@ -554,12 +573,12 @@ public class BTreeManage {
             tmp.push(index);
 
 //    SET SEMESTER SUBJECT INDEX IN BTREE
-        tmp = semesterSubject.search(subjectID);
+        tmp = semesterSubject.search(subjectID*10+enrollment.getSubjectCode());
 
         if (tmp == null) {
             tmp = new LinkedList<Integer>();
             tmp.push(index);
-            semesterSubject.insert(subjectID, tmp);
+            semesterSubject.insert(subjectID*10+enrollment.getSubjectCode(), tmp);
         }
         else
             tmp.push(index);
@@ -567,7 +586,20 @@ public class BTreeManage {
 
     }
     public static LinkedList<Integer>  readEnrollment(EnrollmentSearcher searcher) {
-        return new LinkedList<Integer> ();
+//        todo searching options sholud be expanded
+        LinkedList<Integer> tmp = new LinkedList<>();
+        if (searcher.isSearchByStudent()) {
+            tmp = semesterStudent.search(searcher.getStudentID());
+//            LinkedList<Integer> tmp2 =
+//            while(true) {
+//
+//            }todo subject code at search by student id is not provided
+        }
+
+        else
+            tmp = semesterSubject.search(searcher.getSubjectID()*10+searcher.getSubjectCode());
+
+        return tmp;
     }
     public static void updateEnrollment() {}
     public static void deleteEnrollment(Enrollment e) {}
