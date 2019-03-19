@@ -6,6 +6,7 @@
     -fx-blue: #1976D2;
     -fx-red: #FF0000;
     -fx-color-1:#1976D2;
+    -fx-dark-blue:#005792;
 }
 
 .root{
@@ -17,7 +18,7 @@
     /*-fx-fill: -fx-primarytext;*/
 /*}*/
 
-.button{
+.defult-Button{
     -fx-text-fill: -fx-primarytext;
     -fx-background-color: -fx-primary;
     -fx-border-color: -fx-secondary;
@@ -27,7 +28,7 @@
 }
 
 .main-button{
-    -fx-background-color:  #005792;
+    -fx-background-color:  -fx-dark-blue;
     -fx-border-radius: 0;
     -fx-border-width: 0;
     -fx-background-radius: 0;
@@ -36,7 +37,7 @@
 /*Text styling*/
 .main-text
 {
-    -fx-text-fill: -fx-primerytext;
+    -fx-text-fill: -fx-primarytext;
     -fx-font-size: 14pt;
     -fx-text-alignment: center;
 }
@@ -55,7 +56,7 @@
     -jfx-unfocus-color: #ef5350;
     -jfx-focus-color: #ef5350;
 }
-.text-field
+.text-field-default
 {
     -fx-text-fill: -fx-primarytext;
     -fx-font-size : 12pt;
@@ -63,6 +64,8 @@
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
 
-.count-main{
-    -fx-background-color: -fx-blue;
+.count-main:hover{
+    -fx-background-color: -fx-color-1;
+    -fx-border-color: derive(-fx-color-1, -20%);
+    /*-fx-text-fill: white;*/
 }
