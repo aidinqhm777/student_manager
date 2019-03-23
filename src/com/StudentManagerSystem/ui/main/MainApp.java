@@ -25,7 +25,7 @@ public class MainApp {
             Parent managerHome = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/managerHome/managerHome.fxml"));
             rootPane.setCenter(managerHome);
         } catch (IOException e) {
-            e.printStackTrace();
+            //TODO
         }
     }
 
@@ -35,7 +35,7 @@ public class MainApp {
             Parent managerHome = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/managerHome/managerHome.fxml"));
             rootPane.setCenter(managerHome);
         } catch (IOException e) {
-            e.printStackTrace();
+             //TODO
         }
 
     }
@@ -46,14 +46,19 @@ public class MainApp {
             Parent studentPage = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/addStudent/addStudent.fxml"));
             rootPane.setCenter(studentPage);
         } catch (IOException e) {
-            e.printStackTrace();
+               //TODO
         }
 
     }
 
     @FXML
-    private void editStudentButtonHandler(){
-        //TODO
+    private void searchStudentButtonHandler(){
+        try {
+            Parent searchStudentPage = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/searchStudent/searchStudent.fxml"));
+            rootPane.setCenter(searchStudentPage);
+        } catch (IOException e) {
+            //TODO
+        }
     }
 
     @FXML

@@ -8,14 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<!--
-  ~ Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
-  -->
-
 <AnchorPane prefHeight="697.0" prefWidth="963.0" style="-fx-background-color: #2A2E37;" stylesheets="@../../resorce/datapicker.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.StudentManagerSystem.ui.addStudent.AddStudent">
    <children>
       <Label layoutX="371.0" layoutY="38.0" style="-fx-font-size: 40;" styleClass="main-text" text="Add Student" textFill="WHITE" AnchorPane.topAnchor="38.0" />
