@@ -438,64 +438,6 @@ public class BTreeManage {
 //        createRecord(id , index , subjectID_btree);
 //    }
 
-    public static void main(String[] args) {
-
-        Subject test = new Subject();
-        int i = 0;
-        test.setTitle("mathmatics");
-        test.setId(100);
-        test.setIndex(i++);
-        createSubject(test);
-
-        test.setTitle("mathmatics");
-        test.setId(100);
-        test.setIndex(i++);
-        createSubject(test);
-
-        test.setTitle("biology");
-        test.setId(101);
-        test.setIndex(i++);
-        createSubject(test);
-
-        test.setTitle("math");
-        test.setId(102);
-        test.setIndex(i++);
-        createSubject(test);
-
-        test.setTitle("ds");
-        test.setId(103);
-        test.setIndex(i++);
-        createSubject(test);
-
-        test.setTitle("ds");
-        test.setId(103);
-        test.setIndex(i++);
-        createSubject(test);
-
-        Subject subject = new Subject();
-        subject.setCode(35);
-        subject.setId(103);
-        subject.setTitle("kjfnvjher");
-        updateSubject(test, subject);
-
-        System.out.println(subjectTitle_btree.search("kjfnvjher"));
-        System.out.println(subjectTitle_btree.search("ds"));
-
-//        SubjectSearcher searcher = new SubjectSearcher();
-//        searcher.setSearchById(true);
-//        searcher.setId(103);
-//        readSubject(searcher);
-//        System.out.println(searcher.getIndex().toString());
-
-
-
-        System.out.println(subjectTitle_btree.toString());
-        System.out.println(subjectID_btree.toString());
-//        System.out.println(subjectTitle_btree.search("ds"));
-//        System.out.println(subjectTitle_btree.search("biology"));
-//        System.out.println(subjectID_btree.search(10300));
-//        System.out.println(subjectID_btree.search(10301));
-    }
 
 
 
@@ -653,62 +595,201 @@ public class BTreeManage {
 //    SEMESTER MANAGE
 //    SEMESTER MANAGE
 
-    public static void createEnrollment(Enrollment enrollment) {
+    public static void main(String[] args) {
+        int i = 1;
+        load();
+//        System.out.println(subjectTitle_btree.toString());
+//        System.out.println(subjectID_btree.toString());
+//        System.out.println(studentUniID_btree.toString());
+
+        Enrollment tmp = new Enrollment();
+        tmp.setStudentID(970102);
+        tmp.setSubjectID(10000);
+        tmp.setEnrollmentIndex(i++);
+        createEnrollment(tmp);
+
+        tmp.setStudentID(970101);
+        tmp.setSubjectID(10000);
+        tmp.setEnrollmentIndex(i++);
+        createEnrollment(tmp);
+
+        tmp.setStudentID(970101);
+        tmp.setSubjectID(10101);
+        tmp.setEnrollmentIndex(i++);
+        createEnrollment(tmp);
+
+        tmp.setStudentID(970101);
+        tmp.setSubjectID(10100);
+        tmp.setEnrollmentIndex(i++);
+        createEnrollment(tmp);
+
+
 //
-//        int studentID = enrollment.getStudentID();
-//        int subjectID = enrollment.getSubjectID();
-//        if (enrollment.getSubjectCode() > subjectID_btree.search(subjectID).size())
-//            return;
-//        int studentIndex = studentUniID_btree.search(studentID);
-//        int subjectIndex = subjectID_btree.search(subjectID).get(enrollment.getSubjectCode());
-//        int index     = enrollment.getEnrollmentIndex();
-//
-////        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
-//        enrollment.setStudentIndex(studentIndex);
-//        enrollment.setSubjectIndex(subjectIndex);
-//
-////    SET SEMESTER STUDENT INDEX IN BTREE
-//        LinkedList<Integer> tmp = semesterStudent.search(studentID);
-//
-//        if (tmp == null) {
-//            tmp = new LinkedList<Integer>();
-//            tmp.push(index);
-//            semesterStudent.insert(studentID, tmp);
-//        }
-//        else
-//            tmp.push(index);
-//
-////    SET SEMESTER SUBJECT INDEX IN BTREE
-//        tmp = semesterSubject.search(subjectID*10+enrollment.getSubjectCode());
-//
-//        if (tmp == null) {
-//            tmp = new LinkedList<Integer>();
-//            tmp.push(index);
-//            semesterSubject.insert(subjectID*10+enrollment.getSubjectCode(), tmp);
-//        }
-//        else
-//            tmp.push(index);
-//
-//
+        System.out.println(semesterStudent.toString());
+        System.out.println(semesterSubject.toString());
+
+
+//        EnrollmentSearcher searcher = new EnrollmentSearcher();
+//        searcher.setSearchBySubject(true);
+//        searcher.setSearchByStudent(true);
+//        searcher.setSubjectID(10100);
+//        searcher.setStudentID(970102);
+//        EnrollmentSearcher result = new EnrollmentSearcher();
+//        readEnrollment(searcher);
+//        System.out.println(searcher.getResult().toString());
+        System.out.println(semesterStudent.search(970101));
+        System.out.println(semesterSubject.search(10101));
+
+        Enrollment enrollment = new Enrollment();
+        enrollment.setEnrollmentIndex(3);
+        enrollment.setStudentID(970101);
+        enrollment.setSubjectID(10101);
+        deleteEnrollment(enrollment);
+
+        System.out.println(semesterStudent.search(970101));
+        System.out.println(semesterSubject.search(10101));
+
+
+
+        System.out.println(semesterStudent.toString());
+        System.out.println(semesterSubject.toString());
+
+
+
     }
-    public static LinkedList<Integer>  readEnrollment(EnrollmentSearcher searcher) {
-//        todo searching options sholud be expanded
-        LinkedList<Integer> tmp = new LinkedList<>();
-        if (searcher.isSearchByStudent()) {
-            tmp = semesterStudent.search(searcher.getStudentID());
-//            LinkedList<Integer> tmp2 =
-//            while(true) {
-//
-//            }todo subject code at search by student id is not provided
+
+    public static void createEnrollment(Enrollment enrollment) {
+
+        int studentID = enrollment.getStudentID();
+        int subjectID = enrollment.getSubjectID();
+        int studentIndex = studentUniID_btree.search(studentID);
+        int subjectIndex = subjectID_btree.search(subjectID);
+        int index     = enrollment.getEnrollmentIndex();
+
+//        SET THE INDEXES OF STUDENT AND SUBJECT IN ENROLLMENT CLASS
+        enrollment.setStudentIndex(studentIndex);
+        enrollment.setSubjectIndex(subjectIndex);
+
+//    SET SEMESTER STUDENT INDEX IN BTREE
+        LinkedList<Integer> tmp = semesterStudent.search(studentID);
+
+        if (tmp == null) {
+            tmp = new LinkedList<Integer>();
+        }
+        tmp.push(index);
+        semesterStudent.insert(studentID, tmp);
+
+
+//    SET SEMESTER SUBJECT INDEX IN BTREE
+        tmp = semesterSubject.search(subjectID);
+
+        if (tmp == null) {
+            tmp = new LinkedList<Integer>();
+        }
+        tmp.push(index);
+        semesterSubject.insert(subjectID, tmp);
+
+
+
+    }
+    public static EnrollmentSearcher  readEnrollment(EnrollmentSearcher searcher) {
+
+        LinkedList tmp = new LinkedList<>();
+        if (searcher.isSearchBySubject() && searcher.isSearchByStudent()) {
+
+            searcher.setStudentResult(semesterStudent.search(searcher.getStudentID()));
+            searcher.setSubjectResult(semesterSubject.search(searcher.getSubjectID()));
+
+            searcher.matchResults();
+            if (searcher.getResult() == null)
+                return null;
+            return searcher;
         }
 
-        else
-            tmp = semesterSubject.search(searcher.getSubjectID()*10+searcher.getSubjectCode());
+        else if (searcher.isSearchByStudent()) {
+            searcher.setResult(semesterStudent.search(searcher.getStudentID()));
+            return searcher;
+        }
 
-        return tmp;
+        else if (searcher.isSearchBySubject()) {
+            searcher.setResult(semesterSubject.search(searcher.getSubjectID()));
+            return searcher;
+        }
+
+        return null;
     }
-    public static void updateEnrollment() {}
-    public static void deleteEnrollment(Enrollment e) {}
+    public static void updateEnrollment(Enrollment enrollment1, Enrollment enrollment2) {
+
+        updateEnrollmentStudent(enrollment1.getStudentID(), enrollment2.getStudentID(), enrollment1.getEnrollmentIndex());
+        updateEnrollmentSubject(enrollment1.getSubjectID(), enrollment2.getSubjectID(), enrollment1.getEnrollmentIndex());
+    }
+
+
+
+    private static void updateEnrollmentStudent(int id, int id2, int index) {
+
+        if (id != id2) {
+
+            deleteEnrollmentStudent(id, index);
+
+            LinkedList tmp = semesterStudent.search(id2);
+            if (tmp == null)
+                tmp = new LinkedList();
+
+            tmp.push(index);
+            semesterStudent.insert(id2, tmp);
+        }
+    }
+    private static void updateEnrollmentSubject(int id, int id2, int index){
+
+        if(id!= id2){
+
+            deleteEnrollmentSubject(id,index);
+
+            LinkedList tmp=semesterSubject.search(id2);
+
+            if(tmp==null)
+               tmp=new LinkedList();
+
+            tmp.push(index);
+            semesterSubject.insert(id2,tmp);
+        }
+    }
+    public static void deleteEnrollment(Enrollment enrollment) {
+
+       Boolean a = deleteEnrollmentStudent(enrollment.getStudentID(), enrollment.getEnrollmentIndex());
+       Boolean b = deleteEnrollmentSubject(enrollment.getSubjectID(), enrollment.getEnrollmentIndex());
+//       if (!(a & b))
+//           throw error;
+//        todo throw the delete un successful error
+    }
+
+    private static Boolean deleteEnrollmentStudent(int studentID, int index) {
+
+        LinkedList tmp = semesterStudent.search(studentID);
+        for (int i = 0; i < tmp.size(); i++) {
+            if ((int) tmp.get(i) == index) {
+                tmp.remove(i);
+                if (tmp.isEmpty())
+                    semesterStudent.delete(studentID);
+                return true;
+            }
+        }
+        return false;
+    }
+    private static Boolean deleteEnrollmentSubject(int subjectID, int index) {
+
+        LinkedList tmp = semesterSubject.search(subjectID);
+        for (int i = 0; i < tmp.size(); i++) {
+            if ((int) tmp.get(i) == index) {
+                tmp.remove(i);
+                if (tmp.isEmpty())
+                    semesterSubject.delete(subjectID);
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 

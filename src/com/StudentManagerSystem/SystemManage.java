@@ -92,7 +92,7 @@ public class SystemManage {
 
     public static void addEnrollment(Enrollment enrollment) throws IOException {
 
-        enrollment.setSubjectCode(0);
+
         indexManage.createEnrollment(enrollment);
         BTreeManage.createEnrollment(enrollment);
         FileManage.createEnrollment(enrollment);
@@ -100,8 +100,8 @@ public class SystemManage {
     }
     public static LinkedList<Enrollment> searchEnrollment(EnrollmentSearcher searcher)
             throws IOException, ClassNotFoundException {
-        searcher.setSubjectCode(0);
-        LinkedList<Integer> indexes = BTreeManage.readEnrollment(searcher);
+//        searcher.setSubjectCode(0);
+        LinkedList<Integer> indexes = new LinkedList<>();/*BTreeManage.readEnrollment(searcher);*/
         LinkedList<Enrollment> searchResults = new LinkedList<>();
         if (indexes == null)
             return null;
@@ -136,17 +136,18 @@ public class SystemManage {
 
             int id = uniIDManage.createSubjectID();
             subjectTmp.setID(id);
-        }else {
-//            searches the subject by title in the condition that it is duplicated and extracts the id as to set to the subject in hand
-
-            SubjectSearcher searcher = new SubjectSearcher();
-            searcher.setSearchByTitle(true);
-            searcher.setTitle(subjectTmp.getTitle());
-            LinkedList<Subject> result = searchSubject(searcher);
-            subjectTmp.setId(result.peek().getDatabaseID()/10);
-            subjectTmp.setCode(result.size()+1);
-            subjectTmp.calculateDatabaseID();
         }
+//        else {
+////            searches the subject by title in the condition that it is duplicated and extracts the id as to set to the subject in hand
+//
+//            SubjectSearcher searcher = new SubjectSearcher();
+//            searcher.setSearchByTitle(true);
+//            searcher.setTitle(subjectTmp.getTitle());
+//            LinkedList<Subject> result = searchSubject(searcher);
+//            subjectTmp.setId(result.peek().getDatabaseID()/10);
+//            subjectTmp.setCode(result.size()+1);
+//            subjectTmp.calculateDatabaseID();
+//        }
         int index = indexManage.addSubject();
         subjectTmp.setIndex(index);
         BTreeManage.createSubject(subjectTmp);
@@ -224,6 +225,5 @@ public class SystemManage {
         enrollment.setStudentID(enrollmentTmp.getStudentID());
         enrollment.setStudentIndex(enrollmentTmp.getStudentIndex());
         enrollment.setSubjectIndex(enrollmentTmp.getSubjectIndex());
-        enrollment.setSubjectCode(enrollmentTmp.getSubjectCode());
     }
 }

@@ -6,7 +6,6 @@ public class Enrollment {
 
     private int studentID;
     private int subjectID;
-    private int subjectCode;
     private int studentIndex;
     private int subjectIndex;
 
@@ -55,11 +54,4 @@ public class Enrollment {
         this.subjectIndex = subjectIndex;
     }
 
-    public int getSubjectCode() {
-        return subjectCode;
-    }
-
-    public void setSubjectCode(int subjectCode) {
-        this.subjectCode = subjectCode;
-    }
 }

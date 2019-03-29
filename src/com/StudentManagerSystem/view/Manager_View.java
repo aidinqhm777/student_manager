@@ -1223,7 +1223,7 @@ public class Manager_View extends javax.swing.JFrame {
 
     private void initialEnrolmentSearchList(LinkedList<Enrollment> e){
         DefaultListModel<String> list = new DefaultListModel<>();
-        for (Enrollment enrollment : e) list.addElement( " student \"" + enrollment.getStudentIndex() +"\": "+ enrollment.getSubjectID() + "/ " + enrollment.getSubjectCode());
+//        for (Enrollment enrollment : e) list.addElement( " student \"" + enrollment.getStudentIndex() +"\": "+ enrollment.getSubjectID() + "/ " + enrollment.getSubjectCode());
         CourseList.setModel(list);
     }
 
@@ -1553,7 +1553,7 @@ public class Manager_View extends javax.swing.JFrame {
         try {
             enrollment.setStudentID( Integer.parseInt(addEditeUniNumberField.getText()) );
             enrollment.setSubjectID( Integer.parseInt(addEditeCourseIDField.getText()) );
-            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
+//            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
             SystemManage.addEnrollment(enrollment);
         } catch (IOException e) {
             e.printStackTrace();
@@ -1565,7 +1565,7 @@ public class Manager_View extends javax.swing.JFrame {
         try {
             enrollment.setStudentID( Integer.parseInt(addEditeUniNumberField.getText()) );
             enrollment.setSubjectID( Integer.parseInt(addEditeCourseIDField.getText()) );
-            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
+//            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
             
             SystemManage.setEnrollmentTmp(enrollment);
             SystemManage.removeEnrollment();
