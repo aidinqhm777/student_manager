@@ -109,8 +109,9 @@ public class SubjectSearcher {
         return searchResultId;
     }
 
-    public void setSearchResultId(LinkedList<Integer> searchResultId) {
-        this.searchResultId = (LinkedList<Integer>) searchResultId.clone();
+    public void setSearchResultId(java.util.List<Integer> searchResultId) {
+        this.searchResultId = (LinkedList<Integer>) searchResultId;
+        this.searchResultId = (LinkedList<Integer>) this.searchResultId.clone();
     }
 
     public LinkedList<Integer> getSearchResultTitle() {

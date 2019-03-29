@@ -821,7 +821,11 @@ public class Manager_View extends javax.swing.JFrame {
         addLesson_btn.setText("Add");
         addLesson_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addLesson_btnActionPerformed(evt);
+                try {
+                    addLesson_btnActionPerformed(evt);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -1219,7 +1223,7 @@ public class Manager_View extends javax.swing.JFrame {
 
     private void initialEnrolmentSearchList(LinkedList<Enrollment> e){
         DefaultListModel<String> list = new DefaultListModel<>();
-        for (Enrollment enrollment : e) list.addElement( " student \"" + enrollment.getStudentIndex() +"\": "+ enrollment.getSubjectID() + "/ " + enrollment.getSubjectCode());
+//        for (Enrollment enrollment : e) list.addElement( " student \"" + enrollment.getStudentIndex() +"\": "+ enrollment.getSubjectID() + "/ " + enrollment.getSubjectCode());
         CourseList.setModel(list);
     }
 
@@ -1378,7 +1382,7 @@ public class Manager_View extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void addLesson_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLesson_btnActionPerformed
+    private void addLesson_btnActionPerformed(java.awt.event.ActionEvent evt) throws ClassNotFoundException {//GEN-FIRST:event_addLesson_btnActionPerformed
         //TODO not Complete
         Subject s = new Subject();
         try {
@@ -1549,7 +1553,7 @@ public class Manager_View extends javax.swing.JFrame {
         try {
             enrollment.setStudentID( Integer.parseInt(addEditeUniNumberField.getText()) );
             enrollment.setSubjectID( Integer.parseInt(addEditeCourseIDField.getText()) );
-            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
+//            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
             SystemManage.addEnrollment(enrollment);
         } catch (IOException e) {
             e.printStackTrace();
@@ -1561,7 +1565,7 @@ public class Manager_View extends javax.swing.JFrame {
         try {
             enrollment.setStudentID( Integer.parseInt(addEditeUniNumberField.getText()) );
             enrollment.setSubjectID( Integer.parseInt(addEditeCourseIDField.getText()) );
-            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
+//            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
             
             SystemManage.setEnrollmentTmp(enrollment);
             SystemManage.removeEnrollment();

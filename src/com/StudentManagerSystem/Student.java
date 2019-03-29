@@ -20,17 +20,16 @@ public class Student {
     private String lastname;
     private String birthDate;
     private String phoneNum;
-    private String password;
+    private String password = "1234";
 
-    //constructor
-    public Student() { }
 
     //methods
+
     public int getIndex_PersonalInfo() {
         return index_PersonalInfo;
     }
 
-    public void setStudent(Student s){
+    public void setStudent(Student s) {
         this.setIndex_PersonalInfo(s.getIndex_PersonalInfo());
         this.setUniID(s.getUniID());
         this.setId(s.getId());
@@ -38,6 +37,7 @@ public class Student {
         this.setLastname(s.getLastname());
         this.setBirthDate(s.getBirthDate());
         this.setPhoneNum(s.getPhoneNum());
+        this.setPassword(s.getPassword());
     }
 
     public void setIndex_PersonalInfo(int input) {
@@ -90,5 +90,13 @@ public class Student {
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
