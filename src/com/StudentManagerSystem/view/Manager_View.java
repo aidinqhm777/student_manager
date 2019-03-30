@@ -1474,7 +1474,7 @@ public class Manager_View extends javax.swing.JFrame {
     }//GEN-LAST:event_searchListMouseClicked
 
     private void searchStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStudent_btnActionPerformed
-        Searcher searcher = new Searcher();
+        StudentSearcher searcher = new StudentSearcher();
         if (!name_searchField.getText().equals("")) {
             searcher.setName(name_searchField.getText());
             searcher.setSearchByName(true);

@@ -3,7 +3,7 @@ package com.StudentManagerSystem;
 
 import java.util.LinkedList;
 
-public class Searcher {
+public class StudentSearcher {
 
     private int index = -1;
     private int uniID = -1;

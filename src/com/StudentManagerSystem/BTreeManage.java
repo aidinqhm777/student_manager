@@ -252,7 +252,7 @@ public class BTreeManage {
 
     //find and return index
 
-    public static Searcher readStudent(Searcher searcher) {
+    public static StudentSearcher readStudent(StudentSearcher searcher) {
 
         if (searcher.getSearchByUniID())
             searcher.setIndex(readByStudentUniID(searcher.getUniID()));

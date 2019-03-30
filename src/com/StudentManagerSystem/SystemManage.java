@@ -47,10 +47,10 @@ public class SystemManage {
 
 //    STUDENTS
 
-    public static LinkedList<Student> searchStudent(Searcher searcher)
+    public static LinkedList<Student> searchStudent(StudentSearcher searcher)
             throws IOException, ClassNotFoundException {
 
-        Searcher foundSearch = BTreeManage.readStudent(searcher);
+        StudentSearcher foundSearch = BTreeManage.readStudent(searcher);
         foundSearch.matchFoundIndexes();
         while (!foundSearch.getIndexes().isEmpty()) {
             Student tmp = FileManage.readStudent(foundSearch.popIndexes());
