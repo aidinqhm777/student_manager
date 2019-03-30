@@ -12,7 +12,7 @@ package com.StudentManagerSystem.Controllers;
 public class StudentManagerPageController {
 
     public static void loadstudentsinformation(){}
-    public static void updateinformation{}
+    public static void updateinformation(){}
     public static void load_semester_subjects(){}
     public static void load_all_subjects(){}
 

@@ -10,5 +10,4 @@
 package com.StudentManagerSystem.Controllers;
 
 public class AdminPageController {
-
 }
