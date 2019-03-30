@@ -1,13 +1,6 @@
-package com.StudentManagerSystem.managers;
+package com.StudentManagerSystem;
 
-import com.StudentManagerSystem.Btree.BTreeManage;
-import com.StudentManagerSystem.dataContainer.Enrollment;
-import com.StudentManagerSystem.dataContainer.Student;
-import com.StudentManagerSystem.dataContainer.Subject;
 import com.StudentManagerSystem.fileHandler.FileManage;
-import com.StudentManagerSystem.searchers.EnrollmentSearcher;
-import com.StudentManagerSystem.searchers.Searcher;
-import com.StudentManagerSystem.searchers.SubjectSearcher;
 
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;
@@ -54,10 +47,10 @@ public class SystemManage {
 
 //    STUDENTS
 
-    public static LinkedList<Student> searchStudent(Searcher searcher)
+    public static LinkedList<Student> searchStudent(StudentSearcher searcher)
             throws IOException, ClassNotFoundException {
 
-        Searcher foundSearch = BTreeManage.readStudent(searcher);
+        StudentSearcher foundSearch = BTreeManage.readStudent(searcher);
         foundSearch.matchFoundIndexes();
         while (!foundSearch.getIndexes().isEmpty()) {
             Student tmp = FileManage.readStudent(foundSearch.popIndexes());

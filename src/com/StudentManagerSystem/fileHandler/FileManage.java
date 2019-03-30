@@ -8,13 +8,8 @@
 
 package com.StudentManagerSystem.fileHandler;
 
+import com.StudentManagerSystem.*;
 import com.StudentManagerSystem.Btree.BPlusTree;
-import com.StudentManagerSystem.dataContainer.Enrollment;
-import com.StudentManagerSystem.dataContainer.Student;
-import com.StudentManagerSystem.dataContainer.Subject;
-import com.StudentManagerSystem.managers.IndexManage;
-import com.StudentManagerSystem.managers.UniIDManage;
-import com.StudentManagerSystem.util.DateUtil;
 
 import java.io.IOException;
 import java.io.StreamCorruptedException;
@@ -55,18 +50,18 @@ public class FileManage {
     private static int enrollment_lineSize = studentEnrolmentData_Size + subjectEnrolmentData_Size;
 
     //file paths
-    private static String studentFile_filePath = "./src/com/StudentManagerSystem/data/studentFile.dump";
-    private static String subjectFile_filePath = "./src/com/StudentManagerSystem/data/subjectFile.dump";
-    private static String enrolmentFile_filePath = "./src/com/StudentManagerSystem/data/subjectFile.dump";
+    private static String studentFile_filePath = "./src/com/StudentManagerSystem/fileHandler/data/studentFile.dump";
+    private static String subjectFile_filePath = "./src/com/StudentManagerSystem/fileHandler/data/subjectFile.dump";
+    private static String enrolmentFile_filePath = "./src/com/StudentManagerSystem/fileHandler/data/subjectFile.dump";
 
-    private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/data/Btree_UniID.dump";
-    private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/data/Btree_Name.dump";
-    private static String btree_StudentLastName_filePath = "./src/com/StudentManagerSystem/data/Btree_Lastname.dump";
-    private static String btree_StudentID_filePath = "./src/com/StudentManagerSystem/data/Btree_ID.dump";
-    private static String btree_SubjectID_filePath = "./src/com/StudentManagerSystem/data/Btree_SubjectID.dump";
-    private static String btree_SubjectTitle_filePath = "./src/com/StudentManagerSystem/data/Btree_SubjectTitle.dump";
-    private static String class_UniIDManage_filePath = "./src/com/StudentManagerSystem/data/UniIDManage.dump";
-    private static String class_IndexManage_filePath = "./src/com/StudentManagerSystem/data/IndexManage.dump";
+    private static String btree_StudentUniID_filePath = "./src/com/StudentManagerSystem/fileHandler/data/Btree_UniID.dump";
+    private static String btree_StudentName_filePath = "./src/com/StudentManagerSystem/fileHandler/data/Btree_Name.dump";
+    private static String btree_StudentLastName_filePath = "./src/com/StudentManagerSystem/fileHandler/data/Btree_Lastname.dump";
+    private static String btree_StudentID_filePath = "./src/com/StudentManagerSystem/fileHandler/data/Btree_ID.dump";
+    private static String btree_SubjectID_filePath = "./src/com/StudentManagerSystem/fileHandler/data/Btree_SubjectID.dump";
+    private static String btree_SubjectTitle_filePath = "./src/com/StudentManagerSystem/fileHandler/data/Btree_SubjectTitle.dump";
+    private static String class_UniIDManage_filePath = "./src/com/StudentManagerSystem/fileHandler/data/UniIDManage.dump";
+    private static String class_IndexManage_filePath = "./src/com/StudentManagerSystem/fileHandler/data/IndexManage.dump";
 
     private static String name_id = "name";
     private static String lastName_id = "lastName";

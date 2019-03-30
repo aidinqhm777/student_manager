@@ -1,95 +1,80 @@
-///*
-// * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-// * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-// * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-// * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-// * Vestibulum commodo. Ut rhoncus gravida arcu.
-// */
-//
-//package com.StudentManagerSystem.Controllers;
-//
-//import com.StudentManagerSystem.Password;
-//import com.StudentManagerSystem.searchers.Searcher;
-//import com.StudentManagerSystem.managers.SystemManage;
-//
-//import java.io.IOException;
-//import java.util.LinkedList;
-//
-//public class LoginPageController {
-//
-//    private Input input;
-//
-//
-//
-//
-//
-//    public class Input {
-//
-//        String username;
-//        String password;
-//        int userType = -1;
-//
-//        public int getUsername() {
-//            return Integer.parseInt(username);
-//        }
-//
-//        public void setUsername(String username) {
-//            this.username = username;
-//        }
-//
-//        public int getPassword() {
-//            return Integer.parseInt(password);
-//        }
-//
-//        public void setPassword(String password) {
-//            this.password = password;
-//        }
-//    }
-//
-//    public boolean loginButton(Input input1) throws IOException, ClassNotFoundException {
-//
-//        setInput(input1);
-////      todo  rest should be conditional
-//
-////        if is student
-//        Searcher searcher = new Searcher();
-//        searcher.setSearchByUniID(true);
-//        searcher.setUniID(input.getUsername());
-//        LinkedList searchResult = SystemManage.searchStudent(searcher);
-//    }
-//
-//    private static boolean login(Input input) throws IOException, ClassNotFoundException {
-//
-//        if (authenticate(input)) {
-////            loadPage(input.userType, input.getUsername());
-//            return true;
-//        }
-//
-//        else
-//            return false;
-//    }
-//
-//    private static boolean authenticate(Input input) {
-//
-////        return Password.authenticate(input);
-//    }
-//
-//    private static void loadPage(int type, String username) throws IOException, ClassNotFoundException {
-//
-//        if(type == 0) {
-//
-//            Searcher searcher = new Searcher();
-//            searcher.setSearchByID(true);
-//            searcher.setUniID(Integer.parseInt(username));
-////            StudentPage.loadInformation(SystemManage.searchStudent(searcher).peek());
-//        }
-//    }
-//
-//    public Input getInput() {
-//        return input;
-//    }
-//
-//    public void setInput(Input input) {
-//        this.input = input;
-//    }
-//}
+package com.StudentManagerSystem.Controllers;
+
+import com.StudentManagerSystem.Student;
+import com.StudentManagerSystem.StudentSearcher;
+import com.StudentManagerSystem.SystemManage;
+import java.io.IOException;
+
+public class LoginPageController {
+
+    private static Input input;
+    private static Object loggedIn;
+    private static String Password;
+
+    public class Input {
+
+        String username;
+        String password;
+        int userType;
+        /**
+         * 0 = student
+         * 1 = student Manager
+         * 2 = admin
+         */
+
+        public Input(String username, String password, int userType) {
+            this.username = username;
+            this.password = password;
+            this.userType = userType;
+        }
+
+    }
+
+    //methods
+    static public boolean login(Input input) throws IOException, ClassNotFoundException {
+        getPassword(input.username, input.userType); //load data and get the password
+        return (Password.equals(input.password));
+    }
+
+    private static void getPassword(String username, int userType) throws IOException, ClassNotFoundException {
+        Object loggedIn = null;
+        String password ="";
+
+        switch (userType){
+
+            case 0:{
+                StudentSearcher searcher = new StudentSearcher();
+                searcher.setUniID( Integer.parseInt(username) );
+                searcher.setSearchByUniID(true);
+                Student tmp = SystemManage.searchStudent(searcher).get(0);
+                loggedIn = tmp;
+                password = tmp.getPassword();
+                break;
+            }
+
+            case 1:{
+                //TODO
+                break;
+            }
+
+            case 2:{
+                //TODO
+                break;
+            }
+        }
+
+        setPassword(password);
+        setLoggedIn(loggedIn);
+    }
+
+    //getter and setters
+    static Object getLoggedIn() {
+        return loggedIn;
+    }
+    private static void setLoggedIn(Object loggedIn) {
+        LoginPageController.loggedIn = loggedIn;
+    }
+    private static void setPassword(String password) {
+        Password = password;
+    }
+}

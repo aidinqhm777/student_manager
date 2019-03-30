@@ -1,14 +1,4 @@
-/*
- * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
-package com.StudentManagerSystem.managers;
-
-import com.StudentManagerSystem.dataContainer.Enrollment;
+package com.StudentManagerSystem;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -40,7 +30,7 @@ public class IndexManage implements Serializable {
     }
 
 
-    public int addSubject() {
+    int addSubject() {
 
          if (recentlyDeletedSubjects.isEmpty()) {
 
@@ -48,13 +38,13 @@ public class IndexManage implements Serializable {
          } else
              return recentlyDeletedSubjects.pop();
      }
-    public void deleteSubject(int index) {
+    void deleteSubject(int index) {
 
         recentlyDeletedSubjects.push(index);
     }
 
 
-    public void createEnrollment(Enrollment enrollment) {
+    void createEnrollment(Enrollment enrollment) {
 
         if (recentlyDeletedEnrollments.isEmpty())
             enrollment.setEnrollmentIndex(++lineCountEnrollment);
@@ -63,7 +53,7 @@ public class IndexManage implements Serializable {
             enrollment.setEnrollmentIndex(recentlyDeletedStudents.pop());
     }
     static void updateEnrollment(Enrollment enrollment) {}
-    public void deleteEnrollment(Enrollment enrollment) {
+    void deleteEnrollment(Enrollment enrollment) {
 
         recentlyDeletedStudents.push(enrollment.getEnrollmentIndex());
     }

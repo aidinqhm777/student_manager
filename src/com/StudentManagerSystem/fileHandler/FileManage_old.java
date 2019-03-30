@@ -9,9 +9,9 @@
 package com.StudentManagerSystem.fileHandler;
 
 import com.StudentManagerSystem.Btree.BPlusTree;
-import com.StudentManagerSystem.managers.IndexManage;
-import com.StudentManagerSystem.managers.UniIDManage;
-import com.StudentManagerSystem.dataContainer.Student;
+import com.StudentManagerSystem.IndexManage;
+import com.StudentManagerSystem.Student;
+import com.StudentManagerSystem.UniIDManage;
 
 import java.io.IOException;
 
