@@ -18,6 +18,7 @@ public class Main extends Application {
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);
 //                primaryStage.initStyle(StageStyle.UNDECORATED);
+                primaryStage.setResizable(false);
                 primaryStage.show();
             } catch (IOException e) {
                 e.printStackTrace();

@@ -1,12 +1,19 @@
 
-package com.StudentManagerSystem;
+/*
+ * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
+package com.StudentManagerSystem.dataContainer;
 
 public class Enrollment {
 
 
     private int studentID;
     private int subjectID;
-    private int subjectCode;
     private int studentIndex;
     private int subjectIndex;
 
@@ -55,11 +62,4 @@ public class Enrollment {
         this.subjectIndex = subjectIndex;
     }
 
-    public int getSubjectCode() {
-        return subjectCode;
-    }
-
-    public void setSubjectCode(int subjectCode) {
-        this.subjectCode = subjectCode;
-    }
 }

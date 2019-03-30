@@ -1,24 +1,38 @@
 
-package com.StudentManagerSystem;
+/*
+ * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
 
-import com.sun.xml.internal.ws.developer.Serialization;
+package com.StudentManagerSystem.dataContainer;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.LinkedList;
 
 public class Subject {
 
     private int index = -1;
-    private int id = 0;
-    private int code = 0;
-    private int capacity = 0;
-    private int unitVal = 0;
+    private int databaseID = -1;
+    private int capacity = -1;
+    private int unitVal = -1;
     private int studentCount = 0;
 
-    private String title = "";
-    private String professorName = "";
+    public enum Faculty{
+
+        COMPUTER, LITERATURE
+    }
+
+    //should not be written in DS
+    private int id = -1;
+    private int code = -1;
+    //should not be written in DS
+
+    private String title;
+    private String professorName;
 
     private ClassTiming classTiming = new ClassTiming(null,null);
     private RequirementsSchema requirements = new RequirementsSchema();
@@ -28,6 +42,8 @@ public class Subject {
 
     private class RequirementsSchema {
 
+
+//        todo after writing the preEnrollments this method should use them as requirements
         private int[] requiredSubjects_index;
 
         private LinkedList<Subject> requiredSubjects;
@@ -39,13 +55,14 @@ public class Subject {
         int hour;
         int minute;
         int campusCode;
+//        Faculty faculty;
         int unitValue;
 
-        public Time(int day, int classNumber, int hour, int minite, int campusCode, int unitValue) {
+        public Time(int day, int classNumber, int hour, int minute, int campusCode, int unitValue) {
             this.day = day;
             this.classNumber = classNumber;
             this.hour = hour;
-            this.minute = minite;
+            this.minute = minute;
             this.campusCode = campusCode;
             this.unitValue = unitValue;
         }
@@ -111,7 +128,17 @@ public class Subject {
         this.setProfessorName(s.getProfessorName());
         this.setRequirements(s.getRequirements());
         this.setExamDate(s.getExamDate());
+        this.setStudentCount(s.getStudentCount());
+        this.setDatabaseID(s.getDatabaseID());
     }
+
+
+
+
+
+
+
+//    getters and setters
 
     public void setId(int id) {
         this.id = id;
@@ -203,6 +230,23 @@ public class Subject {
 
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getDatabaseID() {
+        return databaseID;
+    }
+
+    public void setDatabaseID(int databaseID) {
+        this.databaseID = databaseID;
+    }
+
+    public int calculateDatabaseID() {
+        this.databaseID = this.id*100 + this.code;
+        return this.databaseID;
     }
 
 }

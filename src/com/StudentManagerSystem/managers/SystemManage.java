@@ -1,4 +1,13 @@
-package com.StudentManagerSystem;
+package com.StudentManagerSystem.managers;
+
+import com.StudentManagerSystem.Btree.BTreeManage;
+import com.StudentManagerSystem.dataContainer.Enrollment;
+import com.StudentManagerSystem.dataContainer.Student;
+import com.StudentManagerSystem.dataContainer.Subject;
+import com.StudentManagerSystem.fileHandler.FileManage;
+import com.StudentManagerSystem.searchers.EnrollmentSearcher;
+import com.StudentManagerSystem.searchers.Searcher;
+import com.StudentManagerSystem.searchers.SubjectSearcher;
 
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;
@@ -92,7 +101,7 @@ public class SystemManage {
 
     public static void addEnrollment(Enrollment enrollment) throws IOException {
 
-        enrollment.setSubjectCode(0);
+
         indexManage.createEnrollment(enrollment);
         BTreeManage.createEnrollment(enrollment);
         FileManage.createEnrollment(enrollment);
@@ -100,8 +109,8 @@ public class SystemManage {
     }
     public static LinkedList<Enrollment> searchEnrollment(EnrollmentSearcher searcher)
             throws IOException, ClassNotFoundException {
-        searcher.setSubjectCode(0);
-        LinkedList<Integer> indexes = BTreeManage.readEnrollment(searcher);
+//        searcher.setSubjectCode(0);
+        LinkedList<Integer> indexes = new LinkedList<>();/*BTreeManage.readEnrollment(searcher);*/
         LinkedList<Enrollment> searchResults = new LinkedList<>();
         if (indexes == null)
             return null;
@@ -128,20 +137,29 @@ public class SystemManage {
 
 
 
-
-
-
-
 //    COURSES AND SUBJECTS MANAGING
 
-    public static Subject addSubject() throws IOException {
+    public static Subject addSubject() throws IOException, ClassNotFoundException {
+//        todo subjects with the same id r not handled code and id should be managed
+        if (!BTreeManage.checkDuplicity(subjectTmp)) {
 
-        if(BTreeManage.checkDuplicity(subjectTmp)) throw new DuplicateFormatFlagsException("ID Error");
-        int id = uniIDManage.createSubjectID();
+            int id = uniIDManage.createSubjectID();
+            subjectTmp.setID(id);
+        }
+//        else {
+////            searches the subject by title in the condition that it is duplicated and extracts the id as to set to the subject in hand
+//
+//            SubjectSearcher searcher = new SubjectSearcher();
+//            searcher.setSearchByTitle(true);
+//            searcher.setTitle(subjectTmp.getTitle());
+//            LinkedList<Subject> result = searchSubject(searcher);
+//            subjectTmp.setId(result.peek().getDatabaseID()/10);
+//            subjectTmp.setCode(result.size()+1);
+//            subjectTmp.calculateDatabaseID();
+//        }
         int index = indexManage.addSubject();
         subjectTmp.setIndex(index);
-        subjectTmp.setID(id);
-//        BTreeManage.createSubject(subjectTmp);
+        BTreeManage.createSubject(subjectTmp);
         FileManage.createSubject(subjectTmp);
         return subjectTmp;
 
@@ -150,7 +168,7 @@ public class SystemManage {
 
         SubjectSearcher foundSearch = BTreeManage.readSubject(subjectSearcher);
         foundSearch.matchResults();
-
+//        results are in the property named "index" as a list
         while (!foundSearch.getIndex().isEmpty()) {
             Subject tmp = FileManage.readSubject(foundSearch.popIndex());
             foundSearch.pushSubject(tmp);
@@ -159,7 +177,7 @@ public class SystemManage {
     }
     public static Subject editSubject() throws IOException {
 
-        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
+//        if (studentTmp.getId() != updatedStudentTmp.getId()) { if (BTreeManage.checkDuplicity(updatedStudentTmp.getId())) throw new DuplicateFormatFlagsException("ID ERROR"); }
         FileManage.updateSubject(subjectTmp, updatedSubjectTmp);
         BTreeManage.updateSubject(subjectTmp, updatedSubjectTmp);
         subjectTmp.copy(updatedSubjectTmp);
@@ -168,12 +186,16 @@ public class SystemManage {
 
     }
     public static Subject removeSubject() throws IOException {
-
+//      todo id and code must be set correctly
         indexManage.deleteSubject(subjectTmp.getIndex());
-//        BTreeManage.deleteSubject(subjectTmp);
+        BTreeManage.deleteSubject(subjectTmp);
         FileManage.deleteSubject(subjectTmp);
         return subjectTmp;
     }
+
+
+
+
 
 
     //get and set properties
@@ -212,6 +234,5 @@ public class SystemManage {
         enrollment.setStudentID(enrollmentTmp.getStudentID());
         enrollment.setStudentIndex(enrollmentTmp.getStudentIndex());
         enrollment.setSubjectIndex(enrollmentTmp.getSubjectIndex());
-        enrollment.setSubjectCode(enrollmentTmp.getSubjectCode());
     }
 }
