@@ -31,12 +31,14 @@ public class LoginPageController {
     }
 
     //methods
-    static public boolean login(Input input) throws IOException, ClassNotFoundException {
+    static public boolean login(Input input)
+            throws IOException, ClassNotFoundException {
         getPassword(input.username, input.userType); //load data and get the password
         return (Password.equals(input.password));
     }
 
-    private static void getPassword(String username, int userType) throws IOException, ClassNotFoundException {
+    private static void getPassword(String username, int userType)
+            throws IOException, ClassNotFoundException {
         Object loggedIn = null;
         String password ="";
 

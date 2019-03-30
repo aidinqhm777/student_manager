@@ -50,22 +50,18 @@ public class StudentPageController {
         SystemManage.setEnrollmentTmp(enrollment);
         SystemManage.removeEnrollment();
     }
-    public static void updateSubjectgpcode(){}
-    public static void showsubjectsinformation(){}
-    public static LinkedList searchsubject(int id)throws IOException, ClassNotFoundException{
+    public static void updateSubjectGpCode(){}
+    public static void showSubjectsInformation(){}
+    public static LinkedList searchSubject(int id)throws IOException, ClassNotFoundException{
         SubjectSearcher subjectSearcher = new SubjectSearcher();
         subjectSearcher.setSearchById(true);
         subjectSearcher.setId(id);
         return SystemManage.searchSubject(subjectSearcher);
     }
-    
-
-
-
-    public static void loadInformation(int uniid) throws IOException, ClassNotFoundException {
+    public static void loadInformation(int uniID) throws IOException, ClassNotFoundException {
         //TODO sets properties to information
         StudentSearcher searcher = new StudentSearcher();
-        searcher.setUniID(uniid);
+        searcher.setUniID(uniID);
         searcher.setSearchByUniID(true);
         LinkedList <Student>slinkedlist= SystemManage.searchStudent(searcher);
         information.setLastname(slinkedlist.peek().getLastname());
@@ -80,11 +76,7 @@ public class StudentPageController {
 //        TODO load info to buffer
     }
     public static Student displayInformation() {
-
-        return information;//TODO must be cloned
+        return information;
     }
-
-
-
 
 }
