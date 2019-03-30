@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.StudentManagerSystem.managers;
+package com.StudentManagerSystem;
 
 import java.io.Serializable;
 

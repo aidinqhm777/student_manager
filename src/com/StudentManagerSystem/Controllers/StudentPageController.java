@@ -9,9 +9,9 @@
 
 package com.StudentManagerSystem.Controllers;
 
-import com.StudentManagerSystem.dataContainer.Enrollment;
-import com.StudentManagerSystem.dataContainer.Student;
-import com.StudentManagerSystem.managers.SystemManage;
+import com.StudentManagerSystem.Enrollment;
+import com.StudentManagerSystem.Student;
+import com.StudentManagerSystem.SystemManage;
 
 import java.io.IOException;
 

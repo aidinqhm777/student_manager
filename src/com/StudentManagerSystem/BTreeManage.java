@@ -1,22 +1,9 @@
-/*
- * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
+package com.StudentManagerSystem;
 
-package com.StudentManagerSystem.Btree;
-
-import com.StudentManagerSystem.dataContainer.Enrollment;
-import com.StudentManagerSystem.dataContainer.Student;
-import com.StudentManagerSystem.dataContainer.Subject;
-import com.StudentManagerSystem.fileHandler.FileManage;
-import com.StudentManagerSystem.searchers.EnrollmentSearcher;
-import com.StudentManagerSystem.searchers.Searcher;
-import com.StudentManagerSystem.searchers.SubjectSearcher;
+import com.StudentManagerSystem.Btree.BPlusTree;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class BTreeManage {
@@ -226,7 +213,7 @@ public class BTreeManage {
 
     //add student key and index to BTree
 
-    public static void createStudent(Student student) {
+    static void createStudent(Student student) {
 
         createStudentUniID(student.getUniID() , student.getIndex_PersonalInfo());
         createStudentLastname(student.getLastname() , student.getIndex_PersonalInfo());
@@ -705,7 +692,7 @@ public class BTreeManage {
 
 
     }
-    public static EnrollmentSearcher readEnrollment(EnrollmentSearcher searcher) {
+    public static EnrollmentSearcher  readEnrollment(EnrollmentSearcher searcher) {
 
         LinkedList tmp = new LinkedList<>();
         if (searcher.isSearchBySubject() && searcher.isSearchByStudent()) {

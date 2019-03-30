@@ -1,20 +1,6 @@
-/*
- * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
-package com.StudentManagerSystem.fileHandler;
+package com.StudentManagerSystem;
 
 import com.StudentManagerSystem.Btree.BPlusTree;
-import com.StudentManagerSystem.dataContainer.Enrollment;
-import com.StudentManagerSystem.dataContainer.Student;
-import com.StudentManagerSystem.dataContainer.Subject;
-import com.StudentManagerSystem.managers.IndexManage;
-import com.StudentManagerSystem.managers.UniIDManage;
-import com.StudentManagerSystem.util.DateUtil;
 
 import java.io.IOException;
 import java.io.StreamCorruptedException;
@@ -230,7 +216,7 @@ public class FileManage {
     }
 
 
-    public static void createStudent(Student student)
+    static void createStudent(Student student)
             throws IOException {
         int index = student.getIndex_PersonalInfo();
         setStudentDataLinkedList(student);
@@ -238,7 +224,7 @@ public class FileManage {
         byte[] bytes = concatenate(student_lineSize);
         FileIO.writeIndexToFile(studentFile_filePath, bytes, index, student_lineSize);
     }
-    public static Student readStudent(int index)
+    static Student readStudent(int index)
             throws IOException, ClassNotFoundException {
         byte[] bytes = FileIO.readIndexFromFile(studentFile_filePath, index, student_lineSize);
         setStudentDataLinkedList(null);
@@ -270,7 +256,7 @@ public class FileManage {
              }
          }
     }
-    public static void deleteStudent(Student student)
+    static void deleteStudent(Student student)
             throws IOException {
         byte[] bytes = new byte[student_lineSize];
         FileIO.writeIndexToFile(studentFile_filePath, bytes, student.getIndex_PersonalInfo(), student_lineSize);
@@ -278,14 +264,14 @@ public class FileManage {
 
 
 
-    public static void createSubject(Subject subject)
+    static void createSubject(Subject subject)
             throws IOException {
         int index = subject.getIndex();
         setSubjectDataLinkedList(subject);
         byte[] bytes = concatenate(subject_lineSize);
         FileIO.writeIndexToFile(subjectFile_filePath, bytes, index, subject_lineSize);
     }
-    public static Subject readSubject(int index)
+    static Subject readSubject(int index)
             throws IOException, ClassNotFoundException {
         byte[] bytes = FileIO.readIndexFromFile(subjectFile_filePath, index, subject_lineSize);
         setSubjectDataLinkedList(null);
@@ -301,7 +287,7 @@ public class FileManage {
         s.setClassTiming( Subject.ClassTiming.ToclassTiming((String)readData(classTiming_id,bytes)) );
         return s;
     }
-    public static void updateSubject(Subject subjectBefore, Subject subjectAfter)
+    static void updateSubject(Subject subjectBefore, Subject subjectAfter)
             throws IOException {
 
         LinkedList <FiledData> before = setSubjectDataLinkedList(subjectBefore);
@@ -319,7 +305,7 @@ public class FileManage {
             }
         }
     }
-    public static void deleteSubject(Subject subject)
+    static void deleteSubject(Subject subject)
             throws IOException {
 
         byte[] bytes = new byte[subject_lineSize];
@@ -364,72 +350,72 @@ public class FileManage {
 
 
     //load and save the btree's in file
-    public static BPlusTree loadBtree_StudentName()
+    static BPlusTree loadBtree_StudentName()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentName_filePath);
     }
-    public static BPlusTree loadBtree_StudentLastName()
+    static BPlusTree loadBtree_StudentLastName()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentLastName_filePath);
     }
-    public static BPlusTree loadBtree_StudentID()
+    static BPlusTree loadBtree_StudentID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentID_filePath);
     }
-    public static BPlusTree loadBtree_StudentUniID()
+    static BPlusTree loadBtree_StudentUniID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_StudentUniID_filePath);
     }
-    public static BPlusTree loadBtree_SubjectID()
+    static BPlusTree loadBtree_SubjectID()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_SubjectID_filePath);
     }
-    public static BPlusTree loadBtree_SubjectTitle()
+    static BPlusTree loadBtree_SubjectTitle()
             throws IOException, ClassNotFoundException {
         return (BPlusTree) FileIO.readAnObjectFromFile(btree_SubjectTitle_filePath);
     }
 
 
 
-    public static void saveBtree_StudentName(Object o)
+    static void saveBtree_StudentName(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentName_filePath, o);
     }
-    public static void saveBtree_StudentLastName(Object o)
+    static void saveBtree_StudentLastName(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentLastName_filePath, o);
     }
-    public static void saveBtree_StudentID(Object o)
+    static void saveBtree_StudentID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentID_filePath, o);
     }
-    public static void saveBtree_StudentUniID(Object o)
+    static void saveBtree_StudentUniID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_StudentUniID_filePath, o);
     }
-    public static void saveBtree_SubjectID(Object o)
+    static void saveBtree_SubjectID(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_SubjectID_filePath, o);
     }
-    public static void saveBtree_SubjectTitle(Object o)
+    static void saveBtree_SubjectTitle(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(btree_SubjectTitle_filePath, o);
     }
 
 
-    public static UniIDManage loadUniIDManage()
+    static UniIDManage loadUniIDManage()
             throws IOException, ClassNotFoundException {
         return (UniIDManage) FileIO.readAnObjectFromFile(class_UniIDManage_filePath);
     }
-    public static IndexManage loadIndexManage()
+    static IndexManage loadIndexManage()
             throws IOException, ClassNotFoundException {
         return (IndexManage) FileIO.readAnObjectFromFile(class_IndexManage_filePath);
     }
-    public static void saveUniIDManage(Object o)
+    static void saveUniIDManage(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(class_UniIDManage_filePath, o);
     }
-    public static void saveIndexManage(Object o)
+    static void saveIndexManage(Object o)
             throws IOException {
         FileIO.writeAnObjectToFile(class_IndexManage_filePath, o);
     }
