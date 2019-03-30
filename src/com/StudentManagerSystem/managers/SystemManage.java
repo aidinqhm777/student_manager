@@ -1,4 +1,13 @@
-package com.StudentManagerSystem;
+package com.StudentManagerSystem.managers;
+
+import com.StudentManagerSystem.Btree.BTreeManage;
+import com.StudentManagerSystem.dataContainer.Enrollment;
+import com.StudentManagerSystem.dataContainer.Student;
+import com.StudentManagerSystem.dataContainer.Subject;
+import com.StudentManagerSystem.fileHandler.FileManage;
+import com.StudentManagerSystem.searchers.EnrollmentSearcher;
+import com.StudentManagerSystem.searchers.Searcher;
+import com.StudentManagerSystem.searchers.SubjectSearcher;
 
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;

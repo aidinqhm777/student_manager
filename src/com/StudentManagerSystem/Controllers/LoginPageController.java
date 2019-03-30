@@ -9,8 +9,8 @@
 //package com.StudentManagerSystem.Controllers;
 //
 //import com.StudentManagerSystem.Password;
-//import com.StudentManagerSystem.Searcher;
-//import com.StudentManagerSystem.SystemManage;
+//import com.StudentManagerSystem.searchers.Searcher;
+//import com.StudentManagerSystem.managers.SystemManage;
 //
 //import java.io.IOException;
 //import java.util.LinkedList;
