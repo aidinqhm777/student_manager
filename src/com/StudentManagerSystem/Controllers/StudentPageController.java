@@ -50,6 +50,8 @@ public class StudentPageController {
         SystemManage.setEnrollmentTmp(enrollment);
         SystemManage.removeEnrollment();
     }
+    public static void updateSubjectgpcode(){}
+    public static void showsubjectsinformation(){}
     public static LinkedList searchsubject(int id)throws IOException, ClassNotFoundException{
         SubjectSearcher subjectSearcher = new SubjectSearcher();
         subjectSearcher.setSearchById(true);

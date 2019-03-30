@@ -11,9 +11,19 @@ package com.StudentManagerSystem.Controllers;
 
 public class StudentManagerPageController {
 
-    public static void loadstudentsinformation(){}
-    public static void updateinformation(){}
+    public static void load_students_information(){}
+    public static void load_professores_information(){}
     public static void load_semester_subjects(){}
     public static void load_all_subjects(){}
+    public static void load_all_subjectsof_faculty(){}
+    public static void updateinformation(){}
+    public static void add_subject(){}
+    public static void remove_subject(){}
+    public static void update_subject(){}
+    public static void add_student(){}
+    public static void remove_student(){}
+    public static void update_student(){}
+
+
 
 }
