@@ -10,6 +10,8 @@ public class Enrollment {
     private int subjectIndex;
 
     private int enrollmentIndex;
+    private Student student;
+    private Subject subject;
 
 
 
@@ -54,4 +56,19 @@ public class Enrollment {
         this.subjectIndex = subjectIndex;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 }
