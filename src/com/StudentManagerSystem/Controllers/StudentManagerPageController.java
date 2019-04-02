@@ -18,7 +18,6 @@ import java.io.IOException;
 public class StudentManagerPageController {
 
     public static void loadStudentsInformation(){}
-    public static void loadProfessoresInformation(){}
     public static void loadSemesterSubjects(){}
     public static void loadAllSubjects(){}
     public static void loadAllSubjectsOfFaculty(){}

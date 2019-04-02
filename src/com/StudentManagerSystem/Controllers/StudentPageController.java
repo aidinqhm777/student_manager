@@ -50,8 +50,28 @@ public class StudentPageController {
         SystemManage.setEnrollmentTmp(enrollment);
         SystemManage.removeEnrollment();
     }
-    public static void updateSubjectGpCode(){}
-    public static void showSubjectsInformation(){}
+    public static void updateSubjectGpCode(int studentid , int subjectid , Enrollment updated) throws Exception{
+        EnrollmentSearcher enrollmentSearcher = new EnrollmentSearcher();
+        enrollmentSearcher.setSearchByStudent(true);
+        enrollmentSearcher.setStudentID(studentid);
+        enrollmentSearcher.setSubjectID(subjectid);
+        LinkedList<Enrollment> enrollents = SystemManage.searchEnrollment(enrollmentSearcher);
+        Enrollment enrollment = enrollents.pop();
+        SystemManage.editEnrollment(enrollment , updated);
+    }
+    public static LinkedList showSubjectsInformation(int id) throws Exception{
+         LinkedList subjects = new LinkedList<Subject>();
+        EnrollmentSearcher enrollmentSearcher = new EnrollmentSearcher();
+        enrollmentSearcher.setSearchByStudent(true);
+        enrollmentSearcher.setStudentID(id);
+        LinkedList<Enrollment> enrollements = SystemManage.searchEnrollment(enrollmentSearcher);
+        while (!enrollements.isEmpty()){
+            Enrollment enrollment;
+            enrollment= enrollements.pop();
+            subjects.push(enrollment.getSubject());
+        }
+        return subjects;
+    }
     public static LinkedList searchSubject(int id)throws IOException, ClassNotFoundException{
         SubjectSearcher subjectSearcher = new SubjectSearcher();
         subjectSearcher.setSearchById(true);
@@ -71,9 +91,6 @@ public class StudentPageController {
         information.setBirthDate(slinkedlist.peek().getBirthDate());
         information.setPhoneNum(slinkedlist.peek().getPhoneNum());
         information.setIndex_PersonalInfo(slinkedlist.peek().getIndex_PersonalInfo());
-    }
-    public static void loadInput(Input student) {
-//        TODO load info to buffer
     }
     public static Student displayInformation() {
         return information;

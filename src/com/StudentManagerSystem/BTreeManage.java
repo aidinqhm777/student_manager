@@ -336,6 +336,7 @@ public class BTreeManage {
         updateRecord(name1 , name2 , index , studentName_btree);
 
     }
+
     private static void updateStudentLastname(String lastname1, String lastname2, int index) {
 
 //        if (lastname1.equals(lastname2)){
@@ -355,7 +356,7 @@ public class BTreeManage {
 //            tmp.add(index);
 //            studentLastname_btree.insert(lastname2 , tmp);
 //        }
-        updateRecord(lastname1 , lastname2 , index , studentLastname_btree);
+        updateRecord(lastname1, lastname2, index, studentLastname_btree);
     }
 
 
