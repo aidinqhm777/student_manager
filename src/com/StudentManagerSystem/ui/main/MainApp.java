@@ -37,7 +37,6 @@ public class MainApp {
         } catch (IOException e) {
              //TODO
         }
-
     }
 
     @FXML
