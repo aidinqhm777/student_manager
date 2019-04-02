@@ -130,6 +130,12 @@ public class SystemManage {
         FileManage.deleteEnrollment(enrollmentTmp);
     }
 
+    public static LinkedList<Subject> loadStudentSubjects(int studentID) {
+        return new LinkedList<>();
+    }
+    public static LinkedList<Student> loadSubjectAttendants(int subjectID) { return new LinkedList<>();}
+    public static Boolean isEnrollmentCreated(int studentID, int subjectID) {return true;}
+
 
 
 //    COURSES AND SUBJECTS MANAGING
