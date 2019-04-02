@@ -1,6 +1,8 @@
 package com.StudentManagerSystem;
 
+import com.StudentManagerSystem.Controllers.LoginPageController;
 import com.StudentManagerSystem.fileHandler.FileManage;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.io.IOException;
 import java.util.DuplicateFormatFlagsException;
@@ -115,13 +117,13 @@ public class SystemManage {
 
         return searchResults;
     }
-    public static void editEnrollment() {
+    public static void editEnrollment(Enrollment enrollment1, Enrollment enrollment2) {
 //
 //        IndexManage.updateEnrollment(enrollmentTmp);
 //        BTreeManage.updateEnrollment(enrollmentTmp);
 //        FileManage.updateEnrollment(enrollmentTmp);
     }
-    public static void removeEnrollment() throws IOException {
+    public static void removeEnrollment(Enrollment enrollment) throws IOException {
 
         indexManage.deleteEnrollment(enrollmentTmp);
         BTreeManage.deleteEnrollment(enrollmentTmp);
@@ -188,9 +190,27 @@ public class SystemManage {
 
 
 
+//    USER AUTHENTICATION
+
+    public static Boolean authenticateStudent(int username, int password) {
+
+        return true;
+    }
+    public static Boolean authenticateManager(int username, int password) {return true;}
+    public static Boolean authenticateAdministrator(int username, int password) {return true;}
 
 
 
+
+
+
+
+
+
+    //get and set properties
+    //get and set properties
+    //get and set properties
+    //get and set properties
     //get and set properties
     public static void setStudentTmp(Student student) {
         studentTmp.setStudent(student);
