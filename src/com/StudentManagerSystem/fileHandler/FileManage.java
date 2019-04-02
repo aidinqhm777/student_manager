@@ -32,6 +32,8 @@ public class FileManage {
     private static int uniIDSize = INTEGER;
     private static int birthdateSize = String_10bit;
     private static int phoneNumberSize = String_20bit;
+    private static int passwordSize = String_30bit;
+
 
     private static int id_size = INTEGER;
     private static int capacity_size = INTEGER;
@@ -45,7 +47,7 @@ public class FileManage {
     private static int subjectEnrolmentData_Size = INTEGER;
 
 
-    private static int student_lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize;
+    private static int student_lineSize = nameSize + lastNameSize + IDSize + uniIDSize + birthdateSize + phoneNumberSize+ passwordSize;
     private static int subject_lineSize = id_size + capacity_size + unitVal_size + title_size + professorName_size + examDate_size + classTiming_Size;
     private static int enrollment_lineSize = studentEnrolmentData_Size + subjectEnrolmentData_Size;
 
@@ -69,6 +71,8 @@ public class FileManage {
     private static String uniId_id = "uniId";
     private static String birthDate_id = "birthDate";
     private static String phoneNum_id = "phoneNum";
+    private static String password_id = "password";
+
 
     private static String subjectId_id = "id";
     private static String capacity_id = "capacity";
@@ -133,6 +137,7 @@ public class FileManage {
             data.add( getString_FiledData("", phoneNumberSize, phoneNum_id));
             data.add( getInteger_FiledData(0,id_id));
             data.add( getInteger_FiledData(0,uniId_id));
+            data.add( getString_FiledData("", passwordSize, password_id));
 
         }else{
             index = student.getIndex_PersonalInfo();
@@ -142,6 +147,7 @@ public class FileManage {
             data.add( getString_FiledData(student.getPhoneNum(), phoneNumberSize, phoneNum_id));
             data.add( getInteger_FiledData(student.getId(),id_id));
             data.add( getInteger_FiledData(student.getUniID(),uniId_id));
+            data.add( getString_FiledData("", passwordSize, password_id));
         }
         fieldData = data;
         return data;
@@ -246,6 +252,8 @@ public class FileManage {
         s.setId((Integer) readData(id_id,bytes));
         s.setBirthDate(toWords((String) readData(birthDate_id,bytes)));
         s.setPhoneNum(toWords((String) readData(phoneNum_id,bytes)));
+        s.setPassword(  toWords((String) readData(password_id,bytes))  );
+
         return s;
     }
     public static void updateStudent(Student studentBefore, Student studentAfter)

@@ -197,7 +197,7 @@ public class SystemManage {
         return true;
     }
     public static Boolean authenticateManager(int username, int password) {return true;}
-    public static Boolean authenticateAdministrator(int username, int password) {return true;}
+    public static Boolean authenticateAdministrator(int username, String password) {return true;}
 
 
 

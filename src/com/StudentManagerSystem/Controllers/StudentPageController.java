@@ -48,7 +48,7 @@ public class StudentPageController {
         enrollment.setStudentID(information.getUniID());
         enrollment.setSubjectID(input.getSubjectID());
         SystemManage.setEnrollmentTmp(enrollment);
-        SystemManage.removeEnrollment();
+//        SystemManage.removeEnrollment();
     }
     public static void updateSubjectGpCode(){}
     public static void showSubjectsInformation(){}

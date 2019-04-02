@@ -33,8 +33,9 @@ public class LoginPageController {
     //methods
     static public boolean login(Input input)
             throws IOException, ClassNotFoundException {
-        getPassword(input.username, input.userType); //load data and get the password
-        return (Password.equals(input.password));
+        //TODO input get
+        //TODO not Completed
+        return SystemManage.authenticateAdministrator(Integer.parseInt(input.username), input.password);
     }
 
     private static void getPassword(String username, int userType)
