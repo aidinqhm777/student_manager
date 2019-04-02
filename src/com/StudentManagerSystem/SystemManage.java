@@ -117,24 +117,18 @@ public class SystemManage {
 
         return searchResults;
     }
-    public static void editEnrollment() {
+    public static void editEnrollment(Enrollment enrollment1, Enrollment enrollment2) {
 //
 //        IndexManage.updateEnrollment(enrollmentTmp);
 //        BTreeManage.updateEnrollment(enrollmentTmp);
 //        FileManage.updateEnrollment(enrollmentTmp);
     }
-    public static void removeEnrollment() throws IOException {
+    public static void removeEnrollment(Enrollment enrollment) throws IOException {
 
         indexManage.deleteEnrollment(enrollmentTmp);
         BTreeManage.deleteEnrollment(enrollmentTmp);
         FileManage.deleteEnrollment(enrollmentTmp);
     }
-
-    public static LinkedList<Subject> loadStudentSubjects(int studentID) {
-        return new LinkedList<>();
-    }
-    public static LinkedList<Student> loadSubjectAttendants(int subjectID) { return new LinkedList<>();}
-    public static Boolean isEnrollmentCreated(int studentID, int subjectID) {return true;}
 
 
 
