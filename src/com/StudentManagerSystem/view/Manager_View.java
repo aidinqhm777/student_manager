@@ -1562,16 +1562,16 @@ public class Manager_View extends javax.swing.JFrame {
 
     private void deleteCourseStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCourseStudent_btnActionPerformed
         Enrollment enrollment = new Enrollment();
-        try {
+//        try {
             enrollment.setStudentID( Integer.parseInt(addEditeUniNumberField.getText()) );
             enrollment.setSubjectID( Integer.parseInt(addEditeCourseIDField.getText()) );
 //            enrollment.setSubjectCode( Integer.parseInt(addEditeCourseCodeField.getText()) );
             
             SystemManage.setEnrollmentTmp(enrollment);
-            SystemManage.removeEnrollment();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//            SystemManage.removeEnrollment();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }//GEN-LAST:event_deleteCourseStudent_btnActionPerformed
 
     private void checkCourseStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCourseStudent_btnActionPerformed
