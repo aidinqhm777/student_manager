@@ -10,14 +10,34 @@
 package com.StudentManagerSystem.Controllers;
 
 import com.StudentManagerSystem.Student;
+import com.StudentManagerSystem.StudentSearcher;
 import com.StudentManagerSystem.Subject;
 import com.StudentManagerSystem.SystemManage;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 public class StudentManagerPageController {
 
-    public static void loadStudentsInformation(){}
+    private static Student information;
+
+    public static void loadStudentsInformation(int uniID) throws IOException, ClassNotFoundException{
+        StudentSearcher searcher = new StudentSearcher();
+        searcher.setUniID(uniID);
+        searcher.setSearchByUniID(true);
+        LinkedList<Student> slinkedlist= SystemManage.searchStudent(searcher);
+        information.setLastname(slinkedlist.peek().getLastname());
+        information.setName(slinkedlist.peek().getName());
+        information.setId(slinkedlist.peek().getId());
+        information.setUniID(slinkedlist.peek().getUniID());
+        information.setBirthDate(slinkedlist.peek().getBirthDate());
+        information.setPhoneNum(slinkedlist.peek().getPhoneNum());
+        information.setIndex_PersonalInfo(slinkedlist.peek().getIndex_PersonalInfo());
+    }
+    public static Student displayInformation() {
+
+        return information;
+    }
     public static void loadSemesterSubjects(){}
     public static void loadAllSubjects(){}
     public static void loadAllSubjectsOfFaculty(){}
