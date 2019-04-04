@@ -27,9 +27,9 @@
                </graphic>
             </JFXButton>
             <Separator layoutY="152.0" prefHeight="6.0" prefWidth="272.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <VBox layoutX="14.0" layoutY="158.0" prefHeight="541.0" prefWidth="272.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="156.0">
+            <VBox layoutX="14.0" layoutY="158.0" prefHeight="540.0" prefWidth="272.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="156.0">
                <children>
-                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" onAction="#addStudentButtonHandler" prefHeight="31.0" prefWidth="272.0" text="Add Student" textFill="WHITE">
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" onAction="#addStudentButtonHandler" prefHeight="31.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Add Student" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -44,7 +44,7 @@
                         <Insets />
                      </opaqueInsets>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" onAction="#searchStudentButtonHandler" prefHeight="50.0" prefWidth="272.0" text="Search Student" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" onAction="#searchStudentButtonHandler" prefHeight="50.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Search Student" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -59,7 +59,37 @@
                         <Insets />
                      </opaqueInsets>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" prefHeight="22.0" prefWidth="272.0" text="Add/Edit Cource" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" onAction="#addStudentButtonHandler" prefHeight="31.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Add Employee" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="USER_PLUS" size="30" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="main-text" />
+                        <String fx:value="main-button" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" onAction="#searchStudentButtonHandler" prefHeight="0.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Search Employee" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" wrappingWidth="21.428571701049805" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="main-text" />
+                        <String fx:value="main-button" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" prefHeight="0.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Add/Edit Cource" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -74,7 +104,7 @@
                         <Insets />
                      </opaqueInsets>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" prefHeight="29.0" prefWidth="272.0" text="-------" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" prefHeight="0.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Course Setting" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -89,7 +119,7 @@
                         <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" wrappingWidth="21.428571701049805" />
                      </graphic>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" prefHeight="50.0" prefWidth="272.0" text="-------" textAlignment="CENTER" textFill="WHITE">
+                  <JFXButton alignment="CENTER" contentDisplay="TOP" graphicTextGap="8.0" prefHeight="0.0" prefWidth="272.0" style="-fx-font-size: 18;" text="Profile" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
