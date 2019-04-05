@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="Amir Hosein Shekari" />
+  <settings default="Amir Hosein Shekari">
+    <module2copyright>
+      <element module="All" copyright="Amir Hosein Shekari" />
+    </module2copyright>
+  </settings>
 </component>
