@@ -2,14 +2,6 @@
  * designed by  "Amir Hosein Shekari"
  */
 
-/*
- * designed by  "Amir Hosein Shekari"
- */
-
-/*
- * designed by  "Amir Hosein Shekari"
- */
-
 package com.StudentManagerSystem.ui.student.main;
 
 import javafx.fxml.FXML;
