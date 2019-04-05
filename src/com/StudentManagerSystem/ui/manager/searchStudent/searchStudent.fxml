@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="963.0" style="-fx-background-color: #2A2E37;" stylesheets="@../../../resorce/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.StudentManagerSystem.ui.manager.searchStudent.SearchStudent">
+<AnchorPane prefHeight="697.0" prefWidth="963.0" style="-fx-background-color: #2A2E37;" stylesheets="@../../../resorce/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.StudentManagerSystem.ui.manager.searchStudent.SearchStudent">
    <children>
       <VBox layoutX="219.0" layoutY="195.0" prefHeight="394.0" prefWidth="526.0" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="195.0">
          <children>
@@ -80,5 +80,10 @@
             </JFXButton>
          </children>
       </HBox>
+      <JFXButton buttonType="RAISED" layoutX="757.0" layoutY="509.0" prefHeight="66.0" prefWidth="71.0" ripplerFill="#eeff2e" styleClass="main-button" text="Score" textFill="WHITE" AnchorPane.bottomAnchor="122.0" AnchorPane.rightAnchor="135.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
