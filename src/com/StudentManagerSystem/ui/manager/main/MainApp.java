@@ -107,7 +107,7 @@ public class MainApp {
     @FXML
     private void addEditCourseButtonHandler(){
         try {
-            Parent searchStudentPage = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml"));
+            Parent searchStudentPage = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/manager/addEditCourse/addEditCourse.fxml"));
             rootPane.setCenter(searchStudentPage);
         } catch (IOException e) {
             //TODO

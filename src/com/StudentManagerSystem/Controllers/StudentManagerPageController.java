@@ -57,7 +57,12 @@ public class StudentManagerPageController {
             this.updatedStudent = updatedStudent;
         }
     }
-    public class SubjectInput{
+    public static class SubjectInput{
+        public SubjectInput(Subject subject, Subject updatedsubject) {
+            this.subject = subject;
+            this.updatedsubject = updatedsubject;
+        }
+
         Subject subject;
         Subject updatedsubject;
 
@@ -99,10 +104,10 @@ public class StudentManagerPageController {
     public static void loadAllSubjects(){}
     public static void loadAllSubjectsOfFaculty(){}
     public static void updateInformation(){}
-    public static void addSubject(SubjectInput subjectInput) throws IOException, ClassNotFoundException {
+    public static Subject addSubject(SubjectInput subjectInput) throws IOException, ClassNotFoundException {
         Subject subject = subjectInput.getSubject();
         SystemManage.setSubjectTmp(subject);
-        SystemManage.addSubject();
+        return SystemManage.addSubject();
     }
     public static void removeSubject(SubjectInput subjectInput) throws IOException {
         Subject subject = subjectInput.getSubject();
