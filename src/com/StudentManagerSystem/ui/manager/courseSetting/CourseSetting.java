@@ -9,12 +9,21 @@
 
 package com.StudentManagerSystem.ui.manager.courseSetting;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 
 public class CourseSetting {
+    @FXML
+    private JFXTextField studentID;
+    @FXML
+    private JFXTextField courseID;
 
     @FXML
     private void initialize() {
+    }
+
+    @FXML
+    private void addWithdrawHandler(){
 
     }
 }

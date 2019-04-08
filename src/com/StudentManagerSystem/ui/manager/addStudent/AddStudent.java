@@ -8,11 +8,55 @@
 
 package com.StudentManagerSystem.ui.manager.addStudent;
 
+import com.StudentManagerSystem.Controllers.AdminPageController;
+import com.StudentManagerSystem.Controllers.StudentManagerPageController;
+import com.StudentManagerSystem.DateUtil;
+import com.StudentManagerSystem.Student;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+
+import java.io.IOException;
+import java.time.LocalDate;
 
 public class AddStudent {
     @FXML
-    private void initialize() {
+    private JFXTextField name;
+    @FXML
+    private JFXTextField lastName;
+    @FXML
+    private JFXDatePicker birthDate;
+    @FXML
+    private JFXTextField ID;
 
+    @FXML
+    private void initialize() {
+    }
+
+    @FXML
+    private void addStudentHandler(){
+        LocalDate date = birthDate.getValue();
+        Student s = new Student();
+
+        s.setName(name.getText());
+        s.setLastname(lastName.getText());
+        s.setId(Integer.parseInt(ID.getText()));
+        s.setBirthDate(DateUtil.format(date));
+
+        try {
+
+            int uniId = StudentManagerPageController.addStudent(new StudentManagerPageController.StudentInput(s,null));
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successful");
+            alert.setHeaderText("Successful add student");
+            alert.setContentText("university id = "+uniId);
+            alert.showAndWait();
+
+        } catch (IOException e) {
+            //TODO
+            System.out.println("error in sign up");
+        }
     }
 }

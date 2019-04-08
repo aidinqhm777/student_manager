@@ -31,9 +31,15 @@ public class StudentManagerPageController {
             this.studentID = studentID;
         }
     }
-    public class StudentInput{
+    public static class StudentInput{
         Student student;
-        Student updatedstudent;
+
+        public StudentInput(Student student, Student updatedStudent) {
+            this.student = student;
+            this.updatedStudent = updatedStudent;
+        }
+
+        Student updatedStudent;
 
         public Student getStudent() {
             return student;
@@ -43,12 +49,12 @@ public class StudentManagerPageController {
             this.student = student;
         }
 
-        public Student getUpdatedstudent() {
-            return updatedstudent;
+        public Student getUpdatedStudent() {
+            return updatedStudent;
         }
 
-        public void setUpdatedstudent(Student updatedstudent) {
-            this.updatedstudent = updatedstudent;
+        public void setUpdatedStudent(Student updatedStudent) {
+            this.updatedStudent = updatedStudent;
         }
     }
     public class SubjectInput{
@@ -67,12 +73,12 @@ public class StudentManagerPageController {
             return updatedsubject;
         }
 
-        public void setUpdatedsubject(Subject updatedsubject) {
-            this.updatedsubject = updatedsubject;
+        public void setUpdatedsubject(Subject updatedSubject) {
+            this.updatedsubject = updatedSubject;
         }
     }
 
-    public static void loadStudentsInformation(int uniID) throws IOException, ClassNotFoundException{
+    private static void loadStudentsInformation(int uniID) throws IOException, ClassNotFoundException{
         StudentSearcher searcher = new StudentSearcher();
         searcher.setUniID(uniID);
         searcher.setSearchByUniID(true);
@@ -85,8 +91,8 @@ public class StudentManagerPageController {
         information.setPhoneNum(slinkedlist.peek().getPhoneNum());
         information.setIndex_PersonalInfo(slinkedlist.peek().getIndex_PersonalInfo());
     }
-    public static Student displayInformation() {
-
+    public static Student displayInformation(int uniID) throws IOException, ClassNotFoundException {
+        loadStudentsInformation(uniID);
         return information;
     }
     public static void loadSemesterSubjects(){}
@@ -110,10 +116,10 @@ public class StudentManagerPageController {
         SystemManage.setUpdatedSubjectTmp(subject2);
         SystemManage.editSubject();
     }
-    public static void addStudent(StudentInput studentInput) throws IOException{
+    public static int addStudent(StudentInput studentInput) throws IOException{
         Student student = studentInput.getStudent();
         SystemManage.setStudentTmp(student);
-        SystemManage.signupStudent();
+        return SystemManage.signupStudent().getUniID();
     }
     public static void removeStudent(StudentInput studentInput) throws IOException{
         Student student = studentInput.getStudent();
@@ -122,7 +128,7 @@ public class StudentManagerPageController {
     }
     public static void updatedStudent(StudentInput studentInput) throws IOException{
         Student student1 = studentInput.getStudent();
-        Student student2 = studentInput.getUpdatedstudent();
+        Student student2 = studentInput.getUpdatedStudent();
         SystemManage.setStudentTmp(student1);
         SystemManage.setUpdatedStudentTmp(student2);
         SystemManage.updateStudent();

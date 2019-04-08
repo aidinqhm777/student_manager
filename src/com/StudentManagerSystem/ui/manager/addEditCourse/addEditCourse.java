@@ -17,4 +17,8 @@ public class addEditCourse {
     private void initialize() {
 
     }
+    @FXML
+    private void addEditCourseHandler(){
+
+    }
 }
