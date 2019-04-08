@@ -13,11 +13,6 @@
     -fx-background-color: -fx-primary;
 }
 
-/*.glyph-icon*/
-/*{*/
-    /*-fx-fill: -fx-primarytext;*/
-/*}*/
-
 .defult-Button{
     -fx-text-fill: -fx-primarytext;
     -fx-background-color: -fx-primary;

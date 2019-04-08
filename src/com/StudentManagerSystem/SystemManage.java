@@ -192,18 +192,12 @@ public class SystemManage {
 
 //    USER AUTHENTICATION
 
-    public static Boolean authenticateStudent(int username, int password) {
+    public static Boolean authenticateStudent(String username, String password) {
 
         return true;
     }
     public static Boolean authenticateManager(int username, int password) {return true;}
-    public static Boolean authenticateAdministrator(int username, String password) {return true;}
-
-
-
-
-
-
+    public static Boolean authenticateAdministrator(String username, String password) {return true;}
 
 
 

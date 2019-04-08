@@ -1,9 +1,6 @@
 package com.StudentManagerSystem.Controllers;
-
-import com.StudentManagerSystem.Student;
-import com.StudentManagerSystem.StudentSearcher;
 import com.StudentManagerSystem.SystemManage;
-import java.io.IOException;
+
 
 public class LoginPageController {
 
@@ -11,7 +8,7 @@ public class LoginPageController {
     private static Object loggedIn;
     private static String Password;
 
-    public class Input {
+    public static class Input {
 
         String username;
         String password;
@@ -31,43 +28,14 @@ public class LoginPageController {
     }
 
     //methods
-    static public boolean login(Input input)
-            throws IOException, ClassNotFoundException {
+    static public boolean login(Input input) {
         //TODO input get
         //TODO not Completed
-        return SystemManage.authenticateAdministrator(Integer.parseInt(input.username), input.password);
-    }
-
-    private static void getPassword(String username, int userType)
-            throws IOException, ClassNotFoundException {
-        Object loggedIn = null;
-        String password ="";
-
-        switch (userType){
-
-            case 0:{
-                StudentSearcher searcher = new StudentSearcher();
-                searcher.setUniID( Integer.parseInt(username) );
-                searcher.setSearchByUniID(true);
-                Student tmp = SystemManage.searchStudent(searcher).get(0);
-                loggedIn = tmp;
-                password = tmp.getPassword();
-                break;
-            }
-
-            case 1:{
-                //TODO
-                break;
-            }
-
-            case 2:{
-                //TODO
-                break;
-            }
-        }
-
-        setPassword(password);
-        setLoggedIn(loggedIn);
+        if (input.userType == 0){
+            return SystemManage.authenticateStudent(input.username, input.password);
+        }else if (input.userType == 1){
+            return SystemManage.authenticateAdministrator(input.username, input.password);
+        }else return false;
     }
 
     //getter and setters
