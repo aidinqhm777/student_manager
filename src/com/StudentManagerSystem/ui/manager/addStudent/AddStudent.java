@@ -8,7 +8,6 @@
 
 package com.StudentManagerSystem.ui.manager.addStudent;
 
-import com.StudentManagerSystem.Controllers.AdminPageController;
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
 import com.StudentManagerSystem.DateUtil;
 import com.StudentManagerSystem.Student;
@@ -39,8 +38,8 @@ public class AddStudent {
         LocalDate date = birthDate.getValue();
         Student s = new Student();
 
-        s.setName(name.getText());
-        s.setLastname(lastName.getText());
+        s.setName(name.getText().toLowerCase());
+        s.setLastname(lastName.getText().toLowerCase());
         s.setId(Integer.parseInt(ID.getText()));
         s.setBirthDate(DateUtil.format(date));
 

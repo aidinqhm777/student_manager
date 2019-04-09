@@ -11,12 +11,16 @@ package com.StudentManagerSystem.ui.manager.searchStudent;
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
 import com.StudentManagerSystem.DateUtil;
 import com.StudentManagerSystem.Student;
+import com.StudentManagerSystem.ui.data.StudentData;
+import com.StudentManagerSystem.ui.manager.advancedSearch.AdvancedSearch;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -33,6 +37,7 @@ public class SearchStudent {
     private JFXDatePicker birthDate;
     @FXML
     private JFXTextField ID;
+    private static Student tmpStudent;
 
     @FXML
     private void initialize() {
@@ -46,8 +51,10 @@ public class SearchStudent {
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("Advanced Search");
             stage.setScene(new Scene(parent));
-            stage.setAlwaysOnTop(true);
             stage.showAndWait();
+
+            tmpStudent = StudentManagerPageController.studentTmp;
+            setStudentInf(tmpStudent);
         } catch (IOException e) {
             //TODO
         }
@@ -57,12 +64,25 @@ public class SearchStudent {
     private void searchStudentHandler(){
         try {
             Student s = StudentManagerPageController.displayInformation(Integer.parseInt(uniID.getText()));
-            name.setText(s.getName());
-            lastName.setText(s.getLastname());
-            ID.setText(""+s.getId());
-            birthDate.setValue(DateUtil.parse(s.getBirthDate()));
+            setStudentInf(s);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-}
+
+    private void setStudentInf(Student s){
+        if (s != null){
+            name.setText(s.getName());
+            lastName.setText(s.getLastname());
+            ID.setText(s.getId()+"");
+            birthDate.setValue(DateUtil.parse(s.getBirthDate()));
+        }else{
+            name.setText("");
+            lastName.setText("");
+            ID.setText("");
+            birthDate.setValue(null);
+        }
+    }
+
+
+ }

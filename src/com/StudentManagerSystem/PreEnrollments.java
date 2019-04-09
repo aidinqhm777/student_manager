@@ -3,12 +3,12 @@ package com.StudentManagerSystem;
 
 public class PreEnrollments {
 
-    int score = -1;
-    int studentUniID = -1;
-    int subjectID = -1;
-    int semester;
-    String proffesorName;
-    Status status = null;
+    private int score = -1;
+    private int studentUniID = -1;
+    private int subjectID = -1;
+    private int semester;
+    private String proffesorName;
+    private Status status = null;
 
     public enum Status {
         FAILED, ABSENCE_FAIL, PASSED, REMOVED

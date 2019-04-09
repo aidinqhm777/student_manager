@@ -2,6 +2,7 @@ package com.StudentManagerSystem.Controllers;
 
 import com.StudentManagerSystem.*;
 
+import javax.naming.Name;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -70,6 +71,7 @@ public class StudentManagerPageController {
             this.updatedsubject = updatedSubject;
         }
     }
+    public static Student studentTmp;
 
     private static void loadStudentsInformation(int uniID) throws IOException, ClassNotFoundException{
         StudentSearcher searcher = new StudentSearcher();
@@ -141,5 +143,20 @@ public class StudentManagerPageController {
         SystemManage.setStudentTmp(student1);
         SystemManage.setUpdatedStudentTmp(student2);
         SystemManage.updateStudent();
+    }
+    public static LinkedList<Student> searchStudent(String name, String lastName, int ID, int UniId) throws IOException, ClassNotFoundException {
+        StudentSearcher searcher = new StudentSearcher();
+
+        searcher.setSearchByUniID(UniId != 0);
+        searcher.setSearchByID(ID != 0);
+        searcher.setSearchByName(name != null);
+        searcher.setSearchByLastname(lastName != null);
+
+        searcher.setName(name);
+        searcher.setLastname(lastName);
+        searcher.setId(ID);
+        searcher.setUniID(UniId);
+
+        return SystemManage.searchStudent(searcher);
     }
 }
