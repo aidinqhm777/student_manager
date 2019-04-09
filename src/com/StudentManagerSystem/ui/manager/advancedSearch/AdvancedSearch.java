@@ -41,6 +41,7 @@ public class AdvancedSearch {
 
     @FXML
     private void initialize() {
+        StudentManagerPageController.studentTmp = null;
         list.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) ->{
                     StudentManagerPageController.studentTmp = ((StudentData) newValue).getStudent();
@@ -52,8 +53,9 @@ public class AdvancedSearch {
     @FXML
     private void searchByIDHandler(){
         try {
+            int IDT = (ID.getText().equals("")) ? 0 : Integer.parseInt(ID.getText());
             LinkedList<Student> s = StudentManagerPageController.searchStudent(
-                    null,null, Integer.parseInt(ID.getText()) ,0);
+                    null,null, IDT,0);
 
             setDataToList(s);
 
@@ -83,15 +85,19 @@ public class AdvancedSearch {
     }
 
     private void setDataToList(LinkedList<Student> s){
-        personData.clear();
-        for (Student student : s) {
-            personData.add(new StudentData(student));
+        if (s != null){
+            personData.clear();
+            for (Student student : s) {
+                personData.add(new StudentData(student));
+            }
+            nameCloumn.setCellValueFactory(cellData ->  cellData.getValue().nameProperty());
+            lastNameCloumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+            IDCloumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+            uniIdCloumn.setCellValueFactory(cellData -> cellData.getValue().uniIdProperty());
+            list.setItems(personData);
+        }else{
+            list.setItems(null);
         }
-        nameCloumn.setCellValueFactory(cellData ->  cellData.getValue().nameProperty());
-        lastNameCloumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        IDCloumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
-        uniIdCloumn.setCellValueFactory(cellData -> cellData.getValue().uniIdProperty());
-        list.setItems(personData);
     }
 
 }

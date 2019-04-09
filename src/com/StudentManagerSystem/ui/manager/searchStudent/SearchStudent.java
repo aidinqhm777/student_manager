@@ -10,6 +10,7 @@ package com.StudentManagerSystem.ui.manager.searchStudent;
 
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
 import com.StudentManagerSystem.DateUtil;
+import com.StudentManagerSystem.Main;
 import com.StudentManagerSystem.Student;
 import com.StudentManagerSystem.ui.data.StudentData;
 import com.StudentManagerSystem.ui.manager.advancedSearch.AdvancedSearch;
@@ -19,12 +20,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class SearchStudent {
     @FXML
@@ -45,7 +50,7 @@ public class SearchStudent {
     }
 
     @FXML
-    private void AdvSearchHandler(){
+    private void AdvSearchHandler() {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/manager/advancedSearch/advancedSearch.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
@@ -61,22 +66,30 @@ public class SearchStudent {
     }
 
     @FXML
-    private void searchStudentHandler(){
-        try {
-            Student s = StudentManagerPageController.displayInformation(Integer.parseInt(uniID.getText()));
-            setStudentInf(s);
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+    private void searchStudentHandler() {
+        if (!uniID.getText().equals("")){
+            try {
+
+                Student s = StudentManagerPageController.displayInformation(Integer.parseInt(uniID.getText()));
+                tmpStudent = s;
+                setStudentInf(s);
+            } catch (IOException | ClassNotFoundException | NullPointerException e) {
+//                e.printStackTrace();
+                Main.showError("Cant find the student");
+            } catch (NumberFormatException e){
+                Main.showError("university id is a number!");
+            }
         }
+
     }
 
-    private void setStudentInf(Student s){
-        if (s != null){
+    private void setStudentInf(Student s) {
+        if (s != null) {
             name.setText(s.getName());
             lastName.setText(s.getLastname());
-            ID.setText(s.getId()+"");
+            ID.setText(s.getId() + "");
             birthDate.setValue(DateUtil.parse(s.getBirthDate()));
-        }else{
+        } else {
             name.setText("");
             lastName.setText("");
             ID.setText("");
@@ -84,5 +97,31 @@ public class SearchStudent {
         }
     }
 
+    @FXML
+    private void EditButtonHandler() {
 
- }
+    }
+
+    @FXML
+    private void DeleteButtonHandler() {
+        if (tmpStudent != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Delete student?");
+            alert.setHeaderText("Delete student?");
+            alert.setContentText(
+                    "Do you want to delete " + tmpStudent.getName() + " " +
+                            tmpStudent.getLastname() + " with id = " + tmpStudent.getId() +
+                            "?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                try {
+                    StudentManagerPageController.removeStudent(new StudentManagerPageController.StudentInput(tmpStudent, tmpStudent));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    //todo
+                }
+            }
+        }
+    }
+}
