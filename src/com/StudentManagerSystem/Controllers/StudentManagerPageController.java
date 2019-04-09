@@ -9,10 +9,7 @@
 
 package com.StudentManagerSystem.Controllers;
 
-import com.StudentManagerSystem.Student;
-import com.StudentManagerSystem.StudentSearcher;
-import com.StudentManagerSystem.Subject;
-import com.StudentManagerSystem.SystemManage;
+import com.StudentManagerSystem.*;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -114,6 +111,22 @@ public class StudentManagerPageController {
         SystemManage.setSubjectTmp(subject);
         SystemManage.removeSubject();
     }
+    public static void searchsubjectByID(SubjectInput subjectInput) throws IOException, ClassNotFoundException {
+        Subject subject = subjectInput.getSubject();
+        SystemManage.setSubjectTmp(subject);
+        SubjectSearcher subjectSearcher = new SubjectSearcher();
+        subjectSearcher.setSearchById(true);
+        subjectSearcher.setId(subject.getId());
+        SystemManage.searchSubject(subjectSearcher);
+    }
+    public static void SearchsubjectByTitle(SubjectInput subjectInput) throws IOException, ClassNotFoundException{
+        Subject subject = subjectInput.getSubject();
+        SystemManage.setSubjectTmp(subject);
+        SubjectSearcher subjectSearcher = new SubjectSearcher();
+        subjectSearcher.setSearchByTitle(true);
+        subjectSearcher.setTitle(subject.getTitle());
+        SystemManage.searchSubject(subjectSearcher);
+    }
     public static void updateSubject(SubjectInput subjectInput) throws IOException {
         Subject subject1 = subjectInput.getSubject();
         Subject subject2 = subjectInput.getUpdatedsubject();
@@ -138,7 +151,5 @@ public class StudentManagerPageController {
         SystemManage.setUpdatedStudentTmp(student2);
         SystemManage.updateStudent();
     }
-
-
 
 }

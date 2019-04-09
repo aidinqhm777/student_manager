@@ -4,27 +4,32 @@
   ~ designed by  "Amir Hosein Shekari"
   -->
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="697.0" prefWidth="963.0" style="-fx-background-color: #2A2E37;" stylesheets="@../../../resorce/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.StudentManagerSystem.ui.manager.searchStudent.SearchStudent">
    <children>
       <VBox layoutX="219.0" layoutY="195.0" prefHeight="394.0" prefWidth="526.0" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="195.0">
          <children>
-            <JFXTextField fx:id="name" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Name" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="name" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Title" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXTextField fx:id="lastName" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Last Name" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="lastName" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Student Count" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXTextField fx:id="ID" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="ID" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="ID" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Unit val" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXDatePicker fx:id="birthDate" defaultColor="#ffff8d" disable="true" prefHeight="57.0" prefWidth="625.0" promptText="BirthDate" showWeekNumbers="true" style="-fx-font-size: 20;" stylesheets="@../../../resorce/datapicker.css" VBox.vgrow="ALWAYS">
+            <JFXDatePicker fx:id="birthDate" defaultColor="#ffff8d" disable="true" prefHeight="57.0" prefWidth="625.0" promptText="Test Date" showWeekNumbers="true" style="-fx-font-size: 20;" stylesheets="@../../../resorce/datapicker.css" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXDatePicker>
@@ -52,7 +57,7 @@
             </JFXButton>
          </children>
       </HBox>
-      <JFXTextField fx:id="uniID" labelFloat="true" layoutX="280.0" layoutY="34.0" prefWidth="404.0" promptText="University ID" style="-fx-text-fill: #d9d9d9; -fx-font-size: 25;" styleClass="text-field-default" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="279.0" AnchorPane.topAnchor="34.0">
+      <JFXTextField fx:id="uniID" labelFloat="true" layoutX="280.0" layoutY="34.0" prefWidth="404.0" promptText="Subject ID" style="-fx-text-fill: #d9d9d9; -fx-font-size: 25;" styleClass="text-field-default" unFocusColor="WHITE" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="279.0" AnchorPane.topAnchor="34.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -71,10 +76,5 @@
             </JFXButton>
          </children>
       </HBox>
-      <JFXButton buttonType="RAISED" layoutX="757.0" layoutY="509.0" prefHeight="66.0" prefWidth="71.0" ripplerFill="#eeff2e" styleClass="main-button" text="Score" textFill="WHITE" AnchorPane.bottomAnchor="122.0" AnchorPane.rightAnchor="135.0">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </JFXButton>
    </children>
 </AnchorPane>
