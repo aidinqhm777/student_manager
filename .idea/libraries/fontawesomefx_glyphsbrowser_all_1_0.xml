@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="fontawesomefx-glyphsbrowser-all-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/fontawesomefx-glyphsbrowser-all-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/jfoenix-8.0.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

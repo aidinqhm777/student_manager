@@ -25,14 +25,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Student_Manager_System_v2$ManagerView__1_.coverage" NAME="ManagerView (1) Coverage Results" MODIFIED="1551661801879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Com.StudentManagerSystem.View.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Student_Manager_System_v2$Main.coverage" NAME="Main Coverage Results" MODIFIED="1551563334995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.StudentManagerSystem.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Student_Manager_System_v2$Manager_View.coverage" NAME="Manager_View Coverage Results" MODIFIED="1552033359636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.StudentManagerSystem.view.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Student_Manager_System_v2$ManagerView__1_.coverage" NAME="ManagerView (1) Coverage Results" MODIFIED="1551661801879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Com.StudentManagerSystem.View.*</FILTER>
     </SUITE>
   </component>
   <component name="DatabaseView">
@@ -512,8 +512,8 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554805755338" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/font-awesome-4.7.0.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554807285429" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/jfoenix-8.0.8.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
