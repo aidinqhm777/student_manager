@@ -47,8 +47,8 @@ public class Login {
         String uname = username.getText();
         String pword = password.getText();
 
-        if (LoginPageController.login( new LoginPageController.Input(uname,pword,0))
-                || ( uname.equals("admin") && pword.equals("admin") && userId.getValue().equals("Admin"))){
+        if (/*LoginPageController.login( new LoginPageController.Input(uname,pword,0))
+                || */( uname.equals("admin") && pword.equals("admin") && userId.getValue().equals("Admin"))){
             if (((String) userId.getValue()).equals("Admin")){
                 closeStage();
                 loadAdmin();

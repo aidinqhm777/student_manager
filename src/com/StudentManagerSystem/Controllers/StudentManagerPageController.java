@@ -9,10 +9,7 @@
 
 package com.StudentManagerSystem.Controllers;
 
-import com.StudentManagerSystem.Student;
-import com.StudentManagerSystem.StudentSearcher;
-import com.StudentManagerSystem.Subject;
-import com.StudentManagerSystem.SystemManage;
+import com.StudentManagerSystem.*;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -154,7 +151,5 @@ public class StudentManagerPageController {
         SystemManage.setUpdatedStudentTmp(student2);
         SystemManage.updateStudent();
     }
-
-
 
 }
