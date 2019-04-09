@@ -13,27 +13,27 @@
    <children>
       <VBox layoutX="219.0" layoutY="195.0" prefHeight="394.0" prefWidth="526.0" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="195.0">
          <children>
-            <JFXTextField fx:id="name" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Name" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="name" editable="false" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Name" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXTextField fx:id="lastName" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Last Name" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="lastName" editable="false" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="Last Name" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXTextField fx:id="ID" disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="ID" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField fx:id="ID" editable="false" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="ID" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXDatePicker fx:id="birthDate" defaultColor="#ffff8d" disable="true" prefHeight="57.0" prefWidth="625.0" promptText="BirthDate" showWeekNumbers="true" style="-fx-font-size: 20;" stylesheets="@../../../resorce/datapicker.css" VBox.vgrow="ALWAYS">
+            <JFXDatePicker fx:id="birthDate" defaultColor="#ffff8d" editable="false" prefHeight="57.0" prefWidth="625.0" promptText="BirthDate" showWeekNumbers="true" style="-fx-font-size: 20;" stylesheets="@../../../resorce/datapicker.css" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXDatePicker>
-            <JFXTextField disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="-------" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField editable="false" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="-------" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
-            <JFXTextField disable="true" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="-------" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
+            <JFXTextField editable="false" focusColor="#ffff8d" prefHeight="58.0" prefWidth="382.0" promptText="-------" style="-fx-font-size: 20; -fx-text-fill: #d9d9d9;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="15.0" />
                </VBox.margin></JFXTextField>
