@@ -1,56 +1,65 @@
-/*
- * designed by  "Amir Hosein Shekari"
- */
-
 package com.StudentManagerSystem.ui.manager.searchSubject;
 
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
-import com.StudentManagerSystem.DateUtil;
-import com.StudentManagerSystem.Student;
 import com.StudentManagerSystem.Subject;
-import com.jfoenix.controls.JFXDatePicker;
+import com.StudentManagerSystem.ui.data.SubjectData;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
 import java.io.IOException;
 
+import java.util.LinkedList;
+
 public class SearchSubject {
+
+    public TableView TableView;
     @FXML
-    private JFXTextField title;
+    private JFXTextField ID;
     @FXML
-    private JFXTextField studentCount;
+    private TableColumn<SubjectData, String> titleColumn;
     @FXML
-    private JFXTextField unitVal;
-    @FXML
-    private JFXDatePicker testDate;
+    private  TableColumn<SubjectData, String> gropeNumberColumn;
+
+    private ObservableList<SubjectData> subjectData = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
-
-    }
-
-    @FXML
-    private void AdvSearchHandler(){
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/manager/advancedSearch/advancedSearch.fxml"));
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("Advanced Search");
-            stage.setScene(new Scene(parent));
-            stage.setAlwaysOnTop(true);
-            stage.showAndWait();
-        } catch (IOException e) {
-            //TODO
-        }
+        StudentManagerPageController.subjectTmp = null;
+        TableView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) ->{
+                    StudentManagerPageController.subjectTmp = ((SubjectData) newValue).getSubject();
+                    Stage stage = (Stage) TableView.getScene().getWindow();
+                    stage.close();
+                });
     }
 
     @FXML
     private void searchSubjectHandler(){
-        Subject s;
-        //todo subject search is not complete
+        try {
+            LinkedList<Subject> s = StudentManagerPageController.searchsubjectByID(Integer.parseInt(ID.getText()));
+            setDataToList(s);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            //todo
+        }
+    }
+
+    private void setDataToList(LinkedList<Subject> s){
+        if (s != null){
+            subjectData.clear();
+            for (Subject subject : s) {
+                subjectData.add(new SubjectData(subject));
+            }
+            titleColumn.setCellValueFactory(cellData ->  cellData.getValue().titleProperty());
+            gropeNumberColumn.setCellValueFactory(cellData -> cellData.getValue().groupNumberProperty());
+            TableView.setItems(subjectData);
+        }else{
+            TableView.setItems(null);
+        }
     }
 }

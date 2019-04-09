@@ -10,15 +10,18 @@
 package com.StudentManagerSystem.ui.manager.addEditCourse;
 
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
-import com.StudentManagerSystem.DateUtil;
 import com.StudentManagerSystem.Main;
 import com.StudentManagerSystem.Subject;
-import com.StudentManagerSystem.SystemManage;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -27,15 +30,16 @@ public class addEditCourse {
     @FXML
     private JFXTextField title;
     @FXML
-    private JFXTextField unitCount;
+    private JFXTextField unitVal;
     @FXML
-    private JFXTextField studentCount;
+    private JFXTextField capacity;
     @FXML
     private JFXTextField professorName;
     @FXML
     private JFXDatePicker testData;
     @FXML
     private JFXButton addEdit;
+    private Subject tmpSubject;
 
 
     @FXML
@@ -51,8 +55,8 @@ public class addEditCourse {
             sub.setTitle(title.getText());
             sub.setExamDate(testData.getValue());
             sub.setProfessorName(professorName.getText());
-            sub.setUnitVal(Integer.parseInt(unitCount.getText()));
-            sub.setStudentCount(Integer.parseInt(studentCount.getText()));
+            sub.setUnitVal(Integer.parseInt(unitVal.getText()));
+            sub.setStudentCount(Integer.parseInt(capacity.getText()));
 
             try {
                 sub = StudentManagerPageController.addSubject(new StudentManagerPageController.SubjectInput(sub,null));
@@ -74,7 +78,47 @@ public class addEditCourse {
 
     @FXML
     private void searchCourseHandler(){
-        isAddModeActive = false;
-        addEdit.setText("Edit");
+        try {
+
+            Parent parent = FXMLLoader.load(getClass().getResource("/com/StudentManagerSystem/ui/manager/searchSubject/searchSubject.fxml"));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Search");
+            stage.setScene(new Scene(parent));
+            stage.showAndWait();
+
+            tmpSubject = StudentManagerPageController.subjectTmp;
+            if (tmpSubject != null){
+                setSubjectInf(tmpSubject);
+                isAddModeActive = false;
+                addEdit.setText("Edit");
+            }else {
+                setSubjectInf(null);
+                isAddModeActive = true;
+                addEdit.setText("Add");
+            }
+
+
+
+        } catch (IOException e) {
+            //TODO
+        }
+
+
+    }
+
+    private void setSubjectInf(Subject s){
+        if (s != null){
+            title.setText(s.getTitle());
+            professorName.setText(s.getProfessorName());
+            capacity.setText(s.getCapacity()+"");
+            testData.setValue(s.getExamDate());
+            unitVal.setText(s.getUnitVal()+"");
+        }else {
+            title.setText("");
+            professorName.setText("");
+            capacity.setText("");
+            testData.setValue(null);
+            unitVal.setText("");
+        }
     }
 }

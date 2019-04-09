@@ -72,6 +72,7 @@ public class StudentManagerPageController {
         }
     }
     public static Student studentTmp;
+    public static Subject subjectTmp;
 
     private static void loadStudentsInformation(int uniID) throws IOException, ClassNotFoundException{
         StudentSearcher searcher = new StudentSearcher();
@@ -104,13 +105,12 @@ public class StudentManagerPageController {
         SystemManage.setSubjectTmp(subject);
         SystemManage.removeSubject();
     }
-    public static void searchsubjectByID(SubjectInput subjectInput) throws IOException, ClassNotFoundException {
-        Subject subject = subjectInput.getSubject();
-        SystemManage.setSubjectTmp(subject);
+    public static LinkedList<Subject> searchsubjectByID(int id)
+            throws IOException, ClassNotFoundException {
         SubjectSearcher subjectSearcher = new SubjectSearcher();
         subjectSearcher.setSearchById(true);
-        subjectSearcher.setId(subject.getId());
-        SystemManage.searchSubject(subjectSearcher);
+        subjectSearcher.setId(id);
+        return SystemManage.searchSubject(subjectSearcher);
     }
     public static void SearchsubjectByTitle(SubjectInput subjectInput) throws IOException, ClassNotFoundException{
         Subject subject = subjectInput.getSubject();

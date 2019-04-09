@@ -3,10 +3,7 @@ package com.StudentManagerSystem.ui.manager.advancedSearch;
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
 import com.StudentManagerSystem.Student;
 import com.StudentManagerSystem.ui.data.StudentData;
-import com.StudentManagerSystem.ui.manager.searchStudent.SearchStudent;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,9 +32,9 @@ public class AdvancedSearch {
     @FXML
     private  TableColumn<StudentData, String> uniIdCloumn;
     @FXML
-    private  TableColumn<StudentData, String> IDCloumn;
+    private  TableColumn<StudentData, String> IDColumn;
 
-    private ObservableList<StudentData> personData = FXCollections.observableArrayList();
+    private ObservableList<StudentData> studentData = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -86,15 +83,15 @@ public class AdvancedSearch {
 
     private void setDataToList(LinkedList<Student> s){
         if (s != null){
-            personData.clear();
+            studentData.clear();
             for (Student student : s) {
-                personData.add(new StudentData(student));
+                studentData.add(new StudentData(student));
             }
             nameCloumn.setCellValueFactory(cellData ->  cellData.getValue().nameProperty());
             lastNameCloumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-            IDCloumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+            IDColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty());
             uniIdCloumn.setCellValueFactory(cellData -> cellData.getValue().uniIdProperty());
-            list.setItems(personData);
+            list.setItems(studentData);
         }else{
             list.setItems(null);
         }

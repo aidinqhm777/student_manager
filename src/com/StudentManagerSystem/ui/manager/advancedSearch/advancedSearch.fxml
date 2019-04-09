@@ -13,7 +13,7 @@
             <TableColumn fx:id="nameCloumn" minWidth="0.0" prefWidth="0.0" text="Name" />
             <TableColumn fx:id="lastNameCloumn" prefWidth="75.0" text="Last Name" />
             <TableColumn fx:id="uniIdCloumn" prefWidth="150.0" text="University ID" />
-            <TableColumn fx:id="IDCloumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="IDColumn" prefWidth="75.0" text="ID" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
