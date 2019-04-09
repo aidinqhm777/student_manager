@@ -71,6 +71,7 @@ public class StudentManagerPageController {
             this.updatedsubject = updatedSubject;
         }
     }
+    public static Student studentTmp;
 
     private static void loadStudentsInformation(int uniID) throws IOException, ClassNotFoundException{
         StudentSearcher searcher = new StudentSearcher();
