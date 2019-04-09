@@ -7,6 +7,7 @@ package com.StudentManagerSystem.ui.manager.searchSubject;
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
 import com.StudentManagerSystem.DateUtil;
 import com.StudentManagerSystem.Student;
+import com.StudentManagerSystem.Subject;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -20,15 +21,13 @@ import java.io.IOException;
 
 public class SearchSubject {
     @FXML
-    private JFXTextField uniID;
+    private JFXTextField title;
     @FXML
-    private JFXTextField name;
+    private JFXTextField studentCount;
     @FXML
-    private JFXTextField lastName;
+    private JFXTextField unitVal;
     @FXML
-    private JFXDatePicker birthDate;
-    @FXML
-    private JFXTextField ID;
+    private JFXDatePicker testDate;
 
     @FXML
     private void initialize() {
@@ -50,15 +49,8 @@ public class SearchSubject {
     }
 
     @FXML
-    private void searchStudentHandler(){
-        try {
-            Student s = StudentManagerPageController.displayInformation(Integer.parseInt(uniID.getText()));
-            name.setText(s.getName());
-            lastName.setText(s.getLastname());
-            ID.setText(""+s.getId());
-            birthDate.setValue(DateUtil.parse(s.getBirthDate()));
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    private void searchSubjectHandler(){
+        Subject s;
+        //todo subject search is not complete
     }
 }
