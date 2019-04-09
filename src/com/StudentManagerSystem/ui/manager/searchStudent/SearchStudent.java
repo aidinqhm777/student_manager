@@ -14,6 +14,7 @@ import com.StudentManagerSystem.Main;
 import com.StudentManagerSystem.Student;
 import com.StudentManagerSystem.ui.data.StudentData;
 import com.StudentManagerSystem.ui.manager.advancedSearch.AdvancedSearch;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -42,6 +43,11 @@ public class SearchStudent {
     private JFXDatePicker birthDate;
     @FXML
     private JFXTextField ID;
+    @FXML
+    private JFXButton delete;
+    @FXML
+    private JFXButton edit;
+
     private static Student tmpStudent;
 
     @FXML
@@ -59,7 +65,15 @@ public class SearchStudent {
             stage.showAndWait();
 
             tmpStudent = StudentManagerPageController.studentTmp;
-            setStudentInf(tmpStudent);
+            if (tmpStudent != null){
+                setStudentInf(tmpStudent);
+                delete.setDisable(false);
+                edit.setDisable(false);
+            }else {
+                setStudentInf(null);
+                delete.setDisable(true);
+                edit.setDisable(true);
+            }
         } catch (IOException e) {
             //TODO
         }
@@ -73,11 +87,22 @@ public class SearchStudent {
                 Student s = StudentManagerPageController.displayInformation(Integer.parseInt(uniID.getText()));
                 tmpStudent = s;
                 setStudentInf(s);
+
+                delete.setDisable(false);
+                edit.setDisable(false);
             } catch (IOException | ClassNotFoundException | NullPointerException e) {
 //                e.printStackTrace();
                 Main.showError("Cant find the student");
+
+                setStudentInf(null);
+                delete.setDisable(true);
+                edit.setDisable(true);
             } catch (NumberFormatException e){
                 Main.showError("university id is a number!");
+
+                setStudentInf(null);
+                delete.setDisable(true);
+                edit.setDisable(true);
             }
         }
 

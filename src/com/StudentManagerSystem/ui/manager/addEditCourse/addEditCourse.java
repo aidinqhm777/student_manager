@@ -11,6 +11,7 @@ package com.StudentManagerSystem.ui.manager.addEditCourse;
 
 import com.StudentManagerSystem.Controllers.StudentManagerPageController;
 import com.StudentManagerSystem.DateUtil;
+import com.StudentManagerSystem.Main;
 import com.StudentManagerSystem.Subject;
 import com.StudentManagerSystem.SystemManage;
 import com.jfoenix.controls.JFXButton;
@@ -64,7 +65,7 @@ public class addEditCourse {
 
             } catch (IOException | ClassNotFoundException e) {
                 System.out.println("add subject error");
-                //todo
+                Main.showError("cant add subject," + e.toString());
             }
         }else{
             //todo
