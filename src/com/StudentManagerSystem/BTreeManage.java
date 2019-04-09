@@ -596,68 +596,6 @@ public class BTreeManage {
 //    SEMESTER MANAGE
 //    SEMESTER MANAGE
 
-    public static void main(String[] args) {
-        int i = 1;
-        load();
-//        System.out.println(subjectTitle_btree.toString());
-//        System.out.println(subjectID_btree.toString());
-//        System.out.println(studentUniID_btree.toString());
-
-        Enrollment tmp = new Enrollment();
-        tmp.setStudentID(970102);
-        tmp.setSubjectID(10000);
-        tmp.setEnrollmentIndex(i++);
-        createEnrollment(tmp);
-
-        tmp.setStudentID(970101);
-        tmp.setSubjectID(10000);
-        tmp.setEnrollmentIndex(i++);
-        createEnrollment(tmp);
-
-        tmp.setStudentID(970101);
-        tmp.setSubjectID(10101);
-        tmp.setEnrollmentIndex(i++);
-        createEnrollment(tmp);
-
-        tmp.setStudentID(970101);
-        tmp.setSubjectID(10100);
-        tmp.setEnrollmentIndex(i++);
-        createEnrollment(tmp);
-
-
-//
-        System.out.println(semesterStudent.toString());
-        System.out.println(semesterSubject.toString());
-
-
-//        EnrollmentSearcher searcher = new EnrollmentSearcher();
-//        searcher.setSearchBySubject(true);
-//        searcher.setSearchByStudent(true);
-//        searcher.setSubjectID(10100);
-//        searcher.setStudentID(970102);
-//        EnrollmentSearcher result = new EnrollmentSearcher();
-//        readEnrollment(searcher);
-//        System.out.println(searcher.getResult().toString());
-        System.out.println(semesterStudent.search(970101));
-        System.out.println(semesterSubject.search(10101));
-
-        Enrollment enrollment = new Enrollment();
-        enrollment.setEnrollmentIndex(3);
-        enrollment.setStudentID(970101);
-        enrollment.setSubjectID(10101);
-        deleteEnrollment(enrollment);
-
-        System.out.println(semesterStudent.search(970101));
-        System.out.println(semesterSubject.search(10101));
-
-
-
-        System.out.println(semesterStudent.toString());
-        System.out.println(semesterSubject.toString());
-
-
-
-    }
 
     public static void createEnrollment(Enrollment enrollment) {
 
@@ -788,6 +726,11 @@ public class BTreeManage {
         }
         return false;
     }
+
+
+    public static void createPreEnrollment(PreEnrollment preEnrollment) {}
+    public static void readPreEnrollment(PreEnrollment preEnrollment) {}
+
 
 
 

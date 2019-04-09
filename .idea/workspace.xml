@@ -8,32 +8,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" line="147" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03f0782a-7611-4cd7-bf0e-04acebb12d8a" name="Default" comment="javaFx advanced search fixed">
-      <change afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/data/StudentData.java" afterDir="false" />
+    <list default="true" id="03f0782a-7611-4cd7-bf0e-04acebb12d8a" name="Default" comment="pre fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Student_Manager_System_V2_jar/Student-Manager-System-V2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Student_Manager_System_V2_jar/Student-Manager-System-V2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/Btree_ID.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/Btree_Lastname.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/Btree_Name.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/Btree_SubjectID.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/Btree_SubjectTitle.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/Btree_UniID.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/IndexManage.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/fileHandler/data/UniIDManage.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/ui/manager/advancedSearch/advancedSearch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/ui/manager/advancedSearch/advancedSearch.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_ID.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_ID.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_Lastname.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_Lastname.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_Name.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_Name.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_UniID.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/Btree_UniID.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/IndexManage.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/IndexManage.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/UniIDManage.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/UniIDManage.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/studentFile.dump" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/data/studentFile.dump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addStudent/AddStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addStudent/AddStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/advancedSearch/AdvancedSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/advancedSearch/AdvancedSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/advancedSearch/advancedSearch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/advancedSearch/advancedSearch.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/SearchStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/SearchStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,14 +52,199 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollments.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="492">
+              <caret line="731" column="59" lean-forward="true" selection-start-line="731" selection-start-column="59" selection-end-line="731" selection-end-column="59" />
               <folding>
-                <element signature="class#status#0;class#PreEnrollments#0" />
-                <element signature="method#setScore#0;class#PreEnrollments#0" />
+                <element signature="e#1027#1261#0" />
+                <element signature="e#1266#1500#0" />
+                <element signature="e#1506#1820#0" />
+                <element signature="e#1596#1707#0" />
+                <element signature="e#1755#1814#0" />
+                <element signature="e#1825#2099#0" />
+                <element signature="e#1881#1986#0" />
+                <element signature="e#2034#2093#0" />
+                <element signature="e#2104#2395#0" />
+                <element signature="e#2162#2282#0" />
+                <element signature="e#2330#2389#0" />
+                <element signature="e#2400#2703#0" />
+                <element signature="e#2462#2590#0" />
+                <element signature="e#2638#2697#0" />
+                <element signature="e#2708#2982#0" />
+                <element signature="e#2764#2869#0" />
+                <element signature="e#2917#2976#0" />
+                <element signature="e#2987#3281#0" />
+                <element signature="e#3046#3168#0" />
+                <element signature="e#3216#3275#0" />
+                <element signature="e#3287#3548#0" />
+                <element signature="e#3382#3460#0" />
+                <element signature="e#3483#3542#0" />
+                <element signature="e#3553#3775#0" />
+                <element signature="e#3611#3687#0" />
+                <element signature="e#3710#3769#0" />
+                <element signature="e#3780#4014#0" />
+                <element signature="e#3842#3926#0" />
+                <element signature="e#3949#4008#0" />
+                <element signature="e#4019#4236#0" />
+                <element signature="e#4075#4147#0" />
+                <element signature="e#4170#4229#0" />
+                <element signature="e#4241#4458#0" />
+                <element signature="e#4297#4369#0" />
+                <element signature="e#4392#4451#0" />
+                <element signature="e#4463#4689#0" />
+                <element signature="e#4522#4600#0" />
+                <element signature="e#4623#4682#0" />
+                <element signature="e#4696#4770#0" />
+                <element signature="e#4856#5508#0" />
+                <element signature="e#5067#5365#1" />
+                <element signature="e#5409#5502#1" />
+                <element signature="e#5513#5682#0" />
+                <element signature="e#5687#6529#0" />
+                <element signature="e#5877#6316#1" />
+                <element signature="e#5918#6306#1" />
+                <element signature="e#6361#6522#1" />
+                <element signature="e#6398#6512#1" />
+                <element signature="e#6534#7093#0" />
+                <element signature="e#6709#6994#1" />
+                <element signature="e#7038#7086#1" />
+                <element signature="e#7100#7142#0" />
+                <element signature="e#7573#7749#0" />
+                <element signature="e#7754#7912#0" />
+                <element signature="e#7917#8291#0" />
+                <element signature="e#7981#8036#0" />
+                <element signature="e#8296#8699#0" />
+                <element signature="e#8368#8423#0" />
+                <element signature="e#9472#9579#0" />
+                <element signature="e#9712#9843#0" />
+                <element signature="e#9864#10354#0" />
+                <element signature="e#10360#10664#0" />
+                <element signature="e#10437#10470#0" />
+                <element signature="e#10669#10933#0" />
+                <element signature="e#10737#10763#0" />
+                <element signature="e#10938#11719#0" />
+                <element signature="e#11018#11054#0" />
+                <element signature="e#11725#12572#0" />
+                <element signature="e#11817#11860#0" />
+                <element signature="e#12579#12996#0" />
+                <element signature="e#13002#13173#0" />
+                <element signature="e#13178#13557#0" />
+                <element signature="e#13247#13314#0" />
+                <element signature="e#13562#13977#0" />
+                <element signature="e#13635#13710#0" />
+                <element signature="e#13982#14138#0" />
+                <element signature="e#14144#14157#0" />
+                <element signature="e#15444#16756#0" />
+                <element signature="e#15630#15760#1" />
+                <element signature="e#15672#15692#0" />
+                <element signature="e#15773#16295#1" />
+                <element signature="e#15869#15981#0" />
+                <element signature="e#16207#16285#1" />
+                <element signature="e#16396#16421#0" />
+                <element signature="e#16968#17634#0" />
+                <element signature="e#17227#17422#1" />
+                <element signature="e#17468#17570#1" />
+                <element signature="e#17640#17906#0" />
+                <element signature="e#17907#18113#0" />
+                <element signature="e#18118#18273#0" />
+                <element signature="e#18275#18367#0" />
+                <element signature="e#18990#19323#0" />
+                <element signature="e#19510#19526#0" />
+                <element signature="e#22599#23642#0" />
+                <element signature="e#23255#23311#1" />
+                <element signature="e#23504#23560#1" />
+                <element signature="e#23647#24545#0" />
+                <element signature="e#23847#24177#1" />
+                <element signature="e#24226#24347#1" />
+                <element signature="e#24396#24517#1" />
+                <element signature="e#24550#24888#0" />
+                <element signature="e#24893#25261#0" />
+                <element signature="e#24991#25255#1" />
+                <element signature="e#25266#25621#0" />
+                <element signature="e#25360#25615#1" />
+                <element signature="e#25626#26002#0" />
+                <element signature="e#25896#25918#0" />
+                <element signature="e#26008#26437#0" />
+                <element signature="e#26189#26409#1" />
+                <element signature="e#26234#26399#1" />
+                <element signature="e#26442#26871#0" />
+                <element signature="e#26623#26843#1" />
+                <element signature="e#26668#26833#1" />
+                <element signature="e#26879#27167#0" />
+                <element signature="e#26975#27070#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" selection-end-line="32" />
+              <folding>
+                <element signature="e#0#644#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="132" column="19" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
+              <folding>
+                <element signature="class#Pair#0;class#SystemManage#0" />
+                <element signature="method#Pair#0;class#Pair#0;class#SystemManage#0" />
+                <element signature="method#loadProgram#0;class#SystemManage#0" />
+                <element signature="method#saveProgram#0;class#SystemManage#0" />
+                <element signature="e#1552#1561#0" />
+                <element signature="method#searchStudent#0;class#SystemManage#0" />
+                <element signature="e#1881#2010#1" />
+                <element signature="method#signupStudent#0;class#SystemManage#0" />
+                <element signature="method#updateStudent#0;class#SystemManage#0" />
+                <element signature="method#removeStudent#0;class#SystemManage#0" />
+                <element signature="method#addEnrollment#0;class#SystemManage#0" />
+                <element signature="method#searchEnrollment#0;class#SystemManage#0" />
+                <element signature="e#4283#4433#1" />
+                <element signature="method#addSubject#0;class#SystemManage#0" />
+                <element signature="e#5181#5279#1" />
+                <element signature="e#5280#5296#0" />
+                <element signature="method#searchSubject#0;class#SystemManage#0" />
+                <element signature="e#6418#6545#1" />
+                <element signature="method#editSubject#0;class#SystemManage#0" />
+                <element signature="method#removeSubject#0;class#SystemManage#0" />
+                <element signature="method#authenticateStudent#0;class#SystemManage#0" />
+                <element signature="e#7667#7743#0" />
+                <element signature="e#7766#7810#0" />
+                <element signature="e#7844#7888#0" />
+                <element signature="method#authenticateManager#0;class#SystemManage#0" />
+                <element signature="method#authenticateAdministrator#0;class#SystemManage#0" />
+                <element signature="e#8550#8551#0" expanded="true" />
+                <element signature="e#8627#8628#0" expanded="true" />
+                <element signature="e#8743#8744#0" expanded="true" />
+                <element signature="e#8839#8840#0" expanded="true" />
+                <element signature="method#setUpdatedSubjectTmp#0;class#SystemManage#0" />
+                <element signature="method#setCampusCode#0;class#SystemManage#0" />
+                <element signature="method#getCampusTitle#0;class#SystemManage#0" />
+                <element signature="e#9086#9201#1" />
+                <element signature="e#9132#9191#1" />
+                <element signature="method#setEnrollmentTmp#0;class#SystemManage#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding>
+                <element signature="class#Status#0;class#Enrollment#0" />
+                <element signature="method#setScore#0;class#Enrollment#0" />
               </folding>
             </state>
           </provider>
@@ -127,6 +292,7 @@
       <find>searchL</find>
       <find>edit</find>
       <find>set</find>
+      <find>PreEnrollments</find>
     </findStrings>
     <replaceStrings>
       <replace>filePath</replace>
@@ -142,6 +308,7 @@
       <replace>studentIDInput</replace>
       <replace>studentLastName</replace>
       <replace>studentID</replace>
+      <replace>PreEnrollment</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\Users\Amir\Java Projects\simpleDataBase\Student-Manager-System-v2\src\com\StudentManagerSystem\ui\student\score</dir>
@@ -158,13 +325,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Btree/BTreeManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/dataContainer/Enrollment.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/managers/IndexManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/managers/SystemManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/StudentSearcher.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/main/MainApp.java" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/view/Manager_View.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/main/mainApp.fxml" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/login.fxml" />
@@ -195,9 +360,7 @@
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/courseSetting/CourseSetting.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addEditCourse/addEditCourse.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/searchStudent.fxml" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileManage.java" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/LoginPageController.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentPageController.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java" />
@@ -209,6 +372,10 @@
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addStudent/AddStudent.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollments.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollment.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java" />
       </list>
     </option>
   </component>
@@ -257,7 +424,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554835834919" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554846497613" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/jfoenix-8.0.8.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -481,14 +648,7 @@
       <workItem from="1554806035201" duration="862000" />
       <workItem from="1554807609347" duration="3921000" />
       <workItem from="1554814379970" duration="12106000" />
-      <workItem from="1554839924206" duration="1760000" />
-    </task>
-    <task id="LOCAL-00040" summary="finish the fileManage work">
-      <created>1552067255107</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1552067255108</updated>
+      <workItem from="1554839924206" duration="4198000" />
     </task>
     <task id="LOCAL-00041" summary="finish the fileManage work">
       <created>1552235311453</created>
@@ -826,11 +986,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554841722176</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="pre fix">
+      <created>1554842070599</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1554842070599</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270215000" />
+    <option name="totallyTimeSpent" value="272653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,6 +1010,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49716714" visible="true" weight="0.18791947" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -962,7 +1130,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add enrollment ti File manager" />
     <MESSAGE value="add enrollment ti File manager v2" />
     <MESSAGE value="  سیس" />
     <MESSAGE value="ADD JAVAFX" />
@@ -987,7 +1154,8 @@
     <MESSAGE value="javaFx add remove student" />
     <MESSAGE value="javaFx advanced search fixed" />
     <MESSAGE value="prenrollment" />
-    <option name="LAST_COMMIT_MESSAGE" value="prenrollment" />
+    <MESSAGE value="pre fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1062,14 +1230,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/courseSetting/courseSetting.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addEditCourse/addEditCourse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -1251,160 +1411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="267" selection-start-line="267" selection-end-line="267" />
-          <folding>
-            <element signature="e#1027#1261#0" />
-            <element signature="e#1266#1500#0" />
-            <element signature="e#1506#1820#0" />
-            <element signature="e#1596#1707#0" />
-            <element signature="e#1755#1814#0" />
-            <element signature="e#1825#2099#0" />
-            <element signature="e#1881#1986#0" />
-            <element signature="e#2034#2093#0" />
-            <element signature="e#2104#2395#0" />
-            <element signature="e#2162#2282#0" />
-            <element signature="e#2330#2389#0" />
-            <element signature="e#2400#2703#0" />
-            <element signature="e#2462#2590#0" />
-            <element signature="e#2638#2697#0" />
-            <element signature="e#2708#2982#0" />
-            <element signature="e#2764#2869#0" />
-            <element signature="e#2917#2976#0" />
-            <element signature="e#2987#3281#0" />
-            <element signature="e#3046#3168#0" />
-            <element signature="e#3216#3275#0" />
-            <element signature="e#3287#3548#0" />
-            <element signature="e#3382#3460#0" />
-            <element signature="e#3483#3542#0" />
-            <element signature="e#3553#3775#0" />
-            <element signature="e#3611#3687#0" />
-            <element signature="e#3710#3769#0" />
-            <element signature="e#3780#4014#0" />
-            <element signature="e#3842#3926#0" />
-            <element signature="e#3949#4008#0" />
-            <element signature="e#4019#4236#0" />
-            <element signature="e#4075#4147#0" />
-            <element signature="e#4170#4229#0" />
-            <element signature="e#4241#4458#0" />
-            <element signature="e#4297#4369#0" />
-            <element signature="e#4392#4451#0" />
-            <element signature="e#4463#4689#0" />
-            <element signature="e#4522#4600#0" />
-            <element signature="e#4623#4682#0" />
-            <element signature="e#4696#4770#0" />
-            <element signature="e#4856#5508#0" />
-            <element signature="e#5067#5365#1" />
-            <element signature="e#5409#5502#1" />
-            <element signature="e#5513#5682#0" />
-            <element signature="e#5687#6529#0" />
-            <element signature="e#5877#6316#1" />
-            <element signature="e#5918#6306#1" />
-            <element signature="e#6361#6522#1" />
-            <element signature="e#6398#6512#1" />
-            <element signature="e#6534#7093#0" />
-            <element signature="e#6709#6994#1" />
-            <element signature="e#7038#7086#1" />
-            <element signature="e#7100#7142#0" />
-            <element signature="e#7573#7749#0" />
-            <element signature="e#7754#7912#0" />
-            <element signature="e#7917#8291#0" />
-            <element signature="e#7981#8036#0" />
-            <element signature="e#8296#8699#0" />
-            <element signature="e#8368#8423#0" />
-            <element signature="e#9472#9579#0" />
-            <element signature="e#9712#9843#0" />
-            <element signature="e#9864#10354#0" />
-            <element signature="e#10360#10664#0" />
-            <element signature="e#10437#10470#0" />
-            <element signature="e#10669#10933#0" />
-            <element signature="e#10737#10763#0" />
-            <element signature="e#10938#11719#0" />
-            <element signature="e#11018#11054#0" />
-            <element signature="e#11725#12572#0" />
-            <element signature="e#11817#11860#0" />
-            <element signature="e#12579#12996#0" />
-            <element signature="e#13002#13173#0" />
-            <element signature="e#13178#13557#0" />
-            <element signature="e#13247#13314#0" />
-            <element signature="e#13562#13977#0" />
-            <element signature="e#13635#13710#0" />
-            <element signature="e#13982#14138#0" />
-            <element signature="e#14144#14157#0" />
-            <element signature="e#15444#16756#0" />
-            <element signature="e#15630#15760#1" />
-            <element signature="e#15672#15692#0" />
-            <element signature="e#15773#16295#1" />
-            <element signature="e#15869#15981#0" />
-            <element signature="e#16207#16285#1" />
-            <element signature="e#16396#16421#0" />
-            <element signature="e#16968#17634#0" />
-            <element signature="e#17227#17422#1" />
-            <element signature="e#17468#17570#1" />
-            <element signature="e#17640#17906#0" />
-            <element signature="e#17907#18113#0" />
-            <element signature="e#18118#18273#0" />
-            <element signature="e#18275#18367#0" />
-            <element signature="e#18990#19323#0" />
-            <element signature="e#19510#19526#0" />
-            <element signature="e#20657#22593#0" />
-            <element signature="e#20733#20793#0" />
-            <element signature="e#21619#21684#0" />
-            <element signature="e#22599#23642#0" />
-            <element signature="e#23255#23311#1" />
-            <element signature="e#23504#23560#1" />
-            <element signature="e#23647#24545#0" />
-            <element signature="e#23847#24177#1" />
-            <element signature="e#24226#24347#1" />
-            <element signature="e#24396#24517#1" />
-            <element signature="e#24550#24888#0" />
-            <element signature="e#24893#25261#0" />
-            <element signature="e#24991#25255#1" />
-            <element signature="e#25266#25621#0" />
-            <element signature="e#25360#25615#1" />
-            <element signature="e#25626#26002#0" />
-            <element signature="e#25896#25918#0" />
-            <element signature="e#26008#26437#0" />
-            <element signature="e#26189#26409#1" />
-            <element signature="e#26234#26399#1" />
-            <element signature="e#26442#26871#0" />
-            <element signature="e#26623#26843#1" />
-            <element signature="e#26668#26833#1" />
-            <element signature="e#26879#27167#0" />
-            <element signature="e#26975#27070#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="class#Pair#0;class#SystemManage#0" />
-            <element signature="method#Pair#0;class#Pair#0;class#SystemManage#0" />
-            <element signature="method#loadProgram#0;class#SystemManage#0" />
-            <element signature="method#saveProgram#0;class#SystemManage#0" />
-            <element signature="method#updateStudent#0;class#SystemManage#0" />
-            <element signature="method#removeStudent#0;class#SystemManage#0" />
-            <element signature="method#addEnrollment#0;class#SystemManage#0" />
-            <element signature="method#searchEnrollment#0;class#SystemManage#0" />
-            <element signature="method#editEnrollment#0;class#SystemManage#0" />
-            <element signature="method#removeEnrollment#0;class#SystemManage#0" />
-            <element signature="method#addSubject#0;class#SystemManage#0" />
-            <element signature="method#searchSubject#0;class#SystemManage#0" />
-            <element signature="method#editSubject#0;class#SystemManage#0" />
-            <element signature="method#removeSubject#0;class#SystemManage#0" />
-            <element signature="method#setUpdatedSubjectTmp#0;class#SystemManage#0" />
-            <element signature="method#setCampusCode#0;class#SystemManage#0" />
-            <element signature="method#getCampusTitle#0;class#SystemManage#0" />
-            <element signature="method#setEnrollmentTmp#0;class#SystemManage#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/collections/ListChangeBuilder.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/collections/ObservableListBase.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/javafx-src.zip!/javafx/collections/ModifiableObservableListBase.java" />
@@ -1571,13 +1577,192 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollments.java">
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="492">
+          <caret line="731" column="59" lean-forward="true" selection-start-line="731" selection-start-column="59" selection-end-line="731" selection-end-column="59" />
           <folding>
-            <element signature="class#status#0;class#PreEnrollments#0" />
-            <element signature="method#setScore#0;class#PreEnrollments#0" />
+            <element signature="e#1027#1261#0" />
+            <element signature="e#1266#1500#0" />
+            <element signature="e#1506#1820#0" />
+            <element signature="e#1596#1707#0" />
+            <element signature="e#1755#1814#0" />
+            <element signature="e#1825#2099#0" />
+            <element signature="e#1881#1986#0" />
+            <element signature="e#2034#2093#0" />
+            <element signature="e#2104#2395#0" />
+            <element signature="e#2162#2282#0" />
+            <element signature="e#2330#2389#0" />
+            <element signature="e#2400#2703#0" />
+            <element signature="e#2462#2590#0" />
+            <element signature="e#2638#2697#0" />
+            <element signature="e#2708#2982#0" />
+            <element signature="e#2764#2869#0" />
+            <element signature="e#2917#2976#0" />
+            <element signature="e#2987#3281#0" />
+            <element signature="e#3046#3168#0" />
+            <element signature="e#3216#3275#0" />
+            <element signature="e#3287#3548#0" />
+            <element signature="e#3382#3460#0" />
+            <element signature="e#3483#3542#0" />
+            <element signature="e#3553#3775#0" />
+            <element signature="e#3611#3687#0" />
+            <element signature="e#3710#3769#0" />
+            <element signature="e#3780#4014#0" />
+            <element signature="e#3842#3926#0" />
+            <element signature="e#3949#4008#0" />
+            <element signature="e#4019#4236#0" />
+            <element signature="e#4075#4147#0" />
+            <element signature="e#4170#4229#0" />
+            <element signature="e#4241#4458#0" />
+            <element signature="e#4297#4369#0" />
+            <element signature="e#4392#4451#0" />
+            <element signature="e#4463#4689#0" />
+            <element signature="e#4522#4600#0" />
+            <element signature="e#4623#4682#0" />
+            <element signature="e#4696#4770#0" />
+            <element signature="e#4856#5508#0" />
+            <element signature="e#5067#5365#1" />
+            <element signature="e#5409#5502#1" />
+            <element signature="e#5513#5682#0" />
+            <element signature="e#5687#6529#0" />
+            <element signature="e#5877#6316#1" />
+            <element signature="e#5918#6306#1" />
+            <element signature="e#6361#6522#1" />
+            <element signature="e#6398#6512#1" />
+            <element signature="e#6534#7093#0" />
+            <element signature="e#6709#6994#1" />
+            <element signature="e#7038#7086#1" />
+            <element signature="e#7100#7142#0" />
+            <element signature="e#7573#7749#0" />
+            <element signature="e#7754#7912#0" />
+            <element signature="e#7917#8291#0" />
+            <element signature="e#7981#8036#0" />
+            <element signature="e#8296#8699#0" />
+            <element signature="e#8368#8423#0" />
+            <element signature="e#9472#9579#0" />
+            <element signature="e#9712#9843#0" />
+            <element signature="e#9864#10354#0" />
+            <element signature="e#10360#10664#0" />
+            <element signature="e#10437#10470#0" />
+            <element signature="e#10669#10933#0" />
+            <element signature="e#10737#10763#0" />
+            <element signature="e#10938#11719#0" />
+            <element signature="e#11018#11054#0" />
+            <element signature="e#11725#12572#0" />
+            <element signature="e#11817#11860#0" />
+            <element signature="e#12579#12996#0" />
+            <element signature="e#13002#13173#0" />
+            <element signature="e#13178#13557#0" />
+            <element signature="e#13247#13314#0" />
+            <element signature="e#13562#13977#0" />
+            <element signature="e#13635#13710#0" />
+            <element signature="e#13982#14138#0" />
+            <element signature="e#14144#14157#0" />
+            <element signature="e#15444#16756#0" />
+            <element signature="e#15630#15760#1" />
+            <element signature="e#15672#15692#0" />
+            <element signature="e#15773#16295#1" />
+            <element signature="e#15869#15981#0" />
+            <element signature="e#16207#16285#1" />
+            <element signature="e#16396#16421#0" />
+            <element signature="e#16968#17634#0" />
+            <element signature="e#17227#17422#1" />
+            <element signature="e#17468#17570#1" />
+            <element signature="e#17640#17906#0" />
+            <element signature="e#17907#18113#0" />
+            <element signature="e#18118#18273#0" />
+            <element signature="e#18275#18367#0" />
+            <element signature="e#18990#19323#0" />
+            <element signature="e#19510#19526#0" />
+            <element signature="e#22599#23642#0" />
+            <element signature="e#23255#23311#1" />
+            <element signature="e#23504#23560#1" />
+            <element signature="e#23647#24545#0" />
+            <element signature="e#23847#24177#1" />
+            <element signature="e#24226#24347#1" />
+            <element signature="e#24396#24517#1" />
+            <element signature="e#24550#24888#0" />
+            <element signature="e#24893#25261#0" />
+            <element signature="e#24991#25255#1" />
+            <element signature="e#25266#25621#0" />
+            <element signature="e#25360#25615#1" />
+            <element signature="e#25626#26002#0" />
+            <element signature="e#25896#25918#0" />
+            <element signature="e#26008#26437#0" />
+            <element signature="e#26189#26409#1" />
+            <element signature="e#26234#26399#1" />
+            <element signature="e#26442#26871#0" />
+            <element signature="e#26623#26843#1" />
+            <element signature="e#26668#26833#1" />
+            <element signature="e#26879#27167#0" />
+            <element signature="e#26975#27070#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/PreEnrollment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#644#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="132" column="19" selection-start-line="132" selection-start-column="19" selection-end-line="132" selection-end-column="19" />
+          <folding>
+            <element signature="class#Pair#0;class#SystemManage#0" />
+            <element signature="method#Pair#0;class#Pair#0;class#SystemManage#0" />
+            <element signature="method#loadProgram#0;class#SystemManage#0" />
+            <element signature="method#saveProgram#0;class#SystemManage#0" />
+            <element signature="e#1552#1561#0" />
+            <element signature="method#searchStudent#0;class#SystemManage#0" />
+            <element signature="e#1881#2010#1" />
+            <element signature="method#signupStudent#0;class#SystemManage#0" />
+            <element signature="method#updateStudent#0;class#SystemManage#0" />
+            <element signature="method#removeStudent#0;class#SystemManage#0" />
+            <element signature="method#addEnrollment#0;class#SystemManage#0" />
+            <element signature="method#searchEnrollment#0;class#SystemManage#0" />
+            <element signature="e#4283#4433#1" />
+            <element signature="method#addSubject#0;class#SystemManage#0" />
+            <element signature="e#5181#5279#1" />
+            <element signature="e#5280#5296#0" />
+            <element signature="method#searchSubject#0;class#SystemManage#0" />
+            <element signature="e#6418#6545#1" />
+            <element signature="method#editSubject#0;class#SystemManage#0" />
+            <element signature="method#removeSubject#0;class#SystemManage#0" />
+            <element signature="method#authenticateStudent#0;class#SystemManage#0" />
+            <element signature="e#7667#7743#0" />
+            <element signature="e#7766#7810#0" />
+            <element signature="e#7844#7888#0" />
+            <element signature="method#authenticateManager#0;class#SystemManage#0" />
+            <element signature="method#authenticateAdministrator#0;class#SystemManage#0" />
+            <element signature="e#8550#8551#0" expanded="true" />
+            <element signature="e#8627#8628#0" expanded="true" />
+            <element signature="e#8743#8744#0" expanded="true" />
+            <element signature="e#8839#8840#0" expanded="true" />
+            <element signature="method#setUpdatedSubjectTmp#0;class#SystemManage#0" />
+            <element signature="method#setCampusCode#0;class#SystemManage#0" />
+            <element signature="method#getCampusTitle#0;class#SystemManage#0" />
+            <element signature="e#9086#9201#1" />
+            <element signature="e#9132#9191#1" />
+            <element signature="method#setEnrollmentTmp#0;class#SystemManage#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding>
+            <element signature="class#Status#0;class#Enrollment#0" />
+            <element signature="method#setScore#0;class#Enrollment#0" />
           </folding>
         </state>
       </provider>

@@ -122,15 +122,20 @@ public class SystemManage {
     }
     public static void editEnrollment(Enrollment enrollment) {
 
+        if (enrollmentTmp.isPreEnrollment())
+            return;
         BTreeManage.updateEnrollment(enrollmentTmp, enrollment);
         FileManage.updateEnrollment(enrollmentTmp, enrollment);
     }
     public static void removeEnrollment(Enrollment enrollment) throws IOException {
 
+        if (enrollment.isPreEnrollment())
+            return;
         indexManage.deleteEnrollment(enrollmentTmp);
         BTreeManage.deleteEnrollment(enrollmentTmp);
         FileManage.deleteEnrollment(enrollmentTmp);
     }
+
 
 
 
@@ -214,6 +219,8 @@ public class SystemManage {
     }
     public static Boolean authenticateManager(int username, int password) {return true;}
     public static Boolean authenticateAdministrator(String username, String password) {return true;}
+
+
 
 
 
