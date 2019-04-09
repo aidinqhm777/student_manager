@@ -114,6 +114,22 @@ public class StudentManagerPageController {
         SystemManage.setSubjectTmp(subject);
         SystemManage.removeSubject();
     }
+    public static void searchsubjectByID(SubjectInput subjectInput) throws IOException, ClassNotFoundException {
+        Subject subject = subjectInput.getSubject();
+        SystemManage.setSubjectTmp(subject);
+        SubjectSearcher subjectSearcher = new SubjectSearcher();
+        subjectSearcher.setSearchById(true);
+        subjectSearcher.setId(subject.getId());
+        SystemManage.searchSubject(subjectSearcher);
+    }
+    public static void SearchsubjectByTitle(SubjectInput subjectInput) throws IOException, ClassNotFoundException{
+        Subject subject = subjectInput.getSubject();
+        SystemManage.setSubjectTmp(subject);
+        SubjectSearcher subjectSearcher = new SubjectSearcher();
+        subjectSearcher.setSearchByTitle(true);
+        subjectSearcher.setTitle(subject.getTitle());
+        SystemManage.searchSubject(subjectSearcher);
+    }
     public static void updateSubject(SubjectInput subjectInput) throws IOException {
         Subject subject1 = subjectInput.getSubject();
         Subject subject2 = subjectInput.getUpdatedsubject();

@@ -5,11 +5,12 @@
     <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03f0782a-7611-4cd7-bf0e-04acebb12d8a" name="Default" comment="javaFx add remove student">
+    <list default="true" id="03f0782a-7611-4cd7-bf0e-04acebb12d8a" name="Default" comment="javaFx search subject">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/searchSubject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/searchSubject.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Student-Manager-System-V2/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,15 +50,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
+            <state relative-caret-position="172">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
               <folding>
-                <element signature="class#Pair#0;class#SystemManage#0" />
-                <element signature="method#Pair#0;class#Pair#0;class#SystemManage#0" />
-                <element signature="method#loadProgram#0;class#SystemManage#0" />
-                <element signature="method#saveProgram#0;class#SystemManage#0" />
                 <element signature="method#searchStudent#0;class#SystemManage#0" />
                 <element signature="method#signupStudent#0;class#SystemManage#0" />
                 <element signature="method#updateStudent#0;class#SystemManage#0" />
@@ -71,7 +77,6 @@
                 <element signature="method#editSubject#0;class#SystemManage#0" />
                 <element signature="method#removeSubject#0;class#SystemManage#0" />
                 <element signature="method#setUpdatedSubjectTmp#0;class#SystemManage#0" />
-                <element signature="method#setCampusCode#0;class#SystemManage#0" />
                 <element signature="method#getCampusTitle#0;class#SystemManage#0" />
                 <element signature="method#setEnrollmentTmp#0;class#SystemManage#0" />
               </folding>
@@ -80,24 +85,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/SearchStudent.java">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#initialize#0;class#SearchStudent#0" />
-                <element signature="method#AdvSearchHandler#0;class#SearchStudent#0" />
+                <element signature="e#1258#1259#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -105,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/LoginPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+            <state relative-caret-position="143">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="docComment;method#Input#0;class#Input#0;class#LoginPageController#0" />
               </folding>
@@ -115,75 +109,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentPageController.java">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
+            <state relative-caret-position="168">
+              <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
               <folding>
-                <element signature="class#Input#0;class#StudentPageController#0" />
-                <element signature="method#addSubject#0;class#StudentPageController#0" />
+                <element signature="e#2025#2026#0" expanded="true" />
+                <element signature="e#2055#2056#0" expanded="true" />
+                <element signature="e#2088#2089#0" expanded="true" />
+                <element signature="e#2153#2154#0" expanded="true" />
+                <element signature="method#loadStudent#0;class#Login#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/AdminPageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/managerHome/ManagerHome.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="104" column="39" lean-forward="true" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
-              <folding>
-                <element signature="class#SearchByStudent#0;class#StudentManagerPageController#0" />
-                <element signature="class#StudentInput#0;class#StudentManagerPageController#0" />
-                <element signature="method#StudentInput#0;class#StudentInput#0;class#StudentManagerPageController#0" />
-                <element signature="class#SubjectInput#0;class#StudentManagerPageController#0" />
-                <element signature="method#SubjectInput#0;class#SubjectInput#0;class#StudentManagerPageController#0" />
-                <element signature="method#loadStudentsInformation#0;class#StudentManagerPageController#0" />
-                <element signature="method#displayInformation#0;class#StudentManagerPageController#0" />
-                <element signature="method#addSubject#0;class#StudentManagerPageController#0" />
-                <element signature="method#removeSubject#0;class#StudentManagerPageController#0" />
-                <element signature="method#updateSubject#0;class#StudentManagerPageController#0" />
-                <element signature="method#addStudent#0;class#StudentManagerPageController#0" />
-                <element signature="method#removeStudent#0;class#StudentManagerPageController#0" />
-                <element signature="method#updatedStudent#0;class#StudentManagerPageController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" selection-start-column="38" selection-end-column="38" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileManage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="350" column="86" selection-start-line="350" selection-start-column="86" selection-end-line="350" selection-end-column="86" />
+            <state relative-caret-position="299">
+              <caret line="429" column="5" selection-start-line="429" selection-start-column="5" selection-end-line="429" selection-end-column="5" />
               <folding>
                 <element signature="e#4370#4609#0" />
                 <element signature="e#4462#4603#0" />
@@ -235,6 +180,82 @@
                 <element signature="e#14866#15106#0" />
                 <element signature="e#15113#15449#0" />
                 <element signature="e#15454#15957#0" />
+                <element signature="e#15962#16068#0" />
+                <element signature="e#16073#16304#0" />
+                <element signature="e#16567#16801#0" />
+                <element signature="e#16806#17008#0" />
+                <element signature="e#17013#17203#0" />
+                <element signature="e#17208#17404#0" />
+                <element signature="e#17409#17599#0" />
+                <element signature="e#17604#17800#0" />
+                <element signature="e#17808#17964#0" />
+                <element signature="e#17969#18133#0" />
+                <element signature="e#18138#18290#0" />
+                <element signature="e#18295#18453#0" />
+                <element signature="e#18458#18610#0" />
+                <element signature="e#18615#18773#0" />
+                <element signature="e#19174#19324#0" />
+                <element signature="e#19329#19479#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/view/Manager_View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <folding>
+                <element signature="docComment;class#Manager_View#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="116" column="3" lean-forward="true" selection-start-line="116" selection-start-column="3" selection-end-line="116" selection-end-column="3" />
+              <folding>
+                <element signature="class#SearchByStudent#0;class#StudentManagerPageController#0" />
+                <element signature="class#StudentInput#0;class#StudentManagerPageController#0" />
+                <element signature="method#StudentInput#0;class#StudentInput#0;class#StudentManagerPageController#0" />
+                <element signature="class#SubjectInput#0;class#StudentManagerPageController#0" />
+                <element signature="method#SubjectInput#0;class#SubjectInput#0;class#StudentManagerPageController#0" />
+                <element signature="method#loadStudentsInformation#0;class#StudentManagerPageController#0" />
+                <element signature="method#displayInformation#0;class#StudentManagerPageController#0" />
+                <element signature="method#updateSubject#0;class#StudentManagerPageController#0" />
+                <element signature="method#addStudent#0;class#StudentManagerPageController#0" />
+                <element signature="method#removeStudent#0;class#StudentManagerPageController#0" />
+                <element signature="method#updatedStudent#0;class#StudentManagerPageController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
+              <folding>
+                <element signature="method#initialize#0;class#MainApp#0" />
+                <element signature="e#722#921#0" />
+                <element signature="method#homeButtonHandler#0;class#MainApp#0" />
+                <element signature="e#1042#1241#0" />
+                <element signature="method#addStudentButtonHandler#0;class#MainApp#0" />
+                <element signature="e#1369#1566#0" />
               </folding>
             </state>
           </provider>
@@ -344,19 +365,14 @@
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/courseSetting/courseSetting.fxml" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/student/score/courseManage.fxml" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/student/score/score.fxml" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/resorce/dark-theme.css" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/resorce/cobmoBox.css" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/SearchStudent.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addStudent/AddStudent.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/courseSetting/CourseSetting.java" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/addEditCourse/addEditCourse.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/searchStudent.fxml" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/BTreeManage.java" />
-        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/LoginPageController.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentPageController.java" />
@@ -364,6 +380,11 @@
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/managerHome/ManagerHome.java" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml" />
         <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileManage.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java" />
+        <option value="$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java" />
       </list>
     </option>
   </component>
@@ -404,7 +425,22 @@
               <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="fileHandler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="fileHandler" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
@@ -412,43 +448,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-              <item name="managerHome" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-              <item name="searchStudent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Student-Manager-System-v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Student-Manager-System-v2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentManagerSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-              <item name="searchSubject" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -463,7 +462,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554809466450" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554812722917" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/jfoenix-8.0.8.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -685,14 +684,7 @@
       <workItem from="1554719044831" duration="15143000" />
       <workItem from="1554803925888" duration="1830000" />
       <workItem from="1554806035201" duration="862000" />
-      <workItem from="1554807133024" duration="1103000" />
-    </task>
-    <task id="LOCAL-00037" summary="solve the search problem">
-      <created>1552034769279</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1552034769279</updated>
+      <workItem from="1554807133024" duration="4472000" />
     </task>
     <task id="LOCAL-00038" summary="update btree manage and fix a bug">
       <created>1552035884627</created>
@@ -1030,11 +1022,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554807316636</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="javaFx search subject">
+      <created>1554809491289</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1554809491289</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253531000" />
+    <option name="totallyTimeSpent" value="256900000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1049,7 +1048,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49716714" visible="true" weight="0.18255034" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49716714" visible="true" weight="0.18255034" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1058,7 +1057,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.5028329" side_tool="true" weight="0.21409395" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32719547" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4966443" visible="true" weight="0.32152975" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4966443" visible="true" weight="0.32152975" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49798658" weight="0.41501418" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1167,7 +1166,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debug subject adding" />
     <MESSAGE value="non" />
     <MESSAGE value="add enrollment ti File manager" />
     <MESSAGE value="add enrollment ti File manager v2" />
@@ -1192,7 +1190,8 @@
     <MESSAGE value="javaFx UI" />
     <MESSAGE value="javaFx Login" />
     <MESSAGE value="javaFx add remove student" />
-    <option name="LAST_COMMIT_MESSAGE" value="javaFx add remove student" />
+    <MESSAGE value="javaFx search subject" />
+    <option name="LAST_COMMIT_MESSAGE" value="javaFx search subject" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1202,6 +1201,12 @@
           <line>128</line>
           <properties />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1219,6 +1224,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>FileIO.readAnObjectFromFile(class_IndexManage_filePath)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>studentTemp.getBirthDate().substring(6,10)</expression-string>
         <language-id>JAVA</language-id>
@@ -1259,21 +1269,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>after.get(i).data</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileManage_old.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Password.java" />
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Enrollment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1284,18 +1282,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/view/Manager_View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="1585" column="9" lean-forward="true" selection-start-line="1585" selection-start-column="9" selection-end-line="1585" selection-end-column="9" />
-          <folding>
-            <element signature="docComment;class#Manager_View#0" />
-            <element signature="e#532#846#0" />
-            <element signature="e#648#813#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/mainApp.fxml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1426,13 +1412,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/resorce/cobmoBox.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1500,31 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="109" column="148" selection-start-line="109" selection-start-column="148" selection-end-line="109" selection-end-column="148" />
-          <folding>
-            <element signature="method#initialize#0;class#MainApp#0" />
-            <element signature="e#722#921#0" />
-            <element signature="method#homeButtonHandler#0;class#MainApp#0" />
-            <element signature="e#1042#1241#0" />
-            <element signature="method#addStudentButtonHandler#0;class#MainApp#0" />
-            <element signature="e#1369#1566#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="50" column="102" selection-start-line="50" selection-start-column="102" selection-end-line="50" selection-end-column="102" />
-          <folding>
-            <element signature="method#loadStudent#0;class#Login#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1662,48 +1616,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java">
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/SearchStudent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
+        <state relative-caret-position="171">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
           <folding>
-            <element signature="class#Pair#0;class#SystemManage#0" />
-            <element signature="method#Pair#0;class#Pair#0;class#SystemManage#0" />
-            <element signature="method#loadProgram#0;class#SystemManage#0" />
-            <element signature="method#saveProgram#0;class#SystemManage#0" />
-            <element signature="method#searchStudent#0;class#SystemManage#0" />
-            <element signature="method#signupStudent#0;class#SystemManage#0" />
-            <element signature="method#updateStudent#0;class#SystemManage#0" />
-            <element signature="method#removeStudent#0;class#SystemManage#0" />
-            <element signature="method#addEnrollment#0;class#SystemManage#0" />
-            <element signature="method#searchEnrollment#0;class#SystemManage#0" />
-            <element signature="method#editEnrollment#0;class#SystemManage#0" />
-            <element signature="method#removeEnrollment#0;class#SystemManage#0" />
-            <element signature="method#addSubject#0;class#SystemManage#0" />
-            <element signature="method#searchSubject#0;class#SystemManage#0" />
-            <element signature="method#editSubject#0;class#SystemManage#0" />
-            <element signature="method#removeSubject#0;class#SystemManage#0" />
-            <element signature="method#setUpdatedSubjectTmp#0;class#SystemManage#0" />
-            <element signature="method#setCampusCode#0;class#SystemManage#0" />
-            <element signature="method#getCampusTitle#0;class#SystemManage#0" />
-            <element signature="method#setEnrollmentTmp#0;class#SystemManage#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#SearchStudent#0" />
+            <element signature="method#AdvSearchHandler#0;class#SearchStudent#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/LoginPageController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
-          <folding>
-            <element signature="docComment;method#Input#0;class#Input#0;class#LoginPageController#0" />
-          </folding>
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/managerHome/ManagerHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/AdminPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
+        <state relative-caret-position="221">
           <caret line="122" column="36" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
             <element signature="class#Input#0;class#StudentPageController#0" />
@@ -1712,10 +1661,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/view/Manager_View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="docComment;class#Manager_View#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/fileHandler/FileManage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="350" column="86" selection-start-line="350" selection-start-column="86" selection-end-line="350" selection-end-column="86" />
+        <state relative-caret-position="299">
+          <caret line="429" column="5" selection-start-line="429" selection-start-column="5" selection-end-line="429" selection-end-column="5" />
           <folding>
             <element signature="e#4370#4609#0" />
             <element signature="e#4462#4603#0" />
@@ -1767,34 +1740,103 @@
             <element signature="e#14866#15106#0" />
             <element signature="e#15113#15449#0" />
             <element signature="e#15454#15957#0" />
+            <element signature="e#15962#16068#0" />
+            <element signature="e#16073#16304#0" />
+            <element signature="e#16567#16801#0" />
+            <element signature="e#16806#17008#0" />
+            <element signature="e#17013#17203#0" />
+            <element signature="e#17208#17404#0" />
+            <element signature="e#17409#17599#0" />
+            <element signature="e#17604#17800#0" />
+            <element signature="e#17808#17964#0" />
+            <element signature="e#17969#18133#0" />
+            <element signature="e#18138#18290#0" />
+            <element signature="e#18295#18453#0" />
+            <element signature="e#18458#18610#0" />
+            <element signature="e#18615#18773#0" />
+            <element signature="e#19174#19324#0" />
+            <element signature="e#19329#19479#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/SearchStudent.java">
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/main/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="298">
+          <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initialize#0;class#SearchStudent#0" />
-            <element signature="method#AdvSearchHandler#0;class#SearchStudent#0" />
+            <element signature="method#initialize#0;class#MainApp#0" />
+            <element signature="e#722#921#0" />
+            <element signature="method#homeButtonHandler#0;class#MainApp#0" />
+            <element signature="e#1042#1241#0" />
+            <element signature="method#addStudentButtonHandler#0;class#MainApp#0" />
+            <element signature="e#1369#1566#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchStudent/searchStudent.fxml">
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/SystemManage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        <state relative-caret-position="172">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="method#searchStudent#0;class#SystemManage#0" />
+            <element signature="method#signupStudent#0;class#SystemManage#0" />
+            <element signature="method#updateStudent#0;class#SystemManage#0" />
+            <element signature="method#removeStudent#0;class#SystemManage#0" />
+            <element signature="method#addEnrollment#0;class#SystemManage#0" />
+            <element signature="method#searchEnrollment#0;class#SystemManage#0" />
+            <element signature="method#editEnrollment#0;class#SystemManage#0" />
+            <element signature="method#removeEnrollment#0;class#SystemManage#0" />
+            <element signature="method#addSubject#0;class#SystemManage#0" />
+            <element signature="method#searchSubject#0;class#SystemManage#0" />
+            <element signature="method#editSubject#0;class#SystemManage#0" />
+            <element signature="method#removeSubject#0;class#SystemManage#0" />
+            <element signature="method#setUpdatedSubjectTmp#0;class#SystemManage#0" />
+            <element signature="method#getCampusTitle#0;class#SystemManage#0" />
+            <element signature="method#setEnrollmentTmp#0;class#SystemManage#0" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="e#1258#1259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/LoginPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="docComment;method#Input#0;class#Input#0;class#LoginPageController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/login/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="50" column="2" lean-forward="true" selection-start-line="50" selection-start-column="2" selection-end-line="50" selection-end-column="2" />
+          <folding>
+            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#2055#2056#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2153#2154#0" expanded="true" />
+            <element signature="method#loadStudent#0;class#Login#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/StudentManagerPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="104" column="39" lean-forward="true" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
+        <state relative-caret-position="66">
+          <caret line="116" column="3" lean-forward="true" selection-start-line="116" selection-start-column="3" selection-end-line="116" selection-end-column="3" />
           <folding>
             <element signature="class#SearchByStudent#0;class#StudentManagerPageController#0" />
             <element signature="class#StudentInput#0;class#StudentManagerPageController#0" />
@@ -1803,34 +1845,11 @@
             <element signature="method#SubjectInput#0;class#SubjectInput#0;class#StudentManagerPageController#0" />
             <element signature="method#loadStudentsInformation#0;class#StudentManagerPageController#0" />
             <element signature="method#displayInformation#0;class#StudentManagerPageController#0" />
-            <element signature="method#addSubject#0;class#StudentManagerPageController#0" />
-            <element signature="method#removeSubject#0;class#StudentManagerPageController#0" />
             <element signature="method#updateSubject#0;class#StudentManagerPageController#0" />
             <element signature="method#addStudent#0;class#StudentManagerPageController#0" />
             <element signature="method#removeStudent#0;class#StudentManagerPageController#0" />
             <element signature="method#updatedStudent#0;class#StudentManagerPageController#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/managerHome/ManagerHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/Controllers/AdminPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/StudentManagerSystem/ui/manager/searchSubject/SearchSubject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
         </state>
       </provider>
     </entry>
