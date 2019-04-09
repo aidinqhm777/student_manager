@@ -19,7 +19,7 @@ import java.util.LinkedList;
 
 public class StudentManagerPageController {
 
-    private static Student information;
+    private static Student information = new Student();
     public class SearchByStudent{
         String studentID;
 

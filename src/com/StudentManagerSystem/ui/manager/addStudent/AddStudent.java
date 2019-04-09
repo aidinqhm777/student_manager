@@ -44,19 +44,21 @@ public class AddStudent {
         s.setId(Integer.parseInt(ID.getText()));
         s.setBirthDate(DateUtil.format(date));
 
+
+        int uniId = 0;
         try {
-
-            int uniId = StudentManagerPageController.addStudent(new StudentManagerPageController.StudentInput(s,null));
-
+            uniId = StudentManagerPageController.addStudent(new StudentManagerPageController.StudentInput(s,null));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Successful");
             alert.setHeaderText("Successful add student");
             alert.setContentText("university id = "+uniId);
             alert.showAndWait();
-
         } catch (IOException e) {
-            //TODO
-            System.out.println("error in sign up");
+            e.printStackTrace();
         }
+
+
+
+
     }
 }
