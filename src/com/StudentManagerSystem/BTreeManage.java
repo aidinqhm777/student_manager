@@ -724,9 +724,6 @@ public class BTreeManage {
         updateEnrollmentStudent(enrollment1.getStudentID(), enrollment2.getStudentID(), enrollment1.getEnrollmentIndex());
         updateEnrollmentSubject(enrollment1.getSubjectID(), enrollment2.getSubjectID(), enrollment1.getEnrollmentIndex());
     }
-
-
-
     private static void updateEnrollmentStudent(int id, int id2, int index) {
 
         if (id != id2) {

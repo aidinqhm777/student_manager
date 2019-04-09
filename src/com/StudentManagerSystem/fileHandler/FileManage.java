@@ -348,7 +348,7 @@ public class FileManage {
         enrollment.setStudentIndex( (Integer)readData(studentEnrolment_id,bytes) );
         return enrollment;
     }
-    public static void updateEnrollment() {
+    public static void updateEnrollment(Enrollment enrollment1, Enrollment enrollment2) {
         //TODO
     }
     public static void deleteEnrollment(Enrollment enrollment) throws IOException {

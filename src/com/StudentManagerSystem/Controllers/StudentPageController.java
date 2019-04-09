@@ -120,7 +120,7 @@ public class StudentPageController {
         Enrollment updated = updatedInput.getUpdatedenrollment();
         LinkedList<Enrollment> enrollents = SystemManage.searchEnrollment(enrollmentSearcher);
         Enrollment enrollment = enrollents.pop();
-        SystemManage.editEnrollment(enrollment , updated);
+        SystemManage.editEnrollment(updated);
     }
     public static LinkedList showSubjectsInformation(SearchByStudent searchByStudent) throws Exception{
          LinkedList subjects = new LinkedList<Subject>();

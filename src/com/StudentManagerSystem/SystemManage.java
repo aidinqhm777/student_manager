@@ -2,6 +2,7 @@ package com.StudentManagerSystem;
 
 import com.StudentManagerSystem.Controllers.LoginPageController;
 import com.StudentManagerSystem.fileHandler.FileManage;
+import com.StudentManagerSystem.ui.manager.searchStudent.SearchStudent;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.io.IOException;
@@ -104,8 +105,10 @@ public class SystemManage {
     }
     public static LinkedList<Enrollment> searchEnrollment(EnrollmentSearcher searcher)
             throws IOException, ClassNotFoundException {
-//        searcher.setSubjectCode(0);
-        LinkedList<Integer> indexes = new LinkedList<>();/*BTreeManage.readEnrollment(searcher);*/
+        EnrollmentSearcher result = BTreeManage.readEnrollment(searcher);
+        if (searcher.isSearchByStudent() && searcher.isSearchBySubject())
+            result.matchResults();
+        LinkedList<Integer> indexes = result.getResult();
         LinkedList<Enrollment> searchResults = new LinkedList<>();
         if (indexes == null)
             return null;
@@ -117,11 +120,10 @@ public class SystemManage {
 
         return searchResults;
     }
-    public static void editEnrollment(Enrollment enrollment1, Enrollment enrollment2) {
-//
-//        IndexManage.updateEnrollment(enrollmentTmp);
-//        BTreeManage.updateEnrollment(enrollmentTmp);
-//        FileManage.updateEnrollment(enrollmentTmp);
+    public static void editEnrollment(Enrollment enrollment) {
+
+        BTreeManage.updateEnrollment(enrollmentTmp, enrollment);
+        FileManage.updateEnrollment(enrollmentTmp, enrollment);
     }
     public static void removeEnrollment(Enrollment enrollment) throws IOException {
 
@@ -192,9 +194,23 @@ public class SystemManage {
 
 //    USER AUTHENTICATION
 
-    public static Boolean authenticateStudent(String username, String password) {
+    public static Boolean authenticateStudent(int username, String password) {
 
-        return true;
+        StudentSearcher searcher = new StudentSearcher();
+        searcher.setSearchByUniID(true);
+        searcher.setUniID(username);
+        String pass = null;
+        try {
+            pass = searchStudent(searcher).peek().getPassword();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (pass.equals(password))
+            return true;
+
+        return false;
     }
     public static Boolean authenticateManager(int username, int password) {return true;}
     public static Boolean authenticateAdministrator(String username, String password) {return true;}

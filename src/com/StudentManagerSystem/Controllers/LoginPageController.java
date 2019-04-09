@@ -32,7 +32,7 @@ public class LoginPageController {
         //TODO input get
         //TODO not Completed
         if (input.userType == 0){
-            return SystemManage.authenticateStudent(input.username, input.password);
+            return SystemManage.authenticateStudent(Integer.parseInt( input.username), input.password);
         }else if (input.userType == 1){
             return SystemManage.authenticateAdministrator(input.username, input.password);
         }else return false;
