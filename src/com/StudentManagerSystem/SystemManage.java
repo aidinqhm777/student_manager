@@ -135,6 +135,11 @@ public class SystemManage {
         BTreeManage.deleteEnrollment(enrollmentTmp);
         FileManage.deleteEnrollment(enrollmentTmp);
     }
+    public static void recordEnrollment() {
+
+        if (enrollmentTmp.getStatus() != null && enrollmentTmp.getScore() != -1)
+            enrollmentTmp.toPreEnrollment();
+    }
 
 
 
