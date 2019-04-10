@@ -8,13 +8,21 @@ public class Enrollment {
     private int subjectID;
     private int studentIndex;
     private int subjectIndex;
-
+    private int score;
     private int enrollmentIndex;
+    private int semester;
+    private boolean isPreEnrollment = false;
+    private Status status = null;
+
+
+
     private Student student;
     private Subject subject;
 
 
-
+    public enum Status {
+        FAILED, ABSENCE_FAIL, PASSED, REMOVED
+    }
 
     public int getStudentID() {
         return studentID;
@@ -70,5 +78,30 @@ public class Enrollment {
 
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        if (score < 101 && score > -1)
+            this.score = score;
+    }
+
+    public void toPreEnrollment() {
+        this.isPreEnrollment = true;
+    }
+
+    public boolean isPreEnrollment() {
+        return isPreEnrollment;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
